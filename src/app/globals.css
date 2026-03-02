@@ -1,26 +1,286 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Lenis smooth scroll base styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* === Gravitica — Display font (full weight range) === */
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-ExtraLightItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-DemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-DemiBoldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-ExtraBoldItalic.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gravitica";
+  src: url("/fonts/gravitica/Gravitica-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* === Colors === */
+  --color-black-deep: #0d0d0d;
+  --color-black-soft: #1a1a1a;
+  --color-gold: #d4a853;
+  --color-gold-dark: #c4963a;
+  --color-cream: #f5f5f0;
+  --color-warm-gray: #e8e8e3;
+  --color-mid-gray: #6b6b6b;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* === Font families === */
+  --font-display: "Gravitica", sans-serif;
+  --font-body: var(--font-body);
+  --font-ui: var(--font-ui);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-black-deep);
+  font-family: var(--font-body), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem); /* 16px → 20px */
+  line-height: 1.5;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gravitica", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(1.75rem, 1.3rem + 2.5vw, 3rem); line-height: 1.15; }  /* 28px → 48px */
+h2 { font-size: clamp(1.375rem, 1rem + 2vw, 2.25rem); line-height: 1.25; }   /* 22px → 36px */
+h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 18px → 24px */
+
+/* Smooth scrolling — handled by Lenis */
+
+/* === Utility classes === */
+
+/* Hero headline: H1 hero size, for main page hero only */
+.font-hero {
+  font-family: "Gravitica", sans-serif;
+  font-size: clamp(2rem, 1.4rem + 3.5vw, 3rem);  /* 32px → 48px */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Section titles: H2 across section blocks */
+.font-section-title {
+  font-family: "Gravitica", sans-serif;
+  font-size: clamp(1.375rem, 1rem + 2vw, 2.25rem);  /* 22px → 36px */
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Body text */
+.text-body {
+  font-family: var(--font-body), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);  /* 16px → 20px */
+  line-height: 1.5;
+}
+
+/* UI elements: buttons, nav, labels */
+.text-ui {
+  font-family: var(--font-ui), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Captions / small text */
+.text-caption {
+  font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1.0625rem);  /* 14px → 17px */
+  line-height: 1.4;
+}
+
+/* Section labels (uppercase small text above headings) */
+.text-label {
+  font-family: var(--font-ui), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.875rem);  /* 12px → 14px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+}
+
+/* Button text */
+.text-button {
+  font-family: var(--font-ui), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9375rem);  /* 13px → 15px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-mid-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-black-soft);
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-black-deep);
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Infinite marquee */
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
