@@ -23,6 +23,10 @@ const productImages: Record<string, string[]> = {
   ],
 };
 
+const sectionImages: Record<string, string> = {
+  "oscuranti-sicurezza": "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.png",
+};
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -119,6 +123,19 @@ export default async function ProductPage({ params }: Props) {
                   </a>
                 </FadeInView>
               ))}
+              {product.macroCategoryId && sectionImages[product.macroCategoryId] && (
+                <FadeInView className="sm:col-span-2">
+                  <div className="relative h-full min-h-[200px] overflow-hidden">
+                    <Image
+                      src={sectionImages[product.macroCategoryId]}
+                      alt={macroCategory?.label || ""}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 66vw"
+                    />
+                  </div>
+                </FadeInView>
+              )}
             </div>
           </div>
         </section>

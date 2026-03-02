@@ -118,6 +118,11 @@ export default function RootLayout({
         <Footer />
         <WhatsAppWidget />
         <CookieBanner />
+        {/* Temporary: Figma capture script */}
+        <Script
+          src="https://mcp.figma.com/mcp/html-to-design/capture.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
