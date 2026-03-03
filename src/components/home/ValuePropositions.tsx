@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { AboutSection } from "@/components/home/AboutSection";
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 export function ValuePropositions() {
@@ -18,6 +19,9 @@ export function ValuePropositions() {
         />
       </div>
 
+      {/* About — scroll-reveal text */}
+      <AboutSection />
+
       {/* Title + Stats — single row below image */}
       <div className="py-12 lg:py-16 px-6 sm:px-10 lg:px-20">
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-0 lg:divide-x lg:divide-black/10">
@@ -27,7 +31,7 @@ export function ValuePropositions() {
               <p className="text-label text-black-deep/40 mb-4">
                 I numeri che ci definiscono
               </p>
-              <h2 className="font-display text-[clamp(1.5rem,2vw,2rem)] font-bold leading-tight text-black-deep">
+              <h2 className="font-display text-[clamp(1.5rem,2vw,2rem)] font-medium leading-tight text-black-deep">
                 La nostra esperienza in cifre
               </h2>
             </div>

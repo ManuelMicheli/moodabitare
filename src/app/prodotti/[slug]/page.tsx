@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ParallaxImage } from "@/components/animations/ParallaxImage";
 import { HorizontalGallery } from "@/components/products/HorizontalGallery";
 import { ALL_PRODUCTS, MACRO_CATEGORIES } from "@/lib/constants";
+import { productContent } from "@/lib/product-content";
 
 const productImages: Record<string, string[]> = {
   "finestre-pvc-oknoplast": [
@@ -39,9 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
+  const content = productContent[slug];
   return {
     title: `${product.name} — ${product.brand}`,
-    description: `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`,
+    description: content?.tagline
+      ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
+      : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`,
   };
 }
 
@@ -53,6 +58,7 @@ export default async function ProductPage({ params }: Props) {
   const macroCategory = MACRO_CATEGORIES.find((mc) => mc.id === product.macroCategoryId);
   const relatedProducts = macroCategory?.products.filter((p) => p.slug !== slug) || [];
   const gallery = productImages[slug];
+  const content = productContent[slug];
 
   return (
     <main>
@@ -74,7 +80,7 @@ export default async function ProductPage({ params }: Props) {
               {product.name}
             </h1>
             <p className="mt-8 text-body text-white/35 max-w-xl">
-              Scopri la gamma {product.name} di {product.brand} disponibile nel nostro showroom di Gorla Maggiore.
+              {content?.cardDescription || `Scopri la gamma ${product.name} di ${product.brand} disponibile nel nostro showroom di Gorla Maggiore.`}
             </p>
             <div className="mt-12 flex flex-wrap gap-6">
               <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors">
@@ -98,6 +104,65 @@ export default async function ProductPage({ params }: Props) {
         <HorizontalGallery images={gallery} alt={product.name} />
       )}
 
+      {/* Description + Specs + Benefits */}
+      {content && (
+        <section className="py-24 lg:py-36 px-6 sm:px-10 lg:px-20">
+          <div className="max-w-5xl mx-auto">
+            {/* Description */}
+            <FadeInView>
+              <p
+                className="font-display font-medium leading-[1.3] tracking-[-0.015em] text-black-deep max-w-3xl"
+                style={{ fontSize: "clamp(1.15rem, 1rem + 1vw, 1.75rem)" }}
+              >
+                {content.description}
+              </p>
+            </FadeInView>
+
+            <div className="mt-16 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+              {/* Specs */}
+              <FadeInView>
+                <p className="text-label text-black-deep/30 mb-8">
+                  Specifiche tecniche
+                </p>
+                <div className="space-y-0">
+                  {content.specs.map((spec) => (
+                    <div
+                      key={spec.label}
+                      className="flex justify-between items-baseline py-3.5 border-b border-black-deep/6"
+                    >
+                      <span className="text-caption text-black-deep/40">
+                        {spec.label}
+                      </span>
+                      <span className="text-caption font-medium text-black-deep ml-4 text-right">
+                        {spec.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </FadeInView>
+
+              {/* Benefits */}
+              <FadeInView delay={0.1}>
+                <p className="text-label text-black-deep/30 mb-8">
+                  I vantaggi per te
+                </p>
+                <ul className="space-y-4">
+                  {content.benefits.map((benefit) => (
+                    <li
+                      key={benefit}
+                      className="flex items-start gap-3 text-caption text-black-deep/60 leading-relaxed"
+                    >
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </FadeInView>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <section className="py-32 lg:py-44 bg-black-deep text-white">
@@ -114,7 +179,7 @@ export default async function ProductPage({ params }: Props) {
                     <span className="text-label text-white/20">
                       {related.brand}
                     </span>
-                    <h3 className="mt-3 font-display text-xl font-bold text-white/80 group-hover:text-white transition-colors tracking-tight">
+                    <h3 className="mt-3 font-display text-xl font-medium text-white/80 group-hover:text-white transition-colors tracking-tight">
                       {related.name}
                     </h3>
                     <span className="inline-block mt-4 text-caption text-white/20 group-hover:text-white/50 transition-colors">
@@ -124,17 +189,14 @@ export default async function ProductPage({ params }: Props) {
                 </FadeInView>
               ))}
               {product.macroCategoryId && sectionImages[product.macroCategoryId] && (
-                <FadeInView className="sm:col-span-2">
-                  <div className="relative h-full min-h-[200px] overflow-hidden">
-                    <Image
-                      src={sectionImages[product.macroCategoryId]}
-                      alt={macroCategory?.label || ""}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 66vw"
-                    />
-                  </div>
-                </FadeInView>
+                <div className="sm:col-span-2">
+                  <ParallaxImage
+                    src={sectionImages[product.macroCategoryId]}
+                    alt={macroCategory?.label || ""}
+                    className="h-full min-h-[250px]"
+                    speed={0.2}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -146,10 +208,10 @@ export default async function ProductPage({ params }: Props) {
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <h2 className="font-section-title text-black-deep max-w-2xl mx-auto">
-              Interessato a {product.name}?
+              Vuoi saperne di più?
             </h2>
             <p className="mt-6 text-body text-black-deep/35 max-w-md mx-auto">
-              Contattaci per un preventivo gratuito o vieni nel nostro showroom.
+              Sopralluogo e preventivo sono gratuiti e senza impegno. Vieni a vedere i prodotti dal vivo nel nostro showroom oppure contattaci: ti rispondiamo entro 24 ore.
             </p>
             <a href="/contatti" className="inline-block mt-12 text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors">
               Richiedi preventivo gratuito

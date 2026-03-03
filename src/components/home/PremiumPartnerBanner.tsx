@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { AccentText } from "@/components/ui/AccentText";
 
 export function PremiumPartnerBanner() {
   return (

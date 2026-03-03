@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
                 { title: "Diritti dell'utente", content: "L'utente può esercitare i diritti previsti dal GDPR (accesso, rettifica, cancellazione, limitazione, portabilità, opposizione) contattando il Titolare all'indirizzo info@moodabitare.it." },
               ].map((section) => (
                 <div key={section.title} className="pt-8 border-t border-black/5">
-                  <h2 className="font-display text-lg font-bold text-black-deep tracking-tight mb-4">
+                  <h2 className="font-display text-lg font-medium text-black-deep tracking-tight mb-4">
                     {section.title}
                   </h2>
                   <p className="text-caption text-black-deep/40 leading-[1.8]">

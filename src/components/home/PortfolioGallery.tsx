@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { AccentText } from "@/components/ui/AccentText";
+import { ShowroomBanner } from "@/components/home/ShowroomBanner";
 
 const projects = [
   { title: "Villa Moderna a Varese", category: "Serramenti", image: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg" },
@@ -14,20 +16,22 @@ export function PortfolioGallery() {
   return (
     <section className="py-32 lg:py-44">
       <div className="px-6 sm:px-10 lg:px-20">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
+        <div className="text-center mb-16 lg:mb-24">
           <FadeInView>
-            <p className="text-label text-black-deep/50 mb-4">
+            <p className="text-label text-black-deep/50 mb-6">
               I nostri progetti
             </p>
-            <h2 className="font-section-title text-black-deep">
-              Lavori realizzati
+            <h2
+              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep"
+              style={{ fontSize: "clamp(2.5rem, 2rem + 8vw, 9rem)" }}
+            >
+              <AccentText>Lavori realizzati</AccentText>
             </h2>
           </FadeInView>
-
           <FadeInView delay={0.2}>
             <Link
               href="/progetti"
-              className="text-button inline-block text-black-deep border-b border-black-deep/20 pb-1 hover:border-black-deep transition-colors"
+              className="text-button inline-block text-black-deep border-b border-black-deep/20 pb-1 hover:border-black-deep transition-colors mt-8"
             >
               Vedi tutti i progetti
             </Link>
@@ -65,6 +69,11 @@ export function PortfolioGallery() {
               </FadeInView>
             ))}
           </div>
+        </div>
+
+        {/* Showroom card */}
+        <div className="mt-4 lg:mt-6">
+          <ShowroomBanner />
         </div>
       </div>
     </section>

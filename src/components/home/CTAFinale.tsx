@@ -5,8 +5,8 @@ import { FadeInView } from "@/components/animations/FadeInView";
 
 export function CTAFinale() {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-black-deep text-white overflow-hidden">
-      <div className="relative z-10 text-center px-6 sm:px-10 lg:px-20 py-32 lg:py-44 w-full">
+    <section className="relative flex items-center justify-center bg-black-deep text-white overflow-hidden">
+      <div className="relative z-10 text-center px-6 sm:px-10 lg:px-20 py-16 lg:py-20 w-full">
         <FadeInView>
           <p className="text-label text-white/40 mb-6">
             Inizia il tuo progetto

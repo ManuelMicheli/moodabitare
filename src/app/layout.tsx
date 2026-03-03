@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { cormorantGaramond, dmSans } from "@/fonts";
+import { cormorantGaramond, outfit } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppWidget } from "@/components/shared/WhatsAppWidget";
@@ -105,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={`${cormorantGaramond.variable} ${dmSans.variable}`}>
+    <html lang="it" className={`${cormorantGaramond.variable} ${outfit.variable}`}>
       <body className="antialiased">
         <Script
           id="json-ld"
@@ -113,8 +113,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <SmoothScroll />
-        <Header />
-        {children}
+        <div className="relative z-10 bg-cream">
+          <Header />
+          {children}
+        </div>
         <Footer />
         <WhatsAppWidget />
         <CookieBanner />

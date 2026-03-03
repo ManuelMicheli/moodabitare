@@ -48,7 +48,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="py-16 text-center">
-        <h3 className="font-display text-2xl font-bold text-black-deep mb-3">
+        <h3 className="font-display text-2xl font-medium text-black-deep mb-3">
           Messaggio inviato
         </h3>
         <p className="text-caption text-black-deep/40">

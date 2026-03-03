@@ -56,7 +56,7 @@ export default async function BlogPost({ params }: Props) {
         <section className="py-20 lg:py-28 border-t border-black/5">
           <div className="px-6 sm:px-10 lg:px-20 text-center">
             <FadeInView>
-              <h2 className="font-display text-2xl font-bold text-black-deep tracking-tight">
+              <h2 className="font-display text-2xl font-medium text-black-deep tracking-tight">
                 Hai domande sui nostri prodotti?
               </h2>
               <a href="/contatti" className="inline-block mt-8 text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors">

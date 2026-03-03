@@ -15,8 +15,8 @@ export function ProductCatalog() {
 
   return (
     <div>
-      {/* Filter Tabs — minimal style */}
-      <div className="flex flex-wrap gap-1 mb-16 lg:mb-20">
+      {/* Filter Tabs — minimal style, scrollable on mobile */}
+      <div className="flex justify-center gap-1 mb-16 lg:mb-20 overflow-x-auto pb-2 scrollbar-hide flex-wrap">
         <button
           onClick={() => setActiveCategory(null)}
           className={cn(
@@ -45,7 +45,7 @@ export function ProductCatalog() {
       </div>
 
       {/* Products Grid */}
-      <StaggerContainer className="grid grid-cols-1 gap-px bg-black/5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <StaggerContainer key={activeCategory ?? "all"} className="grid grid-cols-1 gap-px bg-black/5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((product) => (
           <StaggerItem key={product.slug}>
             <Link
@@ -59,7 +59,7 @@ export function ProductCatalog() {
                 <span className="text-label text-black-deep/25">
                   {product.brand}
                 </span>
-                <h3 className="mt-2 font-display text-lg font-bold text-black-deep tracking-tight group-hover:text-black-deep/60 transition-colors">
+                <h3 className="mt-2 font-display text-lg font-medium text-black-deep tracking-tight group-hover:text-black-deep/60 transition-colors">
                   {product.name}
                 </h3>
                 <span className="inline-block mt-4 text-caption text-black-deep/30 group-hover:text-black-deep/60 transition-colors">

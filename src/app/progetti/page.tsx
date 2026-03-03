@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { AccentText } from "@/components/ui/AccentText";
 import { HorizontalProjectsScroll } from "@/components/progetti/HorizontalProjectsScroll";
 
 export const metadata: Metadata = {
@@ -18,8 +19,11 @@ export default function Progetti() {
             <p className="text-label text-white/40 mb-6">
               Portfolio
             </p>
-            <h1 className="font-section-title max-w-3xl">
-              I nostri progetti
+            <h1
+              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] max-w-5xl"
+              style={{ fontSize: "clamp(2rem, 1.5rem + 6vw, 7rem)" }}
+            >
+              <AccentText>I nostri progetti</AccentText>
             </h1>
             <p className="mt-8 text-body text-white/35 max-w-xl">
               Scorri per esplorare.

@@ -1,4 +1,5 @@
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 
 export const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -8,8 +9,8 @@ export const cormorantGaramond = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
-export const dmSans = DM_Sans({
-  subsets: ["latin"],
+export const outfit = localFont({
+  src: "../public/fonts/outfit/OutfitVariableFont_wght1.ttf",
   variable: "--font-ui",
   display: "swap",
 });

@@ -43,7 +43,7 @@ export default function Blog() {
                   <span className="text-label text-black-deep/25">
                     {post.category}
                   </span>
-                  <h3 className="mt-3 font-display text-xl lg:text-2xl font-bold text-black-deep tracking-tight group-hover:text-black-deep/60 transition-colors leading-tight">
+                  <h3 className="mt-3 font-display text-xl lg:text-2xl font-medium text-black-deep tracking-tight group-hover:text-black-deep/60 transition-colors leading-tight">
                     {post.title}
                   </h3>
                   <p className="mt-4 text-caption text-black-deep/35">

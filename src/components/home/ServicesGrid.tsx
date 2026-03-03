@@ -37,7 +37,7 @@ export function ServicesGrid() {
                 <span className="text-label text-white/50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-2 font-display text-[clamp(1rem,0.9rem+0.5vw,1.25rem)] font-bold text-white tracking-tight">
+                <h3 className="mt-2 font-display text-[clamp(1rem,0.9rem+0.5vw,1.25rem)] font-medium text-white tracking-tight">
                   {service.title}
                 </h3>
               </div>

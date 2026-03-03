@@ -69,7 +69,7 @@ export function TestimonialsCarousel() {
                     &ldquo;{t.text}&rdquo;
                   </p>
                   <div className="mt-8">
-                    <p className="font-display text-[clamp(0.875rem,0.85rem+0.15vw,1rem)] font-bold text-black-deep tracking-wide">
+                    <p className="font-display text-[clamp(0.875rem,0.85rem+0.15vw,1rem)] font-medium text-black-deep tracking-wide">
                       {t.name}
                     </p>
                     <p className="mt-1 text-caption text-black-deep/50">

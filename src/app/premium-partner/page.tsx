@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
+import { AccentText } from "@/components/ui/AccentText";
 
 export const metadata: Metadata = {
   title: "Premium Partner Oknoplast",
@@ -35,8 +36,11 @@ export default function PremiumPartner() {
             <p className="text-label text-white/40 mb-6">
               Premium Partner
             </p>
-            <h1 className="font-section-title max-w-4xl">
-              Mood Abitare è Premium Partner Oknoplast
+            <h1
+              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] max-w-5xl"
+              style={{ fontSize: "clamp(2rem, 1.5rem + 6vw, 7rem)" }}
+            >
+              <AccentText>Mood Abitare è Premium Partner Oknoplast</AccentText>
             </h1>
             <p className="mt-8 text-body text-white/35 max-w-xl">
               Selezionata da Oknoplast come Premium Partner per la provincia di Varese. Una rete ristretta di operatori in tutta Italia, riconosciuti per l&apos;eccellenza.
@@ -74,8 +78,8 @@ export default function PremiumPartner() {
                       <span className="text-caption font-medium text-black-deep/15">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <h3 className="mt-4 font-display text-base font-bold text-black-deep tracking-tight">
-                        {benefit.title}
+                      <h3 className="mt-4 font-display text-base font-medium text-black-deep tracking-tight">
+                        <AccentText>{benefit.title}</AccentText>
                       </h3>
                       <p className="mt-3 text-caption text-black-deep/35">
                         {benefit.description}
@@ -102,7 +106,7 @@ export default function PremiumPartner() {
                 Il brand
               </p>
               <h2 className="font-section-title">
-                Chi è Oknoplast
+                <AccentText>Chi è Oknoplast</AccentText>
               </h2>
               <ul className="mt-10 space-y-4">
                 {oknoplastFeatures.map((feature) => (
@@ -128,7 +132,7 @@ export default function PremiumPartner() {
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <h2 className="font-section-title text-black-deep max-w-3xl mx-auto">
-              Scegli la qualità Premium Partner
+              <AccentText>Scegli la qualità Premium Partner</AccentText>
             </h2>
             <p className="mt-8 text-body text-black-deep/35 max-w-md mx-auto">
               Contattaci per scoprire tutti i vantaggi.

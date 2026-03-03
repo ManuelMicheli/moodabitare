@@ -15,41 +15,35 @@ export default function ProdottiPage() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end text-white overflow-hidden">
         <Image
-          src="/images/Prolux-4.jpg"
-          alt="Serramenti Prolux"
+          src="/images/Cucina-con-finestra-Prolux-Swing-di-Oknoplast-copia-1536x768_upscayl_4x_upscayl-standard-4x.png"
+          alt="Prodotti Mood Abitare"
           fill
           className="object-cover"
           priority
+          quality={100}
+          unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/80 via-black-deep/20 to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20 flex justify-end">
+        {/* Top gradient for navbar readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black-deep/50 via-black-deep/20 to-transparent pointer-events-none" />
+        {/* Bottom gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-black-deep/15 to-transparent" />
+        <div className="relative z-10 w-full pb-8 lg:pb-12 px-6 sm:px-10 lg:px-20 flex justify-center">
           <FadeInView>
-            <div className="text-right max-w-2xl">
-              <p className="text-label text-white/40 mb-6">
-                Catalogo
-              </p>
-              <h1 className="font-section-title">
+            <div className="text-center">
+              <h1
+                className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em]"
+                style={{ fontSize: "clamp(3rem, 2rem + 8vw, 9rem)" }}
+              >
                 I nostri prodotti
               </h1>
-              <p className="mt-8 text-body text-white/35 max-w-xl ml-auto">
-                Qualità e design per ogni ambiente
-              </p>
             </div>
           </FadeInView>
         </div>
       </section>
 
       {/* Products */}
-      <section className="py-32 lg:py-44">
+      <section className="pt-10 lg:pt-14 pb-32 lg:pb-44">
         <div className="px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-black-deep/30 mb-6">
-              Esplora
-            </p>
-            <h2 className="font-section-title text-black-deep mb-16 lg:mb-24">
-              Scegli per categoria
-            </h2>
-          </FadeInView>
           <ProductCatalog />
         </div>
       </section>

@@ -73,7 +73,10 @@ export default function Servizi() {
             <p className="text-label text-white/40 mb-4">
               I nostri servizi
             </p>
-            <h1 className="font-hero text-white max-w-4xl">
+            <h1
+              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-white max-w-5xl"
+              style={{ fontSize: "clamp(2rem, 1.5rem + 6vw, 7rem)" }}
+            >
               Dalla consulenza alla posa in opera
             </h1>
             <p className="mt-6 text-body text-white/50 max-w-xl">
@@ -95,7 +98,7 @@ export default function Servizi() {
                     <span className="text-label text-black-deep/20">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h2 className="mt-3 font-display text-[clamp(1.375rem,1.1rem+1.5vw,2rem)] font-bold text-black-deep tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-[clamp(1.375rem,1.1rem+1.5vw,2rem)] font-medium text-black-deep tracking-tight leading-tight">
                       {service.title}
                     </h2>
                     <p className="mt-4 text-body text-black-deep/40">
@@ -145,7 +148,7 @@ export default function Servizi() {
                   <span className="font-display text-[clamp(2.5rem,3vw,3.5rem)] font-bold text-black-deep/10 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-3 font-display text-[clamp(1.125rem,1rem+0.5vw,1.375rem)] font-bold text-black-deep tracking-tight">
+                  <h3 className="mt-3 font-display text-[clamp(1.125rem,1rem+0.5vw,1.375rem)] font-medium text-black-deep tracking-tight">
                     {item.step}
                   </h3>
                   <p className="mt-3 text-caption text-black-deep/45">

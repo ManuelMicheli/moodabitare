@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
-import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
+import {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/animations/StaggerContainer";
+import { AccentText } from "@/components/ui/AccentText";
+import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Chi Siamo",
@@ -8,71 +14,140 @@ export const metadata: Metadata = {
     "Mood Abitare by Moschiano Solution: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore.",
 };
 
+/* ── Data ─────────────────────────────────────────────────────────── */
+
 const timeline = [
-  { year: "1990", title: "Fondazione", description: "Nasce Moschiano Solution, con la passione per l'artigianato e la qualità." },
-  { year: "2000", title: "Espansione", description: "Ampliamento dell'offerta a porte, arredo bagno e complementi d'arredo." },
-  { year: "2010", title: "Showroom", description: "Apertura dello showroom di 300mq in Viale Europa 65, Gorla Maggiore." },
-  { year: "2020", title: "Premium Partner", description: "Riconoscimento come Premium Partner Oknoplast per la provincia di Varese." },
-  { year: "Oggi", title: "Mood Abitare", description: "Un punto di riferimento per serramenti, ristrutturazioni e arredo casa." },
+  {
+    year: "1990",
+    title: "Tutto inizia qui",
+    description:
+      "Un piccolo laboratorio e un sogno grande: aiutare le persone a vivere meglio nella propria casa. Nasce Moschiano Solution, con la promessa di offrire qualità artigianale e attenzione autentica per ogni cliente.",
+  },
+  {
+    year: "2000",
+    title: "La casa, a 360 gradi",
+    description:
+      "Ci rendiamo conto che i nostri clienti cercano un punto di riferimento unico per tutta la casa. Così allarghiamo lo sguardo: porte, arredo, superfici. Una scelta naturale, nata dall'ascolto di chi si fida di noi.",
+  },
+  {
+    year: "2010",
+    title: "Un luogo per incontrarci",
+    description:
+      "Apriamo il nostro showroom di 300 mq a Gorla Maggiore: non un semplice negozio, ma uno spazio pensato per farti sentire a casa ancor prima di cominciare. Qui puoi vedere, toccare e immaginare insieme a noi.",
+  },
+  {
+    year: "2020",
+    title: "Una fiducia che cresce",
+    description:
+      "Oknoplast ci sceglie come unico Premium Partner per la provincia di Varese. Un riconoscimento che ci riempie di orgoglio e che conferma ciò in cui crediamo: lavorare bene, con i migliori, per offrire il massimo a chi ci sceglie.",
+  },
+  {
+    year: "Oggi",
+    title: "Mood Abitare",
+    description:
+      "Siamo qui per te, con lo stesso entusiasmo di sempre e l'esperienza di oltre trent'anni. 14 brand selezionati, un team dedicato e un unico obiettivo: che la tua casa diventi esattamente il posto in cui ami stare.",
+  },
 ];
 
-const values = [
-  { title: "Esperienza", description: "Oltre 30 anni di attività nel settore, con posatori qualificati e patentino di posa certificata." },
-  { title: "Qualità", description: "Selezione attenta dei fornitori: solo aziende innovative e affidabili, italiane ed europee." },
-  { title: "Consulenza", description: "Supporto di un architetto per la scelta prodotti, con render 3D per visualizzare il risultato." },
-  { title: "Efficienza", description: "Focus su efficienza energetica: aiuto nella scelta delle soluzioni più adeguate alla zona climatica." },
-  { title: "Chiavi in mano", description: "Un unico referente dalla progettazione allo smaltimento dei vecchi serramenti." },
-  { title: "Territorio", description: "Forte radicamento nella provincia di Varese, con conoscenza delle specificità climatiche locali." },
-];
+/* ── Page ──────────────────────────────────────────────────────────── */
 
 export default function ChiSiamo() {
   return (
     <main>
-      {/* Hero */}
+      {/* ─── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-black-deep via-black-soft/80 to-black-deep" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-transparent to-transparent" />
+
+        <div className="relative z-10 w-full pb-16 lg:pb-24 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">
-              La nostra storia
+            <p className="text-label text-white/30 mb-6">
+              Chi siamo
             </p>
-            <h1 className="font-section-title max-w-4xl">
-              Il partner ideale per la tua casa
+          </FadeInView>
+
+          <FadeInView delay={0.15}>
+            <h1
+              className="font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] max-w-4xl"
+              style={{ fontSize: "clamp(2rem, 1.2rem + 5vw, 5.5rem)" }}
+            >
+              <AccentText>Benvenuti a casa vostra</AccentText>
             </h1>
-            <p className="mt-8 text-body text-white/35 max-w-xl">
-              Mood Abitare by Moschiano Solution è il punto di riferimento nella provincia di Varese per serramenti, ristrutturazioni e nuove costruzioni.
+          </FadeInView>
+        </div>
+      </section>
+
+      {/* ─── Intro emozionale ──────────────────────────────────────── */}
+      <section className="py-24 lg:py-36 px-6 sm:px-10 lg:px-20">
+        <div className="max-w-3xl">
+          <FadeInView>
+            <p
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em] text-black-deep"
+              style={{ fontSize: "clamp(1.25rem, 1rem + 1.5vw, 2.25rem)" }}
+            >
+              <AccentText>
+                Sappiamo cosa significa desiderare una casa che ti assomigli
+                davvero. Uno spazio dove ogni dettaglio — dalla luce che filtra
+                dalle finestre al calore dei materiali — racconta chi sei e come
+                ami vivere.
+              </AccentText>
+            </p>
+          </FadeInView>
+
+          <FadeInView delay={0.15}>
+            <p className="mt-8 text-body text-black-deep/40 leading-relaxed max-w-xl">
+              È con questa sensibilità che lavoriamo da oltre trent'anni.
+              Siamo una famiglia di professionisti che ha scelto di dedicarsi
+              interamente al mondo della casa, con la stessa passione del primo
+              giorno e l'esperienza che solo il tempo può dare. Ci piace
+              ascoltare, capire le tue esigenze e accompagnarti passo dopo passo
+              verso la soluzione giusta — quella che fa sentire bene te e chi
+              vive con te.
             </p>
           </FadeInView>
         </div>
       </section>
 
-      {/* About Text — empty per richiesta utente */}
-      <section className="py-20 lg:py-28" />
-
-      {/* Timeline */}
-      <section className="py-32 lg:py-44 bg-white">
+      {/* ─── Percorso di crescita ──────────────────────────────────── */}
+      <section className="py-28 lg:py-44 bg-black-deep text-white">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-black-deep/30 mb-6">
-              La nostra storia
+            <p className="text-label text-white/20 mb-5 text-center">
+              Il nostro percorso
             </p>
-            <h2 className="font-section-title text-black-deep mb-16 lg:mb-24">
-              Un percorso di crescita
+            <h2 className="font-section-title mb-20 lg:mb-28 text-center">
+              <AccentText>Il nostro cammino, insieme a voi</AccentText>
             </h2>
           </FadeInView>
 
-          <StaggerContainer className="space-y-0">
-            {timeline.map((item) => (
+          <StaggerContainer className="space-y-0" staggerDelay={0.12}>
+            {timeline.map((item, i) => (
               <StaggerItem key={item.year}>
-                <div className="grid grid-cols-[80px_1fr] gap-8 lg:grid-cols-[120px_1fr] lg:gap-16 py-8 lg:py-12 border-t border-black/5">
-                  <span className="font-display text-2xl lg:text-3xl font-bold text-black-deep/15">
-                    {item.year}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl lg:text-2xl font-bold text-black-deep tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-caption text-black-deep/40 max-w-lg">
+                <div className="group relative grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 border-t border-white/6 last:border-b last:border-white/6">
+                  {/* Left — year large + title */}
+                  <div className="py-10 lg:py-14 lg:pr-16 flex items-baseline gap-5 lg:gap-7">
+                    <span
+                      className="font-display font-bold leading-none text-white/6 group-hover:text-gold/15 transition-colors duration-700 flex-shrink-0"
+                      style={{ fontSize: "clamp(2.5rem, 2rem + 2vw, 4.5rem)" }}
+                    >
+                      {item.year}
+                    </span>
+                    <div>
+                      <p className="text-label text-white/12 group-hover:text-gold/25 transition-colors duration-700 mb-2">
+                        Capitolo {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <h3
+                        className="font-display font-medium leading-[1.05] tracking-[-0.02em] text-white"
+                        style={{ fontSize: "clamp(1.25rem, 1rem + 1vw, 1.75rem)" }}
+                      >
+                        <AccentText>{item.title}</AccentText>
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Right — description */}
+                  <div className="pb-10 lg:py-14 lg:pl-16 lg:border-l lg:border-white/6 flex items-center">
+                    <p className="text-caption text-white/28 max-w-sm leading-[1.65] group-hover:text-white/42 transition-colors duration-700">
                       {item.description}
                     </p>
                   </div>
@@ -83,57 +158,41 @@ export default function ChiSiamo() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-32 lg:py-44 bg-black-deep text-white">
-        <div className="px-6 sm:px-10 lg:px-20">
+      {/* ─── CTA ───────────────────────────────────────────────────── */}
+      <section className="py-24 lg:py-36 bg-white">
+        <div className="px-6 sm:px-10 lg:px-20 max-w-3xl mx-auto text-center">
           <FadeInView>
-            <p className="text-label text-white/30 mb-6">
-              I nostri valori
+            <p className="text-label text-black-deep/25 mb-6">
+              Il prossimo passo
             </p>
-            <h2 className="font-section-title mb-16 lg:mb-24">
-              Cosa ci distingue
+            <h2
+              className="font-display font-bold uppercase leading-[0.9] tracking-[-0.02em] text-black-deep"
+              style={{ fontSize: "clamp(1.5rem, 1rem + 2.5vw, 3.5rem)" }}
+            >
+              <AccentText>Ci piacerebbe conoscerti</AccentText>
             </h2>
+            <p className="mt-6 text-body text-black-deep/35 max-w-md mx-auto">
+              Passa a trovarci in showroom per un caffè e una chiacchierata
+              senza impegno, oppure scrivici. Saremo felici di ascoltare la tua
+              idea e aiutarti a realizzarla.
+            </p>
           </FadeInView>
 
-          <StaggerContainer className="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-            {values.map((value, i) => (
-              <StaggerItem key={value.title}>
-                <div className="bg-black-deep p-8 lg:p-12 h-full">
-                  <span className="text-caption font-medium text-white/15">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 font-display text-xl font-bold text-white tracking-tight">
-                    {value.title}
-                  </h3>
-                  <p className="mt-4 text-caption text-white/35">
-                    {value.description}
-                  </p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Showroom CTA */}
-      <section className="py-32 lg:py-44 bg-white">
-        <div className="px-6 sm:px-10 lg:px-20 text-center">
-          <FadeInView>
-            <p className="text-label text-black-deep/30 mb-8">
-              Vieni a trovarci
-            </p>
-            <h2 className="font-section-title text-black-deep max-w-3xl mx-auto">
-              Visita il nostro showroom di 300mq
-            </h2>
-            <p className="mt-8 text-body text-black-deep/35 max-w-md mx-auto">
-              Viale Europa, 65 — 21050 Gorla Maggiore (VA)
-            </p>
-            <a
-              href="/contatti"
-              className="inline-block mt-12 text-button text-black-deep border-b border-black-deep/20 pb-1 hover:border-black-deep transition-colors"
-            >
-              Prenota una visita
-            </a>
+          <FadeInView delay={0.15}>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contatti"
+                className="text-button inline-block bg-black-deep text-white px-10 py-4 hover:bg-black-soft transition-colors"
+              >
+                Contattaci
+              </Link>
+              <Link
+                href={`tel:${CONTACT_INFO.phoneHref}`}
+                className="text-button inline-block border border-black-deep/15 text-black-deep px-10 py-4 hover:border-black-deep/40 transition-colors"
+              >
+                {CONTACT_INFO.phone}
+              </Link>
+            </div>
           </FadeInView>
         </div>
       </section>

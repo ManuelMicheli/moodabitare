@@ -21,6 +21,24 @@ html.lenis body {
   pointer-events: none;
 }
 
+/* === Outfit — UI font (variable weight) === */
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/OutfitVariableFont_wght1.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Double Porte 3 — Display title font === */
+@font-face {
+  font-family: "Double Porte 3";
+  src: url("/fonts/otf/Double-Porter-3.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* === Gravitica — Display font (full weight range) === */
 @font-face {
   font-family: "Gravitica";
@@ -146,7 +164,7 @@ html.lenis body {
   --color-mid-gray: #6b6b6b;
 
   /* === Font families === */
-  --font-display: "Gravitica", sans-serif;
+  --font-display: "Double Porte 3", "Gravitica", sans-serif;
   --font-body: var(--font-body);
   --font-ui: var(--font-ui);
 }
@@ -163,7 +181,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Gravitica", sans-serif;
+  font-family: "Double Porte 3", "Gravitica", sans-serif;
   letter-spacing: -0.02em;
 }
 
@@ -177,7 +195,7 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 
 /* Hero headline: H1 hero size, for main page hero only */
 .font-hero {
-  font-family: "Gravitica", sans-serif;
+  font-family: "Double Porte 3", "Gravitica", sans-serif;
   font-size: clamp(2rem, 1.4rem + 3.5vw, 3rem);  /* 32px → 48px */
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -186,7 +204,7 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 
 /* Section titles: H2 across section blocks */
 .font-section-title {
-  font-family: "Gravitica", sans-serif;
+  font-family: "Double Porte 3", "Gravitica", sans-serif;
   font-size: clamp(1.375rem, 1rem + 2vw, 2.25rem);  /* 22px → 36px */
   line-height: 1.25;
   letter-spacing: -0.02em;
@@ -202,7 +220,7 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 
 /* UI elements: buttons, nav, labels */
 .text-ui {
-  font-family: var(--font-ui), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-ui), "Outfit", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Captions / small text */
@@ -213,7 +231,7 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 
 /* Section labels (uppercase small text above headings) */
 .text-label {
-  font-family: var(--font-ui), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-ui), "Outfit", ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.875rem);  /* 12px → 14px */
   font-weight: 500;
   text-transform: uppercase;
@@ -223,11 +241,28 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 
 /* Button text */
 .text-button {
-  font-family: var(--font-ui), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-ui), "Outfit", ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9375rem);  /* 13px → 15px */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+
+/* Accented A for Double Porte 3 — renders accent via pseudo-element */
+.accent-a {
+  position: relative;
+  display: inline-block;
+}
+.accent-a::after {
+  content: "\0060";
+  position: absolute;
+  top: -0.18em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5em;
+  font-family: inherit;
+  line-height: 1;
+  pointer-events: none;
 }
 
 /* Custom scrollbar */

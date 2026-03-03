@@ -14,8 +14,13 @@ export function Header() {
   const [activeMegaMenu, setActiveMegaMenu] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const hero = document.querySelector("section");
+      const threshold = hero ? hero.offsetHeight - 80 : 50;
+      setIsScrolled(window.scrollY > threshold);
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
