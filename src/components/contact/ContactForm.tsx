@@ -70,7 +70,7 @@ export function ContactForm() {
             type="text"
             {...register("name")}
             className={cn(
-              "w-full border-0 border-b px-0 py-3 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep",
+              "w-full border-0 border-b px-0 py-4 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep",
               errors.name ? "border-red-400" : "border-black/10"
             )}
             placeholder="Il tuo nome"
@@ -85,7 +85,7 @@ export function ContactForm() {
             id="phone"
             type="tel"
             {...register("phone")}
-            className="w-full border-0 border-b border-black/10 px-0 py-3 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep"
+            className="w-full border-0 border-b border-black/10 px-0 py-4 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep"
             placeholder="Il tuo numero"
           />
         </div>
@@ -100,7 +100,7 @@ export function ContactForm() {
           type="email"
           {...register("email")}
           className={cn(
-            "w-full border-0 border-b px-0 py-3 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep",
+            "w-full border-0 border-b px-0 py-4 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep",
             errors.email ? "border-red-400" : "border-black/10"
           )}
           placeholder="La tua email"
@@ -116,7 +116,7 @@ export function ContactForm() {
           id="subject"
           type="text"
           {...register("subject")}
-          className="w-full border-0 border-b border-black/10 px-0 py-3 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep"
+          className="w-full border-0 border-b border-black/10 px-0 py-4 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep"
           placeholder="Oggetto del messaggio"
         />
       </div>
@@ -129,14 +129,14 @@ export function ContactForm() {
           id="message"
           rows={4}
           {...register("message")}
-          className="w-full border-0 border-b border-black/10 px-0 py-3 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep resize-none"
+          className="w-full border-0 border-b border-black/10 px-0 py-4 text-caption text-black-deep bg-transparent outline-none transition-colors focus:border-black-deep resize-none"
           placeholder="Scrivi il tuo messaggio..."
         />
       </div>
 
       <div>
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" {...register("privacy")} className="mt-0.5 h-4 w-4 accent-black" />
+          <input type="checkbox" {...register("privacy")} className="mt-0.5 h-5 w-5 accent-black" />
           <span className={cn("text-caption text-black-deep/35", errors.privacy && "text-red-400")}>
             Dichiaro di aver letto l&apos;informativa sulla{" "}
             <a href="/privacy-policy" className="text-black-deep/60 underline" target="_blank" rel="noopener noreferrer">privacy</a>{" "}

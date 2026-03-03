@@ -8,6 +8,7 @@ import {
 } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 interface ScrollExpandMediaProps {
   mediaSrc: string;
@@ -19,7 +20,62 @@ interface ScrollExpandMediaProps {
   children?: ReactNode;
 }
 
-const ScrollExpandMedia = ({
+/* ── Mobile: static hero + content (no scroll-jacking) ──────── */
+
+function MobileScrollExpandMedia({
+  mediaSrc,
+  title,
+  subtitle,
+  children,
+}: ScrollExpandMediaProps) {
+  const firstWord = title ? title.split(' ')[0] : '';
+  const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
+
+  return (
+    <div>
+      {/* Full-bleed hero */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black-deep">
+        <Image
+          src={mediaSrc}
+          alt={title || 'Moschiano Srl'}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black-deep/40" />
+
+        <div className="relative z-10 text-center px-6">
+          <h2
+            className="font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-white"
+            style={{ fontSize: 'clamp(1.75rem, 1.2rem + 3.5vw, 4rem)' }}
+          >
+            {firstWord}
+          </h2>
+          <h2
+            className="font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-white mt-3"
+            style={{ fontSize: 'clamp(1.75rem, 1.2rem + 3.5vw, 4rem)' }}
+          >
+            {restOfTitle}
+          </h2>
+          {subtitle && (
+            <p className="font-display text-lg text-white/60 mt-6">
+              {subtitle}
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="px-6 py-10">
+        {children}
+      </section>
+    </div>
+  );
+}
+
+/* ── Desktop: cinematic scroll-expand (unchanged) ───────────── */
+
+function DesktopScrollExpandMedia({
   mediaSrc,
   bgImageSrc,
   title,
@@ -27,12 +83,10 @@ const ScrollExpandMedia = ({
   scrollToExpand,
   textBlend,
   children,
-}: ScrollExpandMediaProps) => {
+}: ScrollExpandMediaProps) {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [showContent, setShowContent] = useState<boolean>(false);
   const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false);
-  const [touchStartY, setTouchStartY] = useState<number>(0);
-  const [isMobileState, setIsMobileState] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -48,7 +102,6 @@ const ScrollExpandMedia = ({
       if (!section) return;
 
       const rect = section.getBoundingClientRect();
-      // Only intercept when section is in view
       if (rect.top > window.innerHeight || rect.bottom < 0) return;
 
       if (mediaFullyExpanded && e.deltaY < 0 && rect.top >= -5) {
@@ -72,74 +125,16 @@ const ScrollExpandMedia = ({
       }
     };
 
-    const handleTouchStart = (e: globalThis.TouchEvent) => {
-      setTouchStartY(e.touches[0].clientY);
-    };
-
-    const handleTouchMove = (e: globalThis.TouchEvent) => {
-      if (!touchStartY) return;
-      const section = sectionRef.current;
-      if (!section) return;
-
-      const rect = section.getBoundingClientRect();
-      if (rect.top > window.innerHeight || rect.bottom < 0) return;
-
-      const touchY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchY;
-
-      if (mediaFullyExpanded && deltaY < -20 && rect.top >= -5) {
-        setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded && rect.top <= 5 && rect.top >= -5) {
-        e.preventDefault();
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005;
-        const scrollDelta = deltaY * scrollFactor;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1
-        );
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
-        }
-
-        setTouchStartY(touchY);
-      }
-    };
-
-    const handleTouchEnd = (): void => {
-      setTouchStartY(0);
-    };
-
     window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('touchstart', handleTouchStart, { passive: false });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('touchend', handleTouchEnd);
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [scrollProgress, mediaFullyExpanded, touchStartY]);
+  }, [scrollProgress, mediaFullyExpanded]);
 
-  useEffect(() => {
-    const checkIfMobile = (): void => {
-      setIsMobileState(window.innerWidth < 768);
-    };
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
-  const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
-  const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
+  const mediaWidth = 300 + scrollProgress * 1250;
+  const mediaHeight = 400 + scrollProgress * 400;
+  const textTranslateX = scrollProgress * 150;
 
   const firstWord = title ? title.split(' ')[0] : '';
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
@@ -263,6 +258,15 @@ const ScrollExpandMedia = ({
       </section>
     </div>
   );
+}
+
+/* ── Entry point ────────────────────────────────────────────── */
+
+const ScrollExpandMedia = (props: ScrollExpandMediaProps) => {
+  const isMobile = useIsMobile();
+
+  if (isMobile) return <MobileScrollExpandMedia {...props} />;
+  return <DesktopScrollExpandMedia {...props} />;
 };
 
 export default ScrollExpandMedia;

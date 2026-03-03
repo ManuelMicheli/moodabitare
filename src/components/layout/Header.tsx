@@ -143,7 +143,7 @@ export function Header() {
 
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="relative z-10 flex h-10 w-10 items-center justify-center lg:hidden"
+              className="relative z-10 flex h-11 w-11 items-center justify-center lg:hidden"
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1.5">

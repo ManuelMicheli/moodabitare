@@ -31,7 +31,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className="fixed right-0 top-0 bottom-0 z-40 w-full max-w-sm bg-white overflow-y-auto"
+            className="fixed right-0 top-0 bottom-0 z-40 w-full max-w-[min(24rem,100vw)] bg-white overflow-y-auto"
+            style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
           >
             <div className="pt-28 px-8 pb-10">
               <nav className="space-y-0">

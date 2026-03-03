@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface FadeInViewProps {
   children: React.ReactNode;
@@ -12,11 +13,19 @@ interface FadeInViewProps {
   once?: boolean;
 }
 
-const directionOffsets = {
+const desktopOffsets = {
   up: { y: 40 },
   down: { y: -40 },
   left: { x: 40 },
   right: { x: -40 },
+  none: {},
+};
+
+const mobileOffsets = {
+  up: { y: 20 },
+  down: { y: -20 },
+  left: { x: 20 },
+  right: { x: -20 },
   none: {},
 };
 
@@ -28,12 +37,15 @@ export function FadeInView({
   duration = 0.6,
   once = true,
 }: FadeInViewProps) {
+  const isMobile = useIsMobile();
+  const offsets = isMobile ? mobileOffsets : desktopOffsets;
+
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, ...directionOffsets[direction] }}
+      initial={{ opacity: 0, ...offsets[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: isMobile ? "-30px" : "-50px" }}
       transition={{
         duration,
         delay,

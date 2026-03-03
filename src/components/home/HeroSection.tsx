@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const slides = [
   {
@@ -34,6 +35,7 @@ export function HeroSection() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const indicatorsRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
+  const isMobile = useIsMobile();
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -45,32 +47,60 @@ export function HeroSection() {
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    tl.fromTo(
-      headlineRef.current,
-      { opacity: 0, y: 60, clipPath: "inset(0 0 100% 0)" },
-      { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)", duration: 1.2 }
-    )
-      .fromTo(
-        subRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        "-=0.5"
+    if (isMobile) {
+      // Mobile: simple opacity + y, no clipPath
+      tl.fromTo(
+        headlineRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1 }
       )
-      .fromTo(
-        ctaRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        "-=0.4"
+        .fromTo(
+          subRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          "-=0.4"
+        )
+        .fromTo(
+          ctaRef.current,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.5 },
+          "-=0.3"
+        )
+        .fromTo(
+          indicatorsRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.4 },
+          "-=0.2"
+        );
+    } else {
+      // Desktop: full cinematic with clipPath
+      tl.fromTo(
+        headlineRef.current,
+        { opacity: 0, y: 60, clipPath: "inset(0 0 100% 0)" },
+        { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)", duration: 1.2 }
       )
-      .fromTo(
-        indicatorsRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5 },
-        "-=0.3"
-      );
+        .fromTo(
+          subRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          "-=0.5"
+        )
+        .fromTo(
+          ctaRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          "-=0.4"
+        )
+        .fromTo(
+          indicatorsRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5 },
+          "-=0.3"
+        );
+    }
 
     return () => { tl.kill(); };
-  }, []);
+  }, [isMobile]);
 
   // Slide transition animation
   useEffect(() => {
@@ -102,11 +132,11 @@ export function HeroSection() {
     return () => { tl.kill(); };
   }, [current]);
 
-  // Auto-advance
+  // Auto-advance: 10s mobile, 7s desktop
   useEffect(() => {
-    const timer = setInterval(next, 7000);
+    const timer = setInterval(next, isMobile ? 10000 : 7000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, isMobile]);
 
   return (
     <section className="relative h-[75vh] min-h-[500px] flex items-end overflow-hidden bg-black-deep">
@@ -151,24 +181,28 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Slide indicators */}
+          {/* Slide indicators — 44px tap area */}
           <div ref={indicatorsRef} className="mt-8 flex gap-4">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-px transition-all duration-500 ${
-                  i === current ? "w-16 bg-white" : "w-8 bg-white/20"
-                }`}
+                className="h-11 flex items-center"
                 aria-label={`Slide ${i + 1}`}
-              />
+              >
+                <span
+                  className={`block h-px transition-all duration-500 ${
+                    i === current ? "w-16 bg-white" : "w-8 bg-white/20"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 animate-bounce">
+      {/* Scroll indicator — bounce only on desktop */}
+      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 md:animate-bounce">
         <svg className="h-6 w-6 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

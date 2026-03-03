@@ -15,37 +15,41 @@ export function ProductCatalog() {
 
   return (
     <div>
-      {/* Filter Tabs — minimal style, scrollable on mobile */}
-      <div className="flex justify-start sm:justify-center gap-1 mb-16 lg:mb-20 overflow-x-auto sm:overflow-visible pb-2 scrollbar-hide sm:flex-wrap">
-        <button
-          onClick={() => setActiveCategory(null)}
-          className={cn(
-            "px-5 py-2.5 text-label transition-all",
-            !activeCategory
-              ? "bg-black-deep text-white"
-              : "text-black-deep/40 hover:text-black-deep"
-          )}
-        >
-          Tutti
-        </button>
-        {MACRO_CATEGORIES.map((cat) => (
+      {/* Filter Tabs — with gradient fade hint on mobile */}
+      <div className="relative mb-16 lg:mb-20">
+        <div className="flex justify-start sm:justify-center gap-1 overflow-x-auto sm:overflow-visible pb-2 scrollbar-hide sm:flex-wrap">
           <button
-            key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
+            onClick={() => setActiveCategory(null)}
             className={cn(
-              "px-5 py-2.5 text-label transition-all",
-              activeCategory === cat.id
+              "px-5 py-2.5 text-label transition-all flex-shrink-0",
+              !activeCategory
                 ? "bg-black-deep text-white"
                 : "text-black-deep/40 hover:text-black-deep"
             )}
           >
-            {cat.label}
+            Tutti
           </button>
-        ))}
+          {MACRO_CATEGORIES.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={cn(
+                "px-5 py-2.5 text-label transition-all flex-shrink-0",
+                activeCategory === cat.id
+                  ? "bg-black-deep text-white"
+                  : "text-black-deep/40 hover:text-black-deep"
+              )}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+        {/* Fade hint — mobile only */}
+        <div className="absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none sm:hidden" />
       </div>
 
       {/* Products Grid */}
-      <StaggerContainer key={activeCategory ?? "all"} className="grid grid-cols-1 gap-px bg-black/5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <StaggerContainer key={activeCategory ?? "all"} className="grid grid-cols-1 gap-4 sm:gap-px sm:bg-black/5 bg-transparent sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((product) => (
           <StaggerItem key={product.slug}>
             <Link
@@ -55,7 +59,7 @@ export function ProductCatalog() {
               <div className="aspect-[4/3] bg-warm-gray/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black-deep/0 group-hover:bg-black-deep/5 transition-all duration-500" />
               </div>
-              <div className="p-6 lg:p-8">
+              <div className="p-5 sm:p-6 lg:p-8">
                 <span className="text-label text-black-deep/25">
                   {product.brand}
                 </span>

@@ -24,7 +24,7 @@ export function ProductHighlights() {
       <div className="relative">
         {/* Giant title — sticky, highest z over text, lowest z under cards */}
         <h2
-          className="sticky top-[28vh] sm:top-[32vh] z-20 text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep pointer-events-none select-none whitespace-nowrap"
+          className="sticky top-[28vh] sm:top-[32vh] z-20 text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep pointer-events-none select-none sm:whitespace-nowrap"
           style={{ fontSize: "clamp(0.9rem, 4.2vw, 9rem)" }}
         >
           <AccentText>Qualità e design per ogni ambiente</AccentText>
@@ -48,7 +48,7 @@ export function ProductHighlights() {
         </div>
 
         {/* Product cards — z-30, title passes BEHIND these */}
-        <div className="relative z-30 grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-8 sm:max-w-[75%] sm:mx-auto">
+        <div className="relative z-30 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-8 sm:max-w-[75%] sm:mx-auto">
           {MACRO_CATEGORIES.map((cat, i) => (
             <FadeInView key={cat.id} delay={i * 0.08}>
               <Link

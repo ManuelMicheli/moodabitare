@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { AccentText } from "@/components/ui/AccentText";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /* ── Copy ────────────────────────────────────────────────────────── */
 
@@ -18,7 +19,7 @@ const BODY_2 =
 const BODY_3 =
   "Moschiano Srl propone ai suoi clienti una vasta scelta di infissi e serramenti in grado di migliorare l'efficienza termica della casa, così da ridurre i consumi energetici e i relativi costi in bolletta. Tutti i posatori sono altamente qualificati e in possesso del patentino di posa certificata.";
 
-/* ── Helpers ──────────────────────────────────────────────────────── */
+/* ── Desktop: word-by-word reveal ───────────────────────────────── */
 
 function Word({
   children,
@@ -75,9 +76,37 @@ function ScrollParagraph({
   );
 }
 
+/* ── Mobile: simple fade per paragraph ──────────────────────────── */
+
+function SimpleParagraph({
+  text,
+  className,
+  style,
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  style?: React.CSSProperties;
+  delay?: number;
+}) {
+  return (
+    <motion.p
+      className={className}
+      style={style}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <AccentText>{text}</AccentText>
+    </motion.p>
+  );
+}
+
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function AboutSection() {
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -100,20 +129,28 @@ export function AboutSection() {
       className="py-20 lg:py-56 px-6 sm:px-10 lg:px-20"
     >
       <div className="max-w-5xl mx-auto">
-        {/* Label — always visible */}
+        {/* Label */}
         <p className="text-label text-black-deep/30 mb-10 lg:mb-14">
           Chi siamo
         </p>
 
-        {/* Headline — large display text */}
-        <ScrollParagraph
-          text={HEADLINE}
-          progress={scrollYProgress}
-          startWord={0}
-          totalWords={totalWords}
-          className="font-display font-medium leading-[1.15] tracking-[-0.02em] text-black-deep"
-          style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 3.25rem)" }}
-        />
+        {/* Headline */}
+        {isMobile ? (
+          <SimpleParagraph
+            text={HEADLINE}
+            className="font-display font-medium leading-[1.15] tracking-[-0.02em] text-black-deep"
+            style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 3.25rem)" }}
+          />
+        ) : (
+          <ScrollParagraph
+            text={HEADLINE}
+            progress={scrollYProgress}
+            startWord={0}
+            totalWords={totalWords}
+            className="font-display font-medium leading-[1.15] tracking-[-0.02em] text-black-deep"
+            style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 3.25rem)" }}
+          />
+        )}
 
         {/* Separator */}
         <motion.div
@@ -127,32 +164,55 @@ export function AboutSection() {
 
         {/* Body paragraphs */}
         <div className="space-y-8 lg:space-y-10 max-w-3xl">
-          <ScrollParagraph
-            text={BODY_1}
-            progress={scrollYProgress}
-            startWord={headlineWords}
-            totalWords={totalWords}
-            className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
-            style={bodyStyle}
-          />
-
-          <ScrollParagraph
-            text={BODY_2}
-            progress={scrollYProgress}
-            startWord={headlineWords + body1Words}
-            totalWords={totalWords}
-            className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
-            style={bodyStyle}
-          />
-
-          <ScrollParagraph
-            text={BODY_3}
-            progress={scrollYProgress}
-            startWord={headlineWords + body1Words + body2Words}
-            totalWords={totalWords}
-            className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
-            style={bodyStyle}
-          />
+          {isMobile ? (
+            <>
+              <SimpleParagraph
+                text={BODY_1}
+                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                style={bodyStyle}
+                delay={0.1}
+              />
+              <SimpleParagraph
+                text={BODY_2}
+                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                style={bodyStyle}
+                delay={0.1}
+              />
+              <SimpleParagraph
+                text={BODY_3}
+                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                style={bodyStyle}
+                delay={0.1}
+              />
+            </>
+          ) : (
+            <>
+              <ScrollParagraph
+                text={BODY_1}
+                progress={scrollYProgress}
+                startWord={headlineWords}
+                totalWords={totalWords}
+                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                style={bodyStyle}
+              />
+              <ScrollParagraph
+                text={BODY_2}
+                progress={scrollYProgress}
+                startWord={headlineWords + body1Words}
+                totalWords={totalWords}
+                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                style={bodyStyle}
+              />
+              <ScrollParagraph
+                text={BODY_3}
+                progress={scrollYProgress}
+                startWord={headlineWords + body1Words + body2Words}
+                totalWords={totalWords}
+                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                style={bodyStyle}
+              />
+            </>
+          )}
         </div>
       </div>
     </section>

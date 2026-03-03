@@ -76,18 +76,22 @@ export function TestimonialsCarousel() {
           </div>
         </div>
 
-        {/* Minimal line indicators */}
+        {/* Minimal line indicators — 44px tap area */}
         <div className="mt-12 lg:mt-16 flex gap-3">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => emblaApi?.scrollTo(i)}
-              className={cn(
-                "h-px transition-all duration-500",
-                i === selectedIndex ? "w-12 bg-black-deep" : "w-6 bg-black-deep/15"
-              )}
+              className="h-11 flex items-center"
               aria-label={`Testimonianza ${i + 1}`}
-            />
+            >
+              <span
+                className={cn(
+                  "block h-px transition-all duration-500",
+                  i === selectedIndex ? "w-12 bg-black-deep" : "w-6 bg-black-deep/15"
+                )}
+              />
+            </button>
           ))}
         </div>
       </div>

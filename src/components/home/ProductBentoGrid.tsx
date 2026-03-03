@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 function ParallaxImage({
   src,
@@ -18,8 +19,11 @@ function ParallaxImage({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (isMobile) return;
+
     const el = containerRef.current;
     if (!el) return;
 
@@ -30,9 +34,7 @@ function ParallaxImage({
       requestAnimationFrame(() => {
         const rect = el.getBoundingClientRect();
         const windowH = window.innerHeight;
-        // 0 when element enters bottom, 1 when it leaves top
         const progress = 1 - (rect.bottom / (windowH + rect.height));
-        // Map to -15% … +15% vertical shift
         setOffset((progress - 0.5) * 30);
         ticking = false;
       });
@@ -41,7 +43,7 @@ function ParallaxImage({
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
     <FadeInView delay={delay} className={className}>
@@ -55,7 +57,7 @@ function ParallaxImage({
           fill
           className="object-cover transition-transform duration-100 ease-out will-change-transform"
           style={{
-            transform: `translateY(${offset}%) scale(1.3)`,
+            transform: isMobile ? "none" : `translateY(${offset}%) scale(1.3)`,
           }}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -165,7 +167,7 @@ export function ProductBentoGrid() {
       <div className="grid grid-cols-1 md:grid-cols-12 -mt-px">
         {/* Testimonial */}
         <FadeInView className="md:col-span-5" delay={0.2}>
-          <div className="relative h-full min-h-[380px] md:min-h-[500px] bg-bordeaux flex flex-col justify-center px-5 sm:px-8 md:px-12 py-8 sm:py-12">
+          <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-bordeaux flex flex-col justify-center px-5 sm:px-8 md:px-12 py-8 sm:py-12">
             {/* Large quote mark */}
             <div
               className="font-display text-white/15 leading-none select-none absolute top-6 left-5 sm:left-8 md:left-12"
@@ -194,7 +196,7 @@ export function ProductBentoGrid() {
         {/* Bertolotto spotlight */}
         <FadeInView className="md:col-span-7" delay={0.3}>
           <Link href="/prodotti/porte-interne-bertolotto" className="group block">
-            <div className="relative h-full min-h-[380px] md:min-h-[500px] bg-black-deep overflow-hidden">
+            <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-black-deep overflow-hidden">
               {/* Background image — subtle */}
               <Image
                 src="/images/bertolotto.webp"

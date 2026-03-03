@@ -47,19 +47,19 @@ export function Footer() {
           {/* Column 2: Navigation */}
           <div className="lg:col-span-2">
             <h3 className="text-label text-white/30 mb-5">Navigazione</h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0">
               {NAV_ITEMS.flatMap((item) =>
                 item.hasDropdown && item.children
                   ? item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} className="text-caption text-white/50 hover:text-white transition-colors duration-300">
+                        <Link href={child.href} className="block py-2 text-caption text-white/50 hover:text-white transition-colors duration-300">
                           {child.label}
                         </Link>
                       </li>
                     ))
                   : [
                       <li key={item.href}>
-                        <Link href={item.href} className="text-caption text-white/50 hover:text-white transition-colors duration-300">
+                        <Link href={item.href} className="block py-2 text-caption text-white/50 hover:text-white transition-colors duration-300">
                           {item.label}
                         </Link>
                       </li>,
@@ -71,10 +71,10 @@ export function Footer() {
           {/* Column 3: Products */}
           <div className="lg:col-span-2">
             <h3 className="text-label text-white/30 mb-5">Prodotti</h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0">
               {MACRO_CATEGORIES.map((cat) => (
                 <li key={cat.id}>
-                  <Link href={`/prodotti?categoria=${cat.id}`} className="text-caption text-white/50 hover:text-white transition-colors duration-300">
+                  <Link href={`/prodotti?categoria=${cat.id}`} className="block py-2 text-caption text-white/50 hover:text-white transition-colors duration-300">
                     {cat.label}
                   </Link>
                 </li>

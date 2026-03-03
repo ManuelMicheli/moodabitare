@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { AccentText } from "@/components/ui/AccentText";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /* ── Copy ────────────────────────────────────────────────────────── */
 
@@ -21,7 +22,7 @@ const BOTTOM_RIGHT =
 const BOTTOM_RIGHT_2 =
   "Questo è Moschiano Srl. Vieni a trovarci — il caffè lo offriamo noi.";
 
-/* ── Helpers ──────────────────────────────────────────────────────── */
+/* ── Desktop: word-by-word reveal ───────────────────────────────── */
 
 function Word({
   children,
@@ -86,9 +87,37 @@ function ScrollParagraph({
   );
 }
 
+/* ── Mobile: simple fade per paragraph ──────────────────────────── */
+
+function SimpleParagraph({
+  text,
+  className,
+  style,
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  style?: React.CSSProperties;
+  delay?: number;
+}) {
+  return (
+    <motion.p
+      className={className}
+      style={style}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <AccentText>{text}</AccentText>
+    </motion.p>
+  );
+}
+
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function IntroEmozionale() {
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -111,60 +140,104 @@ export function IntroEmozionale() {
     <section ref={containerRef} className="py-5 lg:py-6 px-6 sm:px-10 lg:px-20 bg-cream">
       {/* Top-left */}
       <div className="max-w-3xl">
-        <ScrollParagraph
-          text={TOP_LEFT}
-          progress={scrollYProgress}
-          startWord={0}
-          totalWords={totalWords}
-          className="font-display font-medium leading-[1.25] tracking-[-0.015em]"
-          style={fontSize}
-          baseColor="bordeaux"
-        />
-        <ScrollParagraph
-          text={TOP_LEFT_2}
-          progress={scrollYProgress}
-          startWord={topLeftWords}
-          totalWords={totalWords}
-          className="mt-4 font-display font-medium leading-[1.25] tracking-[-0.015em]"
-          style={fontSize}
-          baseColor="bordeaux"
-        />
+        {isMobile ? (
+          <>
+            <SimpleParagraph
+              text={TOP_LEFT}
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em] text-bordeaux"
+              style={fontSize}
+            />
+            <SimpleParagraph
+              text={TOP_LEFT_2}
+              className="mt-4 font-display font-medium leading-[1.25] tracking-[-0.015em] text-bordeaux"
+              style={fontSize}
+              delay={0.1}
+            />
+          </>
+        ) : (
+          <>
+            <ScrollParagraph
+              text={TOP_LEFT}
+              progress={scrollYProgress}
+              startWord={0}
+              totalWords={totalWords}
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em]"
+              style={fontSize}
+              baseColor="bordeaux"
+            />
+            <ScrollParagraph
+              text={TOP_LEFT_2}
+              progress={scrollYProgress}
+              startWord={topLeftWords}
+              totalWords={totalWords}
+              className="mt-4 font-display font-medium leading-[1.25] tracking-[-0.015em]"
+              style={fontSize}
+              baseColor="bordeaux"
+            />
+          </>
+        )}
       </div>
 
       {/* Center — inverted colors */}
       <div className="mt-6 lg:mt-8 -mx-6 sm:-mx-10 lg:-mx-20 px-6 sm:px-10 lg:px-20 py-6 lg:py-8 bg-bordeaux">
         <div className="max-w-2xl mx-auto">
-          <ScrollParagraph
-            text={CENTER}
-            progress={scrollYProgress}
-            startWord={topLeftWords + topLeft2Words}
-            totalWords={totalWords}
-            className="font-display font-medium leading-[1.25] tracking-[-0.015em]"
-            style={fontSize}
-          />
+          {isMobile ? (
+            <SimpleParagraph
+              text={CENTER}
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em] text-white"
+              style={fontSize}
+            />
+          ) : (
+            <ScrollParagraph
+              text={CENTER}
+              progress={scrollYProgress}
+              startWord={topLeftWords + topLeft2Words}
+              totalWords={totalWords}
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em]"
+              style={fontSize}
+            />
+          )}
         </div>
       </div>
 
-      {/* Bottom-right */}
-      <div className="mt-6 lg:mt-8 max-w-2xl ml-auto text-right">
-        <ScrollParagraph
-          text={BOTTOM_RIGHT}
-          progress={scrollYProgress}
-          startWord={topLeftWords + topLeft2Words + centerWords}
-          totalWords={totalWords}
-          className="font-display font-medium leading-[1.25] tracking-[-0.015em]"
-          style={fontSize}
-          baseColor="bordeaux"
-        />
-        <ScrollParagraph
-          text={BOTTOM_RIGHT_2}
-          progress={scrollYProgress}
-          startWord={topLeftWords + topLeft2Words + centerWords + bottomRightWords}
-          totalWords={totalWords}
-          className="mt-3 font-display font-medium leading-[1.25] tracking-[-0.015em]"
-          style={fontSize}
-          baseColor="bordeaux"
-        />
+      {/* Bottom-right — fix alignment on mobile */}
+      <div className="mt-6 lg:mt-8 max-w-2xl text-left sm:text-right sm:ml-auto">
+        {isMobile ? (
+          <>
+            <SimpleParagraph
+              text={BOTTOM_RIGHT}
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em] text-bordeaux"
+              style={fontSize}
+            />
+            <SimpleParagraph
+              text={BOTTOM_RIGHT_2}
+              className="mt-3 font-display font-medium leading-[1.25] tracking-[-0.015em] text-bordeaux"
+              style={fontSize}
+              delay={0.1}
+            />
+          </>
+        ) : (
+          <>
+            <ScrollParagraph
+              text={BOTTOM_RIGHT}
+              progress={scrollYProgress}
+              startWord={topLeftWords + topLeft2Words + centerWords}
+              totalWords={totalWords}
+              className="font-display font-medium leading-[1.25] tracking-[-0.015em]"
+              style={fontSize}
+              baseColor="bordeaux"
+            />
+            <ScrollParagraph
+              text={BOTTOM_RIGHT_2}
+              progress={scrollYProgress}
+              startWord={topLeftWords + topLeft2Words + centerWords + bottomRightWords}
+              totalWords={totalWords}
+              className="mt-3 font-display font-medium leading-[1.25] tracking-[-0.015em]"
+              style={fontSize}
+              baseColor="bordeaux"
+            />
+          </>
+        )}
       </div>
     </section>
   );
