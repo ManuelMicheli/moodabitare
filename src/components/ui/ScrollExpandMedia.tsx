@@ -231,7 +231,7 @@ const ScrollExpandMedia = ({
                 <motion.h2
                   className="font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-white transition-none"
                   style={{
-                    fontSize: 'clamp(2rem, 1.5rem + 4vw, 5rem)',
+                    fontSize: 'clamp(1.75rem, 1.2rem + 3.5vw, 4rem)',
                     transform: `translateX(-${textTranslateX}vw)`,
                   }}
                 >
@@ -240,7 +240,7 @@ const ScrollExpandMedia = ({
                 <motion.h2
                   className="font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-white transition-none"
                   style={{
-                    fontSize: 'clamp(2rem, 1.5rem + 4vw, 5rem)',
+                    fontSize: 'clamp(1.75rem, 1.2rem + 3.5vw, 4rem)',
                     transform: `translateX(${textTranslateX}vw)`,
                   }}
                 >

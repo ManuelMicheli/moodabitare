@@ -14,16 +14,16 @@ const projects = [
 
 export function PortfolioGallery() {
   return (
-    <section className="py-32 lg:py-44">
+    <section className="py-20 lg:py-44">
       <div className="px-6 sm:px-10 lg:px-20">
-        <div className="text-center mb-16 lg:mb-24">
+        <div className="text-center mb-10 lg:mb-24">
           <FadeInView>
             <p className="text-label text-black-deep/50 mb-6">
               I nostri progetti
             </p>
             <h2
               className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep"
-              style={{ fontSize: "clamp(2.5rem, 2rem + 8vw, 9rem)" }}
+              style={{ fontSize: "clamp(2rem, 1.2rem + 5vw, 5.5rem)" }}
             >
               <AccentText>Lavori realizzati</AccentText>
             </h2>

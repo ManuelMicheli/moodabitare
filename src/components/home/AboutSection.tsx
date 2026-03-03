@@ -97,7 +97,7 @@ export function AboutSection() {
   return (
     <section
       ref={containerRef}
-      className="py-36 lg:py-56 px-6 sm:px-10 lg:px-20"
+      className="py-20 lg:py-56 px-6 sm:px-10 lg:px-20"
     >
       <div className="max-w-5xl mx-auto">
         {/* Label — always visible */}

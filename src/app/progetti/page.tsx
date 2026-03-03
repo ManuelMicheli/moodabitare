@@ -14,7 +14,7 @@ export default function Progetti() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <p className="text-label text-white/40 mb-6">
               Portfolio
@@ -33,7 +33,7 @@ export default function Progetti() {
       <HorizontalProjectsScroll />
 
       {/* CTA bottom */}
-      <section className="py-32 lg:py-44 bg-cream">
+      <section className="py-20 lg:py-44 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <p className="text-label text-black-deep/40 mb-6">

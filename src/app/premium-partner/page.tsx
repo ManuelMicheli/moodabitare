@@ -32,7 +32,7 @@ export default function PremiumPartner() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <p className="text-label text-white/40 mb-6">
               Premium Partner
@@ -106,7 +106,7 @@ export default function PremiumPartner() {
       </section>
 
       {/* What it means */}
-      <section className="py-32 lg:py-44">
+      <section className="py-20 lg:py-44">
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <FadeInView direction="left">
@@ -150,7 +150,7 @@ export default function PremiumPartner() {
       </section>
 
       {/* About Oknoplast */}
-      <section className="py-32 lg:py-44 bg-black-deep text-white">
+      <section className="py-20 lg:py-44 bg-black-deep text-white">
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
             <FadeInView direction="left">
@@ -184,7 +184,7 @@ export default function PremiumPartner() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 lg:py-44">
+      <section className="py-20 lg:py-44">
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <h2 className="font-section-title text-black-deep max-w-3xl mx-auto">

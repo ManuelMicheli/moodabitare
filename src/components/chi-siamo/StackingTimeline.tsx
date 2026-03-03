@@ -91,7 +91,7 @@ export function StackingTimeline({ items }: { items: TimelineItem[] }) {
                 className="absolute inset-0 flex items-center"
               >
                 <div
-                  className="w-full bg-black-soft border border-white/6 px-8 py-10 lg:px-14 lg:py-14 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 lg:gap-0"
+                  className="w-full bg-black-soft border border-white/6 px-5 py-7 sm:px-8 sm:py-10 lg:px-14 lg:py-14 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 lg:gap-0"
                   style={{ boxShadow: "0 12px 48px rgba(0,0,0,0.5)" }}
                 >
                   {/* Left — year + title */}

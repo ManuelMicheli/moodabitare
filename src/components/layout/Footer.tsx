@@ -17,7 +17,7 @@ export function Footer() {
             <span
               key={i}
               className="font-display font-bold uppercase leading-none tracking-[-0.03em] text-white/[0.07] whitespace-nowrap"
-              style={{ fontSize: "clamp(3rem, 2rem + 8vw, 8rem)" }}
+              style={{ fontSize: "clamp(2.5rem, 1.5rem + 5vw, 6rem)" }}
             >
               {MARQUEE_TEXT}
             </span>

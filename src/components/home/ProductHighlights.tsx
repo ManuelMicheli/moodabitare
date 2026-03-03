@@ -14,7 +14,7 @@ const categoryImages: Record<string, string> = {
 
 export function ProductHighlights() {
   return (
-    <section className="relative pt-32 lg:pt-44 pb-0">
+    <section className="relative pt-20 lg:pt-44 pb-0">
       {/*
         Full sticky wrapper — includes text AND cards.
         The title sticks inside this, passes over text (z-20 > z-10),
@@ -24,8 +24,8 @@ export function ProductHighlights() {
       <div className="relative">
         {/* Giant title — sticky, highest z over text, lowest z under cards */}
         <h2
-          className="sticky top-[28vh] sm:top-[32vh] z-20 text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep pointer-events-none select-none"
-          style={{ fontSize: "clamp(2.5rem, 2rem + 8vw, 9rem)" }}
+          className="sticky top-[28vh] sm:top-[32vh] z-20 text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep pointer-events-none select-none whitespace-nowrap"
+          style={{ fontSize: "clamp(0.9rem, 4.2vw, 9rem)" }}
         >
           <AccentText>Qualità e design per ogni ambiente</AccentText>
         </h2>

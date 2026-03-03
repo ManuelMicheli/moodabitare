@@ -42,13 +42,13 @@ export function TestimonialsCarousel() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-32 lg:py-44 border-t border-black/5">
+    <section className="py-20 lg:py-44 border-t border-black/5">
       <div className="px-6 sm:px-10 lg:px-20">
         <FadeInView>
           <p className="text-label text-black-deep/50 mb-4">
             Testimonianze
           </p>
-          <h2 className="font-section-title text-black-deep mb-16 lg:mb-24">
+          <h2 className="font-section-title text-black-deep mb-10 lg:mb-24">
             Cosa dicono i nostri clienti
           </h2>
         </FadeInView>

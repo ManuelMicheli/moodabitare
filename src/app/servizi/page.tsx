@@ -68,7 +68,7 @@ export default function Servizi() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <p className="text-label text-white/40 mb-4">
               I nostri servizi
@@ -84,7 +84,7 @@ export default function Servizi() {
       </section>
 
       {/* Services — full detail, alternating layout */}
-      <section className="py-24 lg:py-36">
+      <section className="py-16 lg:py-36">
         <div className="px-6 sm:px-10 lg:px-20">
           <StaggerContainer className="space-y-0">
             {services.map((service, i) => (
@@ -127,13 +127,13 @@ export default function Servizi() {
       </section>
 
       {/* Process — come lavoriamo */}
-      <section className="py-24 lg:py-36 bg-cream">
+      <section className="py-16 lg:py-36 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <p className="text-label text-black-deep/40 mb-4">
               Come lavoriamo
             </p>
-            <h2 className="font-section-title text-black-deep mb-16 lg:mb-24">
+            <h2 className="font-section-title text-black-deep mb-10 lg:mb-24">
               5 passi verso casa tua
             </h2>
           </FadeInView>
@@ -159,7 +159,7 @@ export default function Servizi() {
       </section>
 
       {/* Perché sceglierci */}
-      <section className="py-24 lg:py-36">
+      <section className="py-16 lg:py-36">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
@@ -185,7 +185,7 @@ export default function Servizi() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-36 bg-black-deep text-white">
+      <section className="py-16 lg:py-36 bg-black-deep text-white">
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <h2 className="font-section-title text-white max-w-2xl mx-auto">

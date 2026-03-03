@@ -83,7 +83,7 @@ export default function ChiSiamo() {
       <section className="py-20 lg:py-28 bg-cream text-black-deep">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <h2 className="font-page-title text-black-deep mb-14 lg:mb-20 text-center">
+            <h2 className="font-page-title text-black-deep mb-10 lg:mb-20 text-center">
               <AccentText>Il nostro cammino, insieme a voi</AccentText>
             </h2>
           </FadeInView>
@@ -154,7 +154,7 @@ export default function ChiSiamo() {
       </section>
 
       {/* ─── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-36 bg-cream">
+      <section className="py-16 lg:py-36 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20 max-w-3xl mx-auto text-center">
           <FadeInView>
             <p className="text-label text-black-deep/25 mb-6">

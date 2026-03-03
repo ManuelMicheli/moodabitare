@@ -6,7 +6,7 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 
 export function ServicesGrid() {
   return (
-    <section className="py-32 lg:py-44 border-t border-black/5">
+    <section className="py-20 lg:py-44 border-t border-black/5">
       {/* Heading top */}
       <div className="px-6 sm:px-10 lg:px-20">
         <FadeInView>

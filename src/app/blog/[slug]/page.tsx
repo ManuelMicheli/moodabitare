@@ -22,7 +22,7 @@ export default async function BlogPost({ params }: Props) {
       <article>
         {/* Hero */}
         <section className="relative min-h-[60vh] flex items-end bg-black-deep text-white">
-          <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+          <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <Link href="/blog" className="inline-flex items-center gap-2 text-label text-white/30 hover:text-white/60 transition-colors mb-8">
                 ← Blog

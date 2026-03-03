@@ -15,7 +15,7 @@ export default function Contatti() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <p className="text-label text-white/40 mb-6">
               Contattaci
@@ -45,7 +45,7 @@ export default function Contatti() {
       </section>
 
       {/* Contact Info + Form */}
-      <section className="py-32 lg:py-44">
+      <section className="py-20 lg:py-44">
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
             {/* Contact Info */}

@@ -86,7 +86,7 @@ export function ProductBentoGrid() {
         <FadeInView delay={0.1} className="md:col-span-4">
           <Link
             href="/prodotti/finestre-pvc-oknoplast"
-            className="group flex flex-col items-center justify-center text-center h-full px-8 lg:px-10 py-10 bg-cream"
+            className="group flex flex-col items-center justify-center text-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
           >
             <h3 className="font-section-title text-black-deep">
               Simmetria e risparmio energetico
@@ -115,12 +115,12 @@ export function ProductBentoGrid() {
       </div>
 
       {/* Row 2: Text (3) | Wide Photo (6) | Text (3) */}
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-16 lg:mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-12 mt-8 sm:mt-16 lg:mt-24">
         {/* R2 — Text left */}
         <FadeInView delay={0.15} className="md:col-span-3">
           <Link
             href="/prodotti/finestre-pvc-oknoplast"
-            className="group flex flex-col justify-center h-full px-8 lg:px-10 py-10 bg-cream"
+            className="group flex flex-col justify-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
           >
             <h3 className="font-section-title text-black-deep">
               Luce naturale e design moderno
@@ -146,7 +146,7 @@ export function ProductBentoGrid() {
         <FadeInView delay={0.3} className="md:col-span-3">
           <Link
             href="/prodotti/portoncini-alluminio-oknoplast"
-            className="group flex flex-col items-end text-right justify-center h-full px-8 lg:px-10 py-10 bg-cream"
+            className="group flex flex-col items-end text-right justify-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
           >
             <h3 className="font-section-title text-black-deep">
               Tanti modelli per un ingresso unico
@@ -165,11 +165,11 @@ export function ProductBentoGrid() {
       <div className="grid grid-cols-1 md:grid-cols-12 -mt-px">
         {/* Testimonial */}
         <FadeInView className="md:col-span-5" delay={0.2}>
-          <div className="relative h-full min-h-[380px] md:min-h-[500px] bg-bordeaux flex flex-col justify-center px-8 md:px-12 py-12">
+          <div className="relative h-full min-h-[380px] md:min-h-[500px] bg-bordeaux flex flex-col justify-center px-5 sm:px-8 md:px-12 py-8 sm:py-12">
             {/* Large quote mark */}
             <div
-              className="font-display text-white/15 leading-none select-none absolute top-6 left-8 md:left-12"
-              style={{ fontSize: "clamp(5rem, 4rem + 4vw, 8rem)" }}
+              className="font-display text-white/15 leading-none select-none absolute top-6 left-5 sm:left-8 md:left-12"
+              style={{ fontSize: "clamp(4rem, 3rem + 3vw, 6rem)" }}
             >
               &ldquo;
             </div>
@@ -205,7 +205,7 @@ export function ProductBentoGrid() {
               />
 
               {/* Content */}
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8 md:px-14 py-12">
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5 sm:px-8 md:px-14 py-8 sm:py-12">
                 <p className="text-label text-white/40 mb-4">
                   Porte Interne
                 </p>

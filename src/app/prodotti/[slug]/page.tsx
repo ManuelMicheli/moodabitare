@@ -65,7 +65,7 @@ export default async function ProductPage({ params }: Props) {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-20 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <div className="flex items-center gap-4 mb-6">
               <span className="text-label text-white/30">
@@ -106,7 +106,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Description + Specs + Benefits */}
       {content && (
-        <section className="py-24 lg:py-36 px-6 sm:px-10 lg:px-20">
+        <section className="py-16 lg:py-36 px-6 sm:px-10 lg:px-20">
           <div className="max-w-5xl mx-auto">
             {/* Description */}
             <FadeInView>
@@ -162,7 +162,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <section className="py-32 lg:py-44 bg-black-deep text-white">
+        <section className="py-20 lg:py-44 bg-black-deep text-white">
           <div className="px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <p className="text-label text-white/25 mb-16">
@@ -201,7 +201,7 @@ export default async function ProductPage({ params }: Props) {
       )}
 
       {/* CTA */}
-      <section className="py-32 lg:py-44">
+      <section className="py-20 lg:py-44">
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <h2 className="font-section-title text-black-deep max-w-2xl mx-auto">
