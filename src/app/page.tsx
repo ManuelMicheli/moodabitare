@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/home/HeroSection";
 import { ValuePropositions } from "@/components/home/ValuePropositions";
 import { ProductHighlights } from "@/components/home/ProductHighlights";
-import { PremiumPartnerBanner } from "@/components/home/PremiumPartnerBanner";
+import { ProductBentoGrid } from "@/components/home/ProductBentoGrid";
 import { PortfolioGallery } from "@/components/home/PortfolioGallery";
 import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
 import { BrandLogos } from "@/components/home/BrandLogos";
@@ -14,7 +14,7 @@ export default function Home() {
       <BrandLogos />
       <ProductHighlights />
       <ValuePropositions />
-      <PremiumPartnerBanner />
+      <ProductBentoGrid />
       <PortfolioGallery />
       <TestimonialsCarousel />
       <CTAFinale />

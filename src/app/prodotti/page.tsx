@@ -16,7 +16,7 @@ export default function ProdottiPage() {
       <section className="relative min-h-[70vh] flex items-end text-white overflow-hidden">
         <Image
           src="/images/Cucina-con-finestra-Prolux-Swing-di-Oknoplast-copia-1536x768_upscayl_4x_upscayl-standard-4x.png"
-          alt="Prodotti Mood Abitare"
+          alt="Prodotti Moschiano Srl"
           fill
           className="object-cover"
           priority
@@ -30,10 +30,7 @@ export default function ProdottiPage() {
         <div className="relative z-10 w-full pb-8 lg:pb-12 px-6 sm:px-10 lg:px-20 flex justify-center">
           <FadeInView>
             <div className="text-center">
-              <h1
-                className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em]"
-                style={{ fontSize: "clamp(3rem, 2rem + 8vw, 9rem)" }}
-              >
+              <h1 className="font-page-title">
                 I nostri prodotti
               </h1>
             </div>

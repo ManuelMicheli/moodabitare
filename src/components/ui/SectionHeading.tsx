@@ -29,7 +29,7 @@ export function SectionHeading({
         <span
           className={cn(
             "text-label mb-3 inline-block",
-            dark ? "text-gold" : "text-gold-dark"
+            dark ? "text-white/50" : "text-black-deep/50"
           )}
         >
           {label}

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "gold";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "bordeaux";
 type ButtonSize = "sm" | "md" | "lg";
 
 type ButtonProps = {
@@ -23,8 +23,8 @@ const variantStyles: Record<ButtonVariant, string> = {
     "border-2 border-black-deep text-black-deep hover:bg-black-deep hover:text-white",
   ghost:
     "text-black-deep hover:bg-cream",
-  gold:
-    "bg-gold text-black-deep font-semibold hover:bg-gold-dark",
+  bordeaux:
+    "bg-bordeaux text-white font-semibold hover:bg-bordeaux-dark",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

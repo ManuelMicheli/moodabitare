@@ -101,7 +101,7 @@ export function HorizontalProjectsScroll() {
           <div className="flex-1 h-[1px] bg-black-deep/10">
             <div
               ref={progressRef}
-              className="h-full bg-gold origin-left"
+              className="h-full bg-bordeaux origin-left"
               style={{ transform: "scaleX(0)" }}
             />
           </div>
@@ -144,7 +144,7 @@ export function HorizontalProjectsScroll() {
                   <span className="text-caption text-black-deep/25">
                     {project.year}
                   </span>
-                  <div className="flex items-center gap-2 text-black-deep/30 group-hover:text-gold transition-colors duration-300">
+                  <div className="flex items-center gap-2 text-black-deep/30 group-hover:text-black-deep transition-colors duration-300">
                     <span className="text-button text-xs">Scopri</span>
                     <svg
                       className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-300"
@@ -180,7 +180,7 @@ export function HorizontalProjectsScroll() {
             </p>
             <Link
               href="/contatti"
-              className="inline-block px-10 py-4 bg-black-deep text-white text-button hover:bg-gold hover:text-black-deep transition-colors duration-300"
+              className="inline-block px-10 py-4 bg-black-deep text-white text-button hover:bg-bordeaux hover:text-black-deep transition-colors duration-300"
             >
               Parliamone
             </Link>

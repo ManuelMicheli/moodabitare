@@ -9,12 +9,11 @@ export function ShowroomBanner() {
     <FadeInView>
       <div className="relative aspect-[16/3.5] sm:aspect-[16/3] overflow-hidden bg-black-soft flex items-center">
         {/* Content */}
-        <div className="relative z-10 w-full px-8 sm:px-12 lg:px-16 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           {/* Left */}
           <div>
             <p className="text-caption text-white/35 mb-2">Showroom — 300 mq</p>
-            <p className="font-display font-bold uppercase leading-none tracking-[-0.02em] text-white"
-               style={{ fontSize: "clamp(1.25rem, 1rem + 2vw, 2.25rem)" }}>
+            <p className="font-section-title text-white">
               Vieni a trovarci
             </p>
             <p className="text-ui text-white/50 text-sm mt-2">

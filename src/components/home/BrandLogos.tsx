@@ -10,7 +10,7 @@ export function BrandLogos() {
           {[...BRAND_PARTNERS, ...BRAND_PARTNERS].map((brand, i) => (
             <span
               key={`a-${i}`}
-              className="text-label flex-shrink-0 whitespace-nowrap px-8 text-charcoal-deep"
+              className="text-label flex-shrink-0 whitespace-nowrap px-8 text-black-deep"
             >
               {brand.name}
             </span>

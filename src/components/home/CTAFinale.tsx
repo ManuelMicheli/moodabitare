@@ -25,7 +25,7 @@ export function CTAFinale() {
               Richiedi preventivo
             </Link>
             <a
-              href="https://wa.me/393517278053"
+              href="https://wa.me/3517278053"
               target="_blank"
               rel="noopener noreferrer"
               className="text-button inline-block border border-white/20 text-white px-8 py-4 hover:bg-white hover:text-black-deep transition-all duration-300"

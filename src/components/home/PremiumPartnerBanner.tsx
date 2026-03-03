@@ -38,8 +38,8 @@ export function PremiumPartnerBanner() {
 
           <FadeInView delay={0.2}>
             <p className="mt-5 text-body text-white/60 max-w-md">
-              Mood Abitare è Premium Partner Oknoplast per la provincia di Varese.
-              Una rete ristretta di operatori riconosciuti per l&apos;eccellenza.
+              Moschiano Srl è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
+              Una ristretta rete di operatori che garantisce qualità ed eccellenza.
             </p>
           </FadeInView>
 

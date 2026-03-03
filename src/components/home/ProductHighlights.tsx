@@ -7,7 +7,9 @@ import { AccentText } from "@/components/ui/AccentText";
 import { MACRO_CATEGORIES } from "@/lib/constants";
 
 const categoryImages: Record<string, string> = {
-  "arredo-casa": "/images/Gemini_Generated_Image_3jexw73jexw73jex.png",
+  "cucine-arredobagno": "/images/Gemini_Generated_Image_3jexw73jexw73jex.png",
+  "serramenti-porte": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr_upscayl_4x_upscayl-standard-4x.png",
+  "oscuranti-comfort": "/images/Gemini_Generated_Image_agqw18agqw18agqw_upscayl_4x_upscayl-standard-4x.png",
 };
 
 export function ProductHighlights() {
@@ -46,32 +48,39 @@ export function ProductHighlights() {
         </div>
 
         {/* Product cards — z-30, title passes BEHIND these */}
-        <div className="relative z-30 grid grid-cols-2 sm:grid-cols-4 gap-1">
+        <div className="relative z-30 grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-8 sm:max-w-[75%] sm:mx-auto">
           {MACRO_CATEGORIES.map((cat, i) => (
             <FadeInView key={cat.id} delay={i * 0.08}>
               <Link
                 href={`/prodotti?categoria=${cat.id}`}
-                className="group relative block aspect-[4/3] overflow-hidden bg-black-soft"
+                className="group block overflow-hidden bg-black-soft"
               >
-                {categoryImages[cat.id] ? (
-                  <Image
-                    src={categoryImages[cat.id]}
-                    alt={cat.label}
-                    fill
-                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 640px) 50vw, 25vw"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-warm-gray/20 scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black-deep/70 group-hover:to-black-deep/80 transition-all duration-700" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6">
-                  <span className="text-label text-white/40 text-[0.65rem]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-warm-gray">
+                  {categoryImages[cat.id] ? (
+                    <Image
+                      src={categoryImages[cat.id]}
+                      alt={cat.label}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-black-soft" />
+                  )}
+                </div>
+                <div className="p-4 sm:p-5 lg:p-5">
+                  <span className="text-label text-white/40">
                     {cat.products.length} prodotti
                   </span>
-                  <h3 className="mt-1 font-display text-[clamp(0.875rem,0.7rem+0.8vw,1.25rem)] font-medium text-white leading-tight">
+                  <h3 className="mt-1 font-card-title text-white">
                     {cat.label}
                   </h3>
+                  <span className="flex items-center gap-1 text-[0.7rem] text-white/0 group-hover:text-white/60 transition-all duration-300 h-0 group-hover:h-5 group-hover:mt-3 overflow-hidden translate-x-2 group-hover:translate-x-0">
+                    Scopri
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-0.5">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </div>
               </Link>
             </FadeInView>

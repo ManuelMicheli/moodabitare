@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS } from "@/lib/constants";
 import { MegaMenu } from "./MegaMenu";
@@ -12,6 +13,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,12 +46,12 @@ export function Header() {
           <Link href="/" className="relative z-10 flex-shrink-0">
             <Image
               src="/logo/logo-mood-abitare-clean.png"
-              alt="Mood Abitare"
+              alt="Moschiano Srl"
               width={200}
               height={50}
               priority
               className={cn(
-                "h-10 w-auto lg:h-12 transition-all duration-300",
+                "h-10 w-auto sm:h-11 lg:h-12 transition-all duration-300",
                 !isScrolled && "brightness-0 invert"
               )}
             />
@@ -60,8 +62,14 @@ export function Header() {
             {NAV_ITEMS.map((item) => (
               <div
                 key={item.href}
-                onMouseEnter={() => item.hasMegaMenu && setActiveMegaMenu(true)}
-                onMouseLeave={() => item.hasMegaMenu && setActiveMegaMenu(false)}
+                onMouseEnter={() => {
+                  if (item.hasMegaMenu) setActiveMegaMenu(true);
+                  if (item.hasDropdown) setActiveDropdown(item.label);
+                }}
+                onMouseLeave={() => {
+                  if (item.hasMegaMenu) setActiveMegaMenu(false);
+                  if (item.hasDropdown) setActiveDropdown(null);
+                }}
                 className="relative"
               >
                 <Link
@@ -75,7 +83,46 @@ export function Header() {
                 >
                   {item.label}
                 </Link>
-                {item.hasMegaMenu && activeMegaMenu && <MegaMenu />}
+                <AnimatePresence>
+                  {item.hasMegaMenu && activeMegaMenu && <MegaMenu />}
+                </AnimatePresence>
+                <AnimatePresence>
+                  {item.hasDropdown && item.children && activeDropdown === item.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="fixed top-20 lg:top-24 left-0 right-0 z-40"
+                    >
+                      <div className="h-px w-full bg-gradient-to-r from-transparent via-bordeaux/40 to-transparent" />
+                      <div className="bg-black-deep/[0.97] backdrop-blur-xl">
+                        <div className="max-w-[1400px] mx-auto px-10 lg:px-20 py-12">
+                          <div className="flex flex-col gap-1">
+                            {item.children.map((child, i) => (
+                              <motion.div
+                                key={child.href}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.08 + i * 0.04, duration: 0.3 }}
+                              >
+                                <Link
+                                  href={child.href}
+                                  className="group flex items-center gap-4 py-3 -mx-3 px-3 rounded-sm hover:bg-white/[0.04] transition-all duration-300"
+                                >
+                                  <span className="h-px w-0 group-hover:w-4 bg-bordeaux transition-all duration-300" />
+                                  <span className="font-card-title text-white/60 group-hover:text-white transition-colors duration-300">
+                                    {child.label}
+                                  </span>
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </nav>

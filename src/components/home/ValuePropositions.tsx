@@ -31,7 +31,7 @@ export function ValuePropositions() {
               <p className="text-label text-black-deep/40 mb-4">
                 I numeri che ci definiscono
               </p>
-              <h2 className="font-display text-[clamp(1.5rem,2vw,2rem)] font-medium leading-tight text-black-deep">
+              <h2 className="font-section-title text-black-deep">
                 La nostra esperienza in cifre
               </h2>
             </div>

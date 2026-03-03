@@ -5,7 +5,7 @@ import { HorizontalProjectsScroll } from "@/components/progetti/HorizontalProjec
 
 export const metadata: Metadata = {
   title: "Progetti",
-  description: "Portfolio dei lavori realizzati da Mood Abitare nella provincia di Varese.",
+  description: "Portfolio dei lavori realizzati da Moschiano Srl nella provincia di Varese.",
 };
 
 export default function Progetti() {
@@ -19,10 +19,7 @@ export default function Progetti() {
             <p className="text-label text-white/40 mb-6">
               Portfolio
             </p>
-            <h1
-              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] max-w-5xl"
-              style={{ fontSize: "clamp(2rem, 1.5rem + 6vw, 7rem)" }}
-            >
+            <h1 className="font-page-title max-w-5xl">
               <AccentText>I nostri progetti</AccentText>
             </h1>
             <p className="mt-8 text-body text-white/35 max-w-xl">
@@ -47,7 +44,7 @@ export default function Progetti() {
             </h2>
             <a
               href="/contatti"
-              className="inline-block text-button bg-black-deep text-white px-10 py-4 hover:bg-gold hover:text-black-deep transition-colors duration-300"
+              className="inline-block text-button bg-black-deep text-white px-10 py-4 hover:bg-bordeaux hover:text-black-deep transition-colors duration-300"
             >
               Contattaci
             </a>

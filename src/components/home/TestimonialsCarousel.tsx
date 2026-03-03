@@ -7,28 +7,22 @@ import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
-    name: "Marco R.",
+    name: "Anna Forziati",
     location: "Gorla Maggiore",
-    text: "Professionalità e competenza. Ci hanno seguito dalla scelta dei serramenti fino all'installazione. Risultato eccellente.",
-    projectType: "Sostituzione serramenti",
+    text: "Consiglio questa ditta, ci siamo trovati benissimo con i lavori di ristrutturazione. Molto professionali e gentili.",
+    projectType: "Ristrutturazione",
   },
   {
-    name: "Laura B.",
-    location: "Busto Arsizio",
-    text: "Showroom bellissimo con tanti prodotti esposti. Consulenza impeccabile e preventivo dettagliato. Molto soddisfatta.",
-    projectType: "Porte interne",
-  },
-  {
-    name: "Giuseppe M.",
-    location: "Castellanza",
-    text: "Abbiamo ristrutturato casa con Mood Abitare. Un unico referente per tutto, dalla progettazione allo smaltimento dei vecchi infissi. Consigliatissimi!",
+    name: "Gigi Barbi",
+    location: "Varese",
+    text: "Impresa consigliatissima, ristrutturazione completa di un appartamento in condominio al terzo piano — impianti, infissi, pavimenti, insomma tutto. Nessun tipo di problema, hanno gestito loro tutte le pratiche. Oltretutto, hanno presentato il preventivo più basso dei concorrenti!",
     projectType: "Ristrutturazione completa",
   },
   {
-    name: "Francesca D.",
-    location: "Varese",
-    text: "Ottima esperienza con le finestre Oknoplast. Grande risparmio energetico e assistenza post-vendita impeccabile.",
-    projectType: "Finestre PVC",
+    name: "Francesco Cazzaniga",
+    location: "Provincia di Varese",
+    text: "5 stelle per la professionalità, Carmine e il team sempre disponibili e attenti alle esigenze del cliente. Consigliatissimo.",
+    projectType: "Serramenti",
   },
 ];
 
@@ -62,14 +56,14 @@ export function TestimonialsCarousel() {
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {testimonials.map((t, i) => (
-              <div key={i} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pr-6 lg:pr-10">
+              <div key={i} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pr-6 sm:pr-8 lg:pr-10">
                 <div className="h-full">
                   <div className="h-px w-12 bg-black-deep mb-8" />
                   <p className="text-body text-black-deep/60 italic">
                     &ldquo;{t.text}&rdquo;
                   </p>
                   <div className="mt-8">
-                    <p className="font-display text-[clamp(0.875rem,0.85rem+0.15vw,1rem)] font-medium text-black-deep tracking-wide">
+                    <p className="font-card-title text-black-deep">
                       {t.name}
                     </p>
                     <p className="mt-1 text-caption text-black-deep/50">

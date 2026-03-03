@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CONTACT_INFO, OPENING_HOURS, MACRO_CATEGORIES, NAV_ITEMS } from "@/lib/constants";
 
-const MARQUEE_TEXT = "Mood Abitare — Serramenti — Porte — Ristrutturazioni — Arredo Casa — Premium Partner Oknoplast — ";
+const MARQUEE_TEXT = "Moschiano Srl — Serramenti — Porte — Ristrutturazioni — Arredo Casa — Premium Partner Oknoplast — ";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,7 +33,7 @@ export function Footer() {
             <Link href="/" className="inline-block mb-6">
               <Image
                 src="/logo/logo-mood-abitare-clean.png"
-                alt="Mood Abitare"
+                alt="Moschiano Srl"
                 width={200}
                 height={50}
                 className="h-9 w-auto brightness-0 invert"
@@ -48,13 +48,23 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h3 className="text-label text-white/30 mb-5">Navigazione</h3>
             <ul className="space-y-2.5">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-caption text-white/50 hover:text-white transition-colors duration-300">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {NAV_ITEMS.flatMap((item) =>
+                item.hasDropdown && item.children
+                  ? item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} className="text-caption text-white/50 hover:text-white transition-colors duration-300">
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))
+                  : [
+                      <li key={item.href}>
+                        <Link href={item.href} className="text-caption text-white/50 hover:text-white transition-colors duration-300">
+                          {item.label}
+                        </Link>
+                      </li>,
+                    ]
+              )}
             </ul>
           </div>
 
@@ -105,7 +115,7 @@ export function Footer() {
       <div className="border-t border-white/5 py-5 px-6 sm:px-10 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
           <p className="text-caption text-white/20">
-            &copy; {currentYear} Moschiano Solution. Tutti i diritti riservati.
+            &copy; {currentYear} Moschiano Srl. Tutti i diritti riservati.
           </p>
           <Link href="/privacy-policy" className="text-caption text-white/20 hover:text-white/40 transition-colors">
             Privacy & Cookie Policy

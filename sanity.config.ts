@@ -4,8 +4,8 @@ import { schemaTypes } from "./src/sanity/schemas";
 import { structure } from "./src/sanity/desk/structure";
 
 export default defineConfig({
-  name: "mood-abitare",
-  title: "Mood Abitare CMS",
+  name: "moschiano-srl",
+  title: "Moschiano Srl CMS",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "placeholder",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   basePath: "/studio",

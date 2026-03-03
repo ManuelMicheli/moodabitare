@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/studio", "/api/"],
       },
     ],
-    sitemap: "https://www.moodabitare.it/sitemap.xml",
+    sitemap: "https://www.moschianosrl.it/sitemap.xml",
   };
 }

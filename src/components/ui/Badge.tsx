@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: "default" | "gold" | "dark";
+  variant?: "default" | "bordeaux" | "dark";
   className?: string;
 }
 
@@ -13,7 +13,7 @@ export function Badge({ children, variant = "default", className }: BadgeProps) 
         "inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider",
         {
           "bg-cream text-black-deep": variant === "default",
-          "bg-gold/10 text-gold-dark": variant === "gold",
+          "bg-bordeaux/10 text-black-deep": variant === "bordeaux",
           "bg-black-deep text-white": variant === "dark",
         },
         className

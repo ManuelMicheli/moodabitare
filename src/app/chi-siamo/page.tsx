@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { AccentText } from "@/components/ui/AccentText";
+import { IntroEmozionale } from "@/components/chi-siamo/IntroEmozionale";
 import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/animations/StaggerContainer";
-import { AccentText } from "@/components/ui/AccentText";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Chi Siamo",
   description:
-    "Mood Abitare by Moschiano Solution: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore.",
+    "Moschiano Srl: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore.",
 };
 
 /* ── Data ─────────────────────────────────────────────────────────── */
@@ -21,31 +23,31 @@ const timeline = [
     year: "1990",
     title: "Tutto inizia qui",
     description:
-      "Un piccolo laboratorio e un sogno grande: aiutare le persone a vivere meglio nella propria casa. Nasce Moschiano Solution, con la promessa di offrire qualità artigianale e attenzione autentica per ogni cliente.",
+      "Nasce Moschiano Srl con la missione di aiutare le famiglie della provincia di Varese a vivere meglio nella propria casa. Qualità artigianale e attenzione autentica per ogni cliente, fin dal primo giorno.",
   },
   {
     year: "2000",
     title: "La casa, a 360 gradi",
     description:
-      "Ci rendiamo conto che i nostri clienti cercano un punto di riferimento unico per tutta la casa. Così allarghiamo lo sguardo: porte, arredo, superfici. Una scelta naturale, nata dall'ascolto di chi si fida di noi.",
+      "I clienti cercano un punto di riferimento unico per tutta la casa. Così allarghiamo lo sguardo: porte, arredo, superfici, ristrutturazioni. Una scelta naturale, nata dall'ascolto di chi si fida di noi.",
   },
   {
     year: "2010",
     title: "Un luogo per incontrarci",
     description:
-      "Apriamo il nostro showroom di 300 mq a Gorla Maggiore: non un semplice negozio, ma uno spazio pensato per farti sentire a casa ancor prima di cominciare. Qui puoi vedere, toccare e immaginare insieme a noi.",
+      "Apriamo il nostro showroom di 300 mq a Gorla Maggiore: non un semplice negozio, ma uno spazio pensato per toccare con mano infissi, serramenti, porte e lasciarsi ispirare dalle soluzioni di arredo.",
   },
   {
     year: "2020",
     title: "Una fiducia che cresce",
     description:
-      "Oknoplast ci sceglie come unico Premium Partner per la provincia di Varese. Un riconoscimento che ci riempie di orgoglio e che conferma ciò in cui crediamo: lavorare bene, con i migliori, per offrire il massimo a chi ci sceglie.",
+      "Oknoplast ci sceglie come unico Premium Partner per la provincia di Varese. Un riconoscimento che conferma ciò in cui crediamo: lavorare bene, con i migliori, per offrire il massimo a chi ci sceglie.",
   },
   {
     year: "Oggi",
-    title: "Mood Abitare",
+    title: "Moschiano Srl",
     description:
-      "Siamo qui per te, con lo stesso entusiasmo di sempre e l'esperienza di oltre trent'anni. 14 brand selezionati, un team dedicato e un unico obiettivo: che la tua casa diventi esattamente il posto in cui ami stare.",
+      "Siamo qui per te, con lo stesso entusiasmo di sempre e l'esperienza di oltre trent'anni. 17 brand selezionati, un team dedicato e servizi completi — inclusi design, progettazione e ristrutturazioni chiavi in mano.",
   },
 ];
 
@@ -55,102 +57,55 @@ export default function ChiSiamo() {
   return (
     <main>
       {/* ─── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black-deep via-black-soft/80 to-black-deep" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-transparent to-transparent" />
+      <section className="relative min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
+        <Image
+          src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae_upscayl_4x_upscayl-standard-4x.png"
+          alt="Showroom Moschiano Srl"
+          fill
+          className="object-cover"
+          priority
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-black-deep/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-transparent to-transparent" />
 
-        <div className="relative z-10 w-full pb-16 lg:pb-24 px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-white/30 mb-6">
-              Chi siamo
-            </p>
-          </FadeInView>
-
-          <FadeInView delay={0.15}>
-            <h1
-              className="font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] max-w-4xl"
-              style={{ fontSize: "clamp(2rem, 1.2rem + 5vw, 5.5rem)" }}
-            >
-              <AccentText>Benvenuti a casa vostra</AccentText>
-            </h1>
-          </FadeInView>
+        <div className="relative z-10 w-full pb-16 lg:pb-24 px-6 sm:px-10 lg:px-20 text-center">
+          <h1 className="font-page-title text-white">
+            Moschiano Solution — Benvenuti a casa vostra
+          </h1>
         </div>
       </section>
 
       {/* ─── Intro emozionale ──────────────────────────────────────── */}
-      <section className="py-24 lg:py-36 px-6 sm:px-10 lg:px-20">
-        <div className="max-w-3xl">
-          <FadeInView>
-            <p
-              className="font-display font-medium leading-[1.25] tracking-[-0.015em] text-black-deep"
-              style={{ fontSize: "clamp(1.25rem, 1rem + 1.5vw, 2.25rem)" }}
-            >
-              <AccentText>
-                Sappiamo cosa significa desiderare una casa che ti assomigli
-                davvero. Uno spazio dove ogni dettaglio — dalla luce che filtra
-                dalle finestre al calore dei materiali — racconta chi sei e come
-                ami vivere.
-              </AccentText>
-            </p>
-          </FadeInView>
-
-          <FadeInView delay={0.15}>
-            <p className="mt-8 text-body text-black-deep/40 leading-relaxed max-w-xl">
-              È con questa sensibilità che lavoriamo da oltre trent'anni.
-              Siamo una famiglia di professionisti che ha scelto di dedicarsi
-              interamente al mondo della casa, con la stessa passione del primo
-              giorno e l'esperienza che solo il tempo può dare. Ci piace
-              ascoltare, capire le tue esigenze e accompagnarti passo dopo passo
-              verso la soluzione giusta — quella che fa sentire bene te e chi
-              vive con te.
-            </p>
-          </FadeInView>
-        </div>
-      </section>
+      <IntroEmozionale />
 
       {/* ─── Percorso di crescita ──────────────────────────────────── */}
-      <section className="py-28 lg:py-44 bg-black-deep text-white">
+      <section className="py-20 lg:py-28 bg-cream text-black-deep">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/20 mb-5 text-center">
-              Il nostro percorso
-            </p>
-            <h2 className="font-section-title mb-20 lg:mb-28 text-center">
+            <h2 className="font-page-title text-black-deep mb-14 lg:mb-20 text-center">
               <AccentText>Il nostro cammino, insieme a voi</AccentText>
             </h2>
           </FadeInView>
 
-          <StaggerContainer className="space-y-0" staggerDelay={0.12}>
+          <StaggerContainer className="divide-y divide-black-deep/10" staggerDelay={0.08}>
             {timeline.map((item, i) => (
               <StaggerItem key={item.year}>
-                <div className="group relative grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 border-t border-white/6 last:border-b last:border-white/6">
-                  {/* Left — year large + title */}
-                  <div className="py-10 lg:py-14 lg:pr-16 flex items-baseline gap-5 lg:gap-7">
-                    <span
-                      className="font-display font-bold leading-none text-white/6 group-hover:text-gold/15 transition-colors duration-700 flex-shrink-0"
-                      style={{ fontSize: "clamp(2.5rem, 2rem + 2vw, 4.5rem)" }}
-                    >
-                      {item.year}
-                    </span>
-                    <div>
-                      <p className="text-label text-white/12 group-hover:text-gold/25 transition-colors duration-700 mb-2">
-                        Capitolo {String(i + 1).padStart(2, "0")}
-                      </p>
-                      <h3
-                        className="font-display font-medium leading-[1.05] tracking-[-0.02em] text-white"
-                        style={{ fontSize: "clamp(1.25rem, 1rem + 1vw, 1.75rem)" }}
-                      >
-                        <AccentText>{item.title}</AccentText>
-                      </h3>
-                    </div>
-                  </div>
+                <div className="group py-6 lg:py-8 grid grid-cols-[auto_1fr] lg:grid-cols-[80px_1fr_1fr] gap-x-5 lg:gap-x-10 items-baseline">
+                  {/* Year */}
+                  <span className="font-display font-bold text-black-deep/15 text-lg lg:text-xl">
+                    {item.year}
+                  </span>
 
-                  {/* Right — description */}
-                  <div className="pb-10 lg:py-14 lg:pl-16 lg:border-l lg:border-white/6 flex items-center">
-                    <p className="text-caption text-white/28 max-w-sm leading-[1.65] group-hover:text-white/42 transition-colors duration-700">
-                      {item.description}
-                    </p>
-                  </div>
+                  {/* Title */}
+                  <h3 className="font-display font-medium text-black-deep text-base lg:text-lg leading-tight">
+                    <AccentText>{item.title}</AccentText>
+                  </h3>
+
+                  {/* Description — full row on mobile, third col on desktop */}
+                  <p className="font-display text-black-deep text-sm leading-relaxed col-start-2 lg:col-start-3 mt-1 lg:mt-0 transition-colors duration-500">
+                    {item.description}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -158,17 +113,54 @@ export default function ChiSiamo() {
         </div>
       </section>
 
+      {/* ─── Instagram Banner ─────────────────────────────────────── */}
+      <section className="bg-bordeaux">
+        <a
+          href="https://www.instagram.com/moschianosrl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block py-10 lg:py-14 px-6 sm:px-10 lg:px-20"
+        >
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              {/* Instagram icon */}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-10 h-10 lg:w-12 lg:h-12 text-white/80 group-hover:text-white transition-colors duration-500"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              <div>
+                <p className="font-section-title text-white">
+                  Seguici su Instagram
+                </p>
+                <p className="font-display text-white/50 text-sm mt-1">
+                  @moschianosrl — Ispirazioni, cantieri e novità dallo showroom
+                </p>
+              </div>
+            </div>
+            <span className="font-display font-medium text-white/60 group-hover:text-white group-hover:translate-x-2 transition-all duration-500 text-lg">
+              &rarr;
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* ─── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-36 bg-white">
+      <section className="py-24 lg:py-36 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20 max-w-3xl mx-auto text-center">
           <FadeInView>
             <p className="text-label text-black-deep/25 mb-6">
               Il prossimo passo
             </p>
-            <h2
-              className="font-display font-bold uppercase leading-[0.9] tracking-[-0.02em] text-black-deep"
-              style={{ fontSize: "clamp(1.5rem, 1rem + 2.5vw, 3.5rem)" }}
-            >
+            <h2 className="font-page-title text-black-deep">
               <AccentText>Ci piacerebbe conoscerti</AccentText>
             </h2>
             <p className="mt-6 text-body text-black-deep/35 max-w-md mx-auto">

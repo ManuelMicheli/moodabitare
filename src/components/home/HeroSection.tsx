@@ -113,7 +113,7 @@ export function HeroSection() {
       {/* Background image */}
       <Image
         src="/images/Hero 2.jpg"
-        alt="Mood Abitare — design e serramenti"
+        alt="Moschiano Srl — serramenti e ristrutturazioni"
         fill
         priority
         className="object-cover"
@@ -168,7 +168,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 right-10 lg:right-20 z-10 animate-bounce">
+      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 animate-bounce">
         <svg className="h-6 w-6 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

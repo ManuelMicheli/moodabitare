@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.name} — ${product.brand}`,
     description: content?.tagline
-      ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
-      : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`,
+      ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Moschiano Srl, showroom a Gorla Maggiore (VA).`
+      : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Moschiano Srl, il tuo punto di riferimento a Varese.`,
   };
 }
 
@@ -110,10 +110,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="max-w-5xl mx-auto">
             {/* Description */}
             <FadeInView>
-              <p
-                className="font-display font-medium leading-[1.3] tracking-[-0.015em] text-black-deep max-w-3xl"
-                style={{ fontSize: "clamp(1.15rem, 1rem + 1vw, 1.75rem)" }}
-              >
+              <p className="font-display font-medium leading-[1.3] tracking-[-0.015em] text-black-deep max-w-3xl text-lg sm:text-xl lg:text-2xl">
                 {content.description}
               </p>
             </FadeInView>
@@ -152,7 +149,7 @@ export default async function ProductPage({ params }: Props) {
                       key={benefit}
                       className="flex items-start gap-3 text-caption text-black-deep/60 leading-relaxed"
                     >
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-bordeaux flex-shrink-0" />
                       {benefit}
                     </li>
                   ))}

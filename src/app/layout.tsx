@@ -9,13 +9,13 @@ import { SmoothScroll } from "@/components/shared/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.moodabitare.it"),
+  metadataBase: new URL("https://www.moschianosrl.it"),
   title: {
-    default: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
-    template: "%s | Mood Abitare",
+    default: "Moschiano Srl — Serramenti, Porte e Ristrutturazioni a Varese",
+    template: "%s | Moschiano Srl",
   },
   description:
-    "Mood Abitare by Moschiano Solution: oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast a Gorla Maggiore, Varese.",
+    "Moschiano Srl: oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast a Gorla Maggiore, Varese.",
   keywords: [
     "serramenti Varese",
     "finestre Gorla Maggiore",
@@ -25,11 +25,12 @@ export const metadata: Metadata = {
     "infissi PVC",
     "porte blindate",
     "arredo casa",
+    "Moschiano Srl",
   ],
   openGraph: {
     type: "website",
     locale: "it_IT",
-    siteName: "Mood Abitare",
+    siteName: "Moschiano Srl",
   },
   robots: {
     index: true,
@@ -41,13 +42,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Mood Abitare",
-  alternateName: "Moschiano Solution",
+  name: "Moschiano Srl",
   description:
     "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese. Premium Partner Oknoplast.",
-  url: "https://www.moodabitare.it",
-  telephone: "+390331158815",
-  email: "info@moodabitare.it",
+  url: "https://www.moschianosrl.it",
+  telephone: "+3903311120048",
+  email: "info@moschianosrl.it",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Viale Europa, 65",
@@ -77,7 +77,7 @@ const jsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: "Saturday",
-      opens: "09:00",
+      opens: "09:30",
       closes: "12:30",
     },
     {
@@ -120,11 +120,6 @@ export default function RootLayout({
         <Footer />
         <WhatsAppWidget />
         <CookieBanner />
-        {/* Temporary: Figma capture script */}
-        <Script
-          src="https://mcp.figma.com/mcp/html-to-design/capture.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

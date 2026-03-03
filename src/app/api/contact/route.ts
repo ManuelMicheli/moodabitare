@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
       const resend = new Resend(process.env.RESEND_API_KEY);
 
       await resend.emails.send({
-        from: "Mood Abitare <noreply@moodabitare.it>",
-        to: "info@moodabitare.it",
+        from: "Moschiano Srl <noreply@moschianosrl.it>",
+        to: "info@moschianosrl.it",
         replyTo: data.email,
         subject: data.subject
           ? `[Sito Web] ${data.subject}`

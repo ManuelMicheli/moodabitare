@@ -34,7 +34,7 @@ export default async function BlogPost({ params }: Props) {
                 {title}
               </h1>
               <p className="mt-6 text-caption text-white/25">
-                15 Gennaio 2024 — Mood Abitare
+                15 Gennaio 2024 — Moschiano Srl
               </p>
             </FadeInView>
           </div>

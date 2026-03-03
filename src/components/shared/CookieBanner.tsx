@@ -70,7 +70,7 @@ export function CookieBanner() {
                 </p>
                 <p className="text-xs text-mid-gray leading-relaxed">
                   Utilizziamo cookie tecnici necessari e, previo consenso, cookie di analisi per migliorare la tua esperienza.{" "}
-                  <a href="/privacy-policy" className="text-gold-dark underline">
+                  <a href="/privacy-policy" className="text-black-deep underline">
                     Privacy Policy
                   </a>
                 </p>
@@ -84,11 +84,11 @@ export function CookieBanner() {
                       className="overflow-hidden mt-3 space-y-2"
                     >
                       <label className="flex items-center gap-2 text-xs text-mid-gray">
-                        <input type="checkbox" checked disabled className="h-3 w-3 accent-gold" />
+                        <input type="checkbox" checked disabled className="h-3 w-3 accent-bordeaux" />
                         <span>Cookie tecnici (necessari)</span>
                       </label>
                       <label className="flex items-center gap-2 text-xs text-mid-gray">
-                        <input type="checkbox" defaultChecked className="h-3 w-3 accent-gold" />
+                        <input type="checkbox" defaultChecked className="h-3 w-3 accent-bordeaux" />
                         <span>Cookie analitici (Google Analytics)</span>
                       </label>
                     </motion.div>
@@ -113,7 +113,7 @@ export function CookieBanner() {
                 </Button>
                 <Button
                   onClick={() => handleConsent("all")}
-                  variant="gold"
+                  variant="bordeaux"
                   size="sm"
                   className="text-xs"
                 >

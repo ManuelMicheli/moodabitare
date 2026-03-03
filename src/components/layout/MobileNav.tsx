@@ -40,12 +40,12 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                     {item.hasMegaMenu ? (
                       <>
                         <button
-                          onClick={() => setExpandedMenu(expandedMenu === item.href ? null : item.href)}
-                          className="flex w-full items-center justify-between py-5 text-[13px] font-medium uppercase tracking-[0.15em] text-black-deep"
+                          onClick={() => setExpandedMenu(expandedMenu === "products" ? null : "products")}
+                          className="text-label flex w-full items-center justify-between py-5 text-black-deep"
                         >
                           {item.label}
                           <svg
-                            className={cn("h-4 w-4 text-black-deep/30 transition-transform", expandedMenu === item.href && "rotate-180")}
+                            className={cn("h-4 w-4 text-black-deep/30 transition-transform", expandedMenu === "products" && "rotate-180")}
                             fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -53,7 +53,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                         </button>
 
                         <AnimatePresence>
-                          {expandedMenu === item.href && (
+                          {expandedMenu === "products" && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
@@ -64,13 +64,13 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                               <div className="pl-4 pb-5 space-y-5">
                                 {MACRO_CATEGORIES.map((cat) => (
                                   <div key={cat.id}>
-                                    <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-black-deep/30">
+                                    <span className="text-label text-black-deep/30">
                                       {cat.label}
                                     </span>
                                     <ul className="mt-2 space-y-2">
                                       {cat.products.map((product) => (
                                         <li key={product.slug}>
-                                          <Link href={`/prodotti/${product.slug}`} onClick={onClose} className="block text-[13px] text-black-deep/60 hover:text-black-deep">
+                                          <Link href={`/prodotti/${product.slug}`} onClick={onClose} className="block font-card-title text-black-deep/80 hover:text-black-deep">
                                             {product.name}
                                           </Link>
                                         </li>
@@ -83,8 +83,48 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                           )}
                         </AnimatePresence>
                       </>
+                    ) : item.hasDropdown && item.children ? (
+                      <>
+                        <button
+                          onClick={() => setExpandedMenu(expandedMenu === item.label ? null : item.label)}
+                          className="text-label flex w-full items-center justify-between py-5 text-black-deep"
+                        >
+                          {item.label}
+                          <svg
+                            className={cn("h-4 w-4 text-black-deep/30 transition-transform", expandedMenu === item.label && "rotate-180")}
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+
+                        <AnimatePresence>
+                          {expandedMenu === item.label && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 pb-5 space-y-1">
+                                {item.children.map((child) => (
+                                  <Link
+                                    key={child.href}
+                                    href={child.href}
+                                    onClick={onClose}
+                                    className="block py-2 text-caption text-black-deep/60 hover:text-black-deep"
+                                  >
+                                    {child.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
                     ) : (
-                      <Link href={item.href} onClick={onClose} className="block py-5 text-[13px] font-medium uppercase tracking-[0.15em] text-black-deep">
+                      <Link href={item.href} onClick={onClose} className="text-label block py-5 text-black-deep">
                         {item.label}
                       </Link>
                     )}
@@ -96,7 +136,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                 <Link
                   href="/contatti"
                   onClick={onClose}
-                  className="block w-full py-4 text-center text-[12px] font-medium uppercase tracking-[0.2em] bg-black-deep text-white"
+                  className="text-button block w-full py-4 text-center bg-black-deep text-white"
                 >
                   Preventivo Gratuito
                 </Link>

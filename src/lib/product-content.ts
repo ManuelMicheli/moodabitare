@@ -103,6 +103,30 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Cassonetto, oscurante e VMC integrati: zero ponti termici, aria sempre pulita",
   },
 
+  /* ── PORTONCINI ────────────────────────────────────────────────── */
+
+  "portoncini-alluminio-oknoplast": {
+    tagline: "L'ingresso che accoglie con stile e sicurezza",
+    description:
+      "I portoncini in alluminio Oknoplast della linea Tenvis offrono un'ampia gamma di modelli personalizzabili con accessori e finiture di pregio. Design contemporaneo e prestazioni elevate di isolamento termico e sicurezza antieffrazione, per un ingresso che valorizza l'intera facciata della tua casa.",
+    specs: [
+      { label: "Materiale", value: "Alluminio a taglio termico" },
+      { label: "Linea", value: "Tenvis — ampia gamma modelli" },
+      { label: "Sicurezza", value: "Prestazioni antieffrazione certificate" },
+      { label: "Isolamento termico", value: "Elevate prestazioni di isolamento" },
+      { label: "Personalizzazione", value: "Accessori e finiture personalizzabili" },
+      { label: "Garanzia", value: "Garanzia estesa Oknoplast" },
+    ],
+    benefits: [
+      "Ampia scelta di modelli della linea Tenvis",
+      "Personalizzabile con accessori e finiture di pregio",
+      "Elevate prestazioni di isolamento termico",
+      "Sicurezza antieffrazione certificata",
+      "Detrazioni fiscali con pratica gestita da noi",
+    ],
+    cardDescription: "Portoncini Oknoplast linea Tenvis: design, isolamento e sicurezza antieffrazione",
+  },
+
   /* ── PORTE ──────────────────────────────────────────────────────── */
 
   "porte-blindate-alias": {
@@ -122,7 +146,7 @@ export const productContent: Record<string, ProductContent> = {
       "Isolamento termico e acustico: la porta d'ingresso non è più il punto debole",
       "Finiture personalizzabili: da fuori protegge, da dentro arreda",
       "Serrature europee di ultima generazione con cilindro antitrapano",
-      "Installazione e assistenza diretta con garanzia Mood Abitare",
+      "Installazione e assistenza diretta con garanzia Moschiano Srl",
     ],
     cardDescription: "Protezione fino a Classe 4, isolamento termico e acustico, finiture eleganti",
   },
@@ -168,7 +192,7 @@ export const productContent: Record<string, ProductContent> = {
       "Lamelle orientabili per dosare luce e aria senza rinunciare alla sicurezza",
       "Zero manutenzione: verniciatura a polvere resistente a sole e intemperie",
       "Estetica classica o moderna, personalizzabile su misura",
-      "Installazione professionale con garanzia Mood Abitare",
+      "Installazione professionale con garanzia Moschiano Srl",
     ],
     cardDescription: "Oscuramento e sicurezza in un'unica soluzione, zero manutenzione",
   },

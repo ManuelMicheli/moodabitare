@@ -7,16 +7,16 @@ import { AccentText } from "@/components/ui/AccentText";
 /* ── Copy ────────────────────────────────────────────────────────── */
 
 const HEADLINE =
-  "Una casa che funziona davvero cambia il modo in cui vivi ogni giorno. Da oltre trent'anni aiutiamo le famiglie della provincia di Varese a scegliere serramenti, porte e soluzioni d'arredo che migliorano concretamente il comfort, riducono i costi energetici e valorizzano gli ambienti nel tempo.";
+  "Se devi acquistare nuove porte e finestre in provincia di Varese puoi fare affidamento su Moschiano Srl. L'azienda vanta oltre trent'anni di attività nel settore, una lunga esperienza che ha permesso di diventare un vero e proprio punto di riferimento nell'area di Varese per tutto quanto concerne le ristrutturazioni e le nuove costruzioni.";
 
 const BODY_1 =
-  "Con Mood Abitare hai un unico interlocutore per tutto il progetto: dalla consulenza gratuita con il nostro architetto al render 3D della tua casa, fino alla posa certificata e allo smaltimento dei vecchi serramenti. Niente subappalti, niente sorprese. I nostri posatori lavorano con noi da anni e sono certificati direttamente dai produttori — il risultato si vede nella durata e nella resa di ogni installazione.";
+  "Accanto a un'ampia selezione di infissi e serramenti dalle eccellenti capacità isolanti, nel punto vendita di Gorla Maggiore si trovano solide porte blindate, persiane, avvolgibili e altri oscuranti, grate e inferriate di sicurezza, zanzariere, monoblocchi, VMC, parquet, cucine su misura, arredo bagno, scale, ringhiere, sanitari, rubinetteria e molto altro.";
 
 const BODY_2 =
-  "Nel nostro showroom di 300 mq a Gorla Maggiore puoi vedere, toccare e confrontare le soluzioni di 14 brand selezionati tra i migliori in Italia e in Europa. Come unico Premium Partner Oknoplast della provincia di Varese, ti garantiamo accesso a condizioni esclusive, garanzie estese e prodotti con le più alte certificazioni internazionali di isolamento termico e acustico.";
+  "L'azienda seleziona attentamente i propri fornitori scegliendo soltanto le aziende più innovative e affidabili, in Italia e in Europa, per offrire ai clienti soluzioni moderne che coniugano perfetta funzionalità e design accattivante e altamente personalizzabile.";
 
 const BODY_3 =
-  "Ci occupiamo anche di tutta la parte burocratica: detrazioni fiscali al 50%, pratiche ENEA e documentazione tecnica. Tu scegli come vuoi vivere la tua casa, al resto pensiamo noi.";
+  "Moschiano Srl propone ai suoi clienti una vasta scelta di infissi e serramenti in grado di migliorare l'efficienza termica della casa, così da ridurre i consumi energetici e i relativi costi in bolletta. Tutti i posatori sono altamente qualificati e in possesso del patentino di posa certificata.";
 
 /* ── Helpers ──────────────────────────────────────────────────────── */
 

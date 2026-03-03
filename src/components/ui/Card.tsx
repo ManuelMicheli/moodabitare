@@ -23,7 +23,7 @@ export function Card({
           "p-8 sm:p-10": padding === "lg",
         },
         hover &&
-          "transition-all duration-300 hover:shadow-lg hover:border-gold/30 hover:-translate-y-1",
+          "transition-all duration-300 hover:shadow-lg hover:border-bordeaux/30 hover:-translate-y-1",
         className
       )}
     >

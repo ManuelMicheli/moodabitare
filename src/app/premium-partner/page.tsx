@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { AccentText } from "@/components/ui/AccentText";
@@ -6,7 +7,7 @@ import { AccentText } from "@/components/ui/AccentText";
 export const metadata: Metadata = {
   title: "Premium Partner Oknoplast",
   description:
-    "Mood Abitare è Premium Partner Oknoplast per la provincia di Varese. Scopri i vantaggi di scegliere un partner certificato per i tuoi serramenti.",
+    "Moschiano Srl è Premium Partner Oknoplast per la provincia di Varese. Scopri i vantaggi di scegliere un partner certificato per i tuoi serramenti.",
 };
 
 const benefits = [
@@ -17,12 +18,12 @@ const benefits = [
 ];
 
 const oknoplastFeatures = [
-  "Multinazionale specializzata in serramenti PVC e alluminio di design",
-  "Fondata a Cracovia nel 1994, simbolo di innovazione in Europa",
-  "PVC vergine, riciclabile al 100%",
+  "Azienda multinazionale specializzata nella progettazione e produzione di serramenti in PVC e alluminio di design",
+  "Fondata a Cracovia nel 1994",
+  "Serramenti brevettati e originali con estetica di altissimo livello",
   "Prestazioni eccezionali di isolamento termico e acustico",
-  "Personalizzazione completa: finiture, maniglie, accessori",
-  "Numerose certificazioni internazionali",
+  "Personalizzabili in ogni parte: finiture, maniglie, accessori estetici e funzionali",
+  "Numerose certificazioni internazionali presso prestigiosi istituti indipendenti europei",
 ];
 
 export default function PremiumPartner() {
@@ -36,16 +37,71 @@ export default function PremiumPartner() {
             <p className="text-label text-white/40 mb-6">
               Premium Partner
             </p>
-            <h1
-              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] max-w-5xl"
-              style={{ fontSize: "clamp(2rem, 1.5rem + 6vw, 7rem)" }}
-            >
-              <AccentText>Mood Abitare è Premium Partner Oknoplast</AccentText>
+            <h1 className="font-page-title max-w-5xl">
+              <AccentText>Moschiano Srl è Premium Partner Oknoplast</AccentText>
             </h1>
             <p className="mt-8 text-body text-white/35 max-w-xl">
-              Selezionata da Oknoplast come Premium Partner per la provincia di Varese. Una rete ristretta di operatori in tutta Italia, riconosciuti per l&apos;eccellenza.
+              Moschiano Srl è stata selezionata da Oknoplast come Premium Partner per la provincia di Varese. Fa parte di una ristretta rete di operatori che garantiscono ai propri clienti un&apos;elevata qualità dei prodotti e dei servizi offerti.
             </p>
           </FadeInView>
+        </div>
+      </section>
+
+      {/* Oknoplast image banner */}
+      <section className="relative h-[65vh] min-h-[450px] flex items-end justify-end text-white overflow-hidden">
+        <Image
+          src="/images/Oknoplast-azienda-vista-aerea 1.png"
+          alt="Oknoplast azienda vista aerea"
+          fill
+          className="object-cover"
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-gradient-to-tl from-black-deep/85 via-black-deep/50 to-transparent" />
+
+        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 pb-12 lg:pb-16">
+          <div className="flex flex-col items-end text-right">
+            <FadeInView>
+              <p className="text-label text-white/50 mb-4">
+                Premium Partner Oknoplast
+              </p>
+            </FadeInView>
+
+            <FadeInView delay={0.1}>
+              <h2 className="font-section-title text-white">
+                Il partner ideale
+                <br />
+                per la tua casa
+              </h2>
+            </FadeInView>
+
+            <FadeInView delay={0.2}>
+              <p className="mt-5 text-body text-white/60 max-w-md">
+                Moschiano Srl è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
+                Una ristretta rete di operatori che garantisce qualità ed eccellenza.
+              </p>
+            </FadeInView>
+
+            <FadeInView delay={0.3}>
+              <div className="mt-8 flex flex-wrap gap-8 lg:gap-10">
+                {[
+                  { value: "30+", label: "Anni di esperienza" },
+                  { value: "100%", label: "PVC riciclabile" },
+                  { value: "RC2", label: "Classe antieffrazione" },
+                  { value: "A+", label: "Efficienza energetica" },
+                ].map((item) => (
+                  <div key={item.label} className="text-right">
+                    <div className="font-display text-[clamp(1.5rem,2.5vw,2rem)] font-bold text-white leading-none">
+                      {item.value}
+                    </div>
+                    <div className="mt-3 h-px w-8 bg-white/20 ml-auto" />
+                    <p className="mt-3 text-caption text-white/50">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </FadeInView>
+          </div>
         </div>
       </section>
 
