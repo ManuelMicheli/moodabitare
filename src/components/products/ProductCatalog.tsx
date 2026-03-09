@@ -1,13 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MACRO_CATEGORIES, ALL_PRODUCTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
 export function ProductCatalog() {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get("categoria");
+  const [activeCategory, setActiveCategory] = useState<string | null>(
+    MACRO_CATEGORIES.some((c) => c.id === initialCategory) ? initialCategory : null
+  );
 
   const filtered = activeCategory
     ? ALL_PRODUCTS.filter((p) => p.macroCategoryId === activeCategory)

@@ -3,9 +3,7 @@ import Script from "next/script";
 import { cormorantGaramond, outfit } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppWidget } from "@/components/shared/WhatsAppWidget";
-import { CookieBanner } from "@/components/shared/CookieBanner";
-import { SmoothScroll } from "@/components/shared/SmoothScroll";
+import { LazyOverlays } from "@/components/shared/LazyOverlays";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -112,14 +110,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SmoothScroll />
         <div className="relative z-10 bg-cream">
           <Header />
           {children}
         </div>
         <Footer />
-        <WhatsAppWidget />
-        <CookieBanner />
+        <LazyOverlays />
       </body>
     </html>
   );

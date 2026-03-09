@@ -3,25 +3,25 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
-import { HorizontalGallery } from "@/components/products/HorizontalGallery";
+import { HorizontalGallery, type GalleryImage } from "@/components/products/HorizontalGallery";
 import { ALL_PRODUCTS, MACRO_CATEGORIES } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
 
-const productImages: Record<string, string[]> = {
+const productImages: Record<string, GalleryImage[]> = {
   "finestre-pvc-oknoplast": [
-    "/images/1Finestra-Prolux-2017-1024x768.jpg",
-    "/images/2Finestra-Prolux-Evolution-1024x768.jpg",
-    "/images/SL_Prolux--1024x768.jpg",
-    "/images/SL_Prolux-Plus-1024x768.jpg",
-    "/images/3Prolux-Swing-di-Oknoplast-1024x768.jpg",
-    "/images/4Prolux-Vitro-di-Oknoplast-1024x768.jpg",
-    "/images/5Finestra-Platinium-Plus-1024x768.jpg",
-    "/images/6Finestra-Squareline-1024x768.jpg",
-    "/images/7Finestra-Prismatic-1024x768.jpg",
-    "/images/8Prismatic-Evolution-1024x768.jpg",
-    "/images/9Finestra-Winergetic-Premium-1024x768.jpg",
-    "/images/10Finestra-Winergetic-Premium-Passive-1024x768.jpg",
-    "/images/11Finestra-Winergetic-Alu-1024x768.jpg",
+    { src: "/images/1Finestra-Prolux-2017-1024x768.png", name: "Prolux" },
+    { src: "/images/2Finestra-Prolux-Evolution-1024x768.png", name: "Prolux Evolution" },
+    { src: "/images/SL_Prolux--1024x768.png", name: "Scorrevole Prolux" },
+    { src: "/images/SL_Prolux-Plus-1024x768.png", name: "Scorrevole Prolux Plus" },
+    { src: "/images/3Prolux-Swing-di-Oknoplast-1024x768.png", name: "Prolux Swing" },
+    { src: "/images/4Prolux-Vitro-di-Oknoplast-1024x768.png", name: "Prolux Vitro" },
+    { src: "/images/5Finestra-Platinium-Plus-1024x768.png", name: "Platinium Plus" },
+    { src: "/images/6Finestra-Squareline-1024x768.png", name: "Squareline" },
+    { src: "/images/7Finestra-Prismatic-1024x768.png", name: "Prismatic" },
+    { src: "/images/8Prismatic-Evolution-1024x768.png", name: "Prismatic Evolution" },
+    { src: "/images/9Finestra-Winergetic-Premium-1024x768.png", name: "Winergetic Premium" },
+    { src: "/images/10Finestra-Winergetic-Premium-Passive-1024x768.png", name: "Winergetic Premium Passive" },
+    { src: "/images/11Finestra-Winergetic-Alu-1024x768.png", name: "Winergetic Alu" },
   ],
 };
 
