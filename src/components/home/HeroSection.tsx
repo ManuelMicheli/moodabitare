@@ -45,6 +45,10 @@ export function HeroSection() {
   useEffect(() => {
     if (!contentRef.current) return;
 
+    const els = [headlineRef.current, subRef.current, ctaRef.current, indicatorsRef.current];
+    // Reset all elements to visible before animating (fixes isMobile flip killing mid-animation)
+    gsap.set(els, { opacity: 1, y: 0, clipPath: "none" });
+
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     if (isMobile) {
