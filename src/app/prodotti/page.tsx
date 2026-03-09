@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ProductCatalog } from "@/components/products/ProductCatalog";
@@ -41,7 +42,9 @@ export default function ProdottiPage() {
       {/* Products */}
       <section className="pt-10 lg:pt-14 pb-32 lg:pb-44">
         <div className="px-6 sm:px-10 lg:px-20">
-          <ProductCatalog />
+          <Suspense>
+            <ProductCatalog />
+          </Suspense>
         </div>
       </section>
     </main>
