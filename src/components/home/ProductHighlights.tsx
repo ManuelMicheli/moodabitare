@@ -25,7 +25,7 @@ export function ProductHighlights() {
         {/* Giant title — sticky, highest z over text, lowest z under cards */}
         <h2
           className="sticky top-[28vh] sm:top-[32vh] z-20 text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep pointer-events-none select-none sm:whitespace-nowrap"
-          style={{ fontSize: "clamp(0.9rem, 4.2vw, 9rem)" }}
+          style={{ fontSize: "clamp(1.75rem, 4.2vw, 9rem)" }}
         >
           <AccentText>Qualità e design per ogni ambiente</AccentText>
         </h2>
@@ -48,7 +48,46 @@ export function ProductHighlights() {
         </div>
 
         {/* Product cards — z-30, title passes BEHIND these */}
-        <div className="relative z-30 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-8 sm:max-w-[75%] sm:mx-auto">
+        <div className="relative z-30 flex flex-col gap-2 px-4 sm:hidden">
+          {MACRO_CATEGORIES.map((cat, i) => (
+            <FadeInView key={cat.id} delay={i * 0.08}>
+              <Link
+                href={`/prodotti?categoria=${cat.id}`}
+                className="group flex overflow-hidden bg-black-soft h-24"
+              >
+                <div className="relative w-28 flex-shrink-0 overflow-hidden bg-warm-gray">
+                  {categoryImages[cat.id] ? (
+                    <Image
+                      src={categoryImages[cat.id]}
+                      alt={cat.label}
+                      fill
+                      className="object-cover"
+                      sizes="112px"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-black-soft" />
+                  )}
+                </div>
+                <div className="flex flex-col justify-center px-4 py-3 min-w-0">
+                  <span className="text-label text-white/40">
+                    {cat.products.length} prodotti
+                  </span>
+                  <h3 className="mt-0.5 font-card-title text-white truncate">
+                    {cat.label}
+                  </h3>
+                </div>
+                <div className="ml-auto flex items-center pr-4 flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white/30">
+                    <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </Link>
+            </FadeInView>
+          ))}
+        </div>
+
+        {/* Desktop cards */}
+        <div className="relative z-30 hidden sm:grid sm:grid-cols-3 gap-8 max-w-[75%] mx-auto">
           {MACRO_CATEGORIES.map((cat, i) => (
             <FadeInView key={cat.id} delay={i * 0.08}>
               <Link
@@ -62,13 +101,13 @@ export function ProductHighlights() {
                       alt={cat.label}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 640px) 50vw, 25vw"
+                      sizes="25vw"
                     />
                   ) : (
                     <div className="absolute inset-0 bg-black-soft" />
                   )}
                 </div>
-                <div className="p-4 sm:p-5 lg:p-5">
+                <div className="p-5">
                   <span className="text-label text-white/40">
                     {cat.products.length} prodotti
                   </span>
