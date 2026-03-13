@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export function SiteLoader() {
+  const [isDone, setIsDone] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const clipRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
@@ -18,8 +19,8 @@ export function SiteLoader() {
 
     try {
       if (sessionStorage.getItem("moschiano-loaded")) {
-        removeBackdrop();
-        overlayRef.current?.remove();
+        hideBackdrop();
+        setIsDone(true);
         return;
       }
     } catch {
@@ -48,9 +49,9 @@ export function SiteLoader() {
     }
   }, []);
 
-  function removeBackdrop() {
+  function hideBackdrop() {
     const backdrop = document.getElementById("site-loader-backdrop");
-    if (backdrop) backdrop.remove();
+    if (backdrop) backdrop.style.display = "none";
   }
 
   function showAllStatic() {
@@ -144,8 +145,8 @@ export function SiteLoader() {
 
     const tl = gsap.timeline({
       onComplete: () => {
-        overlayRef.current?.remove();
-        removeBackdrop();
+        setIsDone(true);
+        hideBackdrop();
         try {
           sessionStorage.setItem("moschiano-loaded", "1");
         } catch {
@@ -180,6 +181,8 @@ export function SiteLoader() {
       0.3
     );
   }
+
+  if (isDone) return null;
 
   return (
     <div
