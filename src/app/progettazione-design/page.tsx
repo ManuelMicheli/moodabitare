@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
-import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { AccentText } from "@/components/ui/AccentText";
+import { HoverFillSection } from "@/components/progettazione-design/HoverFillSection";
 
 export const metadata: Metadata = {
   title: "Progettazione e Design",
@@ -10,24 +10,36 @@ export const metadata: Metadata = {
     "Moschiano Srl: servizio di progettazione e design per serramenti e interni. Consulenza personalizzata, showroom di 300mq e percorso completo dalla visione alla realizzazione.",
 };
 
-const phases = [
+const designServices = [
   {
     number: "01",
-    title: "Progettazione a 360\u00b0, dai serramenti agli interni",
+    title: "CONSULENZA SU MISURA",
     description:
-      "Esperienza trentennale nel settore dei serramenti con visione completa dell\u2019abitare. Soluzioni complete per serramenti e infissi, cucine su misura funzionali e di design, arredo bagno, coordinamento di ristrutturazioni complete chiavi in mano.",
+      "Ascoltiamo le tue esigenze, analizziamo gli spazi e proponiamo soluzioni che uniscono estetica e funzionalit\u00e0.",
   },
   {
     number: "02",
-    title: "Il valore dello showroom",
+    title: "PROGETTAZIONE A 360\u00b0",
     description:
-      "Nello showroom a Gorla Maggiore \u00e8 possibile toccare con mano la qualit\u00e0 dei materiali, confrontare colori, texture e finiture dal vivo. Uno staff competente e preparato accompagna in questo percorso di scoperta, aiutando a visualizzare come ogni elemento si integrer\u00e0 nel progetto. Un vero laboratorio di idee.",
+      "Dai serramenti agli interni: un unico team per serramenti, cucine su misura, arredo bagno e ristrutturazioni complete.",
   },
   {
     number: "03",
-    title: "Un percorso completo",
+    title: "ESPERIENZA IN SHOWROOM",
     description:
-      "Supporto completo: dal primo incontro, dove il cliente racconta la sua visione, allo sviluppo del concept, fino alla presentazione del progetto finale e al perfezionamento dei dettagli per la realizzazione finale. Ogni fase \u00e8 seguita personalmente per garantire che il risultato rispetti perfettamente il progetto.",
+      "Nel nostro showroom di 300 mq a Gorla Maggiore puoi toccare con mano materiali, confrontare finiture e colori dal vivo.",
+  },
+  {
+    number: "04",
+    title: "RENDER 3D E VISUALIZZAZIONE",
+    description:
+      "Il nostro architetto d\u00e0 forma alle tue idee con render fotorealistici, cos\u00ec puoi vedere il risultato prima dell\u2019installazione.",
+  },
+  {
+    number: "05",
+    title: "CONSEGNA CHIAVI IN MANO",
+    description:
+      "Un unico referente dalla progettazione allo smaltimento: ci occupiamo di tutto noi, con posa certificata.",
   },
 ];
 
@@ -89,51 +101,8 @@ export default function ProgettazioneDesign() {
         </div>
       </section>
 
-      {/* 3 Fasi */}
-      <section className="py-28 lg:py-44 bg-black-deep text-white">
-        <div className="px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-white/20 mb-5">
-              Il nostro approccio
-            </p>
-            <h2 className="font-section-title mb-20 lg:mb-28">
-              <AccentText>Tre fasi per il tuo progetto</AccentText>
-            </h2>
-          </FadeInView>
-
-          <StaggerContainer className="space-y-0" staggerDelay={0.12}>
-            {phases.map((phase) => (
-              <StaggerItem key={phase.number}>
-                <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-16 py-12 lg:py-16 border-t border-white/6">
-                  <div className="flex items-start gap-6">
-                    <span
-                      className="font-display font-bold text-white/8 leading-none"
-                      style={{
-                        fontSize: "clamp(2.5rem, 2rem + 2vw, 4.5rem)",
-                      }}
-                    >
-                      {phase.number}
-                    </span>
-                    <div className="lg:min-w-[280px]">
-                      <h3
-                        className="font-display font-medium leading-[1.1] tracking-[-0.02em] text-white"
-                        style={{
-                          fontSize: "clamp(1.25rem, 1rem + 1vw, 1.75rem)",
-                        }}
-                      >
-                        <AccentText>{phase.title}</AccentText>
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="text-caption text-white/35 max-w-lg leading-[1.65]">
-                    {phase.description}
-                  </p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* Servizi di progettazione — Hover Fill */}
+      <HoverFillSection services={designServices} />
 
       {/* CTA */}
       <section className="py-16 lg:py-36 bg-white">

@@ -337,3 +337,10 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Hide loader backdrop when JS is disabled */
+@media (scripting: none) {
+  #site-loader-backdrop {
+    display: none !important;
+  }
+}

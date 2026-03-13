@@ -105,6 +105,23 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${cormorantGaramond.variable} ${outfit.variable}`}>
       <body className="antialiased">
+        {/* Server-rendered backdrop — visible from first paint, before JS hydrates */}
+        <div
+          id="site-loader-backdrop"
+          suppressHydrationWarning
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9998,
+            background: "#2b2b2b",
+          }}
+        />
+        {/* Inline script: immediately hide backdrop if already loaded this session (hide, don't remove — removal would break hydration) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("moschiano-loaded")){var b=document.getElementById("site-loader-backdrop");if(b)b.style.display="none"}}catch(e){}`,
+          }}
+        />
         <Script
           id="json-ld"
           type="application/ld+json"

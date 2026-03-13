@@ -2,6 +2,10 @@
 
 import dynamic from "next/dynamic";
 
+const SiteLoader = dynamic(
+  () => import("@/components/shared/SiteLoader").then((m) => m.SiteLoader),
+  { ssr: false }
+);
 const SmoothScroll = dynamic(
   () => import("@/components/shared/SmoothScroll").then((m) => m.SmoothScroll),
   { ssr: false }
@@ -18,6 +22,7 @@ const CookieBanner = dynamic(
 export function LazyOverlays() {
   return (
     <>
+      <SiteLoader />
       <SmoothScroll />
       <WhatsAppWidget />
       <CookieBanner />
