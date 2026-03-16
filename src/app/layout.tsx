@@ -24,78 +24,164 @@ export const metadata: Metadata = {
     "porte blindate",
     "arredo casa",
     "Mood Abitare",
+    "showroom serramenti Varese",
+    "finestre PVC Varese",
+    "porte interne Varese",
+    "ristrutturazione casa Varese",
+    "serramenti Gorla Maggiore",
+    "infissi alluminio Varese",
+    "serramenti legno Varese",
   ],
   openGraph: {
     type: "website",
     locale: "it_IT",
     siteName: "Mood Abitare",
+    url: "https://www.moschianosrl.it",
+    title: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
+    description:
+      "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast a Gorla Maggiore, Varese.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
+    description:
+      "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast.",
+  },
+  alternates: {
+    canonical: "https://www.moschianosrl.it",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  category: "Home Improvement",
 };
 
-// Schema.org LocalBusiness JSON-LD
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Mood Abitare",
-  description:
-    "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese. Premium Partner Oknoplast.",
-  url: "https://www.moschianosrl.it",
-  telephone: "+3903311588159",
-  email: "info@moodabitare.it",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Viale Europa, 65",
-    addressLocality: "Gorla Maggiore",
-    addressRegion: "VA",
-    postalCode: "21050",
-    addressCountry: "IT",
+// Schema.org JSON-LD — multiple schemas for rich results
+const jsonLdSchemas = [
+  // WebSite schema — enables sitelinks search box in Google
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Mood Abitare",
+    url: "https://www.moschianosrl.it",
+    description:
+      "Mood Abitare: serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.",
+    publisher: {
+      "@type": "Organization",
+      name: "Mood Abitare",
+      url: "https://www.moschianosrl.it",
+    },
+    inLanguage: "it-IT",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 45.6278,
-    longitude: 8.8847,
+  // Organization schema — enriches Knowledge Panel
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Mood Abitare",
+    legalName: "Moschiano Srl",
+    url: "https://www.moschianosrl.it",
+    logo: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+3903311588159",
+      contactType: "customer service",
+      availableLanguage: "Italian",
+      areaServed: "IT",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Viale Europa, 65",
+      addressLocality: "Gorla Maggiore",
+      addressRegion: "VA",
+      postalCode: "21050",
+      addressCountry: "IT",
+    },
   },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:30",
-      closes: "12:30",
+  // LocalBusiness schema — the core local SEO schema
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://www.moschianosrl.it/#business",
+    name: "Mood Abitare",
+    description:
+      "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese. Premium Partner Oknoplast.",
+    url: "https://www.moschianosrl.it",
+    telephone: "+3903311588159",
+    email: "info@moodabitare.it",
+    image: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
+    logo: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Viale Europa, 65",
+      addressLocality: "Gorla Maggiore",
+      addressRegion: "VA",
+      postalCode: "21050",
+      addressCountry: "IT",
     },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "14:30",
-      closes: "19:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "09:30",
-      closes: "12:30",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "14:00",
-      closes: "17:00",
-    },
-  ],
-  priceRange: "$$",
-  areaServed: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
+    geo: {
       "@type": "GeoCoordinates",
       latitude: 45.6278,
       longitude: 8.8847,
     },
-    geoRadius: "50000",
+    hasMap: "https://www.google.com/maps/place/Viale+Europa,+65,+21050+Gorla+Maggiore+VA",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:30",
+        closes: "12:30",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "14:30",
+        closes: "19:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:30",
+        closes: "12:30",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "14:00",
+        closes: "17:00",
+      },
+    ],
+    priceRange: "$$",
+    currenciesAccepted: "EUR",
+    paymentAccepted: "Contanti, Carta di Credito, Bonifico Bancario, Finanziamento",
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 45.6278,
+        longitude: 8.8847,
+      },
+      geoRadius: "50000",
+    },
+    knowsAbout: [
+      "Serramenti in PVC",
+      "Serramenti in alluminio",
+      "Serramenti in legno",
+      "Porte interne",
+      "Porte blindate",
+      "Ristrutturazioni",
+      "Arredo bagno",
+      "Cucine su misura",
+    ],
   },
-};
+];
 
 export default function RootLayout({
   children,
@@ -122,17 +208,26 @@ export default function RootLayout({
             __html: `try{if(sessionStorage.getItem("moschiano-loaded")){var b=document.getElementById("site-loader-backdrop");if(b)b.style.display="none"}}catch(e){}`,
           }}
         />
-        <Script
-          id="json-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {jsonLdSchemas.map((schema, i) => (
+          <Script
+            key={i}
+            id={`json-ld-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
         <div className="relative z-10 bg-cream">
           <Header />
           {children}
         </div>
         <Footer />
         <LazyOverlays />
+        {/* Botpress Chatbot */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var d=document,s1=d.createElement("script");s1.src="https://cdn.botpress.cloud/webchat/v3.6/inject.js";s1.onload=function(){var s2=d.createElement("script");s2.src="https://files.bpcontent.cloud/2026/03/16/18/20260316183415-DXS3QZ46.js";d.body.appendChild(s2)};d.body.appendChild(s1)})();`,
+          }}
+        />
       </body>
     </html>
   );

@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pagina Non Trovata",
+  description: "La pagina che stai cercando non esiste o è stata spostata. Torna alla home di Mood Abitare.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function NotFound() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-white">

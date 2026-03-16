@@ -5,8 +5,26 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contatti",
-  description: "Contatta Mood Abitare per un preventivo gratuito. Showroom a Gorla Maggiore (VA).",
+  title: "Contatti — Preventivo Gratuito Serramenti Varese",
+  description:
+    "Contatta Mood Abitare per un preventivo gratuito. Showroom in Viale Europa 65, Gorla Maggiore (VA). Tel. 0331.1588159 — WhatsApp 351.7278053. Aperto lun-ven 9:30-19:00, sab 9:30-17:00.",
+  keywords: [
+    "contatti Mood Abitare",
+    "preventivo serramenti Varese",
+    "preventivo gratuito finestre",
+    "showroom serramenti Gorla Maggiore",
+    "preventivo ristrutturazione Varese",
+    "sopralluogo gratuito Varese",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/contatti",
+  },
+  openGraph: {
+    title: "Contatti — Mood Abitare",
+    description:
+      "Richiedi un preventivo gratuito per serramenti e ristrutturazioni. Showroom a Gorla Maggiore (VA).",
+    url: "https://www.moschianosrl.it/contatti",
+  },
 };
 
 export default function Contatti() {

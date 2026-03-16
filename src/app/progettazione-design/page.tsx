@@ -5,9 +5,26 @@ import { AccentText } from "@/components/ui/AccentText";
 import { HoverFillSection } from "@/components/progettazione-design/HoverFillSection";
 
 export const metadata: Metadata = {
-  title: "Progettazione e Design",
+  title: "Progettazione e Design — Consulenza Interni e Serramenti",
   description:
-    "Mood Abitare: servizio di progettazione e design per serramenti e interni. Consulenza personalizzata, showroom di 300mq e percorso completo dalla visione alla realizzazione.",
+    "Servizio di progettazione e design Mood Abitare: consulenza su misura per serramenti, cucine, arredo bagno e interni. Showroom di 300mq a Gorla Maggiore. Dalla visione alla realizzazione.",
+  keywords: [
+    "progettazione interni Varese",
+    "consulenza arredo casa",
+    "interior design Varese",
+    "progettazione cucina su misura",
+    "consulenza serramenti gratuita",
+    "showroom arredamento Varese",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/progettazione-design",
+  },
+  openGraph: {
+    title: "Progettazione e Design — Mood Abitare",
+    description:
+      "Consulenza personalizzata per serramenti e interni. Showroom di 300mq a Gorla Maggiore (VA).",
+    url: "https://www.moschianosrl.it/progettazione-design",
+  },
 };
 
 const designServices = [

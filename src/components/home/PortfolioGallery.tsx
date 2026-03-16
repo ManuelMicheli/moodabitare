@@ -45,7 +45,7 @@ export function PortfolioGallery() {
             <div className="relative aspect-[4/3] lg:aspect-[16/12] overflow-hidden bg-warm-gray">
               <Image
                 src={projects[0].image}
-                alt=""
+                alt={`${projects[0].title} — ${projects[0].category} realizzati da Mood Abitare`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 58vw"
@@ -60,7 +60,7 @@ export function PortfolioGallery() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-warm-gray">
                   <Image
                     src={project.image}
-                    alt=""
+                    alt={`${project.title} — ${project.category} realizzati da Mood Abitare`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 42vw"

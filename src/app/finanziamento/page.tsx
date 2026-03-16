@@ -4,9 +4,26 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 
 export const metadata: Metadata = {
-  title: "Finanziamento",
+  title: "Finanziamento a Tasso Zero — Serramenti e Ristrutturazioni",
   description:
-    "Mood Abitare: finanziamento a tasso zero per serramenti e ristrutturazioni. Anticipo del 50%, il resto a tasso 0 con Agos Ducato. Cumulabile con detrazioni fiscali fino al 50%.",
+    "Finanziamento a tasso zero per serramenti e ristrutturazioni da Mood Abitare. Anticipo 50%, il resto a tasso 0 con Agos Ducato. Cumulabile con detrazioni fiscali fino al 50%. Gorla Maggiore (VA).",
+  keywords: [
+    "finanziamento serramenti tasso zero",
+    "finestre a rate Varese",
+    "finanziamento infissi",
+    "finanziamento ristrutturazione Varese",
+    "detrazioni fiscali 50 serramenti",
+    "serramenti tasso zero Agos Ducato",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/finanziamento",
+  },
+  openGraph: {
+    title: "Finanziamento a Tasso Zero — Mood Abitare",
+    description:
+      "Serramenti e ristrutturazioni a tasso zero. Anticipo 50%, cumulabile con detrazioni fiscali 50%.",
+    url: "https://www.moschianosrl.it/finanziamento",
+  },
 };
 
 export default function Finanziamento() {

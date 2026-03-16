@@ -1,17 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Cookies from "js-cookie";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 const CONSENT_COOKIE = "mood_cookie_consent";
 
-type ConsentLevel = "necessary" | "analytics" | "all";
+type ConsentLevel = "necessary" | "all";
 
 export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+  const [analyticsChecked, setAnalyticsChecked] = useState(false);
+  const gaLoadedRef = useRef(false);
 
   useEffect(() => {
     const consent = Cookies.get(CONSENT_COOKIE);
@@ -20,22 +22,33 @@ export function CookieBanner() {
       return () => clearTimeout(timer);
     }
     // If analytics consented, load GA
-    if (consent === "analytics" || consent === "all") {
+    if (consent === "all") {
       loadGA();
     }
   }, []);
 
   const handleConsent = (level: ConsentLevel) => {
-    Cookies.set(CONSENT_COOKIE, level, { expires: 365 });
+    Cookies.set(CONSENT_COOKIE, level, {
+      expires: 365,
+      sameSite: "Lax",
+      secure: window.location.protocol === "https:",
+    });
     setIsVisible(false);
-    if (level === "analytics" || level === "all") {
+    if (level === "all") {
       loadGA();
     }
   };
 
+  const handleCustomConsent = () => {
+    handleConsent(analyticsChecked ? "all" : "necessary");
+  };
+
   const loadGA = () => {
+    if (gaLoadedRef.current) return;
     const gaId = process.env.NEXT_PUBLIC_GA_ID;
     if (!gaId || typeof window === "undefined") return;
+
+    gaLoadedRef.current = true;
 
     // Load gtag script
     const script = document.createElement("script");
@@ -49,7 +62,7 @@ export function CookieBanner() {
       window.dataLayer.push(args);
     }
     gtag("js", new Date());
-    gtag("config", gaId);
+    gtag("config", gaId, { anonymize_ip: true });
   };
 
   return (
@@ -60,6 +73,8 @@ export function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3 }}
+          role="dialog"
+          aria-label="Consenso cookie"
           className="fixed bottom-0 left-0 right-0 z-[60] bg-white border-t border-warm-gray/30 shadow-2xl"
         >
           <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6">
@@ -69,9 +84,13 @@ export function CookieBanner() {
                   Questo sito utilizza i cookie
                 </p>
                 <p className="text-xs text-mid-gray leading-relaxed">
-                  Utilizziamo cookie tecnici necessari e, previo consenso, cookie di analisi per migliorare la tua esperienza.{" "}
-                  <a href="/privacy-policy" className="text-black-deep underline">
-                    Privacy Policy
+                  Utilizziamo cookie tecnici necessari e, previo consenso,
+                  cookie di analisi per migliorare la tua esperienza.{" "}
+                  <a
+                    href="/privacy-policy"
+                    className="text-black-deep underline"
+                  >
+                    Privacy e Cookie Policy
                   </a>
                 </p>
 
@@ -84,13 +103,40 @@ export function CookieBanner() {
                       className="overflow-hidden mt-3 space-y-2"
                     >
                       <label className="flex items-center gap-2 text-xs text-mid-gray">
-                        <input type="checkbox" checked disabled className="h-3 w-3 accent-bordeaux" />
-                        <span>Cookie tecnici (necessari)</span>
+                        <input
+                          type="checkbox"
+                          checked
+                          disabled
+                          className="h-3 w-3 accent-bordeaux"
+                        />
+                        <span>
+                          Cookie tecnici (necessari) — Funzionamento del sito
+                        </span>
                       </label>
                       <label className="flex items-center gap-2 text-xs text-mid-gray">
-                        <input type="checkbox" defaultChecked className="h-3 w-3 accent-bordeaux" />
-                        <span>Cookie analitici (Google Analytics)</span>
+                        <input
+                          type="checkbox"
+                          checked={analyticsChecked}
+                          onChange={(e) =>
+                            setAnalyticsChecked(e.target.checked)
+                          }
+                          className="h-3 w-3 accent-bordeaux"
+                        />
+                        <span>
+                          Cookie analitici (Google Analytics) — Statistiche
+                          anonime
+                        </span>
                       </label>
+                      <div className="pt-2">
+                        <Button
+                          onClick={handleCustomConsent}
+                          variant="outline"
+                          size="sm"
+                          className="text-xs"
+                        >
+                          Salva preferenze
+                        </Button>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

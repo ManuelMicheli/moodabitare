@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
@@ -43,6 +44,150 @@ const productImages: Record<string, GalleryImage[]> = {
   ],
 };
 
+/** Keyword mirate per ogni categoria prodotto — local SEO + prodotto + brand */
+const productKeywords: Record<string, string[]> = {
+  "finestre-pvc-oknoplast": [
+    "finestre PVC Varese",
+    "finestre PVC Oknoplast",
+    "infissi PVC prezzo",
+    "finestre isolamento termico",
+    "finestre risparmio energetico",
+    "Oknoplast Premium Partner Varese",
+    "sostituzione finestre PVC",
+    "detrazioni fiscali finestre",
+  ],
+  "finestre-alluminio-oknoplast": [
+    "finestre alluminio Varese",
+    "finestre alluminio Oknoplast",
+    "serramenti alluminio taglio termico",
+    "grandi vetrate alluminio",
+    "scorrevoli alluminio",
+    "finestre alluminio minimal",
+    "detrazioni fiscali serramenti",
+  ],
+  "serramenti-legno-giannattasio": [
+    "serramenti legno Varese",
+    "finestre legno Giannattasio",
+    "infissi legno massello",
+    "finestre legno su misura",
+    "serramenti legno made in Italy",
+    "finestre legno isolamento termico",
+  ],
+  "porte-interne-bertolotto": [
+    "porte interne Varese",
+    "porte interne Bertolotto",
+    "porte scorrevoli interno muro",
+    "porte filomuro",
+    "porte interne design",
+    "porte interne su misura",
+    "porte interne made in Italy",
+  ],
+  "portoncini-alluminio-oknoplast": [
+    "portoncini ingresso alluminio",
+    "portoncini Oknoplast",
+    "porta ingresso sicurezza Varese",
+    "portoncini isolamento termico",
+    "portoncini antieffrazione",
+  ],
+  "porte-blindate-alias": [
+    "porte blindate Varese",
+    "porte blindate Alias",
+    "porte blindate classe 4",
+    "porte blindate antieffrazione",
+    "porta blindata ingresso",
+    "porte blindate isolamento termico",
+  ],
+  "avvolgibili-pasini": [
+    "avvolgibili Varese",
+    "avvolgibili Pasini",
+    "tapparelle coibentate",
+    "avvolgibili motorizzati",
+    "tapparelle elettriche",
+    "tapparelle isolamento termico",
+  ],
+  "persiane-erreci": [
+    "persiane sicurezza Varese",
+    "persiane Erreci Sicurezza",
+    "persiane alluminio antieffrazione",
+    "persiane orientabili",
+    "persiane blindate",
+    "oscuranti sicurezza",
+  ],
+  "monoblocchi-vmc-alpac": [
+    "monoblocchi Alpac Varese",
+    "VMC ventilazione meccanica controllata",
+    "cassonetto coibentato",
+    "VMC integrata finestra",
+    "eliminare ponti termici",
+    "ricambio aria casa",
+  ],
+  "grate-inferriate-alias": [
+    "grate di sicurezza Varese",
+    "inferriate Alias",
+    "inferriate finestre",
+    "grate antieffrazione",
+    "inferriate apribili",
+    "sicurezza finestre Varese",
+  ],
+  "tende-tecniche-sharknet": [
+    "tende tecniche Varese",
+    "tende plissè Sharknet",
+    "tende oscuranti finestre",
+    "tende a rullo",
+    "tende protezione UV",
+    "schermature solari",
+  ],
+  "zanzariere-zanzar-sistem": [
+    "zanzariere Varese",
+    "zanzariere Zanzar Sistem",
+    "zanzariere su misura",
+    "zanzariere plissettate",
+    "zanzariere antipolline",
+    "zanzariere per porta finestra",
+  ],
+  "cucine-cucinesse": [
+    "cucine su misura Varese",
+    "cucine Cucinesse",
+    "cucine moderne design",
+    "cucine con isola",
+    "cucine made in Italy",
+    "arredamento cucina Varese",
+  ],
+  "arredo-bagno-merati": [
+    "arredo bagno Varese",
+    "arredo bagno Merati",
+    "mobili bagno sospesi",
+    "arredo bagno su misura",
+    "arredo bagno design",
+    "ristrutturazione bagno Varese",
+  ],
+  "sanitari-rubinetteria-karag": [
+    "sanitari Karag",
+    "rubinetteria bagno design",
+    "sanitari rimless",
+    "sanitari sospesi",
+    "sanitari risparmio idrico",
+    "rubinetteria bagno Varese",
+  ],
+  "parquet-laminati-skema": [
+    "parquet Varese",
+    "laminati Skema",
+    "parquet legno massello",
+    "pavimenti laminati",
+    "parquet riscaldamento a pavimento",
+    "laminato effetto legno",
+    "posa parquet Varese",
+  ],
+  "scale-ringhiere-fontanot": [
+    "scale interne Varese",
+    "scale Fontanot",
+    "scale a chiocciola",
+    "ringhiere vetro",
+    "scale salvaspazio",
+    "scale su misura",
+  ],
+};
+
 const sectionImages: Record<string, string> = {
   "oscuranti-sicurezza": "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.jpg",
 };
@@ -60,11 +205,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
   const content = productContent[slug];
+  const description = content?.tagline
+    ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
+    : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`;
   return {
-    title: `${product.name} — ${product.brand}`,
-    description: content?.tagline
-      ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
-      : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`,
+    title: `${product.name} ${product.brand} — Varese`,
+    description,
+    keywords: productKeywords[slug] || [
+      `${product.name} Varese`,
+      `${product.brand} Gorla Maggiore`,
+      "Mood Abitare",
+    ],
+    alternates: {
+      canonical: `https://www.moschianosrl.it/prodotti/${slug}`,
+    },
+    openGraph: {
+      title: `${product.name} — ${product.brand} | Mood Abitare`,
+      description,
+      url: `https://www.moschianosrl.it/prodotti/${slug}`,
+    },
   };
 }
 
@@ -79,8 +238,39 @@ export default async function ProductPage({ params }: Props) {
   const content = productContent[slug];
   const heroImage = heroImages[slug];
 
+  // BreadcrumbList JSON-LD for rich breadcrumb display in Google
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.moschianosrl.it",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Prodotti",
+        item: "https://www.moschianosrl.it/prodotti",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `https://www.moschianosrl.it/prodotti/${slug}`,
+      },
+    ],
+  };
+
   return (
     <main>
+      <Script
+        id={`breadcrumb-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         {heroImage && (

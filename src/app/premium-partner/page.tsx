@@ -5,9 +5,29 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 import { AccentText } from "@/components/ui/AccentText";
 
 export const metadata: Metadata = {
-  title: "Premium Partner Oknoplast",
+  title: "Premium Partner Oknoplast — Rivenditore Autorizzato Varese",
   description:
-    "Mood Abitare è Premium Partner Oknoplast per la provincia di Varese. Scopri i vantaggi di scegliere un partner certificato per i tuoi serramenti.",
+    "Mood Abitare è Premium Partner Oknoplast per la provincia di Varese. Qualità certificata, garanzia estesa, assistenza dedicata e design innovativo per finestre in PVC e alluminio.",
+  keywords: [
+    "Premium Partner Oknoplast",
+    "rivenditore Oknoplast Varese",
+    "rivenditore autorizzato Oknoplast",
+    "Oknoplast Gorla Maggiore",
+    "showroom Oknoplast Varese",
+    "finestre Oknoplast prezzo",
+    "garanzia Oknoplast",
+    "serramenti certificati Oknoplast",
+    "Oknoplast Italia rivenditore",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/premium-partner",
+  },
+  openGraph: {
+    title: "Premium Partner Oknoplast — Mood Abitare",
+    description:
+      "Rivenditore autorizzato Oknoplast a Gorla Maggiore (VA). Qualità certificata, garanzia estesa e assistenza dedicata.",
+    url: "https://www.moschianosrl.it/premium-partner",
+  },
 };
 
 const benefits = [

@@ -2,6 +2,10 @@
 
 import dynamic from "next/dynamic";
 
+const HomeServices = dynamic(
+  () => import("@/components/home/HomeServices").then((m) => m.HomeServices),
+  { ssr: false }
+);
 const ValuePropositions = dynamic(
   () => import("@/components/home/ValuePropositions").then((m) => m.ValuePropositions),
   { ssr: false }
@@ -31,6 +35,7 @@ export function BelowFoldSections() {
   return (
     <>
       <ProductBentoGrid />
+      <HomeServices />
       <ValuePropositions />
       <EditorialShowcase />
       <PortfolioGallery />

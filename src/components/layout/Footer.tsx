@@ -115,10 +115,10 @@ export function Footer() {
       <div className="border-t border-white/5 py-5 px-6 sm:px-10 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
           <p className="text-caption text-white/20">
-            &copy; {currentYear} Mood Abitare. Tutti i diritti riservati.
+            &copy; {currentYear} Mood Abitare. Tutti i diritti riservati. — P.IVA 03940950128
           </p>
           <Link href="/privacy-policy" className="text-caption text-white/20 hover:text-white/40 transition-colors">
-            Privacy & Cookie Policy
+            Privacy e Cookie Policy
           </Link>
         </div>
       </div>

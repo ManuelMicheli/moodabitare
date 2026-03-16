@@ -8,7 +8,7 @@ export function SiteLoader() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const clipRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
-  const taglineRef = useRef<HTMLDivElement>(null);
+  const decorRef = useRef<HTMLDivElement>(null);
   const lineLeftRef = useRef<HTMLDivElement>(null);
   const lineRightRef = useRef<HTMLDivElement>(null);
   const hasRun = useRef(false);
@@ -60,9 +60,8 @@ export function SiteLoader() {
       logoRef.current.style.opacity = "1";
       logoRef.current.style.transform = "scale(1)";
     }
-    if (taglineRef.current) {
-      taglineRef.current.style.opacity = "1";
-      taglineRef.current.style.transform = "translateY(0)";
+    if (decorRef.current) {
+      decorRef.current.style.opacity = "1";
     }
     if (lineLeftRef.current) {
       lineLeftRef.current.style.transform = "scaleX(1)";
@@ -95,15 +94,7 @@ export function SiteLoader() {
       0
     );
 
-    // Phase 2: Tagline fades in after logo is composed
-    tl.fromTo(
-      taglineRef.current,
-      { opacity: 0, y: 8 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-      1.2
-    );
-
-    // Phase 3: Two lines extend outward from center
+    // Phase 2: Two lines extend outward from center
     tl.to(
       lineLeftRef.current,
       {
@@ -153,12 +144,7 @@ export function SiteLoader() {
       ease: "power3.inOut",
     });
 
-    // Tagline and lines fade
-    tl.to(
-      taglineRef.current,
-      { opacity: 0, duration: 0.3, ease: "power2.in" },
-      0
-    );
+    // Lines fade
     tl.to(
       [lineLeftRef.current, lineRightRef.current],
       { opacity: 0, duration: 0.3, ease: "power2.in" },
@@ -220,25 +206,9 @@ export function SiteLoader() {
         />
       </div>
 
-      {/* Tagline — appears after logo */}
-      <div
-        ref={taglineRef}
-        style={{
-          marginTop: "16px",
-          fontSize: "clamp(11px, 1.2vw, 14px)",
-          letterSpacing: "0.25em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.55)",
-          fontFamily: "var(--font-ui)",
-          opacity: 0,
-          transform: "translateY(8px)",
-        }}
-      >
-        la tua casa a 360 gradi
-      </div>
-
       {/* Twin decorative lines — expand outward from center */}
       <div
+        ref={decorRef}
         style={{
           display: "flex",
           alignItems: "center",

@@ -7,9 +7,9 @@ import { AccentText } from "@/components/ui/AccentText";
 import { MACRO_CATEGORIES } from "@/lib/constants";
 
 const categoryImages: Record<string, string> = {
-  "cucine-arredobagno": "/images/Gemini_Generated_Image_3jexw73jexw73jex.png",
-  "serramenti-porte": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr_upscayl_4x_upscayl-standard-4x.png",
-  "oscuranti-comfort": "/images/Gemini_Generated_Image_agqw18agqw18agqw_upscayl_4x_upscayl-standard-4x.png",
+  "cucine-arredobagno": "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
+  "serramenti-porte": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
+  "oscuranti-comfort": "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg",
 };
 
 export function ProductHighlights() {

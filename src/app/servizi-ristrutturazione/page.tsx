@@ -5,9 +5,28 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 import { AccentText } from "@/components/ui/AccentText";
 
 export const metadata: Metadata = {
-  title: "Servizi di Ristrutturazione",
+  title: "Servizi di Ristrutturazione — Chiavi in Mano a Varese",
   description:
-    "Mood Abitare: ristrutturazioni chiavi in mano, rifacimento bagni, impianti elettrici e idraulici, climatizzazione, caldaie e pompe di calore a Varese.",
+    "Ristrutturazioni chiavi in mano Mood Abitare: rifacimento bagni, impianti elettrici e idraulici, climatizzazione Haier, caldaie Hermann e pompe di calore Samsung. Project manager dedicato a Varese.",
+  keywords: [
+    "ristrutturazione casa Varese",
+    "ristrutturazione chiavi in mano",
+    "rifacimento bagno Varese",
+    "ristrutturazione appartamento Varese",
+    "climatizzazione Haier",
+    "caldaie Hermann",
+    "pompe di calore Samsung",
+    "ristrutturazione completa Varese",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/servizi-ristrutturazione",
+  },
+  openGraph: {
+    title: "Servizi di Ristrutturazione — Mood Abitare",
+    description:
+      "Ristrutturazioni chiavi in mano nella provincia di Varese. Project manager dedicato, preventivi gratuiti.",
+    url: "https://www.moschianosrl.it/servizi-ristrutturazione",
+  },
 };
 
 const services = [

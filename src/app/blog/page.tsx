@@ -4,8 +4,18 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "News e approfondimenti su serramenti, ristrutturazioni, efficienza energetica e design.",
+  title: "Blog — News Serramenti, Ristrutturazioni e Design",
+  description:
+    "Blog Mood Abitare: guide, approfondimenti e novità su serramenti, ristrutturazioni, efficienza energetica, detrazioni fiscali e tendenze design per la casa.",
+  alternates: {
+    canonical: "https://www.moschianosrl.it/blog",
+  },
+  openGraph: {
+    title: "Blog — Mood Abitare",
+    description:
+      "Guide e approfondimenti su serramenti, ristrutturazioni ed efficienza energetica.",
+    url: "https://www.moschianosrl.it/blog",
+  },
 };
 
 const placeholderPosts = [

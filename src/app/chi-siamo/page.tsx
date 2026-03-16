@@ -11,9 +11,28 @@ import {
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Chi Siamo",
+  title: "Chi Siamo — La Nostra Storia",
   description:
-    "Mood Abitare: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore.",
+    "Mood Abitare: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore. Premium Partner Oknoplast dal 2010.",
+  keywords: [
+    "Mood Abitare chi siamo",
+    "showroom serramenti Varese",
+    "showroom Gorla Maggiore",
+    "serramenti provincia Varese",
+    "Premium Partner Oknoplast Varese",
+    "esperienza serramenti 30 anni",
+    "rivenditore serramenti Varese",
+    "showroom porte e finestre",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/chi-siamo",
+  },
+  openGraph: {
+    title: "Chi Siamo — Mood Abitare",
+    description:
+      "Oltre 30 anni di esperienza. Showroom di 300mq a Gorla Maggiore, Varese. Premium Partner Oknoplast.",
+    url: "https://www.moschianosrl.it/chi-siamo",
+  },
 };
 
 /* ── Data ─────────────────────────────────────────────────────────── */

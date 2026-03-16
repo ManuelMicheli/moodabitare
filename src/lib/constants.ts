@@ -161,7 +161,6 @@ export const NAV_ITEMS = [
     hasDropdown: true,
     children: [
       { label: "Chi Siamo", href: "/chi-siamo" },
-      { label: "Servizi", href: "/servizi" },
       { label: "Progettazione e Design", href: "/progettazione-design" },
       { label: "Servizi di Ristrutturazione", href: "/servizi-ristrutturazione" },
     ],

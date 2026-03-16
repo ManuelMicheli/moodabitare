@@ -13,7 +13,7 @@ export function ValuePropositions() {
       <div className="relative h-[56vw] sm:h-[70vh] overflow-hidden">
         <Image
           src="/images/Home-bertolotto-opt.jpg"
-          alt=""
+          alt="Interni con porte Bertolotto — showroom Mood Abitare"
           fill
           className="object-cover"
           sizes="100vw"

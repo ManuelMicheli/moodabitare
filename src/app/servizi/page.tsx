@@ -4,9 +4,27 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
 export const metadata: Metadata = {
-  title: "Servizi",
+  title: "Servizi — Consulenza, Installazione e Assistenza",
   description:
-    "I servizi di Mood Abitare: consulenza progettuale, preventivi gratuiti, installazione certificata, supporto detrazioni fiscali, smaltimento e assistenza post-vendita.",
+    "I servizi di Mood Abitare: consulenza progettuale gratuita, preventivi e sopralluoghi, installazione certificata con posatori formati, supporto detrazioni fiscali 50%, smaltimento e assistenza post-vendita.",
+  keywords: [
+    "installazione serramenti Varese",
+    "posa in opera certificata",
+    "preventivo serramenti gratuito",
+    "detrazioni fiscali 50 serramenti",
+    "sostituzione serramenti Varese",
+    "assistenza post-vendita serramenti",
+    "consulenza serramenti",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/servizi",
+  },
+  openGraph: {
+    title: "Servizi — Mood Abitare",
+    description:
+      "Consulenza progettuale, installazione certificata, detrazioni fiscali 50% e assistenza post-vendita a Gorla Maggiore (VA).",
+    url: "https://www.moschianosrl.it/servizi",
+  },
 };
 
 const services = [

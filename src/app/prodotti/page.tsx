@@ -6,9 +6,37 @@ import { ProductCatalog } from "@/components/products/ProductCatalog";
 import { TitanoEvoBanner } from "@/components/home/TitanoEvoBanner";
 
 export const metadata: Metadata = {
-  title: "Prodotti",
+  title: "Prodotti — Serramenti, Porte, Arredo Casa",
   description:
-    "Scopri la nostra gamma di serramenti, porte, oscuranti e arredo casa. 16 categorie di prodotti dei migliori brand italiani ed europei.",
+    "Catalogo completo Mood Abitare: finestre PVC e alluminio Oknoplast, serramenti legno Giannattasio, porte interne Bertolotto, porte blindate Alias, cucine Cucinesse, arredo bagno e oltre 17 categorie di prodotti.",
+  keywords: [
+    "serramenti Varese",
+    "finestre PVC Oknoplast",
+    "finestre alluminio Varese",
+    "serramenti legno",
+    "porte interne Bertolotto",
+    "porte blindate Alias",
+    "avvolgibili Pasini",
+    "persiane sicurezza",
+    "monoblocchi VMC Alpac",
+    "cucine su misura",
+    "arredo bagno",
+    "parquet laminati",
+    "scale ringhiere",
+    "zanzariere",
+    "tende tecniche",
+    "infissi Gorla Maggiore",
+    "showroom serramenti Varese",
+  ],
+  alternates: {
+    canonical: "https://www.moschianosrl.it/prodotti",
+  },
+  openGraph: {
+    title: "Prodotti — Mood Abitare",
+    description:
+      "Serramenti, porte, oscuranti, cucine e arredo casa dei migliori brand. Showroom a Gorla Maggiore (VA).",
+    url: "https://www.moschianosrl.it/prodotti",
+  },
 };
 
 export default function ProdottiPage() {
