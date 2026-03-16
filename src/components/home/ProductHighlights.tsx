@@ -7,9 +7,10 @@ import { AccentText } from "@/components/ui/AccentText";
 import { MACRO_CATEGORIES } from "@/lib/constants";
 
 const categoryImages: Record<string, string> = {
-  "cucine-arredobagno": "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
-  "serramenti-porte": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
-  "oscuranti-comfort": "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg",
+  "serramenti": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
+  "porte-sicurezza": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
+  "oscuranti-protezione": "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg",
+  "interni-arredo": "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
 };
 
 export function ProductHighlights() {
@@ -87,7 +88,7 @@ export function ProductHighlights() {
         </div>
 
         {/* Desktop cards */}
-        <div className="relative z-30 hidden sm:grid sm:grid-cols-3 gap-8 max-w-[75%] mx-auto">
+        <div className="relative z-30 hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[85%] mx-auto">
           {MACRO_CATEGORIES.map((cat, i) => (
             <FadeInView key={cat.id} delay={i * 0.08}>
               <Link

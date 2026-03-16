@@ -8,6 +8,39 @@ interface MegaMenuProps {
   onNavigate?: () => void;
 }
 
+const CATEGORY_ICONS: Record<string, React.ReactNode> = {
+  serramenti: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4">
+      <rect x="3" y="3" width="18" height="18" rx="1" />
+      <line x1="12" y1="3" x2="12" y2="21" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+    </svg>
+  ),
+  "porte-sicurezza": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4">
+      <rect x="4" y="2" width="16" height="20" rx="1" />
+      <circle cx="16" cy="12" r="1.5" />
+      <line x1="4" y1="2" x2="4" y2="22" strokeWidth="1.5" />
+    </svg>
+  ),
+  "oscuranti-protezione": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4">
+      <rect x="3" y="3" width="18" height="18" rx="1" />
+      <line x1="3" y1="7" x2="21" y2="7" />
+      <line x1="3" y1="11" x2="21" y2="11" />
+      <line x1="3" y1="15" x2="21" y2="15" />
+      <line x1="3" y1="19" x2="21" y2="19" />
+    </svg>
+  ),
+  "interni-arredo": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4">
+      <path d="M3 22V12a9 9 0 0 1 18 0v10" />
+      <path d="M5 22v-4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4" />
+      <line x1="3" y1="22" x2="21" y2="22" />
+    </svg>
+  ),
+};
+
 export function MegaMenu({ onNavigate }: MegaMenuProps) {
   return (
     <motion.div
@@ -17,48 +50,53 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
       className="fixed top-20 lg:top-24 left-0 right-0 z-40"
     >
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-bordeaux/30 to-transparent" />
+      {/* Top accent line */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-bordeaux/40 to-transparent" />
 
       <div className="bg-black-deep/[0.97] backdrop-blur-xl">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 xl:px-28 py-8">
-          <div className="grid grid-cols-3 gap-10 xl:gap-16">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-8 lg:py-10">
+
+          {/* 4-column product grid */}
+          <div className="grid grid-cols-4 gap-8 xl:gap-12">
             {MACRO_CATEGORIES.map((category, catIndex) => (
               <motion.div
                 key={category.id}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.04 + catIndex * 0.04, duration: 0.25 }}
+                transition={{ delay: 0.03 + catIndex * 0.05, duration: 0.3 }}
+                className="group/col"
               >
                 {/* Category header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-label text-white/30 text-[0.65rem]">
-                    {String(catIndex + 1).padStart(2, "0")}
+                <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-white/[0.06]">
+                  <span className="text-white/40">
+                    {CATEGORY_ICONS[category.id]}
                   </span>
-                  <h3 className="text-label text-white/80 text-[0.7rem]">
+                  <h3 className="text-label text-white/90 text-[0.7rem] tracking-[0.15em]">
                     {category.label}
                   </h3>
-                  <div className="flex-1 h-px bg-white/[0.06]" />
                 </div>
 
                 {/* Products */}
-                <ul className="space-y-0">
+                <ul className="space-y-0.5">
                   {category.products.map((product, i) => (
                     <motion.li
                       key={product.slug}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 0.08 + catIndex * 0.04 + i * 0.02, duration: 0.2 }}
+                      transition={{ delay: 0.1 + catIndex * 0.05 + i * 0.025, duration: 0.2 }}
                     >
                       <Link
                         href={`/prodotti/${product.slug}`}
                         onClick={onNavigate}
-                        className="group flex items-center gap-3 py-[0.4rem] -mx-2 px-2 rounded-sm hover:bg-white/[0.04] transition-all duration-200"
+                        className="group flex flex-col gap-0.5 py-2.5 px-3 -mx-3 rounded-md hover:bg-white/[0.04] transition-all duration-200 relative"
                       >
-                        <span className="h-[1.5px] w-0 group-hover:w-3 bg-white/50 transition-all duration-200" />
-                        <span className="font-card-title text-sm text-white/70 group-hover:text-white transition-colors duration-200">
+                        {/* Bordeaux left accent on hover */}
+                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 group-hover:h-5 bg-bordeaux/60 rounded-full transition-all duration-200" />
+
+                        <span className="font-card-title text-[0.9rem] text-white/75 group-hover:text-white transition-colors duration-200">
                           {product.name}
                         </span>
-                        <span className="text-label text-[0.6rem] text-white/20 group-hover:text-white/40 transition-colors duration-200">
+                        <span className="text-[0.65rem] font-[var(--font-ui)] uppercase tracking-[0.1em] text-white/25 group-hover:text-bordeaux/60 transition-colors duration-200">
                           {product.brand}
                         </span>
                       </Link>
@@ -73,19 +111,27 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 pt-4 border-t border-white/[0.05] flex items-center justify-between"
+            transition={{ delay: 0.25 }}
+            className="mt-8 pt-5 border-t border-white/[0.06] flex items-center justify-between"
           >
-            <p className="text-label text-white/15 text-[0.65rem]">
-              17 categorie di prodotto
+            <p className="text-label text-white/20 text-[0.65rem]">
+              {MACRO_CATEGORIES.reduce((sum, c) => sum + c.products.length, 0)} prodotti &middot; 17 brand partner
             </p>
             <Link
               href="/prodotti"
               onClick={onNavigate}
-              className="text-label text-[0.7rem] group flex items-center gap-2 text-white/35 hover:text-white transition-colors duration-200"
+              className="text-label text-[0.7rem] group flex items-center gap-2.5 text-white/40 hover:text-white transition-colors duration-200"
             >
-              Tutti i prodotti
-              <span className="h-px w-4 group-hover:w-8 bg-current transition-all duration-200" />
+              Scopri tutti i prodotti
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
           </motion.div>
         </div>

@@ -13,6 +13,13 @@ interface MobileNavProps {
 
 export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
+  const handleClose = () => {
+    setExpandedMenu(null);
+    setExpandedCategory(null);
+    onClose();
+  };
 
   return (
     <AnimatePresence>
@@ -23,7 +30,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-black/40"
-            onClick={onClose}
+            onClick={handleClose}
           />
 
           <motion.div
@@ -62,23 +69,88 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                               transition={{ duration: 0.25 }}
                               className="overflow-hidden"
                             >
-                              <div className="pl-4 pb-5 space-y-5">
+                              <div className="pb-5 space-y-1">
                                 {MACRO_CATEGORIES.map((cat) => (
                                   <div key={cat.id}>
-                                    <span className="text-label text-black-deep/30">
-                                      {cat.label}
-                                    </span>
-                                    <ul className="mt-2 space-y-2">
-                                      {cat.products.map((product) => (
-                                        <li key={product.slug}>
-                                          <Link href={`/prodotti/${product.slug}`} onClick={onClose} className="block font-card-title text-black-deep/80 hover:text-black-deep">
-                                            {product.name}
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
+                                    {/* Category header — tappable accordion */}
+                                    <button
+                                      onClick={() => setExpandedCategory(expandedCategory === cat.id ? null : cat.id)}
+                                      className={cn(
+                                        "flex w-full items-center justify-between py-2.5 pl-4 pr-2 rounded-md transition-colors duration-200",
+                                        expandedCategory === cat.id
+                                          ? "bg-black-deep/[0.03]"
+                                          : "hover:bg-black-deep/[0.02]"
+                                      )}
+                                    >
+                                      <span className={cn(
+                                        "text-label text-[0.7rem] transition-colors duration-200",
+                                        expandedCategory === cat.id
+                                          ? "text-bordeaux"
+                                          : "text-black-deep/40"
+                                      )}>
+                                        {cat.label}
+                                      </span>
+                                      <div className="flex items-center gap-2">
+                                        <span className="text-[0.6rem] text-black-deep/20 font-[var(--font-ui)]">
+                                          {cat.products.length}
+                                        </span>
+                                        <svg
+                                          className={cn(
+                                            "h-3 w-3 text-black-deep/20 transition-transform duration-200",
+                                            expandedCategory === cat.id && "rotate-180"
+                                          )}
+                                          fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                                        >
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                      </div>
+                                    </button>
+
+                                    {/* Products — nested accordion */}
+                                    <AnimatePresence>
+                                      {expandedCategory === cat.id && (
+                                        <motion.div
+                                          initial={{ height: 0, opacity: 0 }}
+                                          animate={{ height: "auto", opacity: 1 }}
+                                          exit={{ height: 0, opacity: 0 }}
+                                          transition={{ duration: 0.2 }}
+                                          className="overflow-hidden"
+                                        >
+                                          <ul className="pl-6 py-1.5 space-y-0.5">
+                                            {cat.products.map((product) => (
+                                              <li key={product.slug}>
+                                                <Link
+                                                  href={`/prodotti/${product.slug}`}
+                                                  onClick={handleClose}
+                                                  className="group flex items-center justify-between py-2 px-2 -mx-2 rounded hover:bg-black-deep/[0.03] transition-colors duration-200"
+                                                >
+                                                  <span className="font-card-title text-[0.85rem] text-black-deep/75 group-hover:text-black-deep transition-colors duration-200">
+                                                    {product.name}
+                                                  </span>
+                                                  <span className="text-[0.6rem] uppercase tracking-wider text-black-deep/20 group-hover:text-bordeaux/50 transition-colors duration-200">
+                                                    {product.brand}
+                                                  </span>
+                                                </Link>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
                                   </div>
                                 ))}
+
+                                {/* All products link */}
+                                <Link
+                                  href="/prodotti"
+                                  onClick={handleClose}
+                                  className="flex items-center gap-2 pl-4 py-2.5 mt-1 text-label text-[0.65rem] text-bordeaux/60 hover:text-bordeaux transition-colors duration-200"
+                                >
+                                  Tutti i prodotti
+                                  <svg className="w-3 h-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                    <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </Link>
                               </div>
                             </motion.div>
                           )}
@@ -113,7 +185,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                   <Link
                                     key={child.href}
                                     href={child.href}
-                                    onClick={onClose}
+                                    onClick={handleClose}
                                     className="block py-2 text-caption text-black-deep/60 hover:text-black-deep"
                                   >
                                     {child.label}
@@ -125,7 +197,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                         </AnimatePresence>
                       </>
                     ) : (
-                      <Link href={item.href} onClick={onClose} className="text-label block py-5 text-black-deep">
+                      <Link href={item.href} onClick={handleClose} className="text-label block py-5 text-black-deep">
                         {item.label}
                       </Link>
                     )}
@@ -136,7 +208,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
               <div className="mt-10">
                 <Link
                   href="/contatti"
-                  onClick={onClose}
+                  onClick={handleClose}
                   className="text-button block w-full py-4 text-center bg-black-deep text-white"
                 >
                   Preventivo Gratuito
