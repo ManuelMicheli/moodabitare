@@ -72,7 +72,7 @@ export function HomeServices() {
           {services.map((service, i) => (
             <FadeInView key={service.title} delay={i * 0.08}>
               <div className="group border-b border-[#E5E5E5]">
-                <div className="relative py-5 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
+                <div className="relative py-5 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8 overflow-hidden bg-transparent group-hover:bg-bordeaux transition-all duration-500 ease-out">
                   {/* Default state — centered title */}
                   <div className="text-center transition-all duration-400 ease-out group-hover:opacity-0 group-hover:-translate-y-4">
                     <h3
@@ -90,7 +90,7 @@ export function HomeServices() {
                     <div className="w-full grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-3 lg:gap-10 items-center">
                       {/* Title — left aligned */}
                       <h3
-                        className="font-display font-medium leading-[1.1] tracking-[-0.02em] uppercase text-bordeaux shrink-0"
+                        className="font-display font-medium leading-[1.1] tracking-[-0.02em] uppercase text-bordeaux group-hover:text-white shrink-0 transition-colors duration-500"
                         style={{
                           fontSize: "clamp(1rem, 0.85rem + 0.6vw, 1.5rem)",
                         }}
@@ -101,7 +101,7 @@ export function HomeServices() {
                       {/* Detail + highlights */}
                       <div className="flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-6">
                         <p
-                          className="leading-relaxed text-black-deep/60 font-display flex-1"
+                          className="leading-relaxed text-black-deep/60 group-hover:text-white/80 font-display flex-1 transition-colors duration-500"
                           style={{ fontSize: "clamp(0.85rem, 0.78rem + 0.3vw, 1rem)" }}
                         >
                           {service.detail}
@@ -110,7 +110,7 @@ export function HomeServices() {
                           {service.highlights.map((h) => (
                             <span
                               key={h}
-                              className="text-[0.65rem] sm:text-[0.7rem] font-ui font-medium tracking-wide uppercase text-black-deep/40 border border-black-deep/10 px-2.5 py-1 rounded-sm whitespace-nowrap"
+                              className="text-[0.65rem] sm:text-[0.7rem] font-ui font-medium tracking-wide uppercase text-black-deep/40 group-hover:text-white/60 border border-black-deep/10 group-hover:border-white/20 px-2.5 py-1 rounded-sm whitespace-nowrap transition-colors duration-500"
                             >
                               {h}
                             </span>

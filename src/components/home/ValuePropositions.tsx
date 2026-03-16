@@ -1,23 +1,36 @@
 "use client";
 
-import Image from "next/image";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AboutSection } from "@/components/home/AboutSection";
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
+const marqueeImages = [
+  { src: "/images/Home-bertolotto-opt.jpg", alt: "Interni con porte Bertolotto" },
+  { src: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", alt: "Cucina con finestra Prolux Swing" },
+  { src: "/images/Zona-giorno-con-porta-balcone-Prolux-Evolution-copia-1536x768.jpg", alt: "Zona giorno con porta-finestra Prolux Evolution" },
+  { src: "/images/Bilico_antracite-eff-legno_FINAL.jpg", alt: "Portoncino d'ingresso in alluminio effetto legno" },
+  { src: "/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg", alt: "Frangisole Ekosol grigio scuro" },
+  { src: "/images/Oknoplast_2024_home.jpg", alt: "Serramenti Oknoplast" },
+  { src: "/images/bertolotto.webp", alt: "Porte interne Bertolotto" },
+  { src: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg", alt: "Serramenti Squareline con tapparella" },
+];
+
 export function ValuePropositions() {
   return (
     <section>
-      {/* Image */}
-      <div className="relative h-[56vw] sm:h-[70vh] overflow-hidden">
-        <Image
-          src="/images/Home-bertolotto-opt.jpg"
-          alt="Interni con porte Bertolotto — showroom Mood Abitare"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
+      {/* Infinite scrolling images */}
+      <div className="overflow-hidden">
+        <div className="flex w-max gap-10 sm:gap-16 animate-marquee-scroll">
+          {[...marqueeImages, ...marqueeImages].map((img, i) => (
+            <div
+              key={i}
+              className="relative flex-shrink-0 h-[50vw] sm:h-[60vh] rounded-sm overflow-hidden bg-warm-gray"
+              style={{ width: "max(55vw, 500px)" }}
+            />
+
+          ))}
+        </div>
       </div>
 
       {/* About — scroll-reveal text */}
