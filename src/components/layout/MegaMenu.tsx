@@ -51,7 +51,7 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
       className="fixed top-20 lg:top-24 left-0 right-0 z-40"
     >
       {/* Top accent line */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-bordeaux/40 to-transparent" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="bg-black-deep/[0.97] backdrop-blur-xl">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 py-8 lg:py-10">
@@ -91,12 +91,12 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
                         className="group flex flex-col gap-0.5 py-2.5 px-3 -mx-3 rounded-md hover:bg-white/[0.04] transition-all duration-200 relative"
                       >
                         {/* Bordeaux left accent on hover */}
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 group-hover:h-5 bg-bordeaux/60 rounded-full transition-all duration-200" />
+                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 group-hover:h-5 bg-white/50 rounded-full transition-all duration-200" />
 
                         <span className="font-card-title text-[0.9rem] text-white/75 group-hover:text-white transition-colors duration-200">
                           {product.name}
                         </span>
-                        <span className="text-[0.65rem] font-[var(--font-ui)] uppercase tracking-[0.1em] text-white/25 group-hover:text-bordeaux/60 transition-colors duration-200">
+                        <span className="text-[0.65rem] font-[var(--font-ui)] uppercase tracking-[0.1em] text-white/25 group-hover:text-white/50 transition-colors duration-200">
                           {product.brand}
                         </span>
                       </Link>
