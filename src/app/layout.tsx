@@ -9,11 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.moschianosrl.it"),
   title: {
-    default: "Moschiano Srl — Serramenti, Porte e Ristrutturazioni a Varese",
-    template: "%s | Moschiano Srl",
+    default: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
+    template: "%s | Mood Abitare",
   },
   description:
-    "Moschiano Srl: oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast a Gorla Maggiore, Varese.",
+    "Mood Abitare: oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast a Gorla Maggiore, Varese.",
   keywords: [
     "serramenti Varese",
     "finestre Gorla Maggiore",
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
     "infissi PVC",
     "porte blindate",
     "arredo casa",
-    "Moschiano Srl",
+    "Mood Abitare",
   ],
   openGraph: {
     type: "website",
     locale: "it_IT",
-    siteName: "Moschiano Srl",
+    siteName: "Mood Abitare",
   },
   robots: {
     index: true,
@@ -40,12 +40,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Moschiano Srl",
+  name: "Mood Abitare",
   description:
     "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese. Premium Partner Oknoplast.",
   url: "https://www.moschianosrl.it",
-  telephone: "+3903311120048",
-  email: "info@moschianosrl.it",
+  telephone: "+3903311588159",
+  email: "info@moodabitare.it",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Viale Europa, 65",

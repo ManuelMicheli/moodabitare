@@ -18,6 +18,10 @@ const CookieBanner = dynamic(
   () => import("@/components/shared/CookieBanner").then((m) => m.CookieBanner),
   { ssr: false }
 );
+const PromoPopup = dynamic(
+  () => import("@/components/shared/PromoPopup").then((m) => m.PromoPopup),
+  { ssr: false }
+);
 
 export function LazyOverlays() {
   return (
@@ -26,6 +30,7 @@ export function LazyOverlays() {
       <SmoothScroll />
       <WhatsAppWidget />
       <CookieBanner />
+      <PromoPopup />
     </>
   );
 }

@@ -6,7 +6,7 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 export const metadata: Metadata = {
   title: "Servizi",
   description:
-    "I servizi di Moschiano Srl: consulenza progettuale, preventivi gratuiti, installazione certificata, supporto detrazioni fiscali, smaltimento e assistenza post-vendita.",
+    "I servizi di Mood Abitare: consulenza progettuale, preventivi gratuiti, installazione certificata, supporto detrazioni fiscali, smaltimento e assistenza post-vendita.",
 };
 
 const services = [
@@ -173,7 +173,7 @@ export default function Servizi() {
               </div>
               <div className="flex flex-col gap-6">
                 <p className="text-body text-black-deep/60 leading-relaxed">
-                  Con Moschiano Srl hai un solo interlocutore che gestisce l&apos;intero progetto: dalla prima consulenza in showroom alla posa in opera, dallo smaltimento dei vecchi infissi al supporto per le detrazioni fiscali.
+                  Con Mood Abitare hai un solo interlocutore che gestisce l&apos;intero progetto: dalla prima consulenza in showroom alla posa in opera, dallo smaltimento dei vecchi infissi al supporto per le detrazioni fiscali.
                 </p>
                 <p className="text-body text-black-deep/60 leading-relaxed">
                   Oltre 30 anni di esperienza nel settore, posatori con patentino di posa certificata e uno showroom di 300mq dove toccare con mano la qualità dei nostri prodotti.

@@ -1,5 +1,3 @@
-"use client";
-
 import { BRAND_PARTNERS } from "@/lib/constants";
 
 export function BrandLogos() {

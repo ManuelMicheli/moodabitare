@@ -6,7 +6,7 @@ import { AccentText } from "@/components/ui/AccentText";
 export const metadata: Metadata = {
   title: "Finanziamento",
   description:
-    "Moschiano Srl: finanziamento a tasso zero per serramenti e ristrutturazioni. Anticipo del 50%, il resto a tasso 0 con Agos Ducato. Cumulabile con detrazioni fiscali fino al 50%.",
+    "Mood Abitare: finanziamento a tasso zero per serramenti e ristrutturazioni. Anticipo del 50%, il resto a tasso 0 con Agos Ducato. Cumulabile con detrazioni fiscali fino al 50%.",
 };
 
 export default function Finanziamento() {

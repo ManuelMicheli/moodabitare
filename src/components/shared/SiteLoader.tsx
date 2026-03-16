@@ -229,7 +229,7 @@ export function SiteLoader() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={logoRef}
-          src="/logo/logo-mood-abitare-clean.png"
+          src="/logo/logo-mood-abitare-transparent-opt.png"
           alt=""
           style={{
             height: "clamp(50px, 7vw, 90px)",

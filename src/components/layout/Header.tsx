@@ -16,9 +16,11 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
+    let threshold = 50;
+    const hero = document.querySelector("section");
+    if (hero) threshold = hero.offsetHeight - 80;
+
     const handleScroll = () => {
-      const hero = document.querySelector("section");
-      const threshold = hero ? hero.offsetHeight - 80 : 50;
       setIsScrolled(window.scrollY > threshold);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -45,8 +47,8 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="relative z-10 flex-shrink-0">
             <Image
-              src="/logo/logo-mood-abitare-clean.png"
-              alt="Moschiano Srl"
+              src="/logo/logo-mood-abitare-transparent-opt.png"
+              alt="Mood Abitare — La tua casa a 360 gradi"
               width={200}
               height={50}
               priority
@@ -110,7 +112,7 @@ export function Header() {
                                   href={child.href}
                                   className="group flex items-center gap-4 py-3 -mx-3 px-3 rounded-sm hover:bg-white/[0.04] transition-all duration-300"
                                 >
-                                  <span className="h-px w-0 group-hover:w-4 bg-bordeaux transition-all duration-300" />
+                                  <span className="h-[2px] w-0 group-hover:w-4 bg-white transition-all duration-300" />
                                   <span className="font-card-title text-white/60 group-hover:text-white transition-colors duration-300">
                                     {child.label}
                                   </span>

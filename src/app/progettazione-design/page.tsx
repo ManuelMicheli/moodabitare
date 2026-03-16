@@ -7,7 +7,7 @@ import { HoverFillSection } from "@/components/progettazione-design/HoverFillSec
 export const metadata: Metadata = {
   title: "Progettazione e Design",
   description:
-    "Moschiano Srl: servizio di progettazione e design per serramenti e interni. Consulenza personalizzata, showroom di 300mq e percorso completo dalla visione alla realizzazione.",
+    "Mood Abitare: servizio di progettazione e design per serramenti e interni. Consulenza personalizzata, showroom di 300mq e percorso completo dalla visione alla realizzazione.",
 };
 
 const designServices = [

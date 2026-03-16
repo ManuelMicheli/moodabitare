@@ -39,47 +39,12 @@ html.lenis body {
   font-display: swap;
 }
 
-/* === Gravitica — Display font (full weight range) === */
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-ExtraLight.otf") format("opentype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-ExtraLightItalic.otf") format("opentype");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-LightItalic.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
+/* === Gravitica — Display font fallback (only weights used in headings) === */
 @font-face {
   font-family: "Gravitica";
   src: url("/fonts/gravitica/Gravitica-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-RegularItalic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
   font-display: swap;
 }
 @font-face {
@@ -91,65 +56,9 @@ html.lenis body {
 }
 @font-face {
   font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-MediumItalic.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-DemiBold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-DemiBoldItalic.otf") format("opentype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
   src: url("/fonts/gravitica/Gravitica-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-BoldItalic.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-ExtraBold.otf") format("opentype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-ExtraBoldItalic.otf") format("opentype");
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-Black.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gravitica";
-  src: url("/fonts/gravitica/Gravitica-BlackItalic.otf") format("opentype");
-  font-weight: 900;
-  font-style: italic;
   font-display: swap;
 }
 

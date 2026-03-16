@@ -44,7 +44,7 @@ const productImages: Record<string, GalleryImage[]> = {
 };
 
 const sectionImages: Record<string, string> = {
-  "oscuranti-sicurezza": "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.png",
+  "oscuranti-sicurezza": "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.jpg",
 };
 
 interface Props {
@@ -63,8 +63,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.name} — ${product.brand}`,
     description: content?.tagline
-      ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Moschiano Srl, showroom a Gorla Maggiore (VA).`
-      : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Moschiano Srl, il tuo punto di riferimento a Varese.`,
+      ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
+      : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`,
   };
 }
 
@@ -91,8 +91,6 @@ export default async function ProductPage({ params }: Props) {
             className="object-cover object-center"
             priority
             sizes="100vw"
-            quality={100}
-            unoptimized
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-black-deep/40 to-black-deep/20" />

@@ -2,247 +2,150 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useEffect, useState } from "react";
 import { FadeInView } from "@/components/animations/FadeInView";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { AccentText } from "@/components/ui/AccentText";
+import { BentoGrid } from "@/components/ui/bento-grid";
 
-function ParallaxImage({
-  src,
-  alt,
-  className,
-  delay = 0,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-  delay?: number;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    if (isMobile) return;
-
-    const el = containerRef.current;
-    if (!el) return;
-
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const windowH = window.innerHeight;
-        const progress = 1 - (rect.bottom / (windowH + rect.height));
-        setOffset((progress - 0.5) * 30);
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isMobile]);
-
-  return (
-    <FadeInView delay={delay} className={className}>
-      <div
-        ref={containerRef}
-        className="relative h-full min-h-[220px] overflow-hidden bg-warm-gray"
-      >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-cover transition-transform duration-100 ease-out will-change-transform"
-          style={{
-            transform: isMobile ? "none" : `translateY(${offset}%) scale(1.3)`,
-          }}
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
-    </FadeInView>
-  );
-}
+const products = [
+  {
+    name: "Finestre in PVC",
+    brand: "Oknoplast",
+    description:
+      "Serramenti a 5 e 7 camere con isolamento termico e acustico superiore. Risparmio in bolletta tutto l\u2019anno.",
+    image: "/images/wmremove-transformed (69).png",
+    href: "/prodotti/finestre-pvc-oknoplast",
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+  },
+  {
+    name: "Porte Interne",
+    brand: "Bertolotto",
+    description: "Design made in Italy dal 1967, qualità artigianale.",
+    image: "/images/bertolotto.webp",
+    href: "/prodotti/porte-interne-bertolotto",
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    name: "Portoncini in Alluminio",
+    brand: "Oknoplast",
+    description: "Ingresso unico, sicurezza RC2 di serie.",
+    image: "/images/Bilico_antracite-eff-legno_FINAL.jpg",
+    href: "/prodotti/portoncini-alluminio-oknoplast",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+  },
+  {
+    name: "Cucine su Misura",
+    brand: "Cucinesse",
+    description: "Progettazione e realizzazione cucine personalizzate.",
+    image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
+    href: "/prodotti/cucine-cucinesse",
+    className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+  },
+  {
+    name: "Porte Blindate",
+    brand: "Alias",
+    description: "Sicurezza certificata, design italiano.",
+    image: "/images/Alias-home.jpg",
+    href: "/prodotti/porte-blindate-alias",
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+  },
+];
 
 export function ProductBentoGrid() {
   return (
-    <section className="py-0">
-      {/* Row 1: Image (4) | Text (4) | Image (4) */}
-      <div className="grid grid-cols-1 md:grid-cols-12">
-        {/* R1 — Photo left */}
-        <FadeInView className="md:col-span-4">
-          <div className="relative aspect-[2/1] overflow-hidden bg-warm-gray">
-            <Image
-              src="/images/Bilico_antracite-eff-legno_FINAL.jpg"
-              alt="Portoncino d'ingresso in alluminio effetto legno"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </div>
-        </FadeInView>
+    <section className="relative pt-16 lg:pt-24 pb-0">
+      <div className="relative">
+        {/* Section title */}
+        <h2
+          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep sm:whitespace-nowrap"
+          style={{ fontSize: "clamp(1.75rem, 4.2vw, 9rem)" }}
+        >
+          <AccentText>Qualità e design per ogni ambiente</AccentText>
+        </h2>
 
-        {/* R1 — Text center */}
-        <FadeInView delay={0.1} className="md:col-span-4">
-          <Link
-            href="/prodotti/finestre-pvc-oknoplast"
-            className="group flex flex-col items-center justify-center text-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
-          >
-            <h3 className="font-section-title text-black-deep">
-              Simmetria e risparmio energetico
-            </h3>
-            <p className="mt-4 text-caption text-mid-gray leading-relaxed max-w-[28ch]">
-              Finestre in PVC a 5 e 7 camere con trasmittanza fino a 0,73 W/m²K. Isolamento termico e acustico, risparmio in bolletta tutto l&apos;anno.
+        {/* Subtitle */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6 sm:px-10 lg:px-20 pt-8 lg:pt-12 pb-16 lg:pb-24">
+          <FadeInView>
+            <p className="text-label text-black-deep/40 mb-8">
+              I nostri prodotti
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors">
-              Scopri
-            </span>
-          </Link>
-        </FadeInView>
-
-        {/* R1 — Photo right */}
-        <FadeInView delay={0.2} className="md:col-span-4">
-          <div className="relative aspect-[2/1] overflow-hidden bg-warm-gray">
-            <Image
-              src="/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg"
-              alt="Frangisole Ekosol grigio scuro"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </div>
-        </FadeInView>
-      </div>
-
-      {/* Row 2: Text (3) | Wide Photo (6) | Text (3) */}
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-8 sm:mt-16 lg:mt-24">
-        {/* R2 — Text left */}
-        <FadeInView delay={0.15} className="md:col-span-3">
-          <Link
-            href="/prodotti/finestre-pvc-oknoplast"
-            className="group flex flex-col justify-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
-          >
-            <h3 className="font-section-title text-black-deep">
-              Luce naturale e design moderno
-            </h3>
-            <p className="mt-4 text-caption text-mid-gray leading-relaxed">
-              Porte-finestre scorrevoli e alzanti scorrevoli Oknoplast: ampie superfici vetrate che eliminano la barriera tra interno ed esterno.
-            </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors">
-              Scopri
-            </span>
-          </Link>
-        </FadeInView>
-
-        {/* R2 — Wide photo center with parallax */}
-        <ParallaxImage
-          src="/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.png"
-          alt="Ambiente moderno con serramenti Oknoplast"
-          className="md:col-span-6"
-          delay={0.25}
-        />
-
-        {/* R2 — Text right */}
-        <FadeInView delay={0.3} className="md:col-span-3">
-          <Link
-            href="/prodotti/portoncini-alluminio-oknoplast"
-            className="group flex flex-col items-end text-right justify-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
-          >
-            <h3 className="font-section-title text-black-deep">
-              Tanti modelli per un ingresso unico
-            </h3>
-            <p className="mt-4 text-caption text-mid-gray leading-relaxed max-w-[30ch]">
-              Portoncini d&apos;ingresso in alluminio Oknoplast, personalizzabili in finiture, colori e accessori. Classe antieffrazione RC2 di serie.
-            </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors">
-              Scopri
-            </span>
-          </Link>
-        </FadeInView>
-      </div>
-
-      {/* Bottom row — Testimonial + Bertolotto spotlight */}
-      <div className="grid grid-cols-1 md:grid-cols-12 -mt-px">
-        {/* Testimonial */}
-        <FadeInView className="md:col-span-5" delay={0.2}>
-          <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-bordeaux flex flex-col justify-center px-5 sm:px-8 md:px-12 py-8 sm:py-12">
-            {/* Large quote mark */}
-            <div
-              className="font-display text-white/15 leading-none select-none absolute top-6 left-5 sm:left-8 md:left-12"
-              style={{ fontSize: "clamp(4rem, 3rem + 3vw, 6rem)" }}
+            <p
+              className="font-body text-black-deep/80 leading-relaxed"
+              style={{ fontSize: "clamp(1.25rem, 1rem + 1.5vw, 2rem)" }}
             >
-              &ldquo;
-            </div>
+              Selezioniamo solo i <em>migliori</em> brand italiani ed europei
+              — per offrire soluzioni che uniscono estetica, prestazioni
+              e <em>durata</em> nel tempo.
+            </p>
+          </FadeInView>
+        </div>
 
-            <blockquote className="relative z-10 mt-8">
-              <p className="text-body text-white/90 italic leading-relaxed">
-                Le porte Bertolotto sono arte e propria creazione.
-                Il bello è anche incontrare con oggetti
-                effettivi e di design come queste porte, che offrono
-                una pura esperienza della qualità made in Italy.
-              </p>
-              <footer className="mt-6">
-                <div className="h-px w-10 bg-cream/30 mb-4" />
-                <cite className="text-label text-white/50 not-italic">
-                  Esperienza in showroom
-                </cite>
-              </footer>
-            </blockquote>
+        {/* Bento grid */}
+        <div className="relative z-30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:max-w-none lg:px-4">
+            <BentoGrid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[18rem] md:auto-rows-[20rem] lg:auto-rows-[22rem]">
+              {products.map((product, i) => (
+                <FadeInView
+                  key={product.name}
+                  delay={i * 0.08}
+                  className={`${product.className} h-full`}
+                >
+                  <Link
+                    href={product.href}
+                    className="group relative flex flex-col justify-end overflow-hidden rounded-xl h-full bg-black-soft"
+                  >
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <div className="pointer-events-none relative z-10 flex flex-col gap-1 p-5 sm:p-6 transition-all duration-300 group-hover:-translate-y-10">
+                      <span className="text-label text-white/50">
+                        {product.brand}
+                      </span>
+                      <h3 className="font-card-title text-white mt-1">
+                        {product.name}
+                      </h3>
+                      <p className="text-caption text-white/60 mt-1 max-w-[30ch]">
+                        {product.description}
+                      </p>
+                    </div>
+                    <div className="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      <span className="pointer-events-auto text-button text-white/80 inline-flex items-center gap-2">
+                        Scopri
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                </FadeInView>
+              ))}
+            </BentoGrid>
           </div>
-        </FadeInView>
 
-        {/* Bertolotto spotlight */}
-        <FadeInView className="md:col-span-7" delay={0.3}>
-          <Link href="/prodotti/porte-interne-bertolotto" className="group block">
-            <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-black-deep overflow-hidden">
-              {/* Background image — subtle */}
-              <Image
-                src="/images/bertolotto.webp"
-                alt="Porte interne Bertolotto"
-                fill
-                className="object-cover opacity-40 transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 58vw"
-              />
-
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5 sm:px-8 md:px-14 py-8 sm:py-12">
-                <p className="text-label text-white/40 mb-4">
-                  Porte Interne
-                </p>
-                <h3 className="font-section-title text-white max-w-lg">
-                  Bertolotto, le tue porte interne made in Italy
-                </h3>
-                <p className="mt-5 text-body text-white/60 max-w-md">
-                  Affidati a Moschiano per scegliere le tue nuove porte interne in provincia di Varese.
-                  Bertolotto, azienda piemontese che dal 1967 progetta e realizza porte d&apos;interni di alta qualità,
-                  unisce artigianalità italiana e innovazione.
-                </p>
-                <div className="mt-6">
-                  <span className="text-button text-white/70 group-hover:text-white transition-colors inline-flex items-center gap-2">
-                    Scopri la collezione
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
+          {/* CTA */}
+          <FadeInView delay={0.4}>
+            <div className="mt-10 text-center">
+              <Link
+                href="/prodotti"
+                className="inline-flex items-center gap-2 text-button text-black-deep/60 hover:text-black-deep transition-colors"
+              >
+                Vedi tutti i prodotti
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 hover:translate-x-1">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
             </div>
-          </Link>
-        </FadeInView>
+          </FadeInView>
+        </div>
+
+        <div
+          className="relative z-0"
+          style={{ height: "clamp(2rem, 1.5rem + 3vw, 5rem)" }}
+        />
       </div>
     </section>
   );

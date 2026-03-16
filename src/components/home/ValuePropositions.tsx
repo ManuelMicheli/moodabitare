@@ -12,10 +12,11 @@ export function ValuePropositions() {
       {/* Image */}
       <div className="relative h-[56vw] sm:h-[70vh] overflow-hidden">
         <Image
-          src="/images/Home-bertolotto.png"
+          src="/images/Home-bertolotto-opt.jpg"
           alt=""
           fill
           className="object-cover"
+          sizes="100vw"
         />
       </div>
 
@@ -80,6 +81,7 @@ export function ValuePropositions() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

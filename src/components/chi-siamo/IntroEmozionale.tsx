@@ -20,7 +20,7 @@ const BOTTOM_RIGHT =
   "Un architetto dedicato, 17 brand selezionati, render 3D per vedere il risultato prima ancora di iniziare. Un team che ti segue dall'idea alla consegna, senza sorprese.";
 
 const BOTTOM_RIGHT_2 =
-  "Questo è Moschiano Srl. Vieni a trovarci — il caffè lo offriamo noi.";
+  "Questo è Mood Abitare. Vieni a trovarci — il caffè lo offriamo noi.";
 
 /* ── Desktop: word-by-word reveal ───────────────────────────────── */
 

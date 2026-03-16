@@ -5,7 +5,7 @@ import { HorizontalProjectsScroll } from "@/components/progetti/HorizontalProjec
 
 export const metadata: Metadata = {
   title: "Progetti",
-  description: "Portfolio dei lavori realizzati da Moschiano Srl nella provincia di Varese.",
+  description: "Portfolio dei lavori realizzati da Mood Abitare nella provincia di Varese.",
 };
 
 export default function Progetti() {

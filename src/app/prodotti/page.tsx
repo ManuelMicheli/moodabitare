@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ProductCatalog } from "@/components/products/ProductCatalog";
+import { TitanoEvoBanner } from "@/components/home/TitanoEvoBanner";
 
 export const metadata: Metadata = {
   title: "Prodotti",
@@ -16,13 +17,12 @@ export default function ProdottiPage() {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end text-white overflow-hidden">
         <Image
-          src="/images/Cucina-con-finestra-Prolux-Swing-di-Oknoplast-copia-1536x768_upscayl_4x_upscayl-standard-4x.png"
-          alt="Prodotti Moschiano Srl"
+          src="/images/Cucina-con-finestra-Prolux-Swing-opt.jpg"
+          alt="Prodotti Mood Abitare"
           fill
           className="object-cover"
           priority
-          quality={100}
-          unoptimized
+          sizes="100vw"
         />
         {/* Top gradient for navbar readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black-deep/50 via-black-deep/20 to-transparent pointer-events-none" />
@@ -38,6 +38,9 @@ export default function ProdottiPage() {
           </FadeInView>
         </div>
       </section>
+
+      {/* Titano EVO OC Banner */}
+      <TitanoEvoBanner />
 
       {/* Products */}
       <section className="pt-10 lg:pt-14 pb-32 lg:pb-44">

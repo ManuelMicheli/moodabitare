@@ -18,7 +18,7 @@ export const productContent: Record<string, ProductContent> = {
   "finestre-pvc-oknoplast": {
     tagline: "Isolamento superiore, bollette più leggere",
     description:
-      "Le finestre in PVC Oknoplast combinano profili multicamera ad alta densità con vetri basso-emissivi per offrirti il massimo isolamento termico e acustico. Risultato concreto: fino al 40% di risparmio in bolletta e una casa silenziosa anche in contesti urbani. Come unico Premium Partner Oknoplast della provincia di Varese, ti garantiamo condizioni esclusive e garanzia estesa fino a 10 anni.",
+      "Le finestre in PVC Oknoplast combinano profili multicamera ad alta densità con vetri basso-emissivi per offrirti il massimo isolamento termico e acustico. Risultato concreto: fino al 40% di risparmio in bolletta e una casa silenziosa anche in contesti urbani. Come Premium Partner Oknoplast selezionati per la provincia di Varese, ti garantiamo condizioni esclusive e garanzia estesa fino a 10 anni.",
     specs: [
       { label: "Materiale", value: "PVC multicamera rinforzato in acciaio" },
       { label: "Trasmittanza termica", value: "Uw fino a 0,71 W/m²K" },
@@ -146,7 +146,7 @@ export const productContent: Record<string, ProductContent> = {
       "Isolamento termico e acustico: la porta d'ingresso non è più il punto debole",
       "Finiture personalizzabili: da fuori protegge, da dentro arreda",
       "Serrature europee di ultima generazione con cilindro antitrapano",
-      "Installazione e assistenza diretta con garanzia Moschiano Srl",
+      "Installazione e assistenza diretta con garanzia Mood Abitare",
     ],
     cardDescription: "Protezione fino a Classe 4, isolamento termico e acustico, finiture eleganti",
   },
@@ -192,7 +192,7 @@ export const productContent: Record<string, ProductContent> = {
       "Lamelle orientabili per dosare luce e aria senza rinunciare alla sicurezza",
       "Zero manutenzione: verniciatura a polvere resistente a sole e intemperie",
       "Estetica classica o moderna, personalizzabile su misura",
-      "Installazione professionale con garanzia Moschiano Srl",
+      "Installazione professionale con garanzia Mood Abitare",
     ],
     cardDescription: "Oscuramento e sicurezza in un'unica soluzione, zero manutenzione",
   },

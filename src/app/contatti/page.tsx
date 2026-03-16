@@ -6,7 +6,7 @@ import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contatti",
-  description: "Contatta Moschiano Srl per un preventivo gratuito. Showroom a Gorla Maggiore (VA).",
+  description: "Contatta Mood Abitare per un preventivo gratuito. Showroom a Gorla Maggiore (VA).",
 };
 
 export default function Contatti() {
@@ -40,7 +40,7 @@ export default function Contatti() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Moschiano Srl — Gorla Maggiore"
+          title="Mood Abitare — Gorla Maggiore"
         />
       </section>
 

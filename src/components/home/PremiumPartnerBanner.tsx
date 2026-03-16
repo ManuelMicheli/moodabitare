@@ -9,12 +9,11 @@ export function PremiumPartnerBanner() {
     <section className="relative min-h-[400px] sm:h-[75vh] sm:min-h-[500px] flex items-end justify-end text-white overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/Oknoplast-azienda-vista-aerea 1.png"
+        src="/images/Oknoplast-azienda-vista-aerea-opt.jpg"
         alt="Oknoplast azienda vista aerea"
         fill
         className="object-cover"
-        quality={85}
-        priority={false}
+        sizes="100vw"
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-tl from-black-deep/85 via-black-deep/50 to-transparent" />
@@ -37,7 +36,7 @@ export function PremiumPartnerBanner() {
 
           <FadeInView delay={0.2}>
             <p className="mt-5 text-body text-white/60 max-w-md">
-              Moschiano Srl è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
+              Mood Abitare è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
               Una ristretta rete di operatori che garantisce qualità ed eccellenza.
             </p>
           </FadeInView>

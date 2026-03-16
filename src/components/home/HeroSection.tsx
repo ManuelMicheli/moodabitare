@@ -147,10 +147,11 @@ export function HeroSection() {
       {/* Background image */}
       <Image
         src="/images/Hero 2.jpg"
-        alt="Moschiano Srl — serramenti e ristrutturazioni"
+        alt="Mood Abitare — serramenti e ristrutturazioni"
         fill
         priority
         className="object-cover"
+        sizes="100vw"
       />
       {/* Top gradient for navbar readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black-deep/50 via-black-deep/20 to-transparent pointer-events-none" />

@@ -2,16 +2,16 @@
 
 import dynamic from "next/dynamic";
 
-const ProductHighlights = dynamic(
-  () => import("@/components/home/ProductHighlights").then((m) => m.ProductHighlights),
-  { ssr: false }
-);
 const ValuePropositions = dynamic(
   () => import("@/components/home/ValuePropositions").then((m) => m.ValuePropositions),
   { ssr: false }
 );
 const ProductBentoGrid = dynamic(
   () => import("@/components/home/ProductBentoGrid").then((m) => m.ProductBentoGrid),
+  { ssr: false }
+);
+const EditorialShowcase = dynamic(
+  () => import("@/components/home/EditorialShowcase").then((m) => m.EditorialShowcase),
   { ssr: false }
 );
 const PortfolioGallery = dynamic(
@@ -30,9 +30,9 @@ const CTAFinale = dynamic(
 export function BelowFoldSections() {
   return (
     <>
-      <ProductHighlights />
-      <ValuePropositions />
       <ProductBentoGrid />
+      <ValuePropositions />
+      <EditorialShowcase />
       <PortfolioGallery />
       <TestimonialsCarousel />
       <CTAFinale />

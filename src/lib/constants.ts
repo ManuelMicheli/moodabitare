@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
-  name: "Moschiano Srl",
-  company: "Moschiano Srl",
+  name: "Mood Abitare",
+  company: "Mood Abitare",
   tagline: "Serramenti, Porte e Ristrutturazioni",
   description:
     "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.",
@@ -13,13 +13,15 @@ export const CONTACT_INFO = {
   province: "VA",
   cap: "21050",
   fullAddress: "Viale Europa, 65 — 21050 Gorla Maggiore (VA), Italia",
-  phone: "0331.1120048",
-  phoneHref: "tel:+3903311120048",
+  phone: "0331.1588159",
+  phoneHref: "tel:+3903311588159",
   whatsapp: "351.7278053",
   whatsappHref: "https://wa.me/3517278053",
-  email: "info@moschianosrl.it",
+  email: "info@moodabitare.it",
   emailCommerciale: "commerciale@moschianosrl.it",
   emailAmministrazione: "amministrazione@moschianosrl.it",
+  piva: "03940950128",
+  sdi: "M5UXCR1",
   googleMapsUrl:
     "https://www.google.com/maps/place/Viale+Europa,+65,+21050+Gorla+Maggiore+VA",
   coordinates: { lat: 45.6278, lng: 8.8847 },

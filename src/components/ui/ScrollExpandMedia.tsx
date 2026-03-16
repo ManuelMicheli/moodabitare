@@ -37,10 +37,11 @@ function MobileScrollExpandMedia({
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black-deep">
         <Image
           src={mediaSrc}
-          alt={title || 'Moschiano Srl'}
+          alt={title || 'Mood Abitare'}
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black-deep/40" />
 
@@ -84,17 +85,12 @@ function DesktopScrollExpandMedia({
   textBlend,
   children,
 }: ScrollExpandMediaProps) {
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [showContent, setShowContent] = useState<boolean>(false);
-  const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false);
-
+  const [, forceRender] = useState(0);
+  const progressRef = useRef(0);
+  const expandedRef = useRef(false);
+  const contentRef = useRef(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    setScrollProgress(0);
-    setShowContent(false);
-    setMediaFullyExpanded(false);
-  }, []);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const handleWheel = (e: globalThis.WheelEvent) => {
@@ -104,34 +100,38 @@ function DesktopScrollExpandMedia({
       const rect = section.getBoundingClientRect();
       if (rect.top > window.innerHeight || rect.bottom < 0) return;
 
-      if (mediaFullyExpanded && e.deltaY < 0 && rect.top >= -5) {
-        setMediaFullyExpanded(false);
+      if (expandedRef.current && e.deltaY < 0 && rect.top >= -5) {
+        expandedRef.current = false;
         e.preventDefault();
-      } else if (!mediaFullyExpanded && rect.top <= 5 && rect.top >= -5) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(() => forceRender((n) => n + 1));
+      } else if (!expandedRef.current && rect.top <= 5 && rect.top >= -5) {
         e.preventDefault();
         const scrollDelta = e.deltaY * 0.0009;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1
-        );
-        setScrollProgress(newProgress);
+        const newProgress = Math.min(Math.max(progressRef.current + scrollDelta, 0), 1);
+        progressRef.current = newProgress;
 
         if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
+          expandedRef.current = true;
+          contentRef.current = true;
         } else if (newProgress < 0.75) {
-          setShowContent(false);
+          contentRef.current = false;
         }
+
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(() => forceRender((n) => n + 1));
       }
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
-
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      cancelAnimationFrame(rafRef.current);
     };
-  }, [scrollProgress, mediaFullyExpanded]);
+  }, []);
 
+  const scrollProgress = progressRef.current;
+  const showContent = contentRef.current;
   const mediaWidth = 300 + scrollProgress * 1250;
   const mediaHeight = 400 + scrollProgress * 400;
   const textTranslateX = scrollProgress * 150;
@@ -156,12 +156,10 @@ function DesktopScrollExpandMedia({
             <Image
               src={bgImageSrc}
               alt="Background"
-              width={1920}
-              height={1080}
-              className="w-screen h-screen"
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              fill
+              className="object-cover"
               priority
-              unoptimized
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-black-deep/20" />
           </motion.div>
@@ -182,11 +180,10 @@ function DesktopScrollExpandMedia({
                 <div className="relative w-full h-full">
                   <Image
                     src={mediaSrc}
-                    alt={title || 'Moschiano Srl'}
-                    width={1280}
-                    height={720}
-                    className="w-full h-full object-cover rounded-xl"
-                    unoptimized
+                    alt={title || 'Mood Abitare'}
+                    fill
+                    className="object-cover rounded-xl"
+                    sizes="95vw"
                   />
                   <motion.div
                     className="absolute inset-0 bg-black-deep/50 rounded-xl"

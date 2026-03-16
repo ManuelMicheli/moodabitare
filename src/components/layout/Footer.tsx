@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CONTACT_INFO, OPENING_HOURS, MACRO_CATEGORIES, NAV_ITEMS } from "@/lib/constants";
 
-const MARQUEE_TEXT = "Moschiano Srl — Serramenti — Porte — Ristrutturazioni — Arredo Casa — Premium Partner Oknoplast — ";
+const MARQUEE_TEXT = "Mood Abitare — Serramenti — Porte — Ristrutturazioni — Arredo Casa — Premium Partner Oknoplast — ";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -32,8 +32,8 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/logo/logo-mood-abitare-clean.png"
-                alt="Moschiano Srl"
+                src="/logo/logo-mood-abitare-transparent-opt.png"
+                alt="Mood Abitare — La tua casa a 360 gradi"
                 width={200}
                 height={50}
                 className="h-9 w-auto brightness-0 invert"
@@ -115,7 +115,7 @@ export function Footer() {
       <div className="border-t border-white/5 py-5 px-6 sm:px-10 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
           <p className="text-caption text-white/20">
-            &copy; {currentYear} Moschiano Srl. Tutti i diritti riservati.
+            &copy; {currentYear} Mood Abitare. Tutti i diritti riservati.
           </p>
           <Link href="/privacy-policy" className="text-caption text-white/20 hover:text-white/40 transition-colors">
             Privacy & Cookie Policy

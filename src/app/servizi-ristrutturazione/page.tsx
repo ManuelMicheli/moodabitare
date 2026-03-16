@@ -7,7 +7,7 @@ import { AccentText } from "@/components/ui/AccentText";
 export const metadata: Metadata = {
   title: "Servizi di Ristrutturazione",
   description:
-    "Moschiano Srl: ristrutturazioni chiavi in mano, rifacimento bagni, impianti elettrici e idraulici, climatizzazione, caldaie e pompe di calore a Varese.",
+    "Mood Abitare: ristrutturazioni chiavi in mano, rifacimento bagni, impianti elettrici e idraulici, climatizzazione, caldaie e pompe di calore a Varese.",
 };
 
 const services = [

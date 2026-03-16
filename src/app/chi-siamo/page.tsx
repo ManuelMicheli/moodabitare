@@ -13,7 +13,7 @@ import { CONTACT_INFO } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Chi Siamo",
   description:
-    "Moschiano Srl: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore.",
+    "Mood Abitare: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore.",
 };
 
 /* ── Data ─────────────────────────────────────────────────────────── */
@@ -23,7 +23,7 @@ const timeline = [
     year: "1990",
     title: "Tutto inizia qui",
     description:
-      "Nasce Moschiano Srl con la missione di aiutare le famiglie della provincia di Varese a vivere meglio nella propria casa. Qualità artigianale e attenzione autentica per ogni cliente, fin dal primo giorno.",
+      "Nasce Mood Abitare con la missione di aiutare le famiglie della provincia di Varese a vivere meglio nella propria casa. Qualità artigianale e attenzione autentica per ogni cliente, fin dal primo giorno.",
   },
   {
     year: "2000",
@@ -41,11 +41,11 @@ const timeline = [
     year: "2020",
     title: "Una fiducia che cresce",
     description:
-      "Oknoplast ci sceglie come unico Premium Partner per la provincia di Varese. Un riconoscimento che conferma ciò in cui crediamo: lavorare bene, con i migliori, per offrire il massimo a chi ci sceglie.",
+      "Oknoplast ci sceglie come Premium Partner per la provincia di Varese. Un riconoscimento riservato a pochi, che conferma ciò in cui crediamo: lavorare bene, con i migliori, per offrire il massimo a chi ci sceglie.",
   },
   {
     year: "Oggi",
-    title: "Moschiano Srl",
+    title: "Mood Abitare",
     description:
       "Siamo qui per te, con lo stesso entusiasmo di sempre e l'esperienza di oltre trent'anni. 17 brand selezionati, un team dedicato e servizi completi — inclusi design, progettazione e ristrutturazioni chiavi in mano.",
   },
@@ -59,19 +59,19 @@ export default function ChiSiamo() {
       {/* ─── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
         <Image
-          src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae_upscayl_4x_upscayl-standard-4x.png"
-          alt="Showroom Moschiano Srl"
+          src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
+          alt="Showroom Mood Abitare"
           fill
           className="object-cover"
           priority
-          unoptimized
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black-deep/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-transparent to-transparent" />
 
         <div className="relative z-10 w-full pb-16 lg:pb-24 px-6 sm:px-10 lg:px-20 text-center">
           <h1 className="font-page-title text-white">
-            Moschiano Solution — Benvenuti a casa vostra
+            Mood Abitare — Benvenuti a casa vostra
           </h1>
         </div>
       </section>

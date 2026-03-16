@@ -7,7 +7,7 @@ import { AccentText } from "@/components/ui/AccentText";
 export const metadata: Metadata = {
   title: "Premium Partner Oknoplast",
   description:
-    "Moschiano Srl è Premium Partner Oknoplast per la provincia di Varese. Scopri i vantaggi di scegliere un partner certificato per i tuoi serramenti.",
+    "Mood Abitare è Premium Partner Oknoplast per la provincia di Varese. Scopri i vantaggi di scegliere un partner certificato per i tuoi serramenti.",
 };
 
 const benefits = [
@@ -38,10 +38,10 @@ export default function PremiumPartner() {
               Premium Partner
             </p>
             <h1 className="font-page-title max-w-5xl">
-              <AccentText>Moschiano Srl è Premium Partner Oknoplast</AccentText>
+              <AccentText>Mood Abitare è Premium Partner Oknoplast</AccentText>
             </h1>
             <p className="mt-8 text-body text-white/35 max-w-xl">
-              Moschiano Srl è stata selezionata da Oknoplast come Premium Partner per la provincia di Varese. Fa parte di una ristretta rete di operatori che garantiscono ai propri clienti un&apos;elevata qualità dei prodotti e dei servizi offerti.
+              Mood Abitare è stata selezionata da Oknoplast come Premium Partner per la provincia di Varese. Fa parte di una ristretta rete di operatori che garantiscono ai propri clienti un&apos;elevata qualità dei prodotti e dei servizi offerti.
             </p>
           </FadeInView>
         </div>
@@ -50,11 +50,11 @@ export default function PremiumPartner() {
       {/* Oknoplast image banner */}
       <section className="relative h-[65vh] min-h-[450px] flex items-end justify-end text-white overflow-hidden">
         <Image
-          src="/images/Oknoplast-azienda-vista-aerea 1.png"
+          src="/images/Oknoplast-azienda-vista-aerea-opt.jpg"
           alt="Oknoplast azienda vista aerea"
           fill
           className="object-cover"
-          quality={85}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-tl from-black-deep/85 via-black-deep/50 to-transparent" />
 
@@ -76,7 +76,7 @@ export default function PremiumPartner() {
 
             <FadeInView delay={0.2}>
               <p className="mt-5 text-body text-white/60 max-w-md">
-                Moschiano Srl è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
+                Mood Abitare è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
                 Una ristretta rete di operatori che garantisce qualità ed eccellenza.
               </p>
             </FadeInView>

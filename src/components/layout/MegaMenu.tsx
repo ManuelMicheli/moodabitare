@@ -50,7 +50,7 @@ export function MegaMenu() {
                         href={`/prodotti/${product.slug}`}
                         className="group flex items-center gap-4 py-2.5 -mx-3 px-3 rounded-sm hover:bg-white/[0.04] transition-all duration-300"
                       >
-                        <span className="h-px w-0 group-hover:w-4 bg-bordeaux transition-all duration-300" />
+                        <span className="h-[2px] w-0 group-hover:w-4 bg-white transition-all duration-300" />
                         <div>
                           <span className="font-card-title text-white/80 group-hover:text-white transition-colors duration-300">
                             {product.name}
