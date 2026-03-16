@@ -8,7 +8,7 @@ export function SiteLoader() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const clipRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
+  const taglineRef = useRef<HTMLDivElement>(null);
   const lineLeftRef = useRef<HTMLDivElement>(null);
   const lineRightRef = useRef<HTMLDivElement>(null);
   const hasRun = useRef(false);
@@ -60,6 +60,10 @@ export function SiteLoader() {
       logoRef.current.style.opacity = "1";
       logoRef.current.style.transform = "scale(1)";
     }
+    if (taglineRef.current) {
+      taglineRef.current.style.opacity = "1";
+      taglineRef.current.style.transform = "translateY(0)";
+    }
     if (lineLeftRef.current) {
       lineLeftRef.current.style.transform = "scaleX(1)";
       lineLeftRef.current.style.opacity = "1";
@@ -91,25 +95,11 @@ export function SiteLoader() {
       0
     );
 
-    // Phase 2: Soft ambient glow pulses once behind logo
-    tl.to(
-      glowRef.current,
-      {
-        opacity: 0.15,
-        scale: 1.2,
-        duration: 0.8,
-        ease: "power2.out",
-      },
-      0.4
-    );
-    tl.to(
-      glowRef.current,
-      {
-        opacity: 0,
-        scale: 1.5,
-        duration: 0.6,
-        ease: "power2.in",
-      },
+    // Phase 2: Tagline fades in after logo is composed
+    tl.fromTo(
+      taglineRef.current,
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
       1.2
     );
 
@@ -122,7 +112,7 @@ export function SiteLoader() {
         duration: 0.7,
         ease: "power3.inOut",
       },
-      1.0
+      1.4
     );
     tl.to(
       lineRightRef.current,
@@ -132,7 +122,7 @@ export function SiteLoader() {
         duration: 0.7,
         ease: "power3.inOut",
       },
-      1.0
+      1.4
     );
 
     // Hold
@@ -163,7 +153,12 @@ export function SiteLoader() {
       ease: "power3.inOut",
     });
 
-    // Lines fade
+    // Tagline and lines fade
+    tl.to(
+      taglineRef.current,
+      { opacity: 0, duration: 0.3, ease: "power2.in" },
+      0
+    );
     tl.to(
       [lineLeftRef.current, lineRightRef.current],
       { opacity: 0, duration: 0.3, ease: "power2.in" },
@@ -200,22 +195,6 @@ export function SiteLoader() {
       }}
       aria-hidden="true"
     >
-      {/* Ambient glow behind logo */}
-      <div
-        ref={glowRef}
-        style={{
-          position: "absolute",
-          width: "300px",
-          height: "300px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(122,38,56,0.4) 0%, transparent 70%)",
-          opacity: 0,
-          transform: "scale(0.8)",
-          pointerEvents: "none",
-        }}
-      />
-
       {/* Clip container — reveals logo from center outward */}
       <div
         ref={clipRef}
@@ -241,6 +220,23 @@ export function SiteLoader() {
         />
       </div>
 
+      {/* Tagline — appears after logo */}
+      <div
+        ref={taglineRef}
+        style={{
+          marginTop: "16px",
+          fontSize: "clamp(11px, 1.2vw, 14px)",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.55)",
+          fontFamily: "var(--font-ui)",
+          opacity: 0,
+          transform: "translateY(8px)",
+        }}
+      >
+        la tua casa a 360 gradi
+      </div>
+
       {/* Twin decorative lines — expand outward from center */}
       <div
         style={{
@@ -256,7 +252,7 @@ export function SiteLoader() {
             width: "40px",
             height: "1px",
             background:
-              "linear-gradient(to left, #7A2638, transparent)",
+              "linear-gradient(to left, rgba(255,255,255,0.4), transparent)",
             opacity: 0,
             transform: "scaleX(0)",
             transformOrigin: "right center",
@@ -267,7 +263,7 @@ export function SiteLoader() {
             width: "4px",
             height: "4px",
             borderRadius: "50%",
-            background: "#7A2638",
+            background: "rgba(255,255,255,0.4)",
             opacity: 0.6,
           }}
         />
@@ -277,7 +273,7 @@ export function SiteLoader() {
             width: "40px",
             height: "1px",
             background:
-              "linear-gradient(to right, #7A2638, transparent)",
+              "linear-gradient(to right, rgba(255,255,255,0.4), transparent)",
             opacity: 0,
             transform: "scaleX(0)",
             transformOrigin: "left center",

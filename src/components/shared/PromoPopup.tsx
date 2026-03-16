@@ -16,8 +16,8 @@ export function PromoPopup() {
       // storage unavailable
     }
 
-    // Show popup after site loader finishes (delay 2.5s)
-    const timer = setTimeout(() => setVisible(true), 2500);
+    // Show popup 1s after site loader finishes (~4.5s total)
+    const timer = setTimeout(() => setVisible(true), 4500);
     return () => clearTimeout(timer);
   }, []);
 
