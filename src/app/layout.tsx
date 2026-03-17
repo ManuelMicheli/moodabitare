@@ -228,12 +228,6 @@ export default function RootLayout({
             __html: `(function(){var d=document,s1=d.createElement("script");s1.src="https://cdn.botpress.cloud/webchat/v3.6/inject.js";s1.onload=function(){var s2=d.createElement("script");s2.src="https://files.bpcontent.cloud/2026/03/16/18/20260316183415-DXS3QZ46.js";d.body.appendChild(s2)};d.body.appendChild(s1)})();`,
           }}
         />
-        {/* Lock body scroll when Botpress chat is open */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){function hook(){if(!window.botpress)return setTimeout(hook,500);window.botpress.on("webchat:opened",function(){document.documentElement.style.overflow="hidden"});window.botpress.on("webchat:closed",function(){document.documentElement.style.overflow=""})}hook()})();`,
-          }}
-        />
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
 import { DrawLine } from "@/components/animations/DrawLine";
 import { AboutSection } from "@/components/home/AboutSection";
+import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner";
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 const marqueeImages = [
@@ -35,6 +36,11 @@ export function ValuePropositions() {
           ))}
         </div>
       </div>
+
+      <div className="py-10 sm:py-14 lg:py-16" />
+
+      {/* Ristrutturazione banner */}
+      <RistrutturazioneBanner />
 
       {/* About — scroll-reveal text */}
       <AboutSection />

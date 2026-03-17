@@ -2,7 +2,7 @@ import { BRAND_PARTNERS } from "@/lib/constants";
 
 export function BrandLogos() {
   return (
-    <section className="py-6 lg:py-8 border-b border-warm-gray/30 overflow-hidden bg-white">
+    <section className="py-6 lg:py-8 border-b border-warm-gray/30 overflow-hidden bg-cream">
       <div className="marquee-container">
         <div className="marquee-track">
           {[...BRAND_PARTNERS, ...BRAND_PARTNERS].map((brand, i) => (

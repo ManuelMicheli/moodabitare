@@ -111,7 +111,7 @@ export function ProductBentoGrid() {
   }, []);
 
   return (
-    <section className="relative pt-8 lg:pt-12 pb-0">
+    <section className="relative pt-16 lg:pt-24 pb-0">
       <div className="relative">
         {/* Section title */}
         <h2

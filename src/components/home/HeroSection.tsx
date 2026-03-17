@@ -26,7 +26,7 @@ const slides = [
     subheadline: "Progettazione e realizzazione completa di cucine, bagni e living su misura",
     ctaText: "Scopri l'arredo",
     ctaLink: "/prodotti/cucine-su-misura",
-    image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg",
+    image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg",
   },
   {
     headline: "Ristrutturazioni\ncon detrazioni al 50%",
