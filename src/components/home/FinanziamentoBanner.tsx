@@ -2,21 +2,31 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { MagneticButton } from "@/components/animations/MagneticButton";
 
 export function FinanziamentoBanner() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+
   return (
-    <section className="relative bg-black-deep overflow-hidden">
-      <Image
-        src="/images/Oknoplast_2024_home.jpg"
-        alt=""
-        fill
-        className="object-cover"
-        sizes="100vw"
-        quality={90}
-      />
+    <section ref={ref} className="relative bg-black-deep overflow-hidden">
+      <motion.div className="absolute inset-[-25%]" style={{ y }}>
+        <Image
+          src="/images/Oknoplast_2024_home.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          quality={90}
+        />
+      </motion.div>
       <div className="absolute inset-0 bg-black-deep/50" />
       <Link
         href="/finanziamento"
@@ -55,7 +65,7 @@ export function FinanziamentoBanner() {
               >
                 Detrazioni fiscali per la sostituzione dei serramenti
               </p>
-              <p className="font-ui text-cream/35 text-[0.8rem] sm:text-[0.85rem] mt-1.5">
+              <p className="font-ui text-cream text-[0.8rem] sm:text-[0.85rem] mt-1.5">
                 Cumulabile con finanziamento a tasso zero &mdash; TAN 0% |
                 TAEG 0%
               </p>
@@ -63,13 +73,13 @@ export function FinanziamentoBanner() {
 
             {/* Arrow CTA */}
             <MagneticButton as="span" strength={0.5}>
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/15 group-hover:border-cream/40 transition-all duration-300 mt-2">
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/50 group-hover:border-cream transition-all duration-300 mt-2">
                 <svg
                   width="16"
                   height="16"
                   viewBox="0 0 16 16"
                   fill="none"
-                  className="text-cream/50 group-hover:text-cream transition-all duration-300 group-hover:translate-x-0.5"
+                  className="text-cream group-hover:text-cream transition-all duration-300 group-hover:translate-x-0.5"
                 >
                   <path
                     d="M3 8h10M9 4l4 4-4 4"
