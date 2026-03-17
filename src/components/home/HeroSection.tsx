@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { TextScramble } from "@/components/ui/text-scramble";
 
 
 const slides = [
@@ -49,21 +48,11 @@ const REVEAL_CONFIG = {
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [revealingIndex, setRevealingIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const isFirstRender = useRef(true);
   const isAnimatingRef = useRef(false);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  // Detect mobile viewport
-  useEffect(() => {
-    const mql = window.matchMedia("(max-width: 640px)");
-    setIsMobile(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
-  }, []);
 
 
   // ---------------------------------------------------------------------------
@@ -245,39 +234,13 @@ export function HeroSection() {
               className="w-auto h-12 sm:h-16 object-contain drop-shadow-lg brightness-0 invert"
             />
             <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(2.5rem,6vw,5rem)] leading-[1.1]">
-              {slide.headline.split("\n").map((line, li) =>
-                isMobile ? (
-                  <span key={`${i}-${li}`} className="block">{line}</span>
-                ) : (
-                  <TextScramble
-                    key={`${i}-${li}-${revealingIndex}`}
-                    as="span"
-                    className="block"
-                    duration={1.2}
-                    speed={0.03}
-                    trigger={i === revealingIndex}
-                  >
-                    {line}
-                  </TextScramble>
-                )
-              )}
+              {slide.headline.split("\n").map((line, li) => (
+                <span key={`${i}-${li}`} className="block">{line}</span>
+              ))}
             </h2>
-            {isMobile ? (
-              <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.6rem)] leading-relaxed">
-                {slide.subheadline}
-              </p>
-            ) : (
-              <TextScramble
-                key={`sub-${i}-${revealingIndex}`}
-                as="p"
-                className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.6rem)] leading-relaxed"
-                duration={1.4}
-                speed={0.02}
-                trigger={i === revealingIndex}
-              >
-                {slide.subheadline}
-              </TextScramble>
-            )}
+            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.6rem)] leading-relaxed">
+              {slide.subheadline}
+            </p>
             <Link
               href={slide.ctaLink}
               className="mt-4 text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/85 transition-colors"
