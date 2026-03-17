@@ -1,25 +1,23 @@
-import { ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-const BentoGrid = ({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div
-      className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-3 gap-4",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+const BentoGrid = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(
+  ({ children, className }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "grid w-full auto-rows-[22rem] grid-cols-3 gap-4",
+          className,
+        )}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+BentoGrid.displayName = "BentoGrid";
 
 const BentoCard = ({
   name,

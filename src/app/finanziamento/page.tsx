@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
 import { FormulaCard } from "@/components/finanziamento/FormulaCard";
 
@@ -48,9 +49,13 @@ export default function Finanziamento() {
         <div className="relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <p className="text-label text-cream/30 mb-6">Finanziamento</p>
+          </FadeInView>
+          <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title text-cream max-w-4xl">
               <AccentText>Tasso zero per i tuoi serramenti</AccentText>
             </h1>
+          </ClipReveal>
+          <FadeInView delay={0.4}>
             <p className="mt-8 text-body text-cream/35 max-w-xl">
               Rinnova la tua casa senza pensieri grazie al finanziamento a tasso
               zero, cumulabile con le detrazioni fiscali.
@@ -260,13 +265,13 @@ export default function Finanziamento() {
               <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contatti"
-                  className="text-button inline-block bg-cream text-black-deep px-10 py-4 hover:bg-cream/90 transition-colors"
+                  className="text-button inline-block bg-cream text-black-deep px-10 py-4 btn-press hover:bg-cream/90 transition-colors"
                 >
                   Richiedi un preventivo
                 </Link>
                 <Link
                   href="tel:03311120048"
-                  className="text-button inline-block text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 transition-colors"
+                  className="text-button inline-block text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 btn-press transition-colors"
                 >
                   0331.1120048
                 </Link>

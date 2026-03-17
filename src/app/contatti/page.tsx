@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
@@ -38,9 +39,13 @@ export default function Contatti() {
             <p className="text-label text-white/40 mb-6">
               Contattaci
             </p>
+          </FadeInView>
+          <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title max-w-5xl">
               <AccentText>Parliamo del tuo progetto</AccentText>
             </h1>
+          </ClipReveal>
+          <FadeInView delay={0.4}>
             <p className="mt-8 text-body text-white/35 max-w-xl">
               Compila il form per richiedere un preventivo o informazioni. Ti risponderemo il prima possibile.
             </p>
@@ -49,6 +54,7 @@ export default function Contatti() {
       </section>
 
       {/* Map */}
+      <ClipReveal direction="up" duration={1}>
       <section className="h-[300px] sm:h-[400px] lg:h-[500px] bg-warm-gray/10">
         <iframe
           src="https://maps.google.com/maps?q=Viale+Europa+65,+21050+Gorla+Maggiore+VA,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -61,6 +67,7 @@ export default function Contatti() {
           title="Mood Abitare — Gorla Maggiore"
         />
       </section>
+      </ClipReveal>
 
       {/* Contact Info + Form */}
       <section className="py-20 lg:py-44">

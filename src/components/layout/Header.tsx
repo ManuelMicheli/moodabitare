@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +11,8 @@ import { MegaMenu } from "./MegaMenu";
 import { MobileNav } from "./MobileNav";
 
 export function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -87,8 +90,11 @@ export function Header() {
         )}
       >
         <div className="flex h-20 items-center justify-between px-6 sm:px-10 lg:px-20 lg:h-24">
-          {/* Logo */}
-          <Link href="/" className="relative z-10 flex-shrink-0">
+          {/* Logo — hidden on home hero, always visible on other pages */}
+          <Link href="/" className={cn(
+            "relative z-10 flex-shrink-0 transition-opacity duration-500",
+            isHomePage && !isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+          )}>
             <Image
               src="/logo/logo-mood-abitare-transparent-opt.png"
               alt="Mood Abitare — La tua casa a 360 gradi"

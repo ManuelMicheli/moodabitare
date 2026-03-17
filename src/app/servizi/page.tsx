@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
 export const metadata: Metadata = {
@@ -91,9 +92,13 @@ export default function Servizi() {
             <p className="text-label text-white/40 mb-4">
               I nostri servizi
             </p>
+          </FadeInView>
+          <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title text-white max-w-5xl">
               Dalla consulenza alla posa in opera
             </h1>
+          </ClipReveal>
+          <FadeInView delay={0.4}>
             <p className="mt-6 text-body text-white/50 max-w-xl">
               Un servizio completo e professionale con un unico referente — dalla progettazione allo smaltimento dei vecchi serramenti.
             </p>
@@ -215,13 +220,13 @@ export default function Servizi() {
             <div className="mt-10 flex flex-wrap justify-center gap-6">
               <Link
                 href="/contatti"
-                className="text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors"
+                className="text-button inline-block bg-white text-black-deep px-8 py-4 btn-press hover:bg-white/90 transition-colors"
               >
                 Richiedi preventivo
               </Link>
               <Link
                 href="/prodotti"
-                className="text-button inline-block text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors"
+                className="text-button inline-block text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors link-draw"
               >
                 Vedi i prodotti
               </Link>

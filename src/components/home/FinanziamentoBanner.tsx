@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { FadeInView } from "@/components/animations/FadeInView";
+import { motion } from "framer-motion";
+import { ClipReveal } from "@/components/animations/ClipReveal";
+import { MagneticButton } from "@/components/animations/MagneticButton";
 
 export function FinanziamentoBanner() {
   return (
@@ -10,23 +12,44 @@ export function FinanziamentoBanner() {
         href="/finanziamento"
         className="group block px-6 sm:px-10 lg:px-20 py-10 lg:py-14 transition-colors hover:bg-black-soft"
       >
-        <FadeInView direction="none">
+        <ClipReveal direction="right" duration={0.9}>
           <div className="flex items-center justify-between gap-8">
             {/* Left content */}
             <div className="flex items-center gap-6 sm:gap-10 lg:gap-16 min-w-0">
-              {/* Big percentage */}
-              <span
+              {/* Big percentage — with counter entrance */}
+              <motion.span
                 className="font-display font-bold text-cream leading-none shrink-0"
                 style={{ fontSize: "clamp(3rem, 2rem + 4vw, 5.5rem)" }}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.2,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
               >
                 50%
-              </span>
+              </motion.span>
 
-              {/* Separator */}
-              <div className="hidden sm:block w-px h-14 bg-cream/15 shrink-0" />
+              {/* Separator — draws in */}
+              <motion.div
+                className="hidden sm:block w-px h-14 bg-cream/15 shrink-0"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                style={{ transformOrigin: "top" }}
+              />
 
               {/* Text */}
-              <div className="min-w-0">
+              <motion.div
+                className="min-w-0"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
                 <p
                   className="font-display font-bold text-cream leading-tight"
                   style={{
@@ -39,7 +62,7 @@ export function FinanziamentoBanner() {
                   Cumulabile con finanziamento a tasso zero &mdash; TAN 0% |
                   TAEG 0%
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Arrow CTA */}
@@ -47,26 +70,28 @@ export function FinanziamentoBanner() {
               <span className="hidden md:block text-button text-cream/40 group-hover:text-cream/70 transition-colors text-[0.9rem]">
                 Scopri
               </span>
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/15 group-hover:border-cream/40 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="text-cream/50 group-hover:text-cream transition-colors"
-                >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              <MagneticButton as="span" strength={0.5}>
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/15 group-hover:border-cream/40 transition-all duration-300">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    className="text-cream/50 group-hover:text-cream transition-all duration-300 group-hover:translate-x-0.5"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </MagneticButton>
             </div>
           </div>
-        </FadeInView>
+        </ClipReveal>
       </Link>
     </section>
   );

@@ -4,33 +4,34 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { TextScramble } from "@/components/ui/text-scramble";
 
 
 const slides = [
   {
     headline: "Dove il design\nincontra il comfort",
-    subheadline: "Scopri Mood Abitare — serramenti, porte e arredo per la tua casa",
+    subheadline: "Serramenti in PVC, alluminio e legno — isolamento termico e acustico certificato",
     ctaText: "Scopri i prodotti",
     ctaLink: "/prodotti",
     image: "/images/Hero 1.jpg",
   },
   {
     headline: "Porte e interni\nche trasformano ogni spazio",
-    subheadline: "Porte interne, blindate e portoncini d'ingresso dei migliori brand",
+    subheadline: "Porte interne, blindate e portoncini d'ingresso dei migliori brand italiani",
     ctaText: "Scopri le porte",
     ctaLink: "/prodotti/porte-interne",
     image: "/images/Hero 2.jpg",
   },
   {
     headline: "Cucine, bagni\ne arredo su misura",
-    subheadline: "Progettazione completa per ogni ambiente della tua casa",
+    subheadline: "Progettazione e realizzazione completa di cucine, bagni e living su misura",
     ctaText: "Scopri l'arredo",
     ctaLink: "/prodotti/cucine-su-misura",
     image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg",
   },
   {
     headline: "Ristrutturazioni\ncon detrazioni al 50%",
-    subheadline: "Dal progetto alla consegna — oltre 30 anni di esperienza a Varese",
+    subheadline: "Dal sopralluogo alla consegna — gestione completa con pratiche e detrazioni incluse",
     ctaText: "Richiedi preventivo",
     ctaLink: "/contatti",
     image: "/images/Hero3.jpg",
@@ -47,6 +48,7 @@ const REVEAL_CONFIG = {
 
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const [revealingIndex, setRevealingIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const isFirstRender = useRef(true);
@@ -65,6 +67,10 @@ export function HeroSection() {
       const currentSlide = slidesRef.current[current];
       const nextSlide = slidesRef.current[nextIndex];
       if (!currentSlide || !nextSlide) return;
+
+      // Notify banner and trigger text scramble at the start of the reveal
+      setRevealingIndex(nextIndex);
+      window.dispatchEvent(new CustomEvent("hero-slide-change", { detail: nextIndex }));
 
       // Bring next slide on top and reset
       nextSlide.style.zIndex = "2";
@@ -219,14 +225,39 @@ export function HeroSection() {
           />
           {/* Dark overlay for text contrast */}
           <div className="absolute inset-0 bg-black/35" />
-          {/* Centered headline + subheadline + CTA — revealed with the image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-5">
-            <h2 className="font-hero text-white text-center whitespace-pre-line drop-shadow-lg text-[clamp(2.5rem,6vw,5rem)] leading-[1.1]">
-              {slide.headline}
+          {/* Centered headline + CTA — revealed with the image */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-16 sm:px-6 gap-5">
+            <Image
+              src="/logo/logo-mood-abitare-transparent-opt.png"
+              alt="Mood Abitare"
+              width={200}
+              height={50}
+              className="w-auto h-12 sm:h-16 object-contain drop-shadow-lg brightness-0 invert"
+            />
+            <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(2.5rem,6vw,5rem)] leading-[1.1]">
+              {slide.headline.split("\n").map((line, li) => (
+                <TextScramble
+                  key={`${i}-${li}-${revealingIndex}`}
+                  as="span"
+                  className="block"
+                  duration={1.2}
+                  speed={0.03}
+                  trigger={i === revealingIndex}
+                >
+                  {line}
+                </TextScramble>
+              ))}
             </h2>
-            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.5rem)] leading-relaxed">
+            <TextScramble
+              key={`sub-${i}-${revealingIndex}`}
+              as="p"
+              className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.6rem)] leading-relaxed"
+              duration={1.4}
+              speed={0.02}
+              trigger={i === revealingIndex}
+            >
               {slide.subheadline}
-            </p>
+            </TextScramble>
             <Link
               href={slide.ctaLink}
               className="mt-4 text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/85 transition-colors"
@@ -250,9 +281,9 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide precedente"
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
@@ -264,9 +295,9 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide successiva"
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>

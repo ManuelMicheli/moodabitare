@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
+import { ScrambleBanner } from "@/components/home/ScrambleBanner";
 import { BrandLogos } from "@/components/home/BrandLogos";
 import { BelowFoldSections } from "@/components/home/BelowFoldSections";
 
@@ -21,10 +22,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      {/* Hero + brand marquee fill the entire first screen */}
+      {/* Hero + brand marquee + scramble banner fill the entire first screen */}
       <div className="h-svh flex flex-col">
         <HeroSection />
         <BrandLogos />
+        <ScrambleBanner />
       </div>
       <BelowFoldSections />
     </main>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
 import { HoverFillSection } from "@/components/progettazione-design/HoverFillSection";
 
@@ -71,9 +72,13 @@ export default function ProgettazioneDesign() {
             <p className="text-label text-white/40 mb-6">
               Progettazione e Design
             </p>
+          </FadeInView>
+          <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title max-w-5xl">
               <AccentText>Le tue idee prendono forma</AccentText>
             </h1>
+          </ClipReveal>
+          <FadeInView delay={0.4}>
             <p className="mt-8 text-body text-white/35 max-w-xl">
               Ogni casa racconta una storia unica. Il nostro metodo parte
               dall&apos;ascolto per comprendere come vivi i tuoi spazi, le tue
@@ -214,13 +219,13 @@ export default function ProgettazioneDesign() {
               <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contatti"
-                  className="text-button inline-block bg-cream text-black-deep px-10 py-4 hover:bg-cream/90 transition-colors"
+                  className="text-button inline-block bg-cream text-black-deep px-10 py-4 btn-press hover:bg-cream/90 transition-colors"
                 >
                   Prenota un incontro
                 </Link>
                 <Link
                   href="tel:03311120048"
-                  className="text-button inline-block text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 transition-colors"
+                  className="text-button inline-block text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 btn-press transition-colors"
                 >
                   0331.1120048
                 </Link>

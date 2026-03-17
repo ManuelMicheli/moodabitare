@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { AccentText } from "@/components/ui/AccentText";
 
@@ -85,9 +86,13 @@ export default function ServiziRistrutturazione() {
             <p className="text-label text-white/40 mb-6">
               Servizi di Ristrutturazione
             </p>
+          </FadeInView>
+          <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title max-w-5xl">
               <AccentText>Ristrutturazioni chiavi in mano</AccentText>
             </h1>
+          </ClipReveal>
+          <FadeInView delay={0.4}>
             <p className="mt-8 text-body text-white/35 max-w-xl">
               Un servizio completo per rinnovare la tua casa: dalla
               progettazione alla consegna, con un unico referente per tutto.
@@ -150,13 +155,13 @@ export default function ServiziRistrutturazione() {
             <div className="mt-10 flex flex-wrap justify-center gap-6">
               <Link
                 href="/contatti"
-                className="text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors"
+                className="text-button inline-block bg-white text-black-deep px-8 py-4 btn-press hover:bg-white/90 transition-colors"
               >
                 Richiedi preventivo
               </Link>
               <Link
                 href="/finanziamento"
-                className="text-button inline-block text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors"
+                className="text-button inline-block text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors link-draw"
               >
                 Scopri il finanziamento
               </Link>

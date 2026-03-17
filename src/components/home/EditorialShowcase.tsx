@@ -3,8 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { useIsMobile } from "@/hooks/useIsMobile";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function ParallaxImage({
   src,
@@ -71,23 +76,140 @@ function ParallaxImage({
   );
 }
 
+/**
+ * GSAP slide-in for Row 1 images (left image from left, right image from right)
+ */
+function GsapSlideImage({
+  src,
+  alt,
+  className,
+  fromX,
+  delay = 0,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  fromX: number;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    gsap.set(el, {
+      opacity: 0,
+      x: isMobile ? 0 : fromX,
+      y: isMobile ? 30 : 0,
+    });
+
+    gsap.to(el, {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      duration: 0.7,
+      delay,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll()
+        .filter((t) => t.trigger === el)
+        .forEach((t) => t.kill());
+    };
+  }, [fromX, delay]);
+
+  return (
+    <div ref={ref} className={className}>
+      <div className="relative aspect-[2/1] overflow-hidden bg-warm-gray">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * GSAP slide-in wrapper — per qualsiasi contenuto (testimonial, spotlight, ecc.)
+ */
+function GsapSlideBlock({
+  children,
+  className,
+  fromX,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  fromX: number;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    gsap.set(el, {
+      opacity: 0,
+      x: isMobile ? 0 : fromX,
+      y: isMobile ? 30 : 0,
+    });
+
+    gsap.to(el, {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      duration: 0.7,
+      delay,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll()
+        .filter((t) => t.trigger === el)
+        .forEach((t) => t.kill());
+    };
+  }, [fromX, delay]);
+
+  return (
+    <div ref={ref} className={className}>
+      {children}
+    </div>
+  );
+}
+
 export function EditorialShowcase() {
   return (
     <section className="py-0">
       {/* Row 1: Image (4) | Text (4) | Image (4) */}
       <div className="grid grid-cols-1 md:grid-cols-12">
-        {/* R1 — Photo left */}
-        <FadeInView className="md:col-span-4">
-          <div className="relative aspect-[2/1] overflow-hidden bg-warm-gray">
-            <Image
-              src="/images/Bilico_antracite-eff-legno_FINAL.jpg"
-              alt="Portoncino d'ingresso in alluminio effetto legno"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </div>
-        </FadeInView>
+        {/* R1 — Photo left — GSAP da sinistra */}
+        <GsapSlideImage
+          src="/images/Bilico_antracite-eff-legno_FINAL.jpg"
+          alt="Portoncino d'ingresso in alluminio effetto legno"
+          className="md:col-span-4"
+          fromX={-100}
+        />
 
         {/* R1 — Text center */}
         <FadeInView delay={0.1} className="md:col-span-4">
@@ -101,24 +223,20 @@ export function EditorialShowcase() {
             <p className="mt-4 text-caption text-mid-gray leading-relaxed max-w-[28ch]">
               Finestre in PVC a 5 e 7 camere con trasmittanza fino a 0,73 W/m²K. Isolamento termico e acustico, risparmio in bolletta tutto l&apos;anno.
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors">
+            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors link-draw">
               Scopri
             </span>
           </Link>
         </FadeInView>
 
-        {/* R1 — Photo right */}
-        <FadeInView delay={0.2} className="md:col-span-4">
-          <div className="relative aspect-[2/1] overflow-hidden bg-warm-gray">
-            <Image
-              src="/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg"
-              alt="Frangisole Ekosol grigio scuro"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </div>
-        </FadeInView>
+        {/* R1 — Photo right — GSAP da destra */}
+        <GsapSlideImage
+          src="/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg"
+          alt="Frangisole Ekosol grigio scuro"
+          className="md:col-span-4"
+          fromX={100}
+          delay={0.15}
+        />
       </div>
 
       {/* Row 2: Text (3) | Wide Photo (6) | Text (3) */}
@@ -135,7 +253,7 @@ export function EditorialShowcase() {
             <p className="mt-4 text-caption text-mid-gray leading-relaxed">
               Porte-finestre scorrevoli e alzanti scorrevoli Oknoplast: ampie superfici vetrate che eliminano la barriera tra interno ed esterno.
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors">
+            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors link-draw">
               Scopri
             </span>
           </Link>
@@ -161,7 +279,7 @@ export function EditorialShowcase() {
             <p className="mt-4 text-caption text-mid-gray leading-relaxed max-w-[30ch]">
               Portoncini d&apos;ingresso in alluminio Oknoplast, personalizzabili in finiture, colori e accessori. Classe antieffrazione RC2 di serie.
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors">
+            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors link-draw">
               Scopri
             </span>
           </Link>
@@ -170,16 +288,20 @@ export function EditorialShowcase() {
 
       {/* Bottom row — Testimonial + Bertolotto spotlight */}
       <div className="grid grid-cols-1 md:grid-cols-12 -mt-px">
-        {/* Testimonial */}
-        <FadeInView className="md:col-span-5" delay={0.2}>
+        {/* Testimonial — GSAP da sinistra */}
+        <GsapSlideBlock className="md:col-span-5" fromX={-100}>
           <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-bordeaux flex flex-col justify-center px-5 sm:px-8 md:px-12 py-8 sm:py-12">
-            {/* Large quote mark */}
-            <div
+            {/* Large quote mark — animated */}
+            <motion.div
               className="font-display text-white/15 leading-none select-none absolute top-6 left-5 sm:left-8 md:left-12"
               style={{ fontSize: "clamp(4rem, 3rem + 3vw, 6rem)" }}
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             >
               &ldquo;
-            </div>
+            </motion.div>
 
             <blockquote className="relative z-10 mt-8">
               <p className="text-body text-white/90 italic leading-relaxed">
@@ -189,17 +311,24 @@ export function EditorialShowcase() {
                 una pura esperienza della qualità made in Italy.
               </p>
               <footer className="mt-6">
-                <div className="h-px w-10 bg-cream/30 mb-4" />
+                <motion.div
+                  className="h-px w-10 bg-cream/30 mb-4"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  style={{ transformOrigin: "left" }}
+                />
                 <cite className="text-label text-white/50 not-italic">
                   Esperienza in showroom
                 </cite>
               </footer>
             </blockquote>
           </div>
-        </FadeInView>
+        </GsapSlideBlock>
 
-        {/* Bertolotto spotlight */}
-        <FadeInView className="md:col-span-7" delay={0.3}>
+        {/* Bertolotto spotlight — GSAP da destra */}
+        <GsapSlideBlock className="md:col-span-7" fromX={100} delay={0.15}>
           <Link href="/prodotti/porte-interne-bertolotto" className="group block">
             <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-black-deep overflow-hidden">
               {/* Background image — subtle */}
@@ -247,7 +376,7 @@ export function EditorialShowcase() {
               </div>
             </div>
           </Link>
-        </FadeInView>
+        </GsapSlideBlock>
       </div>
     </section>
   );

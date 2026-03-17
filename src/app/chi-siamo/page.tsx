@@ -8,6 +8,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/animations/StaggerContainer";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -77,21 +78,25 @@ export default function ChiSiamo() {
     <main>
       {/* ─── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <Image
-          src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
-          alt="Showroom Mood Abitare"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        <ClipReveal direction="down" duration={1.2} className="absolute inset-0">
+          <Image
+            src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
+            alt="Showroom Mood Abitare"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </ClipReveal>
         <div className="absolute inset-0 bg-black-deep/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-transparent to-transparent" />
 
         <div className="relative z-10 w-full pb-16 lg:pb-24 px-6 sm:px-10 lg:px-20 text-center">
-          <h1 className="font-page-title text-white">
-            Mood Abitare — Benvenuti a casa vostra
-          </h1>
+          <FadeInView delay={0.4}>
+            <h1 className="font-page-title text-white">
+              Mood Abitare — Benvenuti a casa vostra
+            </h1>
+          </FadeInView>
         </div>
       </section>
 
@@ -193,13 +198,13 @@ export default function ChiSiamo() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contatti"
-                className="text-button inline-block bg-black-deep text-white px-10 py-4 hover:bg-black-soft transition-colors"
+                className="text-button inline-block bg-black-deep text-white px-10 py-4 btn-press hover:bg-black-soft transition-colors"
               >
                 Contattaci
               </Link>
               <Link
                 href={`tel:${CONTACT_INFO.phoneHref}`}
-                className="text-button inline-block border border-black-deep/15 text-black-deep px-10 py-4 hover:border-black-deep/40 transition-colors"
+                className="text-button inline-block border border-black-deep/15 text-black-deep px-10 py-4 btn-press hover:border-black-deep/40 transition-colors"
               >
                 {CONTACT_INFO.phone}
               </Link>

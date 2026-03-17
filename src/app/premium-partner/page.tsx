@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { ClipReveal } from "@/components/animations/ClipReveal";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { AccentText } from "@/components/ui/AccentText";
 
@@ -57,9 +58,13 @@ export default function PremiumPartner() {
             <p className="text-label text-white/40 mb-6">
               Premium Partner
             </p>
+          </FadeInView>
+          <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title max-w-5xl">
               <AccentText>Mood Abitare è Premium Partner Oknoplast</AccentText>
             </h1>
+          </ClipReveal>
+          <FadeInView delay={0.4}>
             <p className="mt-8 text-body text-white/35 max-w-xl">
               Mood Abitare è stata selezionata da Oknoplast come Premium Partner per la provincia di Varese. Fa parte di una ristretta rete di operatori che garantiscono ai propri clienti un&apos;elevata qualità dei prodotti e dei servizi offerti.
             </p>
@@ -215,7 +220,7 @@ export default function PremiumPartner() {
             </p>
             <a
               href="/contatti"
-              className="inline-block mt-12 text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors"
+              className="inline-block mt-12 text-button bg-black-deep text-white px-8 py-4 btn-press hover:bg-black-soft transition-colors"
             >
               Richiedi una consulenza
             </a>

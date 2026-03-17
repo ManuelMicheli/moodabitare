@@ -274,6 +274,123 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
   will-change: transform;
 }
 
+/* === Premium Micro-Interactions === */
+
+/* Smooth image reveal — zoom-out on load */
+.img-reveal {
+  overflow: hidden;
+}
+.img-reveal img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.img-reveal:hover img {
+  transform: scale(1.05);
+}
+
+/* Underline draw animation for links */
+.link-draw {
+  position: relative;
+  display: inline-block;
+}
+.link-draw::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.link-draw:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Stagger fade-in for child elements */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: stagger-in 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.08s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.16s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.24s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.32s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.4s; }
+
+@keyframes stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse glow for highlighted elements */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 38, 56, 0); }
+  50% { box-shadow: 0 0 20px 4px rgba(122, 38, 56, 0.08); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Smooth gradient shift */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Float animation for product images */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Scale press effect for buttons */
+.btn-press {
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-press:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.btn-press:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: none;
+}
+
+/* Subtle border glow on hover */
+.border-glow {
+  position: relative;
+}
+.border-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, rgba(122, 38, 56, 0.15), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.border-glow:hover::before {
+  opacity: 1;
+}
+
 /* Botpress webchat — always on top */
 #bp-web-widget-container {
   z-index: 9997 !important;

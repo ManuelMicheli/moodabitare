@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { FadeInView } from "@/components/animations/FadeInView";
-import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
+import { ClipReveal } from "@/components/animations/ClipReveal";
+import { MagneticButton } from "@/components/animations/MagneticButton";
+import { CONTACT_INFO } from "@/lib/constants";
 
 export function ShowroomBanner() {
   return (
-    <FadeInView>
+    <ClipReveal direction="up" duration={0.9}>
       <div className="relative py-8 sm:py-0 sm:aspect-[16/3] overflow-hidden bg-black-soft flex items-center">
         {/* Content */}
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -23,15 +24,17 @@ export function ShowroomBanner() {
 
           {/* Right */}
           <div className="flex-shrink-0">
-            <Link
-              href="/contatti"
-              className="text-button inline-block border border-white/20 text-white px-6 py-4 hover:border-white/50 transition-colors"
-            >
-              Prenota una visita
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/contatti"
+                className="text-button inline-block border border-white/20 text-white px-6 py-4 btn-press hover:border-white/50 transition-colors"
+              >
+                Prenota una visita
+              </Link>
+            </MagneticButton>
           </div>
         </div>
       </div>
-    </FadeInView>
+    </ClipReveal>
   );
 }

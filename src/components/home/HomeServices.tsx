@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { FadeInView } from "@/components/animations/FadeInView";
+import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
+import { DrawLine } from "@/components/animations/DrawLine";
+import { ClipReveal } from "@/components/animations/ClipReveal";
+import { MagneticButton } from "@/components/animations/MagneticButton";
 
 const services = [
   {
@@ -67,17 +72,21 @@ export function HomeServices() {
     <section id="servizi" className="py-20 lg:py-36 bg-[#F7F5F2]">
       <div className="px-6 sm:px-10 lg:px-20">
         {/* Header */}
-        <FadeInView>
-          <div className="mb-14 lg:mb-24 text-center">
+        <div className="mb-14 lg:mb-24 text-center">
+          <FadeInView>
             <p className="text-label text-black-deep/30 mb-5">
               I nostri servizi
             </p>
-            <h2
-              className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep"
-              style={{ fontSize: "clamp(1.75rem, 4.2vw, 5rem)" }}
-            >
-              Dalla consulenza alla posa in opera
-            </h2>
+          </FadeInView>
+          <TextRevealByWord
+            as="h2"
+            className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep justify-center"
+            style={{ fontSize: "clamp(1.75rem, 4.2vw, 5rem)" }}
+            stagger={0.03}
+          >
+            Dalla consulenza alla posa in opera
+          </TextRevealByWord>
+          <FadeInView delay={0.3}>
             <p
               className="mt-6 max-w-xl mx-auto font-display text-black-deep/50"
               style={{
@@ -87,13 +96,13 @@ export function HomeServices() {
               Un servizio completo e professionale con un unico referente —
               dalla progettazione allo smaltimento dei vecchi serramenti.
             </p>
-          </div>
-        </FadeInView>
+          </FadeInView>
+        </div>
 
         {/* Service rows */}
         <div>
           {services.map((service, i) => (
-            <FadeInView key={service.title} delay={i * 0.07}>
+            <ClipReveal key={service.title} direction="left" delay={i * 0.06} duration={0.7}>
               <div
                 className={`group relative border-t border-black-deep/10 ${i === services.length - 1 ? "border-b" : ""}`}
               >
@@ -151,35 +160,37 @@ export function HomeServices() {
                   </div>
                 </div>
               </div>
-            </FadeInView>
+            </ClipReveal>
           ))}
         </div>
 
         {/* CTA */}
         <FadeInView delay={0.45}>
           <div className="mt-14 lg:mt-20 flex justify-center">
-            <Link
-              href="/contatti"
-              className="group/cta inline-flex items-center gap-3 text-button text-black-deep/60 hover:text-bordeaux transition-colors duration-300"
-            >
-              Richiedi un preventivo gratuito
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-current/30 group-hover/cta:border-bordeaux/50 transition-all duration-300 group-hover/cta:translate-x-1">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/contatti"
+                className="group/cta inline-flex items-center gap-3 text-button text-black-deep/60 hover:text-bordeaux transition-colors duration-300"
+              >
+                Richiedi un preventivo gratuito
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-current/30 group-hover/cta:border-bordeaux/50 transition-all duration-300 group-hover/cta:translate-x-1">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </Link>
+            </MagneticButton>
           </div>
         </FadeInView>
       </div>
