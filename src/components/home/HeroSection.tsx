@@ -12,18 +12,21 @@ const slides = [
     subheadline: "Approfitta delle detrazioni fiscali del 50%",
     ctaText: "Contattaci",
     ctaLink: "/contatti",
+    image: "/images/Hero 1.jpg",
   },
   {
     headline: "Serramenti, porte\ne ristrutturazioni",
     subheadline: "Oltre 30 anni di esperienza nella provincia di Varese",
     ctaText: "Scopri i prodotti",
     ctaLink: "/prodotti",
+    image: "/images/Hero 2.jpg",
   },
   {
     headline: "Premium Partner\nOknoplast",
     subheadline: "Qualità certificata per la tua casa",
     ctaText: "Scopri di più",
     ctaLink: "/premium-partner",
+    image: "/images/Hero3.jpg",
   },
 ];
 
@@ -143,16 +146,21 @@ export function HeroSection() {
   }, [next, isMobile]);
 
   return (
-    <section className="relative h-[75vh] min-h-[500px] flex items-end overflow-hidden bg-black-deep">
-      {/* Background image */}
-      <Image
-        src="/images/Hero 2.jpg"
-        alt="Mood Abitare — serramenti e ristrutturazioni"
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
+    <section className="relative flex-1 min-h-0 flex items-end overflow-hidden bg-black-deep">
+      {/* Background images — stacked, crossfade on slide change */}
+      {slides.map((slide, i) => (
+        <Image
+          key={slide.image}
+          src={slide.image}
+          alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
+          fill
+          priority={i === 0}
+          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+          sizes="100vw"
+        />
+      ))}
       {/* Top gradient for navbar readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black-deep/50 via-black-deep/20 to-transparent pointer-events-none" />
       {/* Bottom gradient for text readability */}

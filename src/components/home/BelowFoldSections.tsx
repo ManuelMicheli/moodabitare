@@ -2,6 +2,10 @@
 
 import dynamic from "next/dynamic";
 
+const FinanziamentoBanner = dynamic(
+  () => import("@/components/home/FinanziamentoBanner").then((m) => m.FinanziamentoBanner),
+  { ssr: false }
+);
 const HomeServices = dynamic(
   () => import("@/components/home/HomeServices").then((m) => m.HomeServices),
   { ssr: false }
@@ -35,6 +39,7 @@ export function BelowFoldSections() {
   return (
     <>
       <ProductBentoGrid />
+      <FinanziamentoBanner />
       <HomeServices />
       <ValuePropositions />
       <EditorialShowcase />

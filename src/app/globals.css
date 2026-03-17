@@ -242,6 +242,22 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
   animation-play-state: paused;
 }
 
+/* Text shimmer sweep */
+@keyframes shimmer-sweep {
+  0% {
+    -webkit-mask-position: 100% center;
+    mask-position: 100% center;
+  }
+  100% {
+    -webkit-mask-position: 0% center;
+    mask-position: 0% center;
+  }
+}
+
+.animate-shimmer-sweep {
+  animation: shimmer-sweep linear infinite;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

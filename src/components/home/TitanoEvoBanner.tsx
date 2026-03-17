@@ -35,17 +35,17 @@ export function TitanoEvoBanner() {
       {/* Banner full width — features left, image right */}
       <div className="relative bg-black-soft overflow-hidden">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-10 md:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-12">
+          <div className="grid grid-cols-2 items-center gap-4 sm:gap-6 lg:gap-12">
             {/* Left — Feature list */}
-            <div className="flex justify-center lg:justify-end py-8 sm:py-10 lg:py-12">
+            <div className="flex justify-end py-8 sm:py-10 lg:py-12">
               <FadeInView delay={0.2}>
-                <ul className="space-y-4 sm:space-y-5">
+                <ul className="space-y-3 sm:space-y-4 lg:space-y-5">
                   {features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-4">
-                      <span className="w-6 sm:w-8 h-[2px] bg-white shrink-0" />
+                    <li key={feature} className="flex items-center gap-2 sm:gap-4">
+                      <span className="w-4 sm:w-6 lg:w-8 h-[2px] bg-white shrink-0" />
                       <span
                         className="font-display text-white/60 uppercase tracking-[0.08em]"
-                        style={{ fontSize: "clamp(0.85rem, 0.75rem + 0.4vw, 1.1rem)" }}
+                        style={{ fontSize: "clamp(0.65rem, 0.55rem + 0.4vw, 1.1rem)" }}
                       >
                         {feature}
                       </span>
@@ -58,7 +58,7 @@ export function TitanoEvoBanner() {
             {/* Right — Product image */}
             <div className="relative flex items-center justify-center lg:justify-start py-6 lg:py-10">
               <FadeInView delay={0.2}>
-                <div className="relative w-[220px] h-[250px] sm:w-[270px] sm:h-[300px] md:w-[320px] md:h-[350px] lg:w-[340px] lg:h-[370px] xl:w-[380px] xl:h-[410px]">
+                <div className="relative w-[140px] h-[160px] sm:w-[220px] sm:h-[250px] md:w-[320px] md:h-[350px] lg:w-[340px] lg:h-[370px] xl:w-[380px] xl:h-[410px]">
                   <Image
                     src="/images/titano-evo-oc-eletto-prodotto-2024_copia-removebg-preview.png"
                     alt="Titano EVO OC — Eletto Prodotto dell'Anno 2024"

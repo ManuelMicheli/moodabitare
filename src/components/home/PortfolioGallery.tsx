@@ -1,15 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { ShowroomBanner } from "@/components/home/ShowroomBanner";
 
 const projects = [
-  { title: "Villa Moderna a Varese", category: "Serramenti", image: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg" },
-  { title: "Zona Giorno con Prolux Evolution", category: "Porte finestre", image: "/images/Zona-giorno-con-porta-balcone-Prolux-Evolution-copia-1536x768.jpg" },
-  { title: "Residenza di Lusso", category: "Serramenti", image: "/images/Prolux-17.jpg" },
+  { title: "Villa Moderna a Varese", category: "Serramenti" },
+  { title: "Appartamento Contemporaneo", category: "Serramenti" },
+  { title: "Residenza di Lusso", category: "Serramenti" },
+  { title: "Zona Giorno con Prolux Evolution", category: "Porte finestre" },
+  { title: "Loft Industriale", category: "Serramenti" },
 ];
 
 export function PortfolioGallery() {
@@ -38,37 +39,26 @@ export function PortfolioGallery() {
           </FadeInView>
         </div>
 
-        {/* Asymmetric grid */}
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
-          {/* Large left */}
-          <FadeInView className="lg:col-span-7">
-            <div className="relative aspect-[4/3] lg:aspect-[16/12] overflow-hidden bg-warm-gray">
-              <Image
-                src={projects[0].image}
-                alt={`${projects[0].title} — ${projects[0].category} realizzati da Mood Abitare`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 58vw"
-              />
-            </div>
-          </FadeInView>
+        {/* Top row — 3 equal cards */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-6">
+          {projects.slice(0, 3).map((project, i) => (
+            <FadeInView key={i} delay={0.1 * i}>
+              <div className="relative aspect-[4/3] overflow-hidden bg-warm-gray flex items-center justify-center">
+                <span className="text-mid-gray/40 font-ui text-sm uppercase tracking-widest">{project.category}</span>
+              </div>
+            </FadeInView>
+          ))}
+        </div>
 
-          {/* Right stack */}
-          <div className="lg:col-span-5 grid grid-cols-1 gap-4 lg:gap-6">
-            {projects.slice(1, 3).map((project, i) => (
-              <FadeInView key={i} delay={0.1 * (i + 1)}>
-                <div className="relative aspect-[16/10] overflow-hidden bg-warm-gray">
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} — ${project.category} realizzati da Mood Abitare`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 42vw"
-                  />
-                </div>
-              </FadeInView>
-            ))}
-          </div>
+        {/* Bottom row — 2 cards */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6 mt-4 lg:mt-6">
+          {projects.slice(3, 5).map((project, i) => (
+            <FadeInView key={i} delay={0.1 * (i + 3)}>
+              <div className="relative aspect-[16/10] overflow-hidden bg-warm-gray flex items-center justify-center">
+                <span className="text-mid-gray/40 font-ui text-sm uppercase tracking-widest">{project.category}</span>
+              </div>
+            </FadeInView>
+          ))}
         </div>
 
         {/* Showroom card */}

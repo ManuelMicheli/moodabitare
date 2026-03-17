@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
+import { TextShimmer } from "@/components/ui/text-shimmer";
 import { BentoGrid } from "@/components/ui/bento-grid";
 
 const products = [
@@ -59,7 +60,14 @@ export function ProductBentoGrid() {
           className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep sm:whitespace-nowrap"
           style={{ fontSize: "clamp(1.75rem, 4.2vw, 9rem)" }}
         >
-          <AccentText>Qualità e design per ogni ambiente</AccentText>
+          <TextShimmer
+            duration={4}
+            spread={2}
+            textLength={35}
+            shimmerColor="#f5f5f0"
+          >
+            <AccentText>Qualità e design per ogni ambiente</AccentText>
+          </TextShimmer>
         </h2>
 
         {/* Subtitle */}

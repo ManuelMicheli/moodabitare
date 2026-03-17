@@ -21,8 +21,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <BrandLogos />
+      {/* Hero + brand marquee fill the entire first screen */}
+      <div className="h-svh flex flex-col">
+        <HeroSection />
+        <BrandLogos />
+      </div>
       <BelowFoldSections />
     </main>
   );
