@@ -3,88 +3,205 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { AccentText } from "@/components/ui/AccentText";
+import { LinkPreview } from "@/components/ui/LinkPreview";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
-/* ── Copy ────────────────────────────────────────────────────────── */
+/* ── Types ────────────────────────────────────────────────────────── */
 
-const HEADLINE =
-  "Se devi acquistare nuove porte e finestre in provincia di Varese puoi fare affidamento su Moschiano Srl. L'azienda vanta oltre trent'anni di attività nel settore, una lunga esperienza che ha permesso di diventare un vero e proprio punto di riferimento nell'area di Varese per tutto quanto concerne le ristrutturazioni e le nuove costruzioni.";
+type LinkData = { href: string; image: string; title: string };
+type Part = string | { text: string; link: LinkData };
 
-const BODY_1 =
-  "Accanto a un'ampia selezione di infissi e serramenti dalle eccellenti capacità isolanti, nel punto vendita di Gorla Maggiore si trovano solide porte blindate, persiane, avvolgibili e altri oscuranti, grate e inferriate di sicurezza, zanzariere, monoblocchi, VMC, parquet, cucine su misura, arredo bagno, scale, ringhiere, sanitari, rubinetteria e molto altro.";
+/* ── Copy ─────────────────────────────────────────────────────────── */
 
-const BODY_2 =
-  "L'azienda seleziona attentamente i propri fornitori scegliendo soltanto le aziende più innovative e affidabili, in Italia e in Europa, per offrire ai clienti soluzioni moderne che coniugano perfetta funzionalità e design accattivante e altamente personalizzabile.";
+const HEADLINE: Part[] = [
+  "Mood Abitare è il punto di riferimento per serramenti, porte e ristrutturazioni nella provincia di Varese. Da oltre trent'anni lavoriamo al fianco delle famiglie del territorio, trasformando ogni progetto in uno spazio dove sentirsi davvero a casa.",
+];
 
-const BODY_3 =
-  "Moschiano Srl propone ai suoi clienti una vasta scelta di infissi e serramenti in grado di migliorare l'efficienza termica della casa, così da ridurre i consumi energetici e i relativi costi in bolletta. Tutti i posatori sono altamente qualificati e in possesso del patentino di posa certificata.";
+const BODY_1: Part[] = [
+  "Nel nostro ",
+  {
+    text: "showroom di 300 mq",
+    link: { href: "/contatti", image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg", title: "Showroom Mood Abitare" },
+  },
+  " a Gorla Maggiore trovate tutto per la vostra casa: dai ",
+  {
+    text: "serramenti",
+    link: { href: "/prodotti/finestre-pvc-oknoplast", image: "/images/Prolux-4.jpg", title: "Finestre in PVC Oknoplast" },
+  },
+  " in PVC, alluminio e legno alle ",
+  {
+    text: "porte interne",
+    link: { href: "/prodotti/porte-interne-bertolotto", image: "/images/Home-bertolotto-opt.jpg", title: "Porte Interne Bertolotto" },
+  },
+  " e blindate, dalle ",
+  {
+    text: "cucine su misura",
+    link: { href: "/prodotti/cucine-cucinesse", image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", title: "Cucine su Misura" },
+  },
+  " ai ",
+  {
+    text: "pavimenti",
+    link: { href: "/prodotti/parquet-laminati-skema", image: "/images/Hero3.jpg", title: "Parquet e Laminati" },
+  },
+  ", dall'",
+  {
+    text: "arredo bagno",
+    link: { href: "/prodotti/arredo-bagno-merati", image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg", title: "Arredo Bagno" },
+  },
+  " alle ",
+  {
+    text: "scale e ringhiere",
+    link: { href: "/prodotti/scale-ringhiere-fontanot", image: "/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg", title: "Scale e Ringhiere" },
+  },
+  " — insieme a persiane, avvolgibili, zanzariere, grate di sicurezza, monoblocchi e VMC.",
+];
 
-/* ── Desktop: word-by-word reveal ───────────────────────────────── */
+const BODY_2: Part[] = [
+  "Selezioniamo con cura i nostri ",
+  {
+    text: "partner",
+    link: { href: "/premium-partner", image: "/images/Oknoplast-azienda-vista-aerea-opt.jpg", title: "I Nostri Brand Partner" },
+  },
+  ": solo 17 marchi in oltre trent'anni, scelti tra le aziende più innovative d'Italia e d'Europa. Ogni soluzione che vi proponiamo unisce funzionalità, design personalizzabile e la qualità di chi lavora con noi da anni.",
+];
 
-function Word({
+const BODY_3: Part[] = [
+  "Dalla ",
+  {
+    text: "progettazione su misura",
+    link: { href: "/progettazione-design", image: "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.jpg", title: "Progettazione e Design" },
+  },
+  " alla ",
+  {
+    text: "ristrutturazione",
+    link: { href: "/servizi-ristrutturazione", image: "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg", title: "Servizi di Ristrutturazione" },
+  },
+  " chiavi in mano, vi accompagniamo in ogni fase. Render 3D, posatori con patentino certificato, soluzioni di ",
+  {
+    text: "finanziamento",
+    link: { href: "/finanziamento", image: "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg", title: "Opzioni di Finanziamento" },
+  },
+  " e assistenza post-vendita — il nostro impegno non si ferma alla consegna.",
+];
+
+/* ── Helpers ──────────────────────────────────────────────────────── */
+
+function countWords(parts: Part[]): number {
+  return parts.reduce((n, p) => {
+    const t = typeof p === "string" ? p : p.text;
+    return n + t.split(/\s+/).filter(Boolean).length;
+  }, 0);
+}
+
+const IS_PUNCT = /^[,;:.!?]+$/;
+
+/* ── Animated word (desktop scroll reveal) ────────────────────────── */
+
+function AnimatedWord({
   children,
   progress,
-  range,
+  index,
+  total,
+  isLink = false,
 }: {
   children: string;
   progress: MotionValue<number>;
-  range: [number, number];
+  index: number;
+  total: number;
+  isLink?: boolean;
 }) {
-  const opacity = useTransform(progress, range, [0.1, 1]);
+  const start = index / total;
+  const end = start + 3 / total;
+  const opacity = useTransform(progress, [start, Math.min(end, 1)], [0.1, 1]);
+  const punct = IS_PUNCT.test(children);
 
   return (
-    <motion.span style={{ opacity }} className="inline-block mr-[0.3em]">
+    <motion.span
+      style={{ opacity }}
+      className={[
+        "inline-block",
+        punct ? "ml-[-0.25em] mr-[0.25em]" : "mr-[0.3em]",
+        isLink ? "text-bordeaux" : "",
+      ].join(" ")}
+    >
       <AccentText>{children}</AccentText>
     </motion.span>
   );
 }
 
-function ScrollParagraph({
-  text,
+/* ── Desktop: rich paragraph with scroll animation ────────────────── */
+
+function ScrollRichParagraph({
+  parts,
   progress,
   startWord,
-  totalWords,
+  total,
   className,
   style,
 }: {
-  text: string;
+  parts: Part[];
   progress: MotionValue<number>;
   startWord: number;
-  totalWords: number;
+  total: number;
   className?: string;
   style?: React.CSSProperties;
 }) {
-  const words = text.split(" ");
+  let idx = startWord;
 
   return (
     <p className={className} style={style}>
-      {words.map((word, i) => {
-        const idx = startWord + i;
-        const start = idx / totalWords;
-        const end = start + 3 / totalWords;
-        return (
-          <Word
-            key={i}
+      {parts.map((part, pIdx) => {
+        if (typeof part === "string") {
+          const words = part.split(/\s+/).filter(Boolean);
+          return words.map((w, wIdx) => (
+            <AnimatedWord
+              key={`t${pIdx}-${wIdx}`}
+              progress={progress}
+              index={idx++}
+              total={total}
+            >
+              {w}
+            </AnimatedWord>
+          ));
+        }
+
+        const words = part.text.split(/\s+/).filter(Boolean);
+        const rendered = words.map((w, wIdx) => (
+          <AnimatedWord
+            key={wIdx}
             progress={progress}
-            range={[start, Math.min(end, 1)]}
+            index={idx++}
+            total={total}
+            isLink
           >
-            {word}
-          </Word>
+            {w}
+          </AnimatedWord>
+        ));
+
+        return (
+          <LinkPreview
+            key={`l${pIdx}`}
+            href={part.link.href}
+            previewImage={part.link.image}
+            previewTitle={part.link.title}
+          >
+            {rendered}
+          </LinkPreview>
         );
       })}
     </p>
   );
 }
 
-/* ── Mobile: simple fade per paragraph ──────────────────────────── */
+/* ── Mobile: simple fade paragraph ────────────────────────────────── */
 
-function SimpleParagraph({
-  text,
+function SimpleRichParagraph({
+  parts,
   className,
   style,
   delay = 0,
 }: {
-  text: string;
+  parts: Part[];
   className?: string;
   style?: React.CSSProperties;
   delay?: number;
@@ -98,7 +215,22 @@ function SimpleParagraph({
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <AccentText>{text}</AccentText>
+      {parts.map((part, idx) =>
+        typeof part === "string" ? (
+          <AccentText key={idx}>{part}</AccentText>
+        ) : (
+          <LinkPreview
+            key={idx}
+            href={part.link.href}
+            previewImage={part.link.image}
+            previewTitle={part.link.title}
+          >
+            <span className="text-bordeaux">
+              <AccentText>{part.text}</AccentText>
+            </span>
+          </LinkPreview>
+        )
+      )}
     </motion.p>
   );
 }
@@ -113,11 +245,11 @@ export function AboutSection() {
     offset: ["start 0.45", "end end"],
   });
 
-  const headlineWords = HEADLINE.split(" ").length;
-  const body1Words = BODY_1.split(" ").length;
-  const body2Words = BODY_2.split(" ").length;
-  const body3Words = BODY_3.split(" ").length;
-  const totalWords = headlineWords + body1Words + body2Words + body3Words;
+  const hw = countWords(HEADLINE);
+  const b1w = countWords(BODY_1);
+  const b2w = countWords(BODY_2);
+  const b3w = countWords(BODY_3);
+  const total = hw + b1w + b2w + b3w;
 
   const bodyStyle = {
     fontSize: "clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem)" as string,
@@ -136,17 +268,17 @@ export function AboutSection() {
 
         {/* Headline */}
         {isMobile ? (
-          <SimpleParagraph
-            text={HEADLINE}
+          <SimpleRichParagraph
+            parts={HEADLINE}
             className="font-display font-medium leading-[1.15] tracking-[-0.02em] text-black-deep"
             style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 3.25rem)" }}
           />
         ) : (
-          <ScrollParagraph
-            text={HEADLINE}
+          <ScrollRichParagraph
+            parts={HEADLINE}
             progress={scrollYProgress}
             startWord={0}
-            totalWords={totalWords}
+            total={total}
             className="font-display font-medium leading-[1.15] tracking-[-0.02em] text-black-deep"
             style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 3.25rem)" }}
           />
@@ -166,20 +298,20 @@ export function AboutSection() {
         <div className="space-y-8 lg:space-y-10 max-w-3xl">
           {isMobile ? (
             <>
-              <SimpleParagraph
-                text={BODY_1}
+              <SimpleRichParagraph
+                parts={BODY_1}
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
                 delay={0.1}
               />
-              <SimpleParagraph
-                text={BODY_2}
+              <SimpleRichParagraph
+                parts={BODY_2}
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
                 delay={0.1}
               />
-              <SimpleParagraph
-                text={BODY_3}
+              <SimpleRichParagraph
+                parts={BODY_3}
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
                 delay={0.1}
@@ -187,27 +319,27 @@ export function AboutSection() {
             </>
           ) : (
             <>
-              <ScrollParagraph
-                text={BODY_1}
+              <ScrollRichParagraph
+                parts={BODY_1}
                 progress={scrollYProgress}
-                startWord={headlineWords}
-                totalWords={totalWords}
+                startWord={hw}
+                total={total}
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
               />
-              <ScrollParagraph
-                text={BODY_2}
+              <ScrollRichParagraph
+                parts={BODY_2}
                 progress={scrollYProgress}
-                startWord={headlineWords + body1Words}
-                totalWords={totalWords}
+                startWord={hw + b1w}
+                total={total}
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
               />
-              <ScrollParagraph
-                text={BODY_3}
+              <ScrollRichParagraph
+                parts={BODY_3}
                 progress={scrollYProgress}
-                startWord={headlineWords + body1Words + body2Words}
-                totalWords={totalWords}
+                startWord={hw + b1w + b2w}
+                total={total}
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
               />

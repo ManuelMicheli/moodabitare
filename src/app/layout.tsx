@@ -86,7 +86,7 @@ const jsonLdSchemas = [
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Mood Abitare",
-    legalName: "Moschiano Srl",
+    legalName: "Mood Abitare",
     url: "https://www.moschianosrl.it",
     logo: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
     contactPoint: {

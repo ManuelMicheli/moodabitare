@@ -4,7 +4,7 @@ import { FadeInView } from "@/components/animations/FadeInView";
 export const metadata: Metadata = {
   title: "Privacy e Cookie Policy",
   description:
-    "Informativa sulla privacy e cookie policy di Mood Abitare (Moschiano Srl) ai sensi del GDPR e della normativa italiana. Ultimo aggiornamento: marzo 2026.",
+    "Informativa sulla privacy e cookie policy di Mood Abitare ai sensi del GDPR e della normativa italiana. Ultimo aggiornamento: marzo 2026.",
   alternates: {
     canonical: "https://www.moschianosrl.it/privacy-policy",
   },

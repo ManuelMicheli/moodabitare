@@ -84,11 +84,25 @@ export default function ProgettazioneDesign() {
       </section>
 
       {/* Filosofia */}
-      <section className="py-28 lg:py-44">
-        <div className="px-6 sm:px-10 lg:px-20">
+      <section className="py-28 lg:py-44 bg-cream relative overflow-hidden">
+        {/* Decorative background element */}
+        <div
+          className="absolute top-1/2 -right-20 -translate-y-1/2 select-none pointer-events-none opacity-[0.025]"
+          aria-hidden="true"
+        >
+          <span
+            className="font-display font-bold text-black-deep leading-none block"
+            style={{ fontSize: "clamp(12rem, 20vw, 30rem)" }}
+          >
+            &amp;
+          </span>
+        </div>
+
+        <div className="px-6 sm:px-10 lg:px-20 relative z-10">
           <FadeInView>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-              <div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+              {/* Left — title block */}
+              <div className="lg:col-span-5">
                 <p className="text-label text-black-deep/30 mb-6">
                   La nostra filosofia
                 </p>
@@ -97,21 +111,67 @@ export default function ProgettazioneDesign() {
                     Sensibilit&agrave; estetica e competenza tecnica
                   </AccentText>
                 </h2>
+
+                {/* Highlights */}
+                <div className="mt-10 grid grid-cols-2 gap-6">
+                  {[
+                    { value: "300", unit: "mq", label: "di showroom" },
+                    { value: "30+", unit: "", label: "anni di esperienza" },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <span
+                        className="font-display font-bold text-black-deep leading-none"
+                        style={{ fontSize: "clamp(1.5rem, 1rem + 2vw, 2.5rem)" }}
+                      >
+                        {item.value}
+                        {item.unit && (
+                          <span className="text-[0.6em] text-black-deep/30 ml-1">
+                            {item.unit}
+                          </span>
+                        )}
+                      </span>
+                      <p className="text-label text-black-deep/30 mt-2 text-[0.65rem]">
+                        {item.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-col gap-6">
-                <p className="text-body text-black-deep/60 leading-relaxed">
-                  Le nostre designer sono professioniste esperte che uniscono
-                  sensibilit&agrave; estetica a solida competenza tecnica. Il
-                  metodo parte dall&apos;ascolto per comprendere come il cliente
-                  vive i propri spazi, le abitudini, le aspettative e le
-                  necessit&agrave; pratiche.
-                </p>
-                <p className="text-body text-black-deep/60 leading-relaxed">
-                  Il cliente pu&ograve; inoltre contare sul supporto di un
-                  architetto, che aiuter&agrave; non solo a scegliere i prodotti
-                  pi&ugrave; adatti, ma anche a dare forma alle idee con
-                  l&apos;ausilio di render 3D.
-                </p>
+
+              {/* Right — text with decorative border */}
+              <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
+                <div className="border-l-2 border-black-deep/8 pl-8 lg:pl-12 space-y-6">
+                  <p className="text-body text-black-deep/55 leading-relaxed">
+                    Le nostre designer sono professioniste esperte che uniscono
+                    sensibilit&agrave; estetica a solida competenza tecnica. Il
+                    metodo parte dall&apos;ascolto per comprendere come il cliente
+                    vive i propri spazi, le abitudini, le aspettative e le
+                    necessit&agrave; pratiche.
+                  </p>
+                  <p className="text-body text-black-deep/55 leading-relaxed">
+                    Il cliente pu&ograve; inoltre contare sul supporto di un
+                    architetto, che aiuter&agrave; non solo a scegliere i prodotti
+                    pi&ugrave; adatti, ma anche a dare forma alle idee con
+                    l&apos;ausilio di render 3D.
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div className="mt-10 flex flex-wrap gap-3">
+                  {[
+                    "Ascolto",
+                    "Progettazione",
+                    "Render 3D",
+                    "Posa certificata",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block px-4 py-1.5 text-[0.65rem] font-ui font-medium tracking-wider uppercase text-black-deep/30 border border-black-deep/8"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </FadeInView>
@@ -122,29 +182,65 @@ export default function ProgettazioneDesign() {
       <HoverFillSection services={designServices} />
 
       {/* CTA */}
-      <section className="py-16 lg:py-36 bg-white">
-        <div className="px-6 sm:px-10 lg:px-20 text-center">
+      <section className="py-28 lg:py-44 bg-black-deep relative overflow-hidden">
+        {/* Decorative background */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] select-none pointer-events-none"
+          aria-hidden="true"
+        >
+          <span
+            className="font-display font-bold text-white/[0.02] leading-none block whitespace-nowrap"
+            style={{ fontSize: "clamp(8rem, 15vw, 20rem)" }}
+          >
+            La tua casa
+          </span>
+        </div>
+
+        <div className="px-6 sm:px-10 lg:px-20 relative z-10">
           <FadeInView>
-            <h2 className="font-section-title text-black-deep max-w-3xl mx-auto">
-              <AccentText>Raccontaci la tua visione</AccentText>
-            </h2>
-            <p className="mt-8 text-body text-black-deep/35 max-w-md mx-auto">
-              Vieni a trovarci nello showroom di Gorla Maggiore per un primo
-              incontro senza impegno.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-6">
-              <Link
-                href="/contatti"
-                className="text-button inline-block bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors"
-              >
-                Prenota un incontro
-              </Link>
-              <Link
-                href="/prodotti"
-                className="text-button inline-block text-black-deep border-b border-black-deep/20 pb-1 hover:border-black-deep/60 transition-colors"
-              >
-                Vedi i prodotti
-              </Link>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-label text-cream/25 mb-6">
+                Inizia il tuo progetto
+              </p>
+              <h2 className="font-section-title text-cream max-w-3xl mx-auto">
+                <AccentText>Raccontaci la tua visione</AccentText>
+              </h2>
+              <p className="mt-8 text-body text-cream/35 max-w-lg mx-auto">
+                Vieni a trovarci nello showroom di 300&thinsp;mq a Gorla
+                Maggiore per un primo incontro senza impegno. Ti guideremo
+                passo dopo passo, dall&apos;idea alla realizzazione.
+              </p>
+
+              <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/contatti"
+                  className="text-button inline-block bg-cream text-black-deep px-10 py-4 hover:bg-cream/90 transition-colors"
+                >
+                  Prenota un incontro
+                </Link>
+                <Link
+                  href="tel:03311120048"
+                  className="text-button inline-block text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 transition-colors"
+                >
+                  0331.1120048
+                </Link>
+              </div>
+
+              {/* Trust signals */}
+              <div className="mt-16 pt-10 border-t border-cream/8 flex flex-wrap justify-center gap-x-10 gap-y-4">
+                {[
+                  "Consulenza gratuita",
+                  "Preventivo in 48h",
+                  "Posa certificata",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="text-[0.7rem] font-ui tracking-wider uppercase text-cream/20"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </FadeInView>
         </div>

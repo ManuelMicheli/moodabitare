@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
+import { FormulaCard } from "@/components/finanziamento/FormulaCard";
 
 export const metadata: Metadata = {
   title: "Finanziamento a Tasso Zero — Serramenti e Ristrutturazioni",
@@ -115,48 +116,7 @@ export default function Finanziamento() {
 
               {/* Right — visual breakdown */}
               <div className="lg:col-span-6 lg:col-start-7">
-                <div className="border border-black-deep/10 divide-y divide-black-deep/10">
-                  {/* 50% you pay */}
-                  <div className="p-8 lg:p-10">
-                    <div className="flex items-baseline justify-between mb-4">
-                      <span className="text-label text-black-deep/30 text-[0.7rem]">
-                        Paghi subito
-                      </span>
-                      <span
-                        className="font-display font-bold text-black-deep leading-none"
-                        style={{ fontSize: "clamp(2rem, 1.5rem + 2vw, 3.5rem)" }}
-                      >
-                        50%
-                      </span>
-                    </div>
-                    {/* Visual bar */}
-                    <div className="h-1.5 w-full bg-black-deep/5 overflow-hidden">
-                      <div className="h-full w-1/2 bg-black-deep" />
-                    </div>
-                  </div>
-
-                  {/* 50% financed */}
-                  <div className="p-8 lg:p-10">
-                    <div className="flex items-baseline justify-between mb-4">
-                      <span className="text-label text-black-deep/30 text-[0.7rem]">
-                        Finanziato a tasso 0
-                      </span>
-                      <span
-                        className="font-display font-bold text-black-deep leading-none"
-                        style={{ fontSize: "clamp(2rem, 1.5rem + 2vw, 3.5rem)" }}
-                      >
-                        50%
-                      </span>
-                    </div>
-                    {/* Visual bar */}
-                    <div className="h-1.5 w-full bg-black-deep/5 overflow-hidden">
-                      <div className="h-full w-1/2 bg-black-deep/20" />
-                    </div>
-                    <p className="mt-5 font-ui text-[0.8rem] text-black-deep/35">
-                      Suddiviso in 10 rate annuali
-                    </p>
-                  </div>
-                </div>
+                <FormulaCard />
               </div>
             </div>
           </FadeInView>
@@ -284,22 +244,18 @@ export default function Finanziamento() {
         </div>
       </section>
 
-      {/* ── Offerta + CTA ── */}
+      {/* ── CTA ── */}
       <section className="py-24 lg:py-40 bg-black-deep">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <div className="max-w-3xl mx-auto text-center">
-              <p className="text-label text-cream/25 mb-6">
-                Offerta Anniversario
-              </p>
               <h2 className="font-section-title text-cream">
                 <AccentText>
-                  Sconto del 40% sulle finestre Koncept Plus Oknoplast
+                  Richiedi un preventivo gratuito
                 </AccentText>
               </h2>
               <p className="mt-6 text-body text-cream/35 max-w-md mx-auto">
-                Cumulabile con detrazioni fiscali fino al 50%.
-                Validit&agrave; offerta finanziamento: fino al 30/04/2026.
+                Contattaci per scoprire come finanziare il tuo progetto a tasso zero, cumulabile con le detrazioni fiscali.
               </p>
               <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link

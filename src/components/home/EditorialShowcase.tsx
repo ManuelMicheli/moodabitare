@@ -220,7 +220,7 @@ export function EditorialShowcase() {
                   Bertolotto, le tue porte interne made in Italy
                 </h3>
                 <p className="mt-5 text-body text-white/60 max-w-md">
-                  Affidati a Moschiano per scegliere le tue nuove porte interne in provincia di Varese.
+                  Affidati a Mood Abitare per scegliere le tue nuove porte interne in provincia di Varese.
                   Bertolotto, azienda piemontese che dal 1967 progetta e realizza porte d&apos;interni di alta qualità,
                   unisce artigianalità italiana e innovazione.
                 </p>

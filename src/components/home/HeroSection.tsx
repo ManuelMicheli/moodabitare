@@ -8,24 +8,31 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 
 const slides = [
   {
-    headline: "Un pezzo di design\nal prezzo di una finestra",
-    subheadline: "Approfitta delle detrazioni fiscali del 50%",
-    ctaText: "Contattaci",
-    ctaLink: "/contatti",
+    headline: "Dove il design\nincontra il comfort",
+    subheadline: "Scopri Mood Abitare — serramenti, porte e arredo per la tua casa",
+    ctaText: "Scopri i prodotti",
+    ctaLink: "/prodotti",
     image: "/images/Hero 1.jpg",
   },
   {
-    headline: "Serramenti, porte\ne ristrutturazioni",
-    subheadline: "Oltre 30 anni di esperienza nella provincia di Varese",
-    ctaText: "Scopri i prodotti",
-    ctaLink: "/prodotti",
+    headline: "Porte e interni\nche trasformano ogni spazio",
+    subheadline: "Porte interne, blindate e portoncini d'ingresso dei migliori brand",
+    ctaText: "Scopri le porte",
+    ctaLink: "/prodotti/porte-interne",
     image: "/images/Hero 2.jpg",
   },
   {
-    headline: "Premium Partner\nOknoplast",
-    subheadline: "Qualità certificata per la tua casa",
-    ctaText: "Scopri di più",
-    ctaLink: "/premium-partner",
+    headline: "Cucine, bagni\ne arredo su misura",
+    subheadline: "Progettazione completa per ogni ambiente della tua casa",
+    ctaText: "Scopri l'arredo",
+    ctaLink: "/prodotti/cucine-su-misura",
+    image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg",
+  },
+  {
+    headline: "Ristrutturazioni\ncon detrazioni al 50%",
+    subheadline: "Dal progetto alla consegna — oltre 30 anni di esperienza a Varese",
+    ctaText: "Richiedi preventivo",
+    ctaLink: "/contatti",
     image: "/images/Hero3.jpg",
   },
 ];

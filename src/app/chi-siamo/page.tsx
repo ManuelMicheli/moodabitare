@@ -135,7 +135,7 @@ export default function ChiSiamo() {
       {/* ─── Instagram Banner ─────────────────────────────────────── */}
       <section className="bg-bordeaux">
         <a
-          href="https://www.instagram.com/moschianosrl/"
+          href="https://www.instagram.com/moodabitare/"
           target="_blank"
           rel="noopener noreferrer"
           className="group block py-10 lg:py-14 px-6 sm:px-10 lg:px-20"
@@ -161,7 +161,7 @@ export default function ChiSiamo() {
                   Seguici su Instagram
                 </p>
                 <p className="font-display text-white/50 text-sm mt-1">
-                  @moschianosrl — Ispirazioni, cantieri e novità dallo showroom
+                  @moodabitare — Ispirazioni, cantieri e novità dallo showroom
                 </p>
               </div>
             </div>

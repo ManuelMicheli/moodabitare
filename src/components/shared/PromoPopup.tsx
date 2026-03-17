@@ -34,7 +34,7 @@ export function PromoPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4"
       onClick={close}
       role="dialog"
       aria-modal="true"
@@ -45,7 +45,7 @@ export function PromoPopup() {
 
       {/* Modal */}
       <div
-        className="relative w-full max-w-5xl animate-scaleIn"
+        className="relative w-full max-w-[95vw] sm:max-w-[90vw] lg:max-w-7xl animate-scaleIn"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -67,7 +67,7 @@ export function PromoPopup() {
             width={2560}
             height={1280}
             className="w-full h-auto"
-            sizes="(max-width: 1280px) 95vw, 1200px"
+            sizes="(max-width: 640px) 95vw, (max-width: 1280px) 90vw, 1280px"
           />
         </div>
 
