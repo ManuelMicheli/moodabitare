@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -7,10 +8,19 @@ import { MagneticButton } from "@/components/animations/MagneticButton";
 
 export function FinanziamentoBanner() {
   return (
-    <section className="bg-black-deep overflow-hidden">
+    <section className="relative bg-black-deep overflow-hidden">
+      <Image
+        src="/images/Oknoplast_2024_home.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        sizes="100vw"
+        quality={90}
+      />
+      <div className="absolute inset-0 bg-black-deep/50" />
       <Link
         href="/finanziamento"
-        className="group block px-6 sm:px-10 lg:px-20 py-10 lg:py-14 transition-colors hover:bg-black-soft"
+        className="group relative z-10 block px-6 sm:px-10 lg:px-20 py-10 lg:py-14"
       >
         <ClipReveal direction="right" duration={0.9}>
           <div className="flex flex-col items-center justify-center gap-4 text-center">
