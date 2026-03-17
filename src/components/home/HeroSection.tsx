@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { useIsMobile } from "@/hooks/useIsMobile";
+
 
 const slides = [
   {
@@ -37,195 +37,247 @@ const slides = [
   },
 ];
 
+const REVEAL_CONFIG = {
+  transitionDuration: 1.4,
+  autoplayInterval: 3,
+  maxBlur: 20,
+  maxScale: 1.05,
+  easing: "power2.inOut",
+};
+
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const subRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const indicatorsRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const isFirstRender = useRef(true);
-  const isMobile = useIsMobile();
+  const isAnimatingRef = useRef(false);
+  const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  }, []);
 
-  // Initial entrance animation
-  useEffect(() => {
-    if (!contentRef.current) return;
+  // ---------------------------------------------------------------------------
+  // Circle reveal transition
+  // ---------------------------------------------------------------------------
+  const goToSlide = useCallback(
+    (nextIndex: number) => {
+      if (isAnimatingRef.current || nextIndex === current) return;
+      isAnimatingRef.current = true;
 
-    const els = [headlineRef.current, subRef.current, ctaRef.current, indicatorsRef.current];
-    // Reset all elements to visible before animating (fixes isMobile flip killing mid-animation)
-    gsap.set(els, { opacity: 1, y: 0, clipPath: "none" });
+      const currentSlide = slidesRef.current[current];
+      const nextSlide = slidesRef.current[nextIndex];
+      if (!currentSlide || !nextSlide) return;
 
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      // Bring next slide on top and reset
+      nextSlide.style.zIndex = "2";
+      currentSlide.style.zIndex = "1";
+      gsap.set(nextSlide, {
+        clipPath: "inset(50% 0)",
+        filter: "blur(0px)",
+        scale: 1,
+        opacity: 1,
+      });
 
-    if (isMobile) {
-      // Mobile: simple opacity + y, no clipPath
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Clean up all slides
+          slidesRef.current.forEach((slide, i) => {
+            if (!slide) return;
+            if (i === nextIndex) {
+              slide.style.zIndex = "1";
+              gsap.set(slide, {
+                clipPath: "inset(0% 0)",
+                filter: "blur(0px)",
+                scale: 1,
+                opacity: 1,
+              });
+            } else {
+              slide.style.zIndex = "0";
+              gsap.set(slide, {
+                clipPath: "inset(50% 0)",
+                filter: "blur(0px)",
+                scale: 1,
+                opacity: 0,
+              });
+            }
+          });
+          setCurrent(nextIndex);
+          isAnimatingRef.current = false;
+        },
+      });
+
+      // Next slide: vertical reveal from center outward
       tl.fromTo(
-        headlineRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1 }
-      )
-        .fromTo(
-          subRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          "-=0.4"
-        )
-        .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.3"
-        )
-        .fromTo(
-          indicatorsRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.4 },
-          "-=0.2"
-        );
-    } else {
-      // Desktop: full cinematic with clipPath
-      tl.fromTo(
-        headlineRef.current,
-        { opacity: 0, y: 60, clipPath: "inset(0 0 100% 0)" },
-        { opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)", duration: 1.2 }
-      )
-        .fromTo(
-          subRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.5"
-        )
-        .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
-        )
-        .fromTo(
-          indicatorsRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.5 },
-          "-=0.3"
-        );
-    }
-
-    return () => { tl.kill(); };
-  }, [isMobile]);
-
-  // Slide transition animation
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-    tl.fromTo(
-      headlineRef.current,
-      { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.9 }
-    )
-      .fromTo(
-        subRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        "-=0.4"
-      )
-      .fromTo(
-        ctaRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.5 },
-        "-=0.3"
+        nextSlide,
+        { clipPath: "inset(50% 0)" },
+        {
+          clipPath: "inset(0% 0)",
+          duration: REVEAL_CONFIG.transitionDuration,
+          ease: REVEAL_CONFIG.easing,
+        }
       );
 
-    return () => { tl.kill(); };
-  }, [current]);
+      // Current slide: blur + scale out (simultaneous)
+      tl.to(
+        currentSlide,
+        {
+          filter: `blur(${REVEAL_CONFIG.maxBlur}px)`,
+          scale: REVEAL_CONFIG.maxScale,
+          duration: REVEAL_CONFIG.transitionDuration,
+          ease: REVEAL_CONFIG.easing,
+        },
+        "<"
+      );
+    },
+    [current]
+  );
 
-  // Auto-advance: 10s mobile, 7s desktop
+  // ---------------------------------------------------------------------------
+  // Navigation
+  // ---------------------------------------------------------------------------
+  const goNext = useCallback(() => {
+    const nextIndex = (current + 1) % slides.length;
+    goToSlide(nextIndex);
+  }, [current, goToSlide]);
+
+  const goPrev = useCallback(() => {
+    const prevIndex = (current - 1 + slides.length) % slides.length;
+    goToSlide(prevIndex);
+  }, [current, goToSlide]);
+
+  // ---------------------------------------------------------------------------
+  // Autoplay
+  // ---------------------------------------------------------------------------
+  const startAutoplay = useCallback(() => {
+    if (autoplayRef.current) clearInterval(autoplayRef.current);
+    autoplayRef.current = setInterval(() => {
+      goNext();
+    }, REVEAL_CONFIG.autoplayInterval * 1000);
+  }, [goNext]);
+
+  const stopAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+    }
+  }, []);
+
   useEffect(() => {
-    const timer = setInterval(next, isMobile ? 10000 : 7000);
-    return () => clearInterval(timer);
-  }, [next, isMobile]);
+    startAutoplay();
+    return () => stopAutoplay();
+  }, [startAutoplay, stopAutoplay]);
+
+  // ---------------------------------------------------------------------------
+  // Initial slide setup
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    slidesRef.current.forEach((slide, i) => {
+      if (!slide) return;
+      if (i === 0) {
+        gsap.set(slide, {
+          clipPath: "inset(0% 0)",
+          opacity: 1,
+          zIndex: 1,
+        });
+      } else {
+        gsap.set(slide, {
+          clipPath: "inset(50% 0)",
+          opacity: 0,
+          zIndex: 0,
+        });
+      }
+    });
+  }, []);
+
+  // Track first render
+  useEffect(() => {
+    isFirstRender.current = false;
+  }, []);
 
   return (
-    <section className="relative flex-1 min-h-0 flex items-end overflow-hidden bg-black-deep">
-      {/* Background images — stacked, crossfade on slide change */}
+    <section
+      ref={containerRef}
+      className="relative h-[75vh] flex items-end overflow-hidden bg-black-deep"
+      onMouseEnter={stopAutoplay}
+      onMouseLeave={startAutoplay}
+    >
+      {/* Slides — image + centered headline, clipped together on reveal */}
       {slides.map((slide, i) => (
-        <Image
+        <div
           key={slide.image}
-          src={slide.image}
-          alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
-          fill
-          priority={i === 0}
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
-            i === current ? "opacity-100" : "opacity-0"
-          }`}
-          sizes="100vw"
-        />
-      ))}
-      {/* Top gradient for navbar readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black-deep/50 via-black-deep/20 to-transparent pointer-events-none" />
-      {/* Bottom gradient for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-black-deep/15 to-transparent" />
-
-      {/* Content — overlaid, bottom-aligned */}
-      <div ref={contentRef} className="absolute inset-0 z-10 flex items-end">
-        <div className="w-full pb-12 lg:pb-16 px-6 sm:px-10 lg:px-20">
-          <div className="max-w-5xl">
-            <h1
-              ref={headlineRef}
-              className="font-hero text-white whitespace-pre-line"
-            >
-              {slides[current].headline}
-            </h1>
-
-            <p
-              ref={subRef}
-              className="mt-6 text-body text-white/60 max-w-xl"
-            >
-              {slides[current].subheadline}
+          ref={(el) => {
+            slidesRef.current[i] = el;
+          }}
+          className="absolute inset-0"
+          style={{ willChange: "clip-path, transform, filter" }}
+        >
+          <Image
+            src={slide.image}
+            alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Dark overlay for text contrast */}
+          <div className="absolute inset-0 bg-black/35" />
+          {/* Centered headline + subheadline + CTA — revealed with the image */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-5">
+            <h2 className="font-hero text-white text-center whitespace-pre-line drop-shadow-lg text-[clamp(2.5rem,6vw,5rem)] leading-[1.1]">
+              {slide.headline}
+            </h2>
+            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.5rem)] leading-relaxed">
+              {slide.subheadline}
             </p>
-
-            <div ref={ctaRef} className="mt-8">
-              <Link
-                href={slides[current].ctaLink}
-                className="text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/85 transition-colors"
-              >
-                {slides[current].ctaText}
-              </Link>
-            </div>
-          </div>
-
-          {/* Slide indicators — 44px tap area */}
-          <div ref={indicatorsRef} className="mt-8 flex gap-4">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className="h-11 flex items-center"
-                aria-label={`Slide ${i + 1}`}
-              >
-                <span
-                  className={`block h-px transition-all duration-500 ${
-                    i === current ? "w-16 bg-white" : "w-8 bg-white/20"
-                  }`}
-                />
-              </button>
-            ))}
+            <Link
+              href={slide.ctaLink}
+              className="mt-4 text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/85 transition-colors"
+            >
+              {slide.ctaText}
+            </Link>
           </div>
         </div>
-      </div>
+      ))}
 
-      {/* Scroll indicator — bounce only on desktop */}
-      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 md:animate-bounce">
-        <svg className="h-6 w-6 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      {/* Top gradient for navbar readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black-deep/40 via-transparent to-transparent pointer-events-none z-[3]" />
+      {/* Bottom gradient for CTA readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 via-transparent to-transparent pointer-events-none z-[3]" />
+
+      {/* Navigation arrows */}
+      <button
+        onClick={() => {
+          stopAutoplay();
+          goPrev();
+          startAutoplay();
+        }}
+        aria-label="Slide precedente"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 18l-6-6 6-6" />
         </svg>
+      </button>
+
+      <button
+        onClick={() => {
+          stopAutoplay();
+          goNext();
+          startAutoplay();
+        }}
+        aria-label="Slide successiva"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
+
+      {/* Counter — bottom right */}
+      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[13px] text-white/60 tracking-widest">
+        <span className="text-white font-semibold">
+          {String(current + 1).padStart(2, "0")}
+        </span>
+        {" / "}
+        {String(slides.length).padStart(2, "0")}
       </div>
     </section>
   );
