@@ -10,24 +10,24 @@ import { ALL_PRODUCTS, MACRO_CATEGORIES } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
 
 const heroImages: Record<string, string> = {
-  "serramenti-legno-giannattasio": "/images/finestralegnohero.jpg",
-  "finestre-alluminio-oknoplast": "/images/Finestre in alluminio.jpg",
+  "infissi-legno": "/images/finestralegnohero.jpg",
+  "infissi-alluminio": "/images/Finestre in alluminio.jpg",
 };
 
 const productImages: Record<string, GalleryImage[]> = {
-  "serramenti-legno-giannattasio": [
+  "infissi-legno": [
     { src: "/images/finestralegno.jpg", name: "Profilo bicolore" },
     { src: "/images/finestre-legno2.jpg", name: "Dettaglio cerniere" },
     { src: "/images/finestralegno3.jpg", name: "Profilo in legno" },
     { src: "/images/finestralegno4.jpg", name: "Dettaglio angolare" },
     { src: "/images/finestralegno5.jpg", name: "Sezione interna" },
   ],
-  "finestre-alluminio-oknoplast": [
+  "infissi-alluminio": [
     { src: "/images/Finestre in alluminio.jpg", name: "Finestra in alluminio" },
     { src: "/images/finestra in alluminio 2.jpg", name: "Dettaglio profilo" },
     { src: "/images/finestra in alluminio 3.jpg", name: "Vista interna" },
   ],
-  "finestre-pvc-oknoplast": [
+  "infissi-pvc": [
     { src: "/images/1Finestra-Prolux-2017-1024x768.png", name: "Prolux" },
     { src: "/images/2Finestra-Prolux-Evolution-1024x768.png", name: "Prolux Evolution" },
     { src: "/images/SL_Prolux--1024x768.png", name: "Scorrevole Prolux" },
@@ -46,8 +46,8 @@ const productImages: Record<string, GalleryImage[]> = {
 
 /** Keyword mirate per ogni categoria prodotto — local SEO + prodotto + brand */
 const productKeywords: Record<string, string[]> = {
-  "finestre-pvc-oknoplast": [
-    "finestre PVC Varese",
+  "infissi-pvc": [
+    "infissi PVC Varese",
     "finestre PVC Oknoplast",
     "infissi PVC prezzo",
     "finestre isolamento termico",
@@ -56,8 +56,8 @@ const productKeywords: Record<string, string[]> = {
     "sostituzione finestre PVC",
     "detrazioni fiscali finestre",
   ],
-  "finestre-alluminio-oknoplast": [
-    "finestre alluminio Varese",
+  "infissi-alluminio": [
+    "infissi alluminio Varese",
     "finestre alluminio Oknoplast",
     "serramenti alluminio taglio termico",
     "grandi vetrate alluminio",
@@ -65,71 +65,104 @@ const productKeywords: Record<string, string[]> = {
     "finestre alluminio minimal",
     "detrazioni fiscali serramenti",
   ],
-  "serramenti-legno-giannattasio": [
-    "serramenti legno Varese",
-    "finestre legno Giannattasio",
+  "infissi-alluminio-legno": [
+    "infissi alluminio legno Varese",
+    "serramenti alluminio legno Korus",
+    "finestre alluminio legno",
+    "infissi ibridi",
+    "serramenti doppio materiale",
+    "infissi legno alluminio isolamento",
+  ],
+  "infissi-legno": [
+    "infissi legno Varese",
+    "finestre legno Pail",
     "infissi legno massello",
     "finestre legno su misura",
     "serramenti legno made in Italy",
     "finestre legno isolamento termico",
   ],
-  "porte-interne-bertolotto": [
-    "porte interne Varese",
-    "porte interne Bertolotto",
-    "porte scorrevoli interno muro",
-    "porte filomuro",
-    "porte interne design",
-    "porte interne su misura",
-    "porte interne made in Italy",
-  ],
-  "portoncini-alluminio-oknoplast": [
+  "portoncini": [
     "portoncini ingresso alluminio",
     "portoncini Oknoplast",
+    "portoncini Kopen",
     "porta ingresso sicurezza Varese",
     "portoncini isolamento termico",
     "portoncini antieffrazione",
   ],
-  "porte-blindate-alias": [
+  "persiane": [
+    "persiane sicurezza Varese",
+    "persiane Erreci",
+    "persiane alluminio antieffrazione",
+    "persiane orientabili",
+    "oscuranti sicurezza",
+    "persiane Korus",
+  ],
+  "frangisole": [
+    "frangisole Varese",
+    "frangisole alluminio",
+    "brise soleil",
+    "schermatura solare facciata",
+    "frangisole orientabili",
+    "frangisole motorizzati",
+  ],
+  "tapparelle": [
+    "tapparelle Varese",
+    "tapparelle Pasini",
+    "tapparelle coibentate",
+    "tapparelle motorizzate",
+    "tapparelle elettriche",
+    "tapparelle isolamento termico",
+  ],
+  "porte-interne": [
+    "porte interne Varese",
+    "porte interne Pail",
+    "porte interne Door Arreda",
+    "porte scorrevoli interno muro",
+    "porte filomuro",
+    "porte interne design",
+    "porte interne su misura",
+  ],
+  "porte-blindate": [
     "porte blindate Varese",
     "porte blindate Alias",
+    "porte blindate Erreci",
     "porte blindate classe 4",
     "porte blindate antieffrazione",
     "porta blindata ingresso",
     "porte blindate isolamento termico",
   ],
-  "avvolgibili-pasini": [
-    "avvolgibili Varese",
-    "avvolgibili Pasini",
-    "tapparelle coibentate",
-    "avvolgibili motorizzati",
-    "tapparelle elettriche",
-    "tapparelle isolamento termico",
-  ],
-  "persiane-erreci": [
-    "persiane sicurezza Varese",
-    "persiane Erreci Sicurezza",
-    "persiane alluminio antieffrazione",
-    "persiane orientabili",
-    "persiane blindate",
-    "oscuranti sicurezza",
-  ],
-  "monoblocchi-vmc-alpac": [
-    "monoblocchi Alpac Varese",
-    "VMC ventilazione meccanica controllata",
-    "cassonetto coibentato",
-    "VMC integrata finestra",
-    "eliminare ponti termici",
-    "ricambio aria casa",
-  ],
-  "grate-inferriate-alias": [
+  "grate-sicurezza": [
     "grate di sicurezza Varese",
-    "inferriate Alias",
+    "grate Erreci",
     "inferriate finestre",
     "grate antieffrazione",
     "inferriate apribili",
     "sicurezza finestre Varese",
   ],
-  "tende-tecniche-sharknet": [
+  "persiane-blindate": [
+    "persiane blindate Varese",
+    "persiane blindate Erreci",
+    "persiane antieffrazione",
+    "persiane sicurezza casa",
+    "oscuranti blindati",
+  ],
+  "allarme-videosorveglianza": [
+    "allarme casa Varese",
+    "videosorveglianza Varese",
+    "antifurto Inim",
+    "telecamere sicurezza casa",
+    "impianto allarme abitazione",
+    "sistema sicurezza domestico",
+  ],
+  "zanzariere": [
+    "zanzariere Varese",
+    "zanzariere su misura",
+    "zanzariere plissettate",
+    "zanzariere antipolline",
+    "zanzariere per porta finestra",
+    "zanzariere Bettio",
+  ],
+  "tende-tecniche": [
     "tende tecniche Varese",
     "tende plissè Sharknet",
     "tende oscuranti finestre",
@@ -137,23 +170,72 @@ const productKeywords: Record<string, string[]> = {
     "tende protezione UV",
     "schermature solari",
   ],
-  "zanzariere-zanzar-sistem": [
-    "zanzariere Varese",
-    "zanzariere Zanzar Sistem",
-    "zanzariere su misura",
-    "zanzariere plissettate",
-    "zanzariere antipolline",
-    "zanzariere per porta finestra",
+  "scale-ringhiere": [
+    "scale interne Varese",
+    "scale Sinfonia",
+    "scale a chiocciola",
+    "ringhiere vetro",
+    "scale salvaspazio",
+    "scale su misura",
   ],
-  "cucine-cucinesse": [
+  "pergole": [
+    "pergole bioclimatiche Varese",
+    "pergole Tendarredo",
+    "pergole alluminio",
+    "copertura terrazzo",
+    "pergole motorizzate",
+  ],
+  "gazebi-strutture-legno": [
+    "gazebi legno Varese",
+    "strutture legno giardino",
+    "carport legno",
+    "gazebo su misura",
+    "coperture legno lamellare",
+  ],
+  "tende-da-sole": [
+    "tende da sole Varese",
+    "tende da sole motorizzate",
+    "tende da sole Tendarredo",
+    "tende da sole con cassonetto",
+    "tende da sole bracci estensibili",
+  ],
+  "vetrate-panoramiche": [
+    "vetrate panoramiche Varese",
+    "vetrate a pacchetto",
+    "chiusure terrazzi vetro",
+    "vetrate scorrevoli",
+    "verande vetro",
+  ],
+  "piscine": [
+    "piscine interrate Varese",
+    "piscine fuori terra",
+    "costruzione piscina",
+    "piscine su misura",
+    "piscine giardino",
+  ],
+  "rivestimento-piscine": [
+    "rivestimento piscina Varese",
+    "ristrutturazione piscina",
+    "liner piscina",
+    "PVC armato piscina",
+    "rinnovo piscina",
+  ],
+  "arredo-giardino": [
+    "arredo giardino Varese",
+    "mobili da esterno",
+    "tavoli giardino",
+    "divani esterno",
+    "arredamento outdoor",
+  ],
+  "cucine-su-misura": [
     "cucine su misura Varese",
-    "cucine Cucinesse",
+    "cucine Arrex",
     "cucine moderne design",
     "cucine con isola",
     "cucine made in Italy",
     "arredamento cucina Varese",
   ],
-  "arredo-bagno-merati": [
+  "arredo-bagno": [
     "arredo bagno Varese",
     "arredo bagno Merati",
     "mobili bagno sospesi",
@@ -161,30 +243,77 @@ const productKeywords: Record<string, string[]> = {
     "arredo bagno design",
     "ristrutturazione bagno Varese",
   ],
-  "sanitari-rubinetteria-karag": [
-    "sanitari Karag",
-    "rubinetteria bagno design",
+  "sanitari": [
+    "sanitari Varese",
     "sanitari rimless",
     "sanitari sospesi",
     "sanitari risparmio idrico",
-    "rubinetteria bagno Varese",
+    "sanitari Sani e Co",
   ],
-  "parquet-laminati-skema": [
+  "rubinetteria": [
+    "rubinetteria bagno Varese",
+    "rubinetteria Fiore",
+    "rubinetteria design",
+    "miscelatori bagno",
+    "rubinetteria cucina",
+  ],
+  "ceramiche": [
+    "ceramiche Varese",
+    "piastrelle gres porcellanato",
+    "ceramiche bagno",
+    "piastrelle effetto marmo",
+    "rivestimenti ceramica",
+  ],
+  "parquet": [
     "parquet Varese",
-    "laminati Skema",
+    "parquet Ali Parquet",
     "parquet legno massello",
-    "pavimenti laminati",
+    "parquet prefinito",
     "parquet riscaldamento a pavimento",
-    "laminato effetto legno",
     "posa parquet Varese",
   ],
-  "scale-ringhiere-fontanot": [
-    "scale interne Varese",
-    "scale Fontanot",
-    "scale a chiocciola",
-    "ringhiere vetro",
-    "scale salvaspazio",
-    "scale su misura",
+  "climatizzatori": [
+    "climatizzatori Varese",
+    "climatizzatori Haier",
+    "climatizzatori Samsung",
+    "condizionatori inverter",
+    "climatizzatori A+++",
+    "installazione climatizzatori Varese",
+  ],
+  "pompe-di-calore": [
+    "pompe di calore Varese",
+    "pompe di calore Ariston",
+    "pompa di calore aria acqua",
+    "riscaldamento efficiente",
+    "sostituzione caldaia pompa di calore",
+  ],
+  "caldaia": [
+    "caldaia a condensazione Varese",
+    "caldaia Hermann",
+    "sostituzione caldaia",
+    "caldaia condensazione prezzo",
+    "installazione caldaia Varese",
+  ],
+  "impianti-fotovoltaici": [
+    "fotovoltaico Varese",
+    "pannelli solari casa",
+    "impianto fotovoltaico residenziale",
+    "fotovoltaico con accumulo",
+    "incentivi fotovoltaico",
+  ],
+  "impianti-elettrici": [
+    "impianto elettrico Varese",
+    "rifacimento impianto elettrico",
+    "impianto elettrico a norma",
+    "elettricista Varese",
+    "adeguamento impianto elettrico",
+  ],
+  "impianti-idraulici": [
+    "impianto idraulico Varese",
+    "idraulico Varese",
+    "rifacimento impianto idraulico",
+    "impianto riscaldamento",
+    "impianto bagno",
   ],
 };
 
@@ -197,7 +326,9 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return ALL_PRODUCTS.map((product) => ({ slug: product.slug }));
+  // Deduplicate slugs (porte-blindate appears in 2 categories)
+  const uniqueSlugs = [...new Set(ALL_PRODUCTS.map((p) => p.slug))];
+  return uniqueSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -205,22 +336,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = ALL_PRODUCTS.find((p) => p.slug === slug);
   if (!product) return {};
   const content = productContent[slug];
+  const brandSuffix = product.brand ? ` ${product.brand}` : "";
   const description = content?.tagline
-    ? `${product.name} ${product.brand}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
-    : `${product.name} di ${product.brand}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`;
+    ? `${product.name}${brandSuffix}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
+    : `${product.name}${product.brand ? ` di ${product.brand}` : ""}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`;
   return {
-    title: `${product.name} ${product.brand} — Varese`,
+    title: `${product.name}${brandSuffix} — Varese`,
     description,
     keywords: productKeywords[slug] || [
       `${product.name} Varese`,
-      `${product.brand} Gorla Maggiore`,
+      ...(product.brand ? [`${product.brand} Gorla Maggiore`] : []),
       "Mood Abitare",
     ],
     alternates: {
       canonical: `https://www.moschianosrl.it/prodotti/${slug}`,
     },
     openGraph: {
-      title: `${product.name} — ${product.brand} | Mood Abitare`,
+      title: `${product.name}${product.brand ? ` — ${product.brand}` : ""} | Mood Abitare`,
       description,
       url: `https://www.moschianosrl.it/prodotti/${slug}`,
     },
@@ -290,10 +422,14 @@ export default async function ProductPage({ params }: Props) {
               <span className="text-label text-white/30">
                 {macroCategory?.label}
               </span>
-              <span className="text-white/10">—</span>
-              <span className="text-label text-white/30">
-                {product.brand}
-              </span>
+              {product.brand && (
+                <>
+                  <span className="text-white/10">—</span>
+                  <span className="text-label text-white/30">
+                    {product.brand}
+                  </span>
+                </>
+              )}
             </div>
             <h1 className="font-section-title max-w-3xl">
               {product.name}
@@ -319,7 +455,7 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {/* Oknoplast mini banner */}
-      {(slug === "finestre-alluminio-oknoplast" || slug === "finestre-pvc-oknoplast") && (
+      {(slug === "infissi-alluminio" || slug === "infissi-pvc") && (
         <div className="flex items-center justify-center py-4 lg:py-5 bg-cream">
           <svg viewBox="0 0 220 28" className="h-5 lg:h-6 w-auto" aria-label="Oknoplast">
             <text
@@ -339,7 +475,7 @@ export default async function ProductPage({ params }: Props) {
       )}
 
       {/* Gallery alluminio — 3 card attaccate sotto hero */}
-      {slug === "finestre-alluminio-oknoplast" && gallery && (
+      {slug === "infissi-alluminio" && gallery && (
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {gallery.map((img, i) => (
             <div key={i} className="relative aspect-[4/3] overflow-hidden">
@@ -359,38 +495,25 @@ export default async function ProductPage({ params }: Props) {
         </div>
       )}
 
-      {/* Giannattasio brand banner + gallery — solo per serramenti in legno */}
-      {slug === "serramenti-legno-giannattasio" && (
+      {/* Pail brand banner + gallery — solo per infissi in legno */}
+      {slug === "infissi-legno" && gallery && gallery.length > 0 && (
         <div style={{ backgroundColor: "#533430" }}>
-          {/* Logo + Descrizione centrati */}
           <div className="flex flex-col items-center justify-center px-6 sm:px-10 lg:px-20 py-12 lg:py-16">
-            <Image
-              src="/images/giannattasio-logo.png"
-              alt="Giannattasio logo"
-              width={824}
-              height={118}
-              className="w-[220px] sm:w-[280px] lg:w-[360px] h-auto"
-              sizes="(max-width: 640px) 220px, (max-width: 1024px) 280px, 360px"
-              quality={95}
-            />
             <FadeInView>
-              <p className="mt-6 lg:mt-8 text-body text-white/70 max-w-xl mx-auto text-center leading-relaxed">
-                Da sempre, Giannattasio unisce in una sintesi efficace l&apos;esclusività della lavorazione
-                artigianale con la precisione della tecnologia industriale per la produzione di porte,
-                finestre in legno e legno-alluminio, persiane oscuranti e di sicurezza, portoni e mobili su misura.
+              <p className="text-body text-white/70 max-w-xl mx-auto text-center leading-relaxed">
+                Infissi in legno di alta qualità, realizzati artigianalmente in Italia
+                con legni selezionati e certificati per resistere nel tempo
+                senza perdere la loro eleganza naturale.
               </p>
             </FadeInView>
           </div>
-          {/* Gallery prodotti */}
-          {gallery && gallery.length > 0 && (
-            <HorizontalGallery images={gallery} alt={product.name} gridLayout darkBg />
-          )}
+          <HorizontalGallery images={gallery} alt={product.name} gridLayout darkBg />
         </div>
       )}
 
       {/* Horizontal scroll gallery — altri prodotti */}
-      {gallery && gallery.length > 0 && slug !== "finestre-alluminio-oknoplast" && slug !== "serramenti-legno-giannattasio" && (
-        slug === "finestre-pvc-oknoplast"
+      {gallery && gallery.length > 0 && slug !== "infissi-alluminio" && slug !== "infissi-legno" && (
+        slug === "infissi-pvc"
           ? <PvcGalleryWithSheet images={gallery} alt={product.name} />
           : <HorizontalGallery images={gallery} alt={product.name} />
       )}
@@ -401,9 +524,7 @@ export default async function ProductPage({ params }: Props) {
           {/* Description */}
           <FadeInView>
             <p className="font-display font-medium leading-[1.4] tracking-[-0.015em] text-black-deep max-w-3xl mx-auto text-center text-lg sm:text-xl lg:text-2xl">
-              {slug === "serramenti-legno-giannattasio"
-                ? "I serramenti in legno Giannattasio uniscono la bellezza naturale e il calore tattile del legno massello a prestazioni termiche di ultima generazione. Ogni serramento è realizzato artigianalmente in Italia con legni selezionati e certificati, trattati per resistere nel tempo senza perdere la loro eleganza naturale."
-                : content.description}
+              {content.description}
             </p>
           </FadeInView>
 
@@ -464,9 +585,11 @@ export default async function ProductPage({ params }: Props) {
               {relatedProducts.map((related) => (
                 <FadeInView key={related.slug}>
                   <a href={`/prodotti/${related.slug}`} className="group block bg-black-deep p-8 lg:p-10">
-                    <span className="text-label text-white/20">
-                      {related.brand}
-                    </span>
+                    {related.brand && (
+                      <span className="text-label text-white/20">
+                        {related.brand}
+                      </span>
+                    )}
                     <h3 className="mt-3 font-display text-xl font-medium text-white/80 group-hover:text-white transition-colors tracking-tight">
                       {related.name}
                     </h3>

@@ -26,32 +26,32 @@ const BODY_1: Part[] = [
   " a Gorla Maggiore trovate tutto per la vostra casa: dai ",
   {
     text: "serramenti",
-    link: { href: "/prodotti/finestre-pvc-oknoplast", image: "/images/Prolux-4.jpg", title: "Finestre in PVC Oknoplast" },
+    link: { href: "/prodotti/infissi-pvc", image: "/images/Prolux-4.jpg", title: "Infissi in PVC Oknoplast" },
   },
   " in PVC, alluminio e legno alle ",
   {
     text: "porte interne",
-    link: { href: "/prodotti/porte-interne-bertolotto", image: "/images/Home-bertolotto-opt.jpg", title: "Porte Interne Bertolotto" },
+    link: { href: "/prodotti/porte-interne", image: "/images/Home-bertolotto-opt.jpg", title: "Porte Interne" },
   },
   " e blindate, dalle ",
   {
     text: "cucine su misura",
-    link: { href: "/prodotti/cucine-cucinesse", image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", title: "Cucine su Misura" },
+    link: { href: "/prodotti/cucine-su-misura", image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", title: "Cucine su Misura" },
   },
   " ai ",
   {
     text: "pavimenti",
-    link: { href: "/prodotti/parquet-laminati-skema", image: "/images/Hero3.jpg", title: "Parquet e Laminati" },
+    link: { href: "/prodotti/parquet", image: "/images/Hero3.jpg", title: "Parquet" },
   },
   ", dall'",
   {
     text: "arredo bagno",
-    link: { href: "/prodotti/arredo-bagno-merati", image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg", title: "Arredo Bagno" },
+    link: { href: "/prodotti/arredo-bagno", image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg", title: "Arredo Bagno" },
   },
   " alle ",
   {
     text: "scale e ringhiere",
-    link: { href: "/prodotti/scale-ringhiere-fontanot", image: "/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg", title: "Scale e Ringhiere" },
+    link: { href: "/prodotti/scale-ringhiere", image: "/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg", title: "Scale e Ringhiere" },
   },
   " — insieme a persiane, avvolgibili, zanzariere, grate di sicurezza, monoblocchi e VMC.",
 ];

@@ -15,54 +15,49 @@ gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   {
-    name: "Finestre in PVC",
+    name: "Infissi in PVC",
     brand: "Oknoplast",
     description:
       "Serramenti a 5 e 7 camere con isolamento termico e acustico superiore. Risparmio in bolletta tutto l\u2019anno.",
     image: "/images/wmremove-transformed (69).png",
-    href: "/prodotti/finestre-pvc-oknoplast",
+    href: "/prodotti/infissi-pvc",
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-    // Finestre PVC: da sinistra
     from: { x: -120, y: 0 },
   },
   {
     name: "Porte Interne",
-    brand: "Bertolotto",
-    description: "Design made in Italy dal 1967, qualità artigianale.",
+    brand: "Pail / Door Arreda",
+    description: "Design made in Italy, qualità artigianale.",
     image: "/images/bertolotto.webp",
-    href: "/prodotti/porte-interne-bertolotto",
+    href: "/prodotti/porte-interne",
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
-    // Porte Interne: dall'alto
     from: { x: 0, y: -80 },
   },
   {
-    name: "Portoncini in Alluminio",
-    brand: "Oknoplast",
+    name: "Portoncini",
+    brand: "Oknoplast / Kopen",
     description: "Ingresso unico, sicurezza RC2 di serie.",
     image: "/images/Bilico_antracite-eff-legno_FINAL.jpg",
-    href: "/prodotti/portoncini-alluminio-oknoplast",
+    href: "/prodotti/portoncini",
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
-    // Portoncini Alluminio: dall'alto
     from: { x: 0, y: -80 },
   },
   {
     name: "Cucine su Misura",
-    brand: "Cucinesse",
+    brand: "Arrex Cucine",
     description: "Progettazione e realizzazione cucine personalizzate.",
     image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
-    href: "/prodotti/cucine-cucinesse",
+    href: "/prodotti/cucine-su-misura",
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
-    // Cucine: da destra
     from: { x: 120, y: 0 },
   },
   {
     name: "Porte Blindate",
-    brand: "Alias",
+    brand: "Alias / Erreci",
     description: "Sicurezza certificata, design italiano.",
     image: "/images/Alias-home.jpg",
-    href: "/prodotti/porte-blindate-alias",
+    href: "/prodotti/porte-blindate",
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
-    // Blindate: da destra
     from: { x: 120, y: 0 },
   },
 ];

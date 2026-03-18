@@ -127,9 +127,11 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                                   <span className="font-card-title text-[0.85rem] text-black-deep/75 group-hover:text-black-deep transition-colors duration-200">
                                                     {product.name}
                                                   </span>
-                                                  <span className="text-[0.6rem] uppercase tracking-wider text-black-deep/20 group-hover:text-bordeaux/50 transition-colors duration-200">
-                                                    {product.brand}
-                                                  </span>
+                                                  {product.brand && (
+                                                    <span className="text-[0.6rem] uppercase tracking-wider text-black-deep/20 group-hover:text-bordeaux/50 transition-colors duration-200">
+                                                      {product.brand}
+                                                    </span>
+                                                  )}
                                                 </Link>
                                               </li>
                                             ))}

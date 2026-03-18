@@ -13,31 +13,35 @@ export function FinanziamentoBanner() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
 
   return (
     <section ref={ref} className="relative bg-black-deep overflow-hidden">
-      <motion.div className="absolute inset-[-25%]" style={{ y }}>
+      <motion.div
+        className="absolute inset-0 h-[130%] -top-[15%]"
+        style={{ y, scale: imgScale }}
+      >
         <Image
           src="/images/Oknoplast_2024_home.jpg"
-          alt=""
+          alt="Interni luminosi con serramenti Oknoplast"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="100vw"
           quality={90}
         />
       </motion.div>
-      <div className="absolute inset-0 bg-black-deep/50" />
+      <div className="absolute inset-0 bg-black-deep/55" />
       <Link
         href="/finanziamento"
-        className="group relative z-10 block px-6 sm:px-10 lg:px-20 py-10 lg:py-14"
+        className="group relative z-10 block px-6 sm:px-10 lg:px-20 py-20 lg:py-28"
       >
         <ClipReveal direction="right" duration={0.9}>
           <div className="flex flex-col items-center justify-center gap-4 text-center">
             {/* Big percentage */}
             <motion.span
               className="font-display font-bold text-cream leading-none"
-              style={{ fontSize: "clamp(3rem, 2rem + 4vw, 5.5rem)" }}
+              style={{ fontSize: "clamp(3.5rem, 2.5rem + 5vw, 7rem)" }}
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
@@ -60,12 +64,12 @@ export function FinanziamentoBanner() {
               <p
                 className="font-display font-bold text-cream leading-tight"
                 style={{
-                  fontSize: "clamp(1rem, 0.85rem + 0.7vw, 1.4rem)",
+                  fontSize: "clamp(1.15rem, 1rem + 0.8vw, 1.7rem)",
                 }}
               >
                 Detrazioni fiscali per la sostituzione dei serramenti
               </p>
-              <p className="font-ui text-cream text-[0.8rem] sm:text-[0.85rem] mt-1.5">
+              <p className="font-ui text-cream text-[0.85rem] sm:text-[0.95rem] mt-2">
                 Cumulabile con finanziamento a tasso zero &mdash; TAN 0% |
                 TAEG 0%
               </p>

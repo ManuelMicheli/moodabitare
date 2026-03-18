@@ -214,7 +214,7 @@ export function EditorialShowcase() {
         {/* R1 — Text center */}
         <FadeInView delay={0.1} className="md:col-span-4">
           <Link
-            href="/prodotti/finestre-pvc-oknoplast"
+            href="/prodotti/infissi-pvc"
             className="group flex flex-col items-center justify-center text-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
           >
             <h3 className="font-section-title text-black-deep">
@@ -244,7 +244,7 @@ export function EditorialShowcase() {
         {/* R2 — Text left */}
         <FadeInView delay={0.15} className="md:col-span-3">
           <Link
-            href="/prodotti/finestre-pvc-oknoplast"
+            href="/prodotti/infissi-pvc"
             className="group flex flex-col justify-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
           >
             <h3 className="font-section-title text-black-deep">
@@ -270,7 +270,7 @@ export function EditorialShowcase() {
         {/* R2 — Text right */}
         <FadeInView delay={0.3} className="md:col-span-3">
           <Link
-            href="/prodotti/portoncini-alluminio-oknoplast"
+            href="/prodotti/portoncini"
             className="group flex flex-col items-end text-right justify-center h-full px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-cream"
           >
             <h3 className="font-section-title text-black-deep">
@@ -305,7 +305,7 @@ export function EditorialShowcase() {
 
             <blockquote className="relative z-10 mt-8">
               <p className="text-body text-white/90 italic leading-relaxed">
-                Le porte Bertolotto sono arte e propria creazione.
+                Le porte interne sono arte e propria creazione.
                 Il bello è anche incontrare con oggetti
                 effettivi e di design come queste porte, che offrono
                 una pura esperienza della qualità made in Italy.
@@ -329,12 +329,12 @@ export function EditorialShowcase() {
 
         {/* Bertolotto spotlight — GSAP da destra */}
         <GsapSlideBlock className="md:col-span-7" fromX={100} delay={0.15}>
-          <Link href="/prodotti/porte-interne-bertolotto" className="group block">
+          <Link href="/prodotti/porte-interne" className="group block">
             <div className="relative h-full min-h-[300px] md:min-h-[500px] bg-black-deep overflow-hidden">
               {/* Background image — subtle */}
               <Image
                 src="/images/bertolotto.webp"
-                alt="Porte interne Bertolotto"
+                alt="Porte interne"
                 fill
                 className="object-cover opacity-40 transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 58vw"
@@ -346,12 +346,11 @@ export function EditorialShowcase() {
                   Porte Interne
                 </p>
                 <h3 className="font-section-title text-white max-w-lg">
-                  Bertolotto, le tue porte interne made in Italy
+                  Le tue porte interne made in Italy
                 </h3>
                 <p className="mt-5 text-body text-white/60 max-w-md">
                   Affidati a Mood Abitare per scegliere le tue nuove porte interne in provincia di Varese.
-                  Bertolotto, azienda piemontese che dal 1967 progetta e realizza porte d&apos;interni di alta qualità,
-                  unisce artigianalità italiana e innovazione.
+                  Pail e Door Arreda: qualità artigianale italiana e design contemporaneo per ogni ambiente.
                 </p>
                 <div className="mt-6">
                   <span className="text-button text-white/70 group-hover:text-white transition-colors inline-flex items-center gap-2">

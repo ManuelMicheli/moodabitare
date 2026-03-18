@@ -198,7 +198,7 @@ export default function PremiumPartner() {
                 ))}
               </ul>
               <a
-                href="/prodotti/finestre-pvc-oknoplast"
+                href="/prodotti/infissi-pvc"
                 className="inline-block mt-12 text-button text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors"
               >
                 Scopri le finestre Oknoplast

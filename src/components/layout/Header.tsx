@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { NAV_ITEMS, CONTACT_INFO } from "@/lib/constants";
 import { MegaMenu } from "./MegaMenu";
 import { MobileNav } from "./MobileNav";
+import { FreeConsultationBanner } from "./FreeConsultationBanner";
 
 export function Header() {
   const pathname = usePathname();
@@ -254,6 +255,9 @@ export function Header() {
             </button>
           </div>
         </div>
+
+        {/* Free consultation banner — below nav */}
+        <FreeConsultationBanner isScrolled={isScrolled} />
       </header>
 
       {/* Subtle backdrop when menu is open */}

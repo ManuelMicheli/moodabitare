@@ -49,76 +49,127 @@ export type MacroCategory = {
 export type ProductCategory = {
   slug: string;
   name: string;
-  brand: string;
+  brand?: string;
   macroCategoryId: string;
 };
 
 export const MACRO_CATEGORIES: MacroCategory[] = [
   {
-    id: "serramenti",
-    label: "Serramenti",
+    id: "serramenti-oscuranti-portoncini",
+    label: "Serramenti, Oscuranti, Portoncini",
     products: [
-      { slug: "finestre-pvc-oknoplast", name: "Finestre in PVC", brand: "Oknoplast", macroCategoryId: "serramenti" },
-      { slug: "finestre-alluminio-oknoplast", name: "Finestre in Alluminio", brand: "Oknoplast", macroCategoryId: "serramenti" },
-      { slug: "serramenti-legno-giannattasio", name: "Serramenti in Legno", brand: "Giannattasio", macroCategoryId: "serramenti" },
-      { slug: "monoblocchi-vmc-alpac", name: "Monoblocchi e VMC", brand: "Alpac", macroCategoryId: "serramenti" },
+      { slug: "infissi-pvc", name: "Infissi in PVC", brand: "Oknoplast", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "infissi-alluminio", name: "Infissi in Alluminio", brand: "Oknoplast", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "infissi-alluminio-legno", name: "Infissi in Alluminio / Legno", brand: "Korus", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "infissi-legno", name: "Infissi in Legno", brand: "Pail", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "portoncini", name: "Portoncini", brand: "Oknoplast / Kopen", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "persiane", name: "Persiane", brand: "Erreci / Persit / Korus", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "frangisole", name: "Frangisole", brand: "Lupak", macroCategoryId: "serramenti-oscuranti-portoncini" },
+      { slug: "tapparelle", name: "Tapparelle", brand: "Pasini", macroCategoryId: "serramenti-oscuranti-portoncini" },
     ],
   },
   {
-    id: "porte-sicurezza",
-    label: "Porte & Sicurezza",
+    id: "porte-interne-blindate",
+    label: "Porte Interne & Blindate",
     products: [
-      { slug: "porte-interne-bertolotto", name: "Porte Interne", brand: "Bertolotto", macroCategoryId: "porte-sicurezza" },
-      { slug: "portoncini-alluminio-oknoplast", name: "Portoncini d'Ingresso", brand: "Oknoplast", macroCategoryId: "porte-sicurezza" },
-      { slug: "porte-blindate-alias", name: "Porte Blindate", brand: "Alias", macroCategoryId: "porte-sicurezza" },
-      { slug: "grate-inferriate-alias", name: "Grate e Inferriate", brand: "Alias", macroCategoryId: "porte-sicurezza" },
+      { slug: "porte-interne", name: "Porte Interne", brand: "Pail / Door Arreda", macroCategoryId: "porte-interne-blindate" },
+      { slug: "porte-blindate", name: "Porte Blindate", brand: "Alias / Erreci", macroCategoryId: "porte-interne-blindate" },
     ],
   },
   {
-    id: "oscuranti-protezione",
-    label: "Oscuranti & Protezione",
+    id: "sistemi-sicurezza",
+    label: "Sistemi di Sicurezza",
     products: [
-      { slug: "avvolgibili-pasini", name: "Avvolgibili", brand: "Pasini", macroCategoryId: "oscuranti-protezione" },
-      { slug: "persiane-erreci", name: "Persiane", brand: "Erreci Sicurezza", macroCategoryId: "oscuranti-protezione" },
-      { slug: "tende-tecniche-sharknet", name: "Tende Tecniche e Plissé", brand: "Sharknet", macroCategoryId: "oscuranti-protezione" },
-      { slug: "zanzariere-zanzar-sistem", name: "Zanzariere", brand: "Zanzar Sistem", macroCategoryId: "oscuranti-protezione" },
+      { slug: "grate-sicurezza", name: "Grate di Sicurezza", brand: "Erreci", macroCategoryId: "sistemi-sicurezza" },
+      { slug: "porte-blindate", name: "Porte Blindate", brand: "Alias / Erreci", macroCategoryId: "sistemi-sicurezza" },
+      { slug: "persiane-blindate", name: "Persiane Blindate", brand: "Erreci / Ecomet", macroCategoryId: "sistemi-sicurezza" },
+      { slug: "allarme-videosorveglianza", name: "Sistemi di Allarme e Videosorveglianza", brand: "Inim", macroCategoryId: "sistemi-sicurezza" },
     ],
   },
   {
-    id: "interni-arredo",
-    label: "Interni & Arredo",
+    id: "comfort-complementi",
+    label: "Comfort & Complementi",
     products: [
-      { slug: "cucine-cucinesse", name: "Cucine su Misura", brand: "Cucinesse", macroCategoryId: "interni-arredo" },
-      { slug: "arredo-bagno-merati", name: "Arredo Bagno", brand: "Merati", macroCategoryId: "interni-arredo" },
-      { slug: "sanitari-rubinetteria-karag", name: "Sanitari e Rubinetteria", brand: "Karag", macroCategoryId: "interni-arredo" },
-      { slug: "parquet-laminati-skema", name: "Parquet e Laminati", brand: "Skema", macroCategoryId: "interni-arredo" },
-      { slug: "scale-ringhiere-fontanot", name: "Scale e Ringhiere", brand: "Fontanot", macroCategoryId: "interni-arredo" },
+      { slug: "zanzariere", name: "Zanzariere", brand: "Grifoflex / Bettio / Sharknet", macroCategoryId: "comfort-complementi" },
+      { slug: "tende-tecniche", name: "Tende Tecniche", brand: "Sharknet / Zanzar Sistem", macroCategoryId: "comfort-complementi" },
+      { slug: "scale-ringhiere", name: "Scale e Ringhiere", brand: "Sinfonia", macroCategoryId: "comfort-complementi" },
+    ],
+  },
+  {
+    id: "outdoor",
+    label: "Outdoor",
+    products: [
+      { slug: "pergole", name: "Pergole", brand: "Tendarredo / Persit", macroCategoryId: "outdoor" },
+      { slug: "gazebi-strutture-legno", name: "Gazebi e Strutture in Legno", macroCategoryId: "outdoor" },
+      { slug: "tende-da-sole", name: "Tende da Sole", brand: "Tendarredo", macroCategoryId: "outdoor" },
+      { slug: "vetrate-panoramiche", name: "Vetrate Panoramiche", brand: "Mc Slide", macroCategoryId: "outdoor" },
+      { slug: "piscine", name: "Piscine Interrate e Fuori Terra", macroCategoryId: "outdoor" },
+      { slug: "rivestimento-piscine", name: "Rivestimento Piscine Esistenti", macroCategoryId: "outdoor" },
+      { slug: "arredo-giardino", name: "Arredo Giardino", macroCategoryId: "outdoor" },
+    ],
+  },
+  {
+    id: "casa-arredo",
+    label: "Casa & Arredo",
+    products: [
+      { slug: "cucine-su-misura", name: "Cucine su Misura", brand: "Arrex Cucine", macroCategoryId: "casa-arredo" },
+      { slug: "arredo-bagno", name: "Arredo Bagno", brand: "Merati", macroCategoryId: "casa-arredo" },
+      { slug: "sanitari", name: "Sanitari", brand: "Sani e Co", macroCategoryId: "casa-arredo" },
+      { slug: "rubinetteria", name: "Rubinetteria", brand: "Fiore", macroCategoryId: "casa-arredo" },
+      { slug: "ceramiche", name: "Ceramiche", brand: "Class Tile", macroCategoryId: "casa-arredo" },
+      { slug: "parquet", name: "Parquet", brand: "Ali Parquet", macroCategoryId: "casa-arredo" },
+    ],
+  },
+  {
+    id: "riscaldamento-rinnovabili",
+    label: "Riscaldamento / Energie Rinnovabili",
+    products: [
+      { slug: "climatizzatori", name: "Climatizzatori", brand: "Haier / Samsung", macroCategoryId: "riscaldamento-rinnovabili" },
+      { slug: "pompe-di-calore", name: "Pompe di Calore", brand: "Ariston", macroCategoryId: "riscaldamento-rinnovabili" },
+      { slug: "caldaia", name: "Caldaia", brand: "Hermann", macroCategoryId: "riscaldamento-rinnovabili" },
+      { slug: "impianti-fotovoltaici", name: "Impianti Fotovoltaici", macroCategoryId: "riscaldamento-rinnovabili" },
+      { slug: "impianti-elettrici", name: "Impianti Elettrici", macroCategoryId: "riscaldamento-rinnovabili" },
+      { slug: "impianti-idraulici", name: "Impianti Idraulici", macroCategoryId: "riscaldamento-rinnovabili" },
     ],
   },
 ];
 
-export const ALL_PRODUCTS: ProductCategory[] = MACRO_CATEGORIES.flatMap(
-  (mc) => mc.products
-);
+export const ALL_PRODUCTS: ProductCategory[] = [
+  ...new Map(
+    MACRO_CATEGORIES.flatMap((mc) => mc.products).map((p) => [p.slug, p])
+  ).values(),
+];
 
 export const BRAND_PARTNERS = [
-  { name: "Oknoplast", category: "Finestre PVC e Alluminio, Portoncini", color: "#009FE3" },
-  { name: "Giannattasio", category: "Serramenti in legno", color: "#5C3D2E" },
-  { name: "Alias", category: "Porte blindate, Grate e inferriate", color: "#5b5b5b" },
-  { name: "Bertolotto", category: "Porte interne", color: "#001034" },
-  { name: "Erreci Sicurezza", category: "Persiane", color: "#1B6B3A" },
-  { name: "Pasini", category: "Avvolgibili", color: "#0f3c63" },
-  { name: "Alpac", category: "Monoblocchi e VMC", color: "#0072DF" },
-  { name: "Zanzar Sistem", category: "Zanzariere", color: "#761f2b" },
-  { name: "Sharknet", category: "Tende tecniche e plissé", color: "#007CBA" },
-  { name: "Fontanot", category: "Scale e ringhiere", color: "#E63946" },
-  { name: "Cucinesse", category: "Cucine su misura", color: "#C41E3A" },
+  { name: "Oknoplast", category: "Infissi PVC e Alluminio, Portoncini", color: "#009FE3" },
+  { name: "Korus", category: "Infissi Alluminio / Legno, Persiane", color: "#5C3D2E" },
+  { name: "Pail", category: "Infissi in Legno, Porte Interne", color: "#6B4226" },
+  { name: "Kopen", category: "Portoncini", color: "#4A4A4A" },
+  { name: "Alias", category: "Porte blindate", color: "#5b5b5b" },
+  { name: "Erreci", category: "Persiane, Grate, Porte blindate", color: "#1B6B3A" },
+  { name: "Pasini", category: "Tapparelle", color: "#0f3c63" },
+  { name: "Persit", category: "Persiane, Pergole", color: "#4E6E50" },
+  { name: "Lupak", category: "Frangisole", color: "#6E6E6E" },
+  { name: "Door Arreda", category: "Porte interne", color: "#8B4513" },
+  { name: "Ecomet", category: "Persiane blindate", color: "#3D5C3A" },
+  { name: "Inim", category: "Allarme e videosorveglianza", color: "#D32F2F" },
+  { name: "Grifoflex", category: "Zanzariere", color: "#2E7D32" },
+  { name: "Bettio", category: "Zanzariere", color: "#1565C0" },
+  { name: "Sharknet", category: "Tende tecniche, Zanzariere", color: "#007CBA" },
+  { name: "Zanzar Sistem", category: "Tende tecniche", color: "#761f2b" },
+  { name: "Sinfonia", category: "Scale e ringhiere", color: "#E63946" },
+  { name: "Tendarredo", category: "Pergole, Tende da sole", color: "#FF8F00" },
+  { name: "Mc Slide", category: "Vetrate panoramiche", color: "#0288D1" },
+  { name: "Arrex Cucine", category: "Cucine su misura", color: "#C41E3A" },
   { name: "Merati", category: "Arredo bagno", color: "#0C4DA2" },
-  { name: "Skema", category: "Parquet e laminati", color: "#2ea3f2" },
-  { name: "Karag", category: "Sanitari e rubinetteria", color: "#d3906d" },
-  { name: "Haier", category: "Climatizzazione", color: "#E31937" },
+  { name: "Sani e Co", category: "Sanitari", color: "#00796B" },
+  { name: "Fiore", category: "Rubinetteria", color: "#B0BEC5" },
+  { name: "Class Tile", category: "Ceramiche", color: "#d3906d" },
+  { name: "Ali Parquet", category: "Parquet", color: "#795548" },
+  { name: "Haier", category: "Climatizzatori", color: "#E31937" },
+  { name: "Samsung", category: "Climatizzatori", color: "#1428A0" },
+  { name: "Ariston", category: "Pompe di calore", color: "#388E3C" },
   { name: "Hermann", category: "Caldaie", color: "#003D7C" },
-  { name: "Samsung", category: "Pompe di calore", color: "#1428A0" },
 ];
 
 export const SERVICES = [
@@ -180,6 +231,6 @@ export const NAV_ITEMS = [
 export const VALUE_PROPOSITIONS = [
   { number: 30, suffix: "+", label: "Anni di Esperienza" },
   { number: 300, suffix: "mq", label: "Showroom Espositivo" },
-  { number: 17, suffix: "", label: "Brand Partner" },
+  { number: 29, suffix: "", label: "Brand Partner" },
   { number: 1, suffix: "", label: "Premium Partner Oknoplast", isSpecial: true },
 ];

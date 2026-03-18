@@ -13,9 +13,9 @@ export interface ProductContent {
 }
 
 export const productContent: Record<string, ProductContent> = {
-  /* ── SERRAMENTI ─────────────────────────────────────────────────── */
+  /* ── SERRAMENTI, OSCURANTI, PORTONCINI ─────────────────────────── */
 
-  "finestre-pvc-oknoplast": {
+  "infissi-pvc": {
     tagline: "Isolamento superiore, bollette più leggere",
     description:
       "Le finestre in PVC Oknoplast combinano profili multicamera ad alta densità con vetri basso-emissivi per offrirti il massimo isolamento termico e acustico. Risultato concreto: fino al 40% di risparmio in bolletta e una casa silenziosa anche in contesti urbani. Come Premium Partner Oknoplast selezionati per la provincia di Varese, ti garantiamo condizioni esclusive e garanzia estesa fino a 10 anni.",
@@ -37,7 +37,7 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Isolamento termico e acustico superiore, fino al 40% di risparmio in bolletta",
   },
 
-  "finestre-alluminio-oknoplast": {
+  "infissi-alluminio": {
     tagline: "Linee sottili, prestazioni massime",
     description:
       "Le finestre in alluminio Oknoplast offrono profili ultra-sottili che massimizzano la superficie vetrata e la luce naturale in casa. L'alluminio garantisce resistenza strutturale eccezionale e durata nel tempo senza alterazioni estetiche, ideale per grandi vetrate e progetti architettonici contemporanei.",
@@ -59,10 +59,32 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Profili ultra-sottili, massima luce e resistenza per progetti contemporanei",
   },
 
-  "serramenti-legno-giannattasio": {
+  "infissi-alluminio-legno": {
+    tagline: "L'eleganza del legno, la resistenza dell'alluminio",
+    description:
+      "Gli infissi in alluminio e legno Korus offrono il meglio dei due materiali: all'esterno l'alluminio protegge dagli agenti atmosferici senza manutenzione, all'interno il legno regala calore naturale e isolamento termico superiore. Una soluzione ideale per chi cerca prestazioni elevate senza rinunciare all'estetica del legno.",
+    specs: [
+      { label: "Materiale", value: "Alluminio esterno + legno interno" },
+      { label: "Trasmittanza termica", value: "Uw fino a 0,80 W/m²K" },
+      { label: "Abbattimento acustico", value: "Fino a 46 dB" },
+      { label: "Classe antieffrazione", value: "Fino a RC2" },
+      { label: "Essenze legno", value: "Rovere, frassino, pino lamellare" },
+      { label: "Finitura alluminio", value: "RAL personalizzabile" },
+    ],
+    benefits: [
+      "Doppio vantaggio: robustezza dell'alluminio all'esterno, calore del legno all'interno",
+      "Zero manutenzione lato esterno grazie al rivestimento in alluminio",
+      "Isolamento termico eccellente per il massimo comfort abitativo",
+      "Estetica ricercata con essenze naturali a vista",
+      "Detrazioni fiscali al 50% con pratica gestita da noi",
+    ],
+    cardDescription: "Alluminio esterno e legno interno: prestazioni elevate e design naturale",
+  },
+
+  "infissi-legno": {
     tagline: "Il calore autentico del legno, con tecnologia moderna",
     description:
-      "I serramenti in legno Giannattasio uniscono la bellezza naturale e il calore tattile del legno massello a prestazioni termiche di ultima generazione. Ogni serramento è realizzato artigianalmente in Italia con legni selezionati e certificati, trattati per resistere nel tempo senza perdere la loro eleganza naturale.",
+      "Gli infissi in legno Pail uniscono la bellezza naturale e il calore tattile del legno massello a prestazioni termiche di ultima generazione. Ogni serramento è realizzato artigianalmente in Italia con legni selezionati e certificati, trattati per resistere nel tempo senza perdere la loro eleganza naturale.",
     specs: [
       { label: "Materiale", value: "Legno massello lamellare (pino, rovere, mogano)" },
       { label: "Trasmittanza termica", value: "Uw fino a 1,0 W/m²K" },
@@ -81,104 +103,32 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Eleganza naturale e isolamento termico eccellente, made in Italy",
   },
 
-  "monoblocchi-vmc-alpac": {
-    tagline: "Finestra, isolamento e ricambio d'aria in un'unica soluzione",
-    description:
-      "I monoblocchi Alpac integrano cassonetto coibentato, sistema oscurante e ventilazione meccanica controllata (VMC) in un unico elemento prefabbricato. Elimini i ponti termici del vecchio cassonetto, migliori la qualità dell'aria indoor e semplifichi l'installazione con un solo intervento. La VMC filtra l'aria esterna e recupera fino al 91% del calore, garantendoti ambienti salubri senza sprechi energetici.",
-    specs: [
-      { label: "Tipologia", value: "Monoblocco prefabbricato con VMC integrata" },
-      { label: "Isolamento cassonetto", value: "EPS ad alta densità, spessore 40-60 mm" },
-      { label: "Recupero calore VMC", value: "Fino al 91%" },
-      { label: "Filtrazione aria", value: "Filtri F7 antipolline e polveri sottili" },
-      { label: "Certificazioni", value: "Blower Door Test, classe energetica A" },
-      { label: "Compatibilità", value: "Tutti i tipi di serramento e oscurante" },
-    ],
-    benefits: [
-      "Elimina i ponti termici del vecchio cassonetto: addio muffa e condensa",
-      "Aria sempre pulita e filtrata senza aprire le finestre",
-      "Recupero energetico fino al 91%: riscaldi meno, risparmi di più",
-      "Un solo intervento per cassonetto, oscurante e VMC",
-      "Detrazioni fiscali al 50% con pratica gestita da noi",
-    ],
-    cardDescription: "Cassonetto, oscurante e VMC integrati: zero ponti termici, aria sempre pulita",
-  },
-
-  /* ── PORTONCINI ────────────────────────────────────────────────── */
-
-  "portoncini-alluminio-oknoplast": {
+  "portoncini": {
     tagline: "L'ingresso che accoglie con stile e sicurezza",
     description:
-      "I portoncini in alluminio Oknoplast della linea Tenvis offrono un'ampia gamma di modelli personalizzabili con accessori e finiture di pregio. Design contemporaneo e prestazioni elevate di isolamento termico e sicurezza antieffrazione, per un ingresso che valorizza l'intera facciata della tua casa.",
+      "I portoncini Oknoplast e Kopen offrono un'ampia gamma di modelli personalizzabili con accessori e finiture di pregio. Design contemporaneo e prestazioni elevate di isolamento termico e sicurezza antieffrazione, per un ingresso che valorizza l'intera facciata della tua casa.",
     specs: [
       { label: "Materiale", value: "Alluminio a taglio termico" },
-      { label: "Linea", value: "Tenvis — ampia gamma modelli" },
+      { label: "Brand", value: "Oknoplast (linea Tenvis) / Kopen" },
       { label: "Sicurezza", value: "Prestazioni antieffrazione certificate" },
       { label: "Isolamento termico", value: "Elevate prestazioni di isolamento" },
       { label: "Personalizzazione", value: "Accessori e finiture personalizzabili" },
-      { label: "Garanzia", value: "Garanzia estesa Oknoplast" },
+      { label: "Garanzia", value: "Garanzia estesa" },
     ],
     benefits: [
-      "Ampia scelta di modelli della linea Tenvis",
+      "Ampia scelta di modelli e design contemporanei",
       "Personalizzabile con accessori e finiture di pregio",
       "Elevate prestazioni di isolamento termico",
       "Sicurezza antieffrazione certificata",
       "Detrazioni fiscali con pratica gestita da noi",
     ],
-    cardDescription: "Portoncini Oknoplast linea Tenvis: design, isolamento e sicurezza antieffrazione",
+    cardDescription: "Portoncini di design: isolamento, sicurezza antieffrazione e personalizzazione completa",
   },
 
-  /* ── PORTE ──────────────────────────────────────────────────────── */
-
-  "porte-blindate-alias": {
-    tagline: "Sicurezza certificata, design che si integra nella tua casa",
-    description:
-      "Le porte blindate Alias combinano struttura in acciaio ad alta resistenza con finiture eleganti che si adattano a qualsiasi stile d'interni. Ogni porta è certificata in classe antieffrazione fino a 4 e garantisce isolamento termico e acustico superiore, proteggendo la tua famiglia senza compromessi estetici.",
-    specs: [
-      { label: "Struttura", value: "Acciaio zincato, spessore lamiera 20/10" },
-      { label: "Classe antieffrazione", value: "Fino a Classe 4 (UNI ENV 1627)" },
-      { label: "Punti di chiusura", value: "Fino a 15 punti di ancoraggio" },
-      { label: "Isolamento termico", value: "Uw fino a 1,0 W/m²K" },
-      { label: "Abbattimento acustico", value: "Fino a 40 dB" },
-      { label: "Finiture", value: "Laccato, legno, laminato, effetto pietra" },
-    ],
-    benefits: [
-      "Massima sicurezza per la tua famiglia con certificazione antieffrazione fino a Classe 4",
-      "Isolamento termico e acustico: la porta d'ingresso non è più il punto debole",
-      "Finiture personalizzabili: da fuori protegge, da dentro arreda",
-      "Serrature europee di ultima generazione con cilindro antitrapano",
-      "Installazione e assistenza diretta con garanzia Mood Abitare",
-    ],
-    cardDescription: "Protezione fino a Classe 4, isolamento termico e acustico, finiture eleganti",
-  },
-
-  "porte-interne-bertolotto": {
-    tagline: "Design italiano che trasforma ogni passaggio",
-    description:
-      "Le porte interne Bertolotto sono realizzate interamente in Italia con materiali di alta qualità e un'attenzione artigianale al dettaglio. Dalla porta filomuro che scompare nella parete alla porta scorrevole salvaspazio, ogni soluzione è pensata per valorizzare i tuoi ambienti con linee pulite, finiture ricercate e un funzionamento silenzioso e preciso.",
-    specs: [
-      { label: "Produzione", value: "100% italiana, stabilimento piemontese" },
-      { label: "Tipologie", value: "Battente, scorrevole, filomuro, libro, pivot" },
-      { label: "Finiture", value: "Laccato, legno, vetro, effetto cemento, tessuto" },
-      { label: "Abbattimento acustico", value: "Fino a 38 dB (modelli fonoisolanti)" },
-      { label: "Personalizzazione", value: "Misure fuori standard, colori su richiesta" },
-      { label: "Certificazioni", value: "CE, certificazione ambientale" },
-    ],
-    benefits: [
-      "Design made in Italy con finiture di alta gamma",
-      "Soluzione per ogni esigenza: scorrevoli, filomuro, pivot, a libro",
-      "Modelli fonoisolanti per privacy e comfort acustico",
-      "Misure su misura anche per vani fuori standard",
-      "Vasta gamma di finiture: dal minimal al materico, dal vetro al tessuto",
-    ],
-    cardDescription: "Design made in Italy, finiture di alta gamma e soluzioni per ogni ambiente",
-  },
-
-  /* ── OSCURANTI & SICUREZZA ──────────────────────────────────────── */
-
-  "persiane-erreci": {
+  "persiane": {
     tagline: "Sicurezza e oscuramento con l'eleganza delle persiane",
     description:
-      "Le persiane Erreci Sicurezza uniscono la funzione oscurante tradizionale alla protezione antieffrazione, senza rinunciare all'estetica. Disponibili in alluminio e acciaio con lamelle orientabili, ti permettono di regolare luce e ventilazione mantenendo la massima sicurezza. Verniciatura a polvere per resistenza totale agli agenti atmosferici.",
+      "Le persiane Erreci, Persit e Korus uniscono la funzione oscurante tradizionale alla protezione antieffrazione, senza rinunciare all'estetica. Disponibili in alluminio e acciaio con lamelle orientabili, ti permettono di regolare luce e ventilazione mantenendo la massima sicurezza. Verniciatura a polvere per resistenza totale agli agenti atmosferici.",
     specs: [
       { label: "Materiali", value: "Alluminio estruso o acciaio zincato" },
       { label: "Lamelle", value: "Orientabili o fisse, profilo antintrusione" },
@@ -197,10 +147,102 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Oscuramento e sicurezza in un'unica soluzione, zero manutenzione",
   },
 
-  "grate-inferriate-alias": {
+  "frangisole": {
+    tagline: "Protezione solare e design architettonico",
+    description:
+      "I frangisole Lupak sono sistemi di schermatura solare a lamelle orientabili che proteggono dal surriscaldamento estivo mantenendo luminosità e ventilazione naturale. Ideali per facciate contemporanee, uniscono efficienza energetica ed estetica architettonica. Le lamelle motorizzabili si regolano automaticamente in base alla posizione del sole.",
+    specs: [
+      { label: "Materiale", value: "Alluminio estruso anodizzato" },
+      { label: "Lamelle", value: "Orientabili 0°-90°, motorizzabili" },
+      { label: "Riduzione calore", value: "Fino al 75% di riduzione apporti solari" },
+      { label: "Automazione", value: "Sensori sole/vento, domotica compatibile" },
+      { label: "Colori", value: "Gamma RAL completa" },
+      { label: "Tipologie", value: "Fissi, scorrevoli, impacchettabili" },
+    ],
+    benefits: [
+      "Riduzione fino al 75% del calore estivo: meno climatizzazione, più risparmio",
+      "Lamelle orientabili per dosare luce naturale a piacimento",
+      "Design contemporaneo che valorizza la facciata dell'edificio",
+      "Motorizzazione smart con sensori automatici sole e vento",
+      "Materiali resistenti a intemperie e raggi UV",
+    ],
+    cardDescription: "Schermatura solare a lamelle orientabili, design architettonico e risparmio energetico",
+  },
+
+  "tapparelle": {
+    tagline: "Isolamento, sicurezza e comfort a portata di pulsante",
+    description:
+      "Le tapparelle Pasini offrono un sistema completo di oscuramento, isolamento e protezione in un'unica soluzione. Disponibili in alluminio coibentato o PVC ad alta densità, possono essere motorizzate per il massimo comfort e si integrano perfettamente con cassonetti di nuova generazione per eliminare i ponti termici.",
+    specs: [
+      { label: "Materiale", value: "Alluminio coibentato o PVC alta densità" },
+      { label: "Coibentazione", value: "Schiuma poliuretanica ad alta densità" },
+      { label: "Motorizzazione", value: "Motore tubolare con telecomando e domotica" },
+      { label: "Sicurezza", value: "Dispositivo antisollevamento integrato" },
+      { label: "Colori", value: "Gamma RAL + effetto legno e simil-acciaio" },
+      { label: "Accessori", value: "Zanzariera integrata, sensori vento/sole" },
+    ],
+    benefits: [
+      "Isolamento termico superiore grazie alla coibentazione in poliuretano",
+      "Motorizzazione smart: gestisci tutto con telecomando, timer o domotica",
+      "Dispositivo antisollevamento per sicurezza aggiuntiva",
+      "Integrabili con sensori automatici vento e sole",
+      "Detrazioni fiscali al 50% con pratica gestita da noi",
+    ],
+    cardDescription: "Oscuramento coibentato e motorizzabile, con antisollevamento integrato",
+  },
+
+  /* ── PORTE INTERNE & BLINDATE ──────────────────────────────────── */
+
+  "porte-interne": {
+    tagline: "Design italiano che trasforma ogni passaggio",
+    description:
+      "Le porte interne Pail e Door Arreda sono realizzate interamente in Italia con materiali di alta qualità e un'attenzione artigianale al dettaglio. Dalla porta filomuro che scompare nella parete alla porta scorrevole salvaspazio, ogni soluzione è pensata per valorizzare i tuoi ambienti con linee pulite, finiture ricercate e un funzionamento silenzioso e preciso.",
+    specs: [
+      { label: "Produzione", value: "100% italiana" },
+      { label: "Tipologie", value: "Battente, scorrevole, filomuro, libro, pivot" },
+      { label: "Finiture", value: "Laccato, legno, vetro, effetto cemento, tessuto" },
+      { label: "Abbattimento acustico", value: "Fino a 38 dB (modelli fonoisolanti)" },
+      { label: "Personalizzazione", value: "Misure fuori standard, colori su richiesta" },
+      { label: "Certificazioni", value: "CE, certificazione ambientale" },
+    ],
+    benefits: [
+      "Design made in Italy con finiture di alta gamma",
+      "Soluzione per ogni esigenza: scorrevoli, filomuro, pivot, a libro",
+      "Modelli fonoisolanti per privacy e comfort acustico",
+      "Misure su misura anche per vani fuori standard",
+      "Vasta gamma di finiture: dal minimal al materico, dal vetro al tessuto",
+    ],
+    cardDescription: "Design made in Italy, finiture di alta gamma e soluzioni per ogni ambiente",
+  },
+
+  "porte-blindate": {
+    tagline: "Sicurezza certificata, design che si integra nella tua casa",
+    description:
+      "Le porte blindate Alias ed Erreci combinano struttura in acciaio ad alta resistenza con finiture eleganti che si adattano a qualsiasi stile d'interni. Ogni porta è certificata in classe antieffrazione fino a 4 e garantisce isolamento termico e acustico superiore, proteggendo la tua famiglia senza compromessi estetici.",
+    specs: [
+      { label: "Struttura", value: "Acciaio zincato, spessore lamiera 20/10" },
+      { label: "Classe antieffrazione", value: "Fino a Classe 4 (UNI ENV 1627)" },
+      { label: "Punti di chiusura", value: "Fino a 15 punti di ancoraggio" },
+      { label: "Isolamento termico", value: "Uw fino a 1,0 W/m²K" },
+      { label: "Abbattimento acustico", value: "Fino a 40 dB" },
+      { label: "Finiture", value: "Laccato, legno, laminato, effetto pietra" },
+    ],
+    benefits: [
+      "Massima sicurezza per la tua famiglia con certificazione antieffrazione fino a Classe 4",
+      "Isolamento termico e acustico: la porta d'ingresso non è più il punto debole",
+      "Finiture personalizzabili: da fuori protegge, da dentro arreda",
+      "Serrature europee di ultima generazione con cilindro antitrapano",
+      "Installazione e assistenza diretta con garanzia Mood Abitare",
+    ],
+    cardDescription: "Protezione fino a Classe 4, isolamento termico e acustico, finiture eleganti",
+  },
+
+  /* ── SISTEMI DI SICUREZZA ──────────────────────────────────────── */
+
+  "grate-sicurezza": {
     tagline: "Protezione invisibile, tranquillità visibile",
     description:
-      "Le grate e inferriate Alias offrono protezione antieffrazione certificata con un design discreto che non compromette la vista e la luminosità dei tuoi ambienti. Disponibili in versione fissa o apribile, si integrano con qualsiasi tipo di serramento e si adattano a ogni contesto architettonico, dalla villa alla palazzina.",
+      "Le grate di sicurezza Erreci offrono protezione antieffrazione certificata con un design discreto che non compromette la vista e la luminosità dei tuoi ambienti. Disponibili in versione fissa o apribile, si integrano con qualsiasi tipo di serramento e si adattano a ogni contesto architettonico, dalla villa alla palazzina.",
     specs: [
       { label: "Materiale", value: "Acciaio zincato e verniciato" },
       { label: "Barre", value: "Tonde o quadre, sezione da 12 a 16 mm" },
@@ -219,32 +261,56 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Sicurezza certificata con design discreto, per luce e panorama senza compromessi",
   },
 
-  "avvolgibili-pasini": {
-    tagline: "Isolamento, sicurezza e comfort a portata di pulsante",
+  "persiane-blindate": {
+    tagline: "La forza dell'acciaio, l'eleganza della persiana",
     description:
-      "Gli avvolgibili Pasini offrono un sistema completo di oscuramento, isolamento e protezione in un'unica soluzione. Disponibili in alluminio coibentato o PVC ad alta densità, possono essere motorizzati per il massimo comfort e si integrano perfettamente con monoblocchi e cassonetti di nuova generazione per eliminare i ponti termici.",
+      "Le persiane blindate Erreci ed Ecomet offrono la massima protezione antieffrazione mantenendo l'aspetto estetico di una persiana tradizionale. Struttura rinforzata in acciaio, cerniere antistrappo e serrature di sicurezza per una barriera impenetrabile che non rinuncia al design. Ideali per ville, piani terra e abitazioni in zone isolate.",
     specs: [
-      { label: "Materiale", value: "Alluminio coibentato o PVC alta densità" },
-      { label: "Coibentazione", value: "Schiuma poliuretanica ad alta densità" },
-      { label: "Motorizzazione", value: "Motore tubolare con telecomando e domotica" },
-      { label: "Sicurezza", value: "Dispositivo antisollevamento integrato" },
-      { label: "Colori", value: "Gamma RAL + effetto legno e simil-acciaio" },
-      { label: "Accessori", value: "Zanzariera integrata, sensori vento/sole" },
+      { label: "Materiale", value: "Acciaio zincato con lamelle rinforzate" },
+      { label: "Sicurezza", value: "Certificazione antieffrazione, cerniere antistrappo" },
+      { label: "Serratura", value: "Multipunto con cilindro europeo" },
+      { label: "Verniciatura", value: "A polvere poliestere, gamma RAL" },
+      { label: "Tipologie", value: "A battente, scorrevole" },
+      { label: "Isolamento", value: "Lamelle coibentate opzionali" },
     ],
     benefits: [
-      "Isolamento termico superiore grazie alla coibentazione in poliuretano",
-      "Motorizzazione smart: gestisci tutto con telecomando, timer o domotica",
-      "Dispositivo antisollevamento per sicurezza aggiuntiva",
-      "Integrabili con sensori automatici vento e sole",
-      "Compatibili con monoblocchi Alpac per eliminare i ponti termici",
+      "Massima sicurezza antieffrazione con aspetto di persiana tradizionale",
+      "Cerniere antistrappo e serratura multipunto per protezione totale",
+      "Ideali per piani terra, ville e abitazioni in zone isolate",
+      "Verniciatura a polvere per resistenza duratura agli agenti atmosferici",
+      "Installazione professionale con garanzia Mood Abitare",
     ],
-    cardDescription: "Oscuramento coibentato e motorizzabile, con antisollevamento integrato",
+    cardDescription: "Persiane con protezione antieffrazione certificata, estetica tradizionale",
   },
 
-  "zanzariere-zanzar-sistem": {
+  "allarme-videosorveglianza": {
+    tagline: "La tua casa protetta, ovunque tu sia",
+    description:
+      "I sistemi di allarme e videosorveglianza Inim offrono una protezione completa e intelligente per la tua abitazione. Centrali antintrusione certificate, sensori perimetrali e volumetrici, telecamere IP ad alta risoluzione e gestione da app: tutto integrato in un unico sistema affidabile e facile da usare.",
+    specs: [
+      { label: "Centrale", value: "Inim certificata IMQ e EN 50131" },
+      { label: "Sensori", value: "Perimetrali, volumetrici, contatti magnetici" },
+      { label: "Telecamere", value: "IP Full HD / 4K con visione notturna" },
+      { label: "Gestione", value: "App smartphone, notifiche push in tempo reale" },
+      { label: "Connettività", value: "Wi-Fi, GSM, LAN — backup multiplo" },
+      { label: "Certificazioni", value: "IMQ, EN 50131, grado di sicurezza 2/3" },
+    ],
+    benefits: [
+      "Controllo totale da smartphone: verifica lo stato della casa ovunque tu sia",
+      "Notifiche push in tempo reale per qualsiasi evento sospetto",
+      "Sistema certificato IMQ per la massima affidabilità",
+      "Backup di connessione multiplo: funziona anche senza internet",
+      "Installazione professionale e configurazione personalizzata inclusa",
+    ],
+    cardDescription: "Allarme e videosorveglianza Inim: certificati, smart e gestibili da app",
+  },
+
+  /* ── COMFORT & COMPLEMENTI ─────────────────────────────────────── */
+
+  "zanzariere": {
     tagline: "Aria fresca in casa, insetti fuori",
     description:
-      "Le zanzariere Zanzar Sistem sono progettate per integrarsi perfettamente con qualsiasi tipo di serramento, garantendo protezione totale da insetti e pollini senza rinunciare a luce e ventilazione naturale. Il sistema a scorrimento laterale o verticale è fluido, silenzioso e resistente nel tempo grazie a guide in alluminio e reti in fibra di vetro di alta qualità.",
+      "Le zanzariere Grifoflex, Bettio e Sharknet sono progettate per integrarsi perfettamente con qualsiasi tipo di serramento, garantendo protezione totale da insetti e pollini senza rinunciare a luce e ventilazione naturale. Il sistema a scorrimento laterale o verticale è fluido, silenzioso e resistente nel tempo grazie a guide in alluminio e reti in fibra di vetro di alta qualità.",
     specs: [
       { label: "Struttura", value: "Alluminio estruso anodizzato o verniciato" },
       { label: "Rete", value: "Fibra di vetro, maglia 18x16 mm antinsetto" },
@@ -263,10 +329,10 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Protezione da insetti e pollini, scorrimento silenzioso, rete antipolline disponibile",
   },
 
-  "tende-tecniche-sharknet": {
+  "tende-tecniche": {
     tagline: "Gestisci la luce, controlla la temperatura",
     description:
-      "Le tende tecniche e plissè Sharknet ti permettono di filtrare, oscurare o modulare la luce in ogni ambiente con precisione e stile. Ideali per finestre di qualsiasi forma — anche triangolari, trapezoidali o ad arco — si integrano direttamente nel serramento per un risultato pulito e minimal. La gamma di tessuti tecnici protegge dai raggi UV e contribuisce all'isolamento termico estivo.",
+      "Le tende tecniche Sharknet e Zanzar Sistem ti permettono di filtrare, oscurare o modulare la luce in ogni ambiente con precisione e stile. Ideali per finestre di qualsiasi forma — anche triangolari, trapezoidali o ad arco — si integrano direttamente nel serramento per un risultato pulito e minimal. La gamma di tessuti tecnici protegge dai raggi UV e contribuisce all'isolamento termico estivo.",
     specs: [
       { label: "Tipologie", value: "Plissè, rullo, veneziana, tenda a pannello" },
       { label: "Tessuti", value: "Filtranti, oscuranti, screen, termoriflettenti" },
@@ -285,14 +351,192 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Filtraggio luce e protezione UV, adatte a ogni forma di finestra",
   },
 
-  /* ── ARREDO CASA ────────────────────────────────────────────────── */
+  "scale-ringhiere": {
+    tagline: "Collegare i piani, valorizzare gli spazi",
+    description:
+      "Le scale e ringhiere Sinfonia uniscono ingegneria strutturale e design contemporaneo per creare collegamenti verticali che diventano elementi d'arredo. Disponibili in legno, acciaio, vetro e combinazioni di materiali, ogni scala è configurabile su misura e certificata per la massima sicurezza.",
+    specs: [
+      { label: "Materiali", value: "Acciaio, legno massello, vetro, combinati" },
+      { label: "Tipologie", value: "A chiocciola, a giorno, a rampa, modulare" },
+      { label: "Normativa", value: "Conformi UNI EN ISO 14122" },
+      { label: "Configurazione", value: "Su misura per altezza, ingombro e apertura" },
+      { label: "Ringhiere", value: "Acciaio inox, vetro temperato, cavi in acciaio" },
+      { label: "Finitura", value: "Verniciatura a polvere, legno naturale o tinto" },
+    ],
+    benefits: [
+      "Soluzioni salvaspazio: scale a chiocciola da soli 120 cm di diametro",
+      "Certificazione di sicurezza conforme alle normative europee",
+      "Configuratore su misura per adattarsi a qualsiasi spazio e stile",
+      "Materiali combinabili per un risultato unico e personale",
+      "Montaggio guidato o servizio di installazione professionale",
+    ],
+    cardDescription: "Scale e ringhiere di design, su misura, certificate e salvaspazio",
+  },
 
-  "cucine-cucinesse": {
+  /* ── OUTDOOR ───────────────────────────────────────────────────── */
+
+  "pergole": {
+    tagline: "Il tuo spazio all'aperto, protetto in ogni stagione",
+    description:
+      "Le pergole Tendarredo e Persit trasformano terrazzi e giardini in ambienti vivibili tutto l'anno. Strutture in alluminio con copertura bioclimatica a lamelle orientabili o telo retrattile, progettate per resistere a vento, pioggia e neve. Integrabili con chiusure laterali, illuminazione LED e sistemi di riscaldamento per un comfort totale.",
+    specs: [
+      { label: "Struttura", value: "Alluminio verniciato a polvere" },
+      { label: "Copertura", value: "Lamelle bioclimatiche orientabili o telo retrattile" },
+      { label: "Resistenza vento", value: "Fino a 130 km/h (modelli bioclimatici)" },
+      { label: "Automazione", value: "Motorizzata con sensori pioggia/vento/sole" },
+      { label: "Accessori", value: "Chiusure laterali, LED, riscaldatori IR" },
+      { label: "Personalizzazione", value: "Su misura, colori RAL" },
+    ],
+    benefits: [
+      "Spazio esterno vivibile tutto l'anno grazie alla copertura bioclimatica",
+      "Lamelle orientabili per regolare sole, aria e protezione dalla pioggia",
+      "Struttura autoportante: nessun intervento murario necessario",
+      "Motorizzazione smart con sensori meteo automatici",
+      "Valorizza l'immobile e aumenta la superficie abitabile",
+    ],
+    cardDescription: "Pergole bioclimatiche: lamelle orientabili, motorizzate, vivibili tutto l'anno",
+  },
+
+  "gazebi-strutture-legno": {
+    tagline: "La naturalezza del legno per i tuoi spazi all'aperto",
+    description:
+      "Gazebi e strutture in legno lamellare per giardini, terrazzi e aree esterne. Soluzioni su misura progettate per integrarsi armoniosamente con l'ambiente circostante, offrendo riparo e un punto di aggregazione elegante e naturale. Legno trattato in autoclave per la massima durata nel tempo.",
+    specs: [
+      { label: "Materiale", value: "Legno lamellare trattato in autoclave" },
+      { label: "Tipologie", value: "Gazebo, carport, pergolato, dehor" },
+      { label: "Copertura", value: "Legno, policarbonato, telo impermeabile" },
+      { label: "Trattamento", value: "Autoclave classe 3/4, impregnante" },
+      { label: "Dimensioni", value: "Completamente su misura" },
+      { label: "Installazione", value: "Montaggio professionale incluso" },
+    ],
+    benefits: [
+      "Estetica naturale che si integra armoniosamente con il giardino",
+      "Legno trattato per resistere ad agenti atmosferici e insetti",
+      "Progettazione completamente su misura per ogni esigenza",
+      "Versatili: gazebo, carport, pergolati, coperture per dehors",
+      "Montaggio professionale rapido e senza opere murarie invasive",
+    ],
+    cardDescription: "Gazebi e strutture in legno lamellare su misura, trattato per durare nel tempo",
+  },
+
+  "tende-da-sole": {
+    tagline: "Ombra e fresco con un gesto",
+    description:
+      "Le tende da sole Tendarredo proteggono terrazzi, balconi e vetrate dal sole estivo, riducendo la temperatura interna e il consumo di climatizzazione. Bracci estensibili, cassonetto integrale per la protezione del tessuto e motorizzazione con sensori automatici. Tessuti acrilici o screen per massima durata e resistenza UV.",
+    specs: [
+      { label: "Tipologie", value: "A bracci estensibili, a caduta, a cappottina" },
+      { label: "Tessuto", value: "Acrilico tinto in massa o screen microforato" },
+      { label: "Cassonetto", value: "Integrale o semi-integrale, protezione totale" },
+      { label: "Motorizzazione", value: "Motore tubolare con telecomando e sensori" },
+      { label: "Resistenza UV", value: "Tessuti con protezione UPF 50+" },
+      { label: "Larghezza max", value: "Fino a 7 m in un unico elemento" },
+    ],
+    benefits: [
+      "Riduzione della temperatura interna fino a 5°C nelle stanze esposte",
+      "Tessuti UPF 50+ per protezione totale dai raggi UV",
+      "Cassonetto integrale: il tessuto resta protetto quando la tenda è chiusa",
+      "Motorizzazione smart con sensori sole e vento automatici",
+      "Ampia gamma di tessuti e colori per personalizzare lo stile",
+    ],
+    cardDescription: "Tende da sole motorizzate con cassonetto, tessuti UPF 50+ e sensori automatici",
+  },
+
+  "vetrate-panoramiche": {
+    tagline: "Apri la vista, chiudi il freddo",
+    description:
+      "Le vetrate panoramiche Mc Slide trasformano terrazzi e verande in spazi luminosi e protetti, con sistemi di apertura a pacchetto che scompaiono completamente. Vetro temperato di sicurezza, guide minimali e scorrimento silenzioso per un effetto scenografico che elimina le barriere tra interno ed esterno.",
+    specs: [
+      { label: "Vetro", value: "Temperato di sicurezza 8-10 mm" },
+      { label: "Apertura", value: "A pacchetto, impacchettamento laterale totale" },
+      { label: "Guide", value: "Alluminio minimale, profilo ribassato" },
+      { label: "Altezza max", value: "Fino a 3 m di altezza" },
+      { label: "Scorrimento", value: "Cuscinetti a sfera, silenzioso" },
+      { label: "Opzioni", value: "Vetro basso-emissivo, serratura di sicurezza" },
+    ],
+    benefits: [
+      "Panorama senza ostacoli: i pannelli scompaiono completamente",
+      "Protezione da vento, pioggia e freddo senza rinunciare alla luce",
+      "Vetro temperato di sicurezza: resistente e sicuro",
+      "Profili minimali per un impatto estetico quasi invisibile",
+      "Utilizzabili tutto l'anno: creano una veranda vivibile anche in inverno",
+    ],
+    cardDescription: "Vetrate a pacchetto con apertura totale, vetro temperato e profili minimali",
+  },
+
+  "piscine": {
+    tagline: "Il tuo angolo di relax, a casa tua",
+    description:
+      "Piscine interrate e fuori terra progettate e installate su misura per il tuo giardino. Dalla piscina in cemento armato alla soluzione prefabbricata in pannelli d'acciaio o vetroresina, ti seguiamo dalla progettazione alla realizzazione completa, inclusi impianto di filtrazione, rivestimento e accessori.",
+    specs: [
+      { label: "Tipologie", value: "Interrata, fuori terra, seminterrata" },
+      { label: "Struttura", value: "Cemento armato, pannelli acciaio, vetroresina" },
+      { label: "Rivestimento", value: "PVC armato, liner, mosaico, pietra naturale" },
+      { label: "Filtrazione", value: "Impianto completo a sabbia o a cartuccia" },
+      { label: "Accessori", value: "Coperture, illuminazione LED, controcorrente" },
+      { label: "Progettazione", value: "Su misura con render 3D" },
+    ],
+    benefits: [
+      "Progettazione personalizzata con render 3D per visualizzare il risultato",
+      "Servizio chiavi in mano: scavo, struttura, impianto e rivestimento",
+      "Soluzioni per ogni budget: dal prefabbricato al cemento armato",
+      "Accessori integrabili: coperture automatiche, LED, controcorrente",
+      "Assistenza post-installazione e manutenzione periodica",
+    ],
+    cardDescription: "Piscine interrate e fuori terra su misura, servizio chiavi in mano",
+  },
+
+  "rivestimento-piscine": {
+    tagline: "Rinnova la tua piscina, senza ricostruirla",
+    description:
+      "Servizio specializzato di rivestimento e ristrutturazione per piscine esistenti. Sostituzione del liner, applicazione di PVC armato, mosaico o pietra naturale per rinnovare completamente l'aspetto e la funzionalità della tua piscina senza interventi strutturali invasivi.",
+    specs: [
+      { label: "Interventi", value: "Sostituzione liner, rivestimento PVC, mosaico" },
+      { label: "Materiali", value: "PVC armato, mosaico, pietra ricostruita" },
+      { label: "Trattamento", value: "Impermeabilizzazione e preparazione fondo" },
+      { label: "Tempistiche", value: "Da 5 a 15 giorni lavorativi" },
+      { label: "Garanzia", value: "Garanzia sulla tenuta e impermeabilizzazione" },
+      { label: "Sopralluogo", value: "Gratuito con valutazione stato attuale" },
+    ],
+    benefits: [
+      "Rinnova completamente l'estetica della piscina senza ricostruirla",
+      "Tempi di intervento ridotti rispetto a una nuova costruzione",
+      "Ampia scelta di materiali e finiture per ogni stile",
+      "Impermeabilizzazione garantita per anni di utilizzo senza problemi",
+      "Sopralluogo e preventivo gratuiti e senza impegno",
+    ],
+    cardDescription: "Rivestimento e ristrutturazione piscine: rinnova senza ricostruire",
+  },
+
+  "arredo-giardino": {
+    tagline: "Vivi il tuo giardino con stile e comfort",
+    description:
+      "Soluzioni complete di arredo giardino per trasformare i tuoi spazi esterni in ambienti accoglienti e funzionali. Tavoli, sedute, divani da esterno, barbecue e complementi selezionati per resistere alle intemperie mantenendo design e comfort. Consulenza personalizzata per creare l'ambiente outdoor perfetto per le tue esigenze.",
+    specs: [
+      { label: "Categorie", value: "Tavoli, sedute, divani, barbecue, complementi" },
+      { label: "Materiali", value: "Teak, alluminio, rattan sintetico, acciaio" },
+      { label: "Resistenza", value: "Trattamenti anti-UV e anti-intemperie" },
+      { label: "Stili", value: "Moderno, classico, rustico, minimal" },
+      { label: "Consulenza", value: "Progetto arredo esterno personalizzato" },
+      { label: "Consegna", value: "Consegna e montaggio inclusi" },
+    ],
+    benefits: [
+      "Materiali selezionati per resistere a sole, pioggia e intemperie",
+      "Consulenza personalizzata per creare l'ambiente esterno ideale",
+      "Ampia gamma di stili per adattarsi a ogni contesto architettonico",
+      "Consegna e montaggio inclusi nel servizio",
+      "Complementi coordinabili per un risultato armonioso e funzionale",
+    ],
+    cardDescription: "Arredo giardino resistente e di design, con consulenza personalizzata",
+  },
+
+  /* ── CASA & ARREDO ─────────────────────────────────────────────── */
+
+  "cucine-su-misura": {
     tagline: "La tua cucina, progettata intorno alla tua vita",
     description:
-      "Le cucine Cucinesse sono progettate su misura e realizzate in Italia con materiali di prima scelta. Dal layout funzionale alle finiture, ogni dettaglio nasce dalla tua quotidianità: come cucini, come vivi, quanto spazio hai. Il nostro architetto ti segue dalla progettazione con render 3D alla realizzazione finale, per una cucina che è davvero tua.",
+      "Le cucine Arrex Cucine sono progettate su misura e realizzate in Italia con materiali di prima scelta. Dal layout funzionale alle finiture, ogni dettaglio nasce dalla tua quotidianità: come cucini, come vivi, quanto spazio hai. Il nostro architetto ti segue dalla progettazione con render 3D alla realizzazione finale, per una cucina che è davvero tua.",
     specs: [
-      { label: "Produzione", value: "100% italiana, stabilimento dedicato" },
+      { label: "Produzione", value: "100% italiana" },
       { label: "Materiali top", value: "Quarzo, Dekton, laminato HPL, legno massello" },
       { label: "Tipologie", value: "Lineare, angolare, penisola, isola" },
       { label: "Elettrodomestici", value: "Partnership con i principali brand" },
@@ -309,7 +553,7 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Progettazione 3D su misura, materiali di alta gamma, servizio chiavi in mano",
   },
 
-  "arredo-bagno-merati": {
+  "arredo-bagno": {
     tagline: "Il bagno che meriti, progettato nei minimi dettagli",
     description:
       "L'arredo bagno Merati trasforma il bagno da semplice ambiente di servizio a spazio di benessere personale. Mobili sospesi, piani in materiali innovativi e finiture ricercate si combinano in composizioni su misura progettate con il nostro architetto, per un risultato che unisce estetica e funzionalità in ogni centimetro.",
@@ -331,69 +575,225 @@ export const productContent: Record<string, ProductContent> = {
     cardDescription: "Composizioni su misura con materiali premium, progettazione 3D inclusa",
   },
 
-  "parquet-laminati-skema": {
-    tagline: "Il pavimento che trasforma l'atmosfera di casa",
-    description:
-      "I parquet e laminati Skema offrono superfici di altissima qualità estetica e prestazionale per ogni ambiente della casa. Dal parquet in legno massello per chi cerca autenticità al laminato ad alta resistenza per le zone ad alto traffico, ogni soluzione garantisce durabilità, facilità di manutenzione e un impatto visivo che valorizza l'intero ambiente.",
-    specs: [
-      { label: "Tipologie", value: "Parquet massello, multistrato, laminato, LVT" },
-      { label: "Classi d'uso", value: "Da residenziale a commerciale intenso (AC5)" },
-      { label: "Spessori", value: "Da 7 mm (laminato) a 15 mm (massello)" },
-      { label: "Resistenza", value: "Antigraffio, antimacchia, resistente all'umidità" },
-      { label: "Posa", value: "Click, incollata, flottante — anche su riscaldamento a pavimento" },
-      { label: "Certificazioni", value: "CE, classe E1 (bassa emissione formaldeide)" },
-    ],
-    benefits: [
-      "Compatibile con riscaldamento a pavimento per massimo comfort",
-      "Laminati ad alta resistenza: ideali per famiglie con bambini e animali",
-      "Vasta gamma di decori: effetto legno, pietra, cemento, marmo",
-      "Posa rapida con sistema click: meno tempo, meno disagi",
-      "Classe E1 per la qualità dell'aria indoor della tua famiglia",
-    ],
-    cardDescription: "Parquet e laminati per ogni ambiente, compatibili con riscaldamento a pavimento",
-  },
-
-  "sanitari-rubinetteria-karag": {
+  "sanitari": {
     tagline: "Comfort e igiene quotidiana con design contemporaneo",
     description:
-      "I sanitari e la rubinetteria Karag combinano design contemporaneo, funzionalità evoluta e facilità di pulizia. Sanitari rimless (senza brida) per la massima igiene, rubinetteria con cartucce ceramiche di lunga durata e finiture resistenti al calcare: ogni elemento è pensato per semplificare la tua routine quotidiana e durare nel tempo.",
+      "I sanitari Sani e Co combinano design contemporaneo, funzionalità evoluta e facilità di pulizia. Sanitari rimless (senza brida) per la massima igiene, con scarico dual flush per il risparmio idrico. Disponibili in versione sospesa o a terra, in diverse forme e finiture per adattarsi a ogni stile di bagno.",
     specs: [
-      { label: "Sanitari", value: "Ceramica di alta qualità, tecnologia rimless" },
+      { label: "Materiale", value: "Ceramica di alta qualità, tecnologia rimless" },
       { label: "Scarico WC", value: "Dual flush 3/4,5 L (risparmio idrico)" },
-      { label: "Rubinetteria", value: "Cartuccia ceramica, portata regolabile" },
-      { label: "Finiture", value: "Cromo, nero opaco, oro spazzolato, nickel" },
-      { label: "Tipologie sanitari", value: "Sospesi, a terra, compatti" },
-      { label: "Garanzia", value: "5 anni su ceramica, 2 anni su rubinetteria" },
+      { label: "Tipologie", value: "Sospesi, a terra, compatti" },
+      { label: "Finiture", value: "Bianco lucido, bianco opaco, colori su richiesta" },
+      { label: "Garanzia", value: "5 anni su ceramica" },
+      { label: "Certificazioni", value: "CE, risparmio idrico certificato" },
     ],
     benefits: [
       "Sanitari rimless: igiene superiore, pulizia più facile e veloce",
       "Risparmio idrico con scarico dual flush da soli 3 litri",
-      "Rubinetteria con cartuccia ceramica: niente gocciolamenti per anni",
-      "Finiture anticalcare per mantenere la lucentezza nel tempo",
+      "Design contemporaneo adatto a ogni stile di bagno",
+      "Modelli compatti disponibili per bagni di piccole dimensioni",
       "Ampia scelta di stili: dal minimal al classico contemporaneo",
     ],
-    cardDescription: "Sanitari rimless e rubinetteria di design, igiene superiore e risparmio idrico",
+    cardDescription: "Sanitari rimless di design, igiene superiore e risparmio idrico",
   },
 
-  "scale-ringhiere-fontanot": {
-    tagline: "Collegare i piani, valorizzare gli spazi",
+  "rubinetteria": {
+    tagline: "Dettagli che fanno la differenza ogni giorno",
     description:
-      "Le scale e ringhiere Fontanot uniscono ingegneria strutturale e design contemporaneo per creare collegamenti verticali che diventano elementi d'arredo. Disponibili in legno, acciaio, vetro e combinazioni di materiali, ogni scala è configurabile su misura e certificata per la massima sicurezza. Dalla scala a chiocciola salvaspazio alla scala a giorno con struttura a vista, trovi la soluzione per ogni contesto.",
+      "La rubinetteria Fiore unisce design italiano e tecnologia avanzata per bagno e cucina. Cartucce ceramiche di lunga durata, finiture resistenti al calcare e sistemi di risparmio idrico integrati. Disponibile in diverse finiture — cromo, nero opaco, oro spazzolato, nickel — per personalizzare ogni ambiente.",
     specs: [
-      { label: "Materiali", value: "Acciaio, legno massello, vetro, combinati" },
-      { label: "Tipologie", value: "A chiocciola, a giorno, a rampa, modulare" },
-      { label: "Normativa", value: "Conformi UNI EN ISO 14122" },
-      { label: "Configurazione", value: "Su misura per altezza, ingombro e apertura" },
-      { label: "Ringhiere", value: "Acciaio inox, vetro temperato, cavi in acciaio" },
-      { label: "Finitura", value: "Verniciatura a polvere, legno naturale o tinto" },
+      { label: "Cartuccia", value: "Ceramica di precisione, lunga durata" },
+      { label: "Finiture", value: "Cromo, nero opaco, oro spazzolato, nickel" },
+      { label: "Risparmio idrico", value: "Aeratore integrato, portata regolabile" },
+      { label: "Tipologie", value: "Miscelatore, termostatico, a parete, a incasso" },
+      { label: "Garanzia", value: "2 anni su rubinetteria" },
+      { label: "Compatibilità", value: "Standard europeo, installazione universale" },
     ],
     benefits: [
-      "Soluzioni salvaspazio: scale a chiocciola da soli 120 cm di diametro",
-      "Certificazione di sicurezza conforme alle normative europee",
-      "Configuratore su misura per adattarsi a qualsiasi spazio e stile",
-      "Materiali combinabili per un risultato unico e personale",
-      "Montaggio guidato o servizio di installazione professionale",
+      "Cartuccia ceramica: niente gocciolamenti per anni",
+      "Finiture anticalcare per mantenere la lucentezza nel tempo",
+      "Risparmio idrico grazie all'aeratore integrato",
+      "Ampia scelta di finiture per coordinare con lo stile del bagno",
+      "Design italiano funzionale e durevole",
     ],
-    cardDescription: "Scale e ringhiere di design, su misura, certificate e salvaspazio",
+    cardDescription: "Rubinetteria di design con cartuccia ceramica, finiture anticalcare e risparmio idrico",
+  },
+
+  "ceramiche": {
+    tagline: "Superfici che trasformano gli ambienti",
+    description:
+      "Le ceramiche Class Tile offrono una gamma completa di piastrelle e rivestimenti per pavimenti e pareti di ogni ambiente. Dai grandi formati effetto marmo alle piastrelle in gres porcellanato per bagno e cucina, ogni superficie è pensata per durare nel tempo con un'estetica di alto livello.",
+    specs: [
+      { label: "Materiale", value: "Gres porcellanato, ceramica smaltata" },
+      { label: "Formati", value: "Dai mosaici ai grandi formati (120x120 cm)" },
+      { label: "Effetti", value: "Marmo, pietra, legno, cemento, metallo" },
+      { label: "Spessori", value: "Da 6 mm (rivestimento) a 20 mm (esterno)" },
+      { label: "Resistenza", value: "Antigraffio, antimacchia, antigelo" },
+      { label: "Posa", value: "Consulenza e progettazione layout incluse" },
+    ],
+    benefits: [
+      "Gres porcellanato: resistente, igienico e facile da pulire",
+      "Effetti realistici che riproducono marmo, legno e pietra naturale",
+      "Formati versatili: dal mosaico ai grandi formati per spazi ampi",
+      "Adatte a interni ed esterni con versioni antigelo",
+      "Consulenza gratuita per la scelta dei formati e layout di posa",
+    ],
+    cardDescription: "Ceramiche e gres porcellanato: effetti marmo, legno, pietra per ogni ambiente",
+  },
+
+  "parquet": {
+    tagline: "Il pavimento che trasforma l'atmosfera di casa",
+    description:
+      "Il parquet Ali Parquet offre superfici di altissima qualità estetica e prestazionale per ogni ambiente della casa. Dal parquet in legno massello per chi cerca autenticità al prefinito per un'installazione rapida, ogni soluzione garantisce durabilità, facilità di manutenzione e un impatto visivo che valorizza l'intero ambiente.",
+    specs: [
+      { label: "Tipologie", value: "Parquet massello, prefinito, multistrato" },
+      { label: "Essenze", value: "Rovere, noce, teak, iroko, frassino" },
+      { label: "Spessori", value: "Da 10 mm (prefinito) a 22 mm (massello)" },
+      { label: "Resistenza", value: "Trattamento UV, finitura olio o vernice" },
+      { label: "Posa", value: "Incollata, flottante, chiodata — su riscaldamento a pavimento" },
+      { label: "Certificazioni", value: "CE, legno da foreste certificate" },
+    ],
+    benefits: [
+      "Compatibile con riscaldamento a pavimento per massimo comfort",
+      "Calore naturale del legno per un'atmosfera accogliente e autentica",
+      "Vasta gamma di essenze e formati per ogni stile d'arredo",
+      "Posa professionale con garanzia sulla lavorazione",
+      "Legno da foreste certificate per una scelta sostenibile",
+    ],
+    cardDescription: "Parquet in legno per ogni ambiente, compatibile con riscaldamento a pavimento",
+  },
+
+  /* ── RISCALDAMENTO / ENERGIE RINNOVABILI ────────────────────────── */
+
+  "climatizzatori": {
+    tagline: "Clima perfetto, consumi minimi",
+    description:
+      "I climatizzatori Haier e Samsung di ultima generazione garantiscono il massimo comfort termico con consumi energetici ridotti al minimo. Tecnologia inverter, filtri antibatterici e gestione smart da app per un clima ideale in ogni stagione. Disponibili in configurazione mono e multi-split per climatizzare più ambienti con una sola unità esterna.",
+    specs: [
+      { label: "Tecnologia", value: "Inverter DC, classe energetica A+++" },
+      { label: "Configurazione", value: "Mono-split e multi-split" },
+      { label: "Filtrazione", value: "Antibatterico, antiallergico, PM2.5" },
+      { label: "Gestione", value: "Wi-Fi integrato, controllo da app" },
+      { label: "Funzionalità", value: "Raffrescamento, riscaldamento, deumidifica" },
+      { label: "Silenziosità", value: "Da 19 dB(A) unità interna" },
+    ],
+    benefits: [
+      "Classe energetica A+++ per il massimo risparmio in bolletta",
+      "Gestione smart da smartphone: accendi e regola ovunque tu sia",
+      "Filtri antibatterici e antiallergici per aria sempre pulita",
+      "Funzione caldo/freddo: comfort tutto l'anno con un solo apparecchio",
+      "Installazione professionale con garanzia e assistenza dedicata",
+    ],
+    cardDescription: "Climatizzatori inverter A+++ con Wi-Fi, filtri antibatterici e gestione da app",
+  },
+
+  "pompe-di-calore": {
+    tagline: "Riscaldamento efficiente, energia dall'aria",
+    description:
+      "Le pompe di calore Ariston rappresentano la soluzione più efficiente per il riscaldamento e la produzione di acqua calda sanitaria. Estraendo energia dall'aria esterna, producono fino a 4 kW di calore per ogni kW di elettricità consumato. Ideali per sostituire la vecchia caldaia e accedere agli incentivi fiscali per la riqualificazione energetica.",
+    specs: [
+      { label: "Tipologia", value: "Aria-acqua, split o monoblocco" },
+      { label: "COP", value: "Fino a 4,5 (A7/W35)" },
+      { label: "Classe energetica", value: "A+++" },
+      { label: "Funzioni", value: "Riscaldamento, raffrescamento, ACS" },
+      { label: "Gestione", value: "Controllo smart da app e cronotermostato" },
+      { label: "Compatibilità", value: "Radiatori, pavimento radiante, fan coil" },
+    ],
+    benefits: [
+      "Fino al 75% di risparmio rispetto a una caldaia tradizionale",
+      "Riscaldamento + raffrescamento + acqua calda in un unico sistema",
+      "Compatibile con impianti esistenti (radiatori e pavimento radiante)",
+      "Accesso a detrazioni fiscali e incentivi Conto Termico",
+      "Gestione smart per ottimizzare consumi e comfort automaticamente",
+    ],
+    cardDescription: "Pompe di calore Ariston A+++: fino al 75% di risparmio, incentivi fiscali",
+  },
+
+  "caldaia": {
+    tagline: "Efficienza e affidabilità per il tuo comfort",
+    description:
+      "Le caldaie Hermann a condensazione offrono la massima efficienza per il riscaldamento e la produzione di acqua calda sanitaria. La tecnologia a condensazione recupera il calore dai fumi di scarico, riducendo i consumi fino al 30% rispetto a una caldaia tradizionale. Silenziose, compatte e compatibili con i sistemi domotici.",
+    specs: [
+      { label: "Tecnologia", value: "Condensazione ad alta efficienza" },
+      { label: "Classe energetica", value: "A+" },
+      { label: "Potenza", value: "Da 24 a 35 kW" },
+      { label: "Produzione ACS", value: "Istantanea o con accumulo" },
+      { label: "Gestione", value: "Cronotermostato smart, compatibile domotica" },
+      { label: "Garanzia", value: "Garanzia estesa su scambiatore" },
+    ],
+    benefits: [
+      "Fino al 30% di risparmio rispetto a una caldaia tradizionale",
+      "Tecnologia a condensazione per la massima efficienza energetica",
+      "Compatta e silenziosa: installazione anche in spazi ridotti",
+      "Compatibile con cronotermostati smart e sistemi domotici",
+      "Accesso a detrazioni fiscali per sostituzione caldaia",
+    ],
+    cardDescription: "Caldaie a condensazione Hermann: fino al 30% di risparmio, classe A+",
+  },
+
+  "impianti-fotovoltaici": {
+    tagline: "Energia dal sole, indipendenza dalla bolletta",
+    description:
+      "Impianti fotovoltaici residenziali progettati su misura per massimizzare l'autoconsumo e ridurre la dipendenza dalla rete elettrica. Pannelli di ultima generazione ad alta efficienza, inverter intelligenti e sistemi di accumulo con batterie per utilizzare l'energia solare anche di sera. Servizio chiavi in mano dalla progettazione all'allaccio.",
+    specs: [
+      { label: "Pannelli", value: "Monocristallino alta efficienza (>21%)" },
+      { label: "Inverter", value: "Ibrido con ottimizzatori di potenza" },
+      { label: "Accumulo", value: "Batterie al litio da 5 a 15 kWh" },
+      { label: "Monitoraggio", value: "App con dati produzione in tempo reale" },
+      { label: "Garanzia pannelli", value: "25 anni su produzione" },
+      { label: "Servizio", value: "Chiavi in mano: progetto, installazione, allaccio" },
+    ],
+    benefits: [
+      "Risparmio fino all'80% sulla bolletta elettrica con accumulo",
+      "Incentivi fiscali: detrazione 50% e Scambio Sul Posto",
+      "Monitoraggio in tempo reale della produzione e dei consumi",
+      "Garanzia 25 anni sulla produzione dei pannelli",
+      "Servizio chiavi in mano senza pensieri: dalla pratica all'allaccio",
+    ],
+    cardDescription: "Fotovoltaico residenziale con accumulo: fino all'80% di risparmio, chiavi in mano",
+  },
+
+  "impianti-elettrici": {
+    tagline: "Sicurezza e innovazione per la tua casa",
+    description:
+      "Progettazione e realizzazione di impianti elettrici civili a norma, dalla ristrutturazione completa all'adeguamento dell'impianto esistente. Quadri elettrici certificati, prese e punti luce posizionati strategicamente, predisposizione domotica e sistemi di protezione per la massima sicurezza della tua famiglia.",
+    specs: [
+      { label: "Tipologie", value: "Nuovo impianto, rifacimento, adeguamento" },
+      { label: "Normativa", value: "CEI 64-8, dichiarazione di conformità" },
+      { label: "Quadro elettrico", value: "Con protezioni differenziali e magnetotermiche" },
+      { label: "Predisposizioni", value: "Domotica, ricarica auto elettrica" },
+      { label: "Cablaggio", value: "Strutturato con guaine e scatole di derivazione" },
+      { label: "Certificazione", value: "DiCo rilasciata a fine lavori" },
+    ],
+    benefits: [
+      "Impianto a norma con dichiarazione di conformità certificata",
+      "Predisposizione per domotica e ricarica auto elettrica",
+      "Posizionamento strategico di prese e punti luce per il massimo comfort",
+      "Protezioni elettriche di ultima generazione per la sicurezza della famiglia",
+      "Assistenza post-installazione e pronto intervento",
+    ],
+    cardDescription: "Impianti elettrici a norma con predisposizione domotica, certificati DiCo",
+  },
+
+  "impianti-idraulici": {
+    tagline: "Acqua e comfort, progettati su misura",
+    description:
+      "Progettazione e realizzazione di impianti idraulici per bagno, cucina e riscaldamento. Dalla ristrutturazione completa dell'impianto alla sostituzione di singoli elementi, con materiali di qualità e tecniche di installazione a norma. Tubazioni multistrato, collettori di distribuzione e sistemi di ricircolo per acqua calda istantanea.",
+    specs: [
+      { label: "Tipologie", value: "Nuovo impianto, rifacimento, riparazione" },
+      { label: "Tubazioni", value: "Multistrato, PEX, rame" },
+      { label: "Distribuzione", value: "Collettore per gestione indipendente zone" },
+      { label: "Riscaldamento", value: "Radiatori, pavimento radiante, fan coil" },
+      { label: "Certificazione", value: "A norma UNI, dichiarazione di conformità" },
+      { label: "Assistenza", value: "Pronto intervento e manutenzione" },
+    ],
+    benefits: [
+      "Impianto progettato su misura per le esigenze della tua casa",
+      "Materiali di qualità per durata e affidabilità nel tempo",
+      "Distribuzione a collettore per gestione indipendente di ogni zona",
+      "Certificazione a norma con dichiarazione di conformità",
+      "Assistenza post-installazione e pronto intervento",
+    ],
+    cardDescription: "Impianti idraulici su misura, materiali di qualità e certificazione a norma",
   },
 };

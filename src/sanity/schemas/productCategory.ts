@@ -30,10 +30,13 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Serramenti", value: "serramenti" },
-          { title: "Porte", value: "porte" },
-          { title: "Oscuranti & Sicurezza", value: "oscuranti-sicurezza" },
-          { title: "Arredo Casa", value: "arredo-casa" },
+          { title: "Serramenti, Oscuranti, Portoncini", value: "serramenti-oscuranti-portoncini" },
+          { title: "Porte Interne & Blindate", value: "porte-interne-blindate" },
+          { title: "Sistemi di Sicurezza", value: "sistemi-sicurezza" },
+          { title: "Comfort & Complementi", value: "comfort-complementi" },
+          { title: "Outdoor", value: "outdoor" },
+          { title: "Casa & Arredo", value: "casa-arredo" },
+          { title: "Riscaldamento / Energie Rinnovabili", value: "riscaldamento-rinnovabili" },
         ],
       },
       validation: (Rule) => Rule.required(),

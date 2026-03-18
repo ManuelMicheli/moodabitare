@@ -10,13 +10,13 @@ import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 const marqueeImages = [
-  { src: "/images/Home-bertolotto-opt.jpg", alt: "Interni con porte Bertolotto" },
+  { src: "/images/Home-bertolotto-opt.jpg", alt: "Interni con porte interne di design" },
   { src: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", alt: "Cucina con finestra Prolux Swing" },
   { src: "/images/Zona-giorno-con-porta-balcone-Prolux-Evolution-copia-1536x768.jpg", alt: "Zona giorno con porta-finestra Prolux Evolution" },
   { src: "/images/Bilico_antracite-eff-legno_FINAL.jpg", alt: "Portoncino d'ingresso in alluminio effetto legno" },
   { src: "/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg", alt: "Frangisole Ekosol grigio scuro" },
   { src: "/images/Oknoplast_2024_home.jpg", alt: "Serramenti Oknoplast" },
-  { src: "/images/bertolotto.webp", alt: "Porte interne Bertolotto" },
+  { src: "/images/bertolotto.webp", alt: "Porte interne di design" },
   { src: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg", alt: "Serramenti Squareline con tapparella" },
 ];
 

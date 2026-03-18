@@ -65,9 +65,11 @@ export function ProductCatalog() {
                 <div className="absolute inset-0 bg-black-deep/0 group-hover:bg-black-deep/5 transition-all duration-500" />
               </div>
               <div className="p-5 sm:p-6 lg:p-8">
-                <span className="text-label text-black-deep/25">
-                  {product.brand}
-                </span>
+                {product.brand && (
+                  <span className="text-label text-black-deep/25">
+                    {product.brand}
+                  </span>
+                )}
                 <h3 className="mt-2 font-card-title text-black-deep group-hover:text-black-deep/60 transition-colors">
                   {product.name}
                 </h3>
