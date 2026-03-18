@@ -18,7 +18,7 @@ export function RistrutturazioneBanner() {
         <div className="relative bg-black-deep">
           {/* Background image */}
           <Image
-            src="/images/Gemini_Generated_Image_1fj9s71fj9s71fj9_upscayl_4x_upscayl-standard-4x.png"
+            src="/images/ristrutturazione-hero.jpg"
             alt=""
             fill
             className="object-cover"
