@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { MACRO_CATEGORIES, BRAND_PARTNERS } from "@/lib/constants";
 
@@ -57,10 +59,29 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
+const CATEGORY_PREVIEWS: Record<string, { src: string; alt: string }> = {
+  "serramenti-oscuranti-portoncini": { src: "/images/Hero 1.jpg", alt: "Serramenti e infissi" },
+  "porte-interne-blindate": { src: "/images/Hero 2.jpg", alt: "Porte interne e blindate" },
+  "sistemi-sicurezza": { src: "/images/Alias-home.jpg", alt: "Sistemi di sicurezza" },
+  "comfort-complementi": { src: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg", alt: "Comfort e complementi" },
+  "outdoor": { src: "/images/unplash1.avif", alt: "Outdoor e giardino" },
+  "casa-arredo": { src: "/images/Hero cucina.jpg", alt: "Casa e arredo" },
+  "riscaldamento-rinnovabili": { src: "/images/ristrutturazione-hero.webp", alt: "Riscaldamento e rinnovabili" },
+};
+
 export function MegaMenu({ onNavigate }: MegaMenuProps) {
+  const [hoveredCategory, setHoveredCategory] = useState(MACRO_CATEGORIES[0].id);
+
   const uniqueProductCount = new Set(
     MACRO_CATEGORIES.flatMap((mc) => mc.products.map((p) => p.slug))
   ).size;
+
+  const preview = CATEGORY_PREVIEWS[hoveredCategory];
+  const hoveredLabel = MACRO_CATEGORIES.find((c) => c.id === hoveredCategory)?.label ?? "";
+
+  const handleCategoryHover = useCallback((id: string) => {
+    setHoveredCategory(id);
+  }, []);
 
   return (
     <motion.div
@@ -74,13 +95,62 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
       <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="bg-black-deep/[0.97] backdrop-blur-xl">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-14 py-6 lg:py-8">
+        <div className="px-6 sm:px-10 lg:px-16 xl:px-20 py-6 lg:py-8">
 
-          {/* All 7 categories in one row */}
-          <div className="grid grid-cols-7 gap-4 xl:gap-6">
-            {MACRO_CATEGORIES.map((category, catIndex) => (
-              <CategoryColumn key={category.id} category={category} catIndex={catIndex} onNavigate={onNavigate} />
-            ))}
+          {/* Categories + Preview */}
+          <div className="flex gap-6 xl:gap-8">
+
+            {/* Left: 7 category columns */}
+            <div className="flex-1 min-w-0 grid grid-cols-7 gap-5 xl:gap-7">
+              {MACRO_CATEGORIES.map((category, catIndex) => (
+                <CategoryColumn
+                  key={category.id}
+                  category={category}
+                  catIndex={catIndex}
+                  isActive={hoveredCategory === category.id}
+                  onHover={handleCategoryHover}
+                  onNavigate={onNavigate}
+                />
+              ))}
+            </div>
+
+            {/* Right: Preview square */}
+            <div className="hidden xl:block w-60 2xl:w-72 flex-shrink-0">
+              <div className="relative aspect-square rounded-lg overflow-hidden bg-white/5">
+                <AnimatePresence mode="wait">
+                  {preview && (
+                    <motion.div
+                      key={hoveredCategory}
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={preview.src}
+                        alt={preview.alt}
+                        fill
+                        sizes="288px"
+                        className="object-cover"
+                      />
+                      {/* Gradient overlay for label */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      {/* Category label */}
+                      <div className="absolute bottom-0 inset-x-0 p-4">
+                        <p className="font-display font-bold text-white text-sm leading-tight">
+                          {hoveredLabel}
+                        </p>
+                        <span className="font-ui text-[0.6rem] uppercase tracking-widest text-white/60 mt-1 block">
+                          Scopri la gamma
+                        </span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+
           </div>
 
           {/* Bottom bar */}
@@ -119,10 +189,14 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
 function CategoryColumn({
   category,
   catIndex,
+  isActive,
+  onHover,
   onNavigate,
 }: {
   category: (typeof MACRO_CATEGORIES)[number];
   catIndex: number;
+  isActive: boolean;
+  onHover: (id: string) => void;
   onNavigate?: () => void;
 }) {
   return (
@@ -131,13 +205,14 @@ function CategoryColumn({
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.03 + catIndex * 0.03, duration: 0.3 }}
       className="group/col"
+      onMouseEnter={() => onHover(category.id)}
     >
       {/* Category header */}
-      <div className="flex items-center gap-1.5 mb-3 pb-2 border-b border-white/[0.06]">
-        <span className="text-white/40">
+      <div className={`flex items-center gap-1.5 mb-3 pb-2 border-b transition-colors duration-200 ${isActive ? "border-white/20" : "border-white/[0.06]"}`}>
+        <span className={`transition-colors duration-200 ${isActive ? "text-white" : "text-white/70"}`}>
           {CATEGORY_ICONS[category.id]}
         </span>
-        <h3 className="text-label text-white/90 text-[0.55rem] xl:text-[0.6rem] tracking-[0.12em] leading-tight">
+        <h3 className={`text-label text-[0.6rem] xl:text-[0.65rem] tracking-[0.1em] leading-tight transition-colors duration-200 ${isActive ? "text-white" : "text-white/80"}`}>
           {category.label}
         </h3>
       </div>
@@ -158,11 +233,11 @@ function CategoryColumn({
             >
               <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 group-hover:h-3 bg-white/50 rounded-full transition-all duration-200" />
 
-              <span className="font-card-title text-[0.78rem] xl:text-[0.82rem] text-white/75 group-hover:text-white transition-colors duration-200 leading-tight">
+              <span className="font-card-title text-[0.82rem] xl:text-[0.88rem] text-white/80 group-hover:text-white transition-colors duration-200 leading-tight">
                 {product.name}
               </span>
               {product.brand && (
-                <span className="font-[var(--font-ui)] text-[0.52rem] xl:text-[0.55rem] uppercase tracking-[0.08em] text-white/25 group-hover:text-white/50 transition-colors duration-200">
+                <span className="font-[var(--font-ui)] text-[0.55rem] xl:text-[0.58rem] uppercase tracking-[0.08em] text-white/50 group-hover:text-white/75 transition-colors duration-200">
                   {product.brand}
                 </span>
               )}

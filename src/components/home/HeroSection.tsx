@@ -8,29 +8,29 @@ import gsap from "gsap";
 
 const slides = [
   {
-    headline: "Dove il design\nincontra il comfort",
-    subheadline: "Serramenti in PVC, alluminio e legno — isolamento termico e acustico certificato",
-    ctaText: "Scopri i prodotti",
+    headline: "Luce, comfort\ne isolamento perfetto",
+    subheadline: "Serramenti in PVC, alluminio e legno — persiane, tapparelle, frangisole e zanzariere dei migliori brand",
+    ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "/images/Hero 1.jpg",
   },
   {
-    headline: "Porte e interni\nche trasformano ogni spazio",
-    subheadline: "Porte interne, blindate e portoncini d'ingresso dei migliori brand italiani",
-    ctaText: "Scopri le porte",
+    headline: "Porte e sicurezza\nper proteggere chi ami",
+    subheadline: "Porte interne, blindate e portoncini — grate, persiane blindate, allarmi e videosorveglianza",
+    ctaText: "Scopri le soluzioni",
     ctaLink: "/prodotti/porte-interne",
     image: "/images/Hero 2.jpg",
   },
   {
-    headline: "Cucine, bagni\ne arredo su misura",
-    subheadline: "Progettazione e realizzazione completa di cucine, bagni e living su misura",
+    headline: "Arredo, outdoor\ne spazi da vivere",
+    subheadline: "Cucine su misura, bagni, parquet e ceramiche — pergole, piscine e vetrate panoramiche",
     ctaText: "Scopri l'arredo",
     ctaLink: "/prodotti/cucine-su-misura",
     image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg",
   },
   {
-    headline: "Ristrutturazioni\ncon detrazioni al 50%",
-    subheadline: "Dal sopralluogo alla consegna — gestione completa con pratiche e detrazioni incluse",
+    headline: "Ristrutturazioni\ne energie rinnovabili",
+    subheadline: "Dal sopralluogo alla consegna — climatizzazione, fotovoltaico e detrazioni fino al 50%",
     ctaText: "Richiedi preventivo",
     ctaLink: "/contatti",
     image: "/images/Hero3.jpg",
@@ -200,7 +200,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[75vh] flex items-end overflow-hidden bg-black-deep"
+      className="relative h-svh flex items-end overflow-hidden bg-black-deep"
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
     >

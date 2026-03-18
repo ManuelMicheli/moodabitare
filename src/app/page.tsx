@@ -21,7 +21,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      {/* Hero + brand marquee + scramble banner fill the entire first screen */}
       <HeroSection />
       <BrandLogos />
       <BelowFoldSections />

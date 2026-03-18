@@ -15,49 +15,74 @@ gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   {
-    name: "Infissi in PVC",
-    brand: "Oknoplast",
+    name: "Serramenti & Portoncini",
+    brands: ["Oknoplast", "Korus", "Pail"],
     description:
-      "Serramenti a 5 e 7 camere con isolamento termico e acustico superiore. Risparmio in bolletta tutto l\u2019anno.",
+      "Infissi in PVC, alluminio e legno. Portoncini, persiane, frangisole e tapparelle.",
     image: "/images/wmremove-transformed (69).png",
-    href: "/prodotti/infissi-pvc",
+    href: "/prodotti?categoria=serramenti-oscuranti-portoncini",
+    products: 8,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     from: { x: -120, y: 0 },
   },
   {
-    name: "Porte Interne",
-    brand: "Pail / Door Arreda",
-    description: "Design made in Italy, qualità artigianale.",
-    image: "/images/bertolotto.webp",
-    href: "/prodotti/porte-interne",
+    name: "Casa & Arredo",
+    brands: ["Arrex", "Merati", "Ali Parquet"],
+    description: "Cucine su misura, arredo bagno, ceramiche e parquet.",
+    image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
+    href: "/prodotti?categoria=casa-arredo",
+    products: 6,
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",
     from: { x: 0, y: -80 },
   },
   {
-    name: "Portoncini",
-    brand: "Oknoplast / Kopen",
-    description: "Ingresso unico, sicurezza RC2 di serie.",
-    image: "/images/Bilico_antracite-eff-legno_FINAL.jpg",
-    href: "/prodotti/portoncini",
+    name: "Riscaldamento & Energie",
+    brands: ["Haier", "Samsung", "Ariston"],
+    description: "Climatizzatori, pompe di calore, caldaie e fotovoltaico.",
+    image: "/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg",
+    href: "/prodotti?categoria=riscaldamento-energie-rinnovabili",
+    products: 6,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
     from: { x: 0, y: -80 },
   },
   {
-    name: "Cucine su Misura",
-    brand: "Arrex Cucine",
-    description: "Progettazione e realizzazione cucine personalizzate.",
-    image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
-    href: "/prodotti/cucine-su-misura",
+    name: "Sistemi di Sicurezza",
+    brands: ["Erreci", "Alias", "Ecomet", "Inim"],
+    description: "Grate, persiane blindate, allarmi e videosorveglianza.",
+    image: "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
+    href: "/prodotti?categoria=sistemi-sicurezza",
+    products: 4,
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
     from: { x: 120, y: 0 },
   },
   {
-    name: "Porte Blindate",
-    brand: "Alias / Erreci",
-    description: "Sicurezza certificata, design italiano.",
-    image: "/images/Alias-home.jpg",
-    href: "/prodotti/porte-blindate",
+    name: "Porte Interne & Blindate",
+    brands: ["Pail", "Alias", "Erreci"],
+    description: "Design made in Italy e sicurezza certificata.",
+    image: "/images/Home-bertolotto-opt.jpg",
+    href: "/prodotti?categoria=porte-interne-blindate",
+    products: 2,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
+    from: { x: 120, y: 0 },
+  },
+  {
+    name: "Outdoor",
+    brands: ["Tendarredo", "Mc Slide", "Persit"],
+    description: "Pergole, tende da sole, vetrate panoramiche e piscine.",
+    image: "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg",
+    href: "/prodotti?categoria=outdoor",
+    products: 7,
+    className: "lg:col-start-1 lg:col-end-3 lg:row-start-3 lg:row-end-4",
+    from: { x: -120, y: 0 },
+  },
+  {
+    name: "Comfort & Complementi",
+    brands: ["Bettio", "Sharknet", "Grifoflex", "Sinfonia"],
+    description: "Zanzariere, tende tecniche, scale e ringhiere.",
+    image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg",
+    href: "/prodotti?categoria=comfort-complementi",
+    products: 3,
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
     from: { x: 120, y: 0 },
   },
 ];
@@ -164,25 +189,34 @@ export function ProductBentoGrid() {
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                    <div className="pointer-events-none relative z-10 flex flex-col gap-1 p-5 sm:p-6 transition-all duration-300 group-hover:-translate-y-10">
-                      <span className="text-label text-white/50">
-                        {product.brand}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+                    <div className="pointer-events-none relative z-10 flex flex-col justify-end h-full p-5 sm:p-6">
+                      <span className="text-label text-white/50 mb-1">
+                        {product.products} prodotti
                       </span>
-                      <h3 className="font-card-title text-white mt-1">
+                      <h3 className="font-card-title text-white">
                         {product.name}
                       </h3>
                       <p className="text-caption text-white/60 mt-1 max-w-[30ch]">
                         {product.description}
                       </p>
-                    </div>
-                    <div className="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                      <span className="pointer-events-auto text-button text-white/80 inline-flex items-center gap-2">
-                        Scopri
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </span>
+                      <div className="flex items-end justify-between mt-3">
+                        <div className="flex flex-wrap gap-1.5">
+                          {product.brands.map((brand) => (
+                            <span
+                              key={brand}
+                              className="text-[0.6rem] font-ui font-medium uppercase tracking-wider text-white border border-white/20 rounded-full px-2.5 py-0.5"
+                            >
+                              {brand}
+                            </span>
+                          ))}
+                        </div>
+                        <span className="flex-shrink-0 ml-3 flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-white/60 group-hover:bg-white group-hover:text-black-deep group-hover:border-white transition-all duration-300">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-0.5">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 </div>
