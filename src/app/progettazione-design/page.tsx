@@ -135,7 +135,7 @@ export default function ProgettazioneDesign() {
                           </span>
                         )}
                       </span>
-                      <p className="text-label text-black-deep/30 mt-2 text-[0.65rem]">
+                      <p className="text-label text-black-deep/30 mt-2 text-[0.75rem]">
                         {item.label}
                       </p>
                     </div>
@@ -171,7 +171,7 @@ export default function ProgettazioneDesign() {
                   ].map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block px-4 py-1.5 text-[0.65rem] font-ui font-medium tracking-wider uppercase text-black-deep/30 border border-black-deep/8"
+                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wider uppercase text-black-deep/30 border border-black-deep/8"
                     >
                       {tag}
                     </span>
@@ -240,7 +240,7 @@ export default function ProgettazioneDesign() {
                 ].map((item) => (
                   <span
                     key={item}
-                    className="text-[0.7rem] font-ui tracking-wider uppercase text-cream/20"
+                    className="text-[0.75rem] font-ui tracking-wider uppercase text-cream/20"
                   >
                     {item}
                   </span>

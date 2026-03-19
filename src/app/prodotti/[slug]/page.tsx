@@ -487,7 +487,7 @@ export default async function ProductPage({ params }: Props) {
                 sizes="(max-width: 640px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-black-deep/30" />
-              <p className="absolute bottom-3 left-4 text-[0.7rem] font-ui font-medium uppercase tracking-wider text-white/70">
+              <p className="absolute bottom-3 left-4 text-[0.75rem] font-ui font-medium uppercase tracking-wider text-white/70">
                 {img.name}
               </p>
             </div>

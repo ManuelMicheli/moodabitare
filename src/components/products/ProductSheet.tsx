@@ -111,7 +111,7 @@ export function ProductSheet({ detail, imageSrc, onClose }: ProductSheetProps) {
                     <p className="text-label text-black-deep/30 mt-1">Oknoplast</p>
                   </div>
                   <span
-                    className={`flex-shrink-0 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.12em] px-2.5 py-1 rounded-full ${segmentColor[detail.segment] || "bg-black-deep/5 text-black-deep/50"}`}
+                    className={`flex-shrink-0 text-[0.75rem] font-ui font-semibold uppercase tracking-[0.12em] px-2.5 py-1 rounded-full ${segmentColor[detail.segment] || "bg-black-deep/5 text-black-deep/50"}`}
                   >
                     {detail.segment}
                   </span>

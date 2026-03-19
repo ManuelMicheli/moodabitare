@@ -38,7 +38,7 @@ export function RistrutturazioneBanner() {
               transition={{ duration: 0.5, ease }}
             >
               <div className="h-px w-6 bg-white/40" />
-              <span className="font-ui text-[0.65rem] tracking-[0.18em] uppercase text-white">
+              <span className="font-ui text-[0.75rem] tracking-[0.18em] uppercase text-white">
                 Servizio completo
               </span>
               <div className="h-px w-6 bg-white/40" />
@@ -98,7 +98,7 @@ export function RistrutturazioneBanner() {
                     <span className="font-display text-base font-bold text-white">
                       {s.value}
                     </span>
-                    <span className="font-ui text-[0.6rem] tracking-[0.08em] uppercase text-white/70">
+                    <span className="font-ui text-[0.75rem] tracking-[0.08em] uppercase text-white/70">
                       {s.label}
                     </span>
                     {i === 0 && <div className="w-px h-4 bg-white/20 ml-4" />}

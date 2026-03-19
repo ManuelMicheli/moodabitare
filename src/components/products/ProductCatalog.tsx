@@ -33,7 +33,7 @@ export function ProductCatalog() {
             )}
           >
             Tutti
-            <span className="ml-1.5 text-[0.6rem] opacity-50">{ALL_PRODUCTS.length}</span>
+            <span className="ml-1.5 text-[0.75rem] opacity-50">{ALL_PRODUCTS.length}</span>
           </button>
           {MACRO_CATEGORIES.map((cat) => {
             const count = ALL_PRODUCTS.filter((p) => p.macroCategoryId === cat.id).length;
@@ -49,7 +49,7 @@ export function ProductCatalog() {
                 )}
               >
                 {cat.label}
-                <span className="ml-1.5 text-[0.6rem] opacity-50">{count}</span>
+                <span className="ml-1.5 text-[0.75rem] opacity-50">{count}</span>
               </button>
             );
           })}

@@ -230,7 +230,7 @@ export default function ServiziRistrutturazione() {
                     {service.highlights.map((h) => (
                       <span
                         key={h}
-                        className="inline-block px-3 py-1.5 text-[0.7rem] font-ui font-medium tracking-wide uppercase text-black-deep/35 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
+                        className="inline-block px-3 py-1.5 text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/35 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
                       >
                         {h}
                       </span>
