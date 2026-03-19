@@ -33,12 +33,12 @@ function GalleryGrid({
 }) {
   return (
     <section className={isMobile ? "px-4 py-12" : "px-10 lg:px-20 pt-0 pb-16 lg:pb-24"}>
-      <div className={isMobile ? "grid grid-cols-2 gap-4" : "grid grid-cols-3 lg:grid-cols-5 gap-8"}>
+      <div className={isMobile ? "grid grid-cols-2 gap-3" : "grid grid-cols-3 lg:grid-cols-5 gap-8"}>
         {images.map((img, i) => (
           <button
             key={i}
             type="button"
-            className="flex flex-col items-center text-left group/card"
+            className={`flex flex-col items-center text-left group/card ${isMobile ? "bg-white rounded-lg overflow-hidden" : ""}`}
             onClick={() => onImageClick?.(img)}
           >
             <div className={`relative w-full ${isMobile ? "aspect-[4/3]" : "aspect-[3/4]"}`}>
@@ -50,14 +50,16 @@ function GalleryGrid({
                 sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 18vw"}
               />
             </div>
-            <p className={`mt-3 font-display font-semibold text-center ${isMobile ? "text-sm" : "text-base"} ${darkBg ? "text-white/80" : "text-black-deep/80"}`}>
-              {img.name}
-            </p>
-            {onImageClick && (
-              <span className="mt-1 text-[0.65rem] font-ui font-medium uppercase tracking-wider text-bordeaux/60">
-                Scheda tecnica
-              </span>
-            )}
+            <div className={isMobile ? "p-3 w-full" : ""}>
+              <p className={`${isMobile ? "" : "mt-3"} font-display font-semibold text-center ${isMobile ? "text-sm" : "text-base"} ${darkBg && !isMobile ? "text-white/80" : "text-black-deep/80"}`}>
+                {img.name}
+              </p>
+              {onImageClick && (
+                <span className="mt-1 text-[0.65rem] font-ui font-medium uppercase tracking-wider text-bordeaux/60 block text-center">
+                  Scheda tecnica {isMobile && "→"}
+                </span>
+              )}
+            </div>
           </button>
         ))}
       </div>
