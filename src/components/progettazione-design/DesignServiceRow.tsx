@@ -29,6 +29,8 @@ export function DesignServiceRow({
         className="group relative cursor-pointer overflow-hidden border-b border-[#E5E5E5] active:bg-black-deep/[0.03]"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onTouchStart={() => setHovered(true)}
+        onTouchEnd={() => setHovered(false)}
       >
         {/* Fill background — plain div + CSS transition */}
         <div
@@ -45,7 +47,7 @@ export function DesignServiceRow({
         <div className="relative z-10 flex items-center gap-4 sm:gap-6 lg:gap-10 py-6 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
           {/* Number */}
           <span
-            className="font-display font-bold leading-none shrink-0 w-12 sm:w-16 lg:w-20 text-[#1A1A1A] group-hover:text-white transition-colors duration-300"
+            className={`font-display font-bold leading-none shrink-0 w-12 sm:w-16 lg:w-20 transition-colors duration-300 ${hovered ? "text-white" : "text-[#1A1A1A]"}`}
             style={{ fontSize: "clamp(1.75rem, 1.5rem + 1.5vw, 3.5rem)" }}
           >
             {number}
@@ -54,19 +56,19 @@ export function DesignServiceRow({
           {/* Text block */}
           <div className="flex-1 min-w-0">
             <h3
-              className="font-display font-medium leading-[1.1] tracking-[-0.02em] uppercase text-[#1A1A1A] group-hover:text-white transition-colors duration-300"
+              className={`font-display font-medium leading-[1.1] tracking-[-0.02em] uppercase transition-colors duration-300 ${hovered ? "text-white" : "text-[#1A1A1A]"}`}
               style={{ fontSize: "clamp(1.25rem, 1rem + 1vw, 2.75rem)" }}
             >
               {title}
             </h3>
-            <p className="mt-2 lg:mt-3 text-sm lg:text-base leading-relaxed max-w-2xl text-[#6B7280] group-hover:text-white/75 transition-colors duration-300">
+            <p className={`mt-2 lg:mt-3 text-sm lg:text-base leading-relaxed max-w-2xl transition-colors duration-300 ${hovered ? "text-white/75" : "text-[#6B7280]"}`}>
               {description}
             </p>
           </div>
 
           {/* Arrow */}
           <span
-            className="text-2xl lg:text-3xl shrink-0 text-[#1A1A1A] group-hover:text-white group-hover:translate-x-2 transition-all duration-300"
+            className={`text-2xl lg:text-3xl shrink-0 transition-all duration-300 ${hovered ? "text-white translate-x-2" : "text-[#1A1A1A]"}`}
             aria-hidden
           >
             →

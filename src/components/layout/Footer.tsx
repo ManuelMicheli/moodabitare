@@ -11,12 +11,12 @@ export function Footer() {
     <footer className="sticky bottom-0 z-0 bg-black-deep text-white">
       {/* Marquee */}
       <div className="border-b border-white/5 py-8 lg:py-10 overflow-hidden">
-        <div className="marquee-track"
+        <div className="marquee-track will-change-transform"
              style={{ animation: "marquee 40s linear infinite" }}>
           {Array.from({ length: 4 }).map((_, i) => (
             <span
               key={i}
-              className="font-display font-bold uppercase leading-none tracking-[-0.03em] text-white/[0.07] whitespace-nowrap"
+              className="font-display font-bold uppercase leading-none tracking-[-0.03em] text-white/[0.12] lg:text-white/[0.07] whitespace-nowrap"
               style={{ fontSize: "clamp(2.5rem, 1.5rem + 5vw, 6rem)" }}
             >
               {MARQUEE_TEXT}

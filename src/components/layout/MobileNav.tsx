@@ -83,7 +83,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                       )}
                                     >
                                       <span className={cn(
-                                        "text-label font-semibold uppercase transition-colors duration-200",
+                                        "text-label font-semibold uppercase text-left transition-colors duration-200",
                                         expandedCategory === cat.id
                                           ? "text-bordeaux"
                                           : "text-bordeaux/60"
