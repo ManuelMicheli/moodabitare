@@ -76,8 +76,9 @@ export function CookieBanner() {
           role="dialog"
           aria-label="Consenso cookie"
           className="fixed bottom-0 left-0 right-0 z-[60] bg-white border-t border-warm-gray/30 shadow-2xl"
+          style={{ paddingBottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))" }}
         >
-          <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6">
+          <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex-1">
                 <p className="text-sm text-black-deep font-medium mb-1">
@@ -102,25 +103,25 @@ export function CookieBanner() {
                       exit={{ height: 0, opacity: 0 }}
                       className="overflow-hidden mt-3 space-y-2"
                     >
-                      <label className="flex items-center gap-2 text-xs text-mid-gray">
+                      <label className="min-h-[44px] flex items-center gap-2 text-xs text-mid-gray">
                         <input
                           type="checkbox"
                           checked
                           disabled
-                          className="h-3 w-3 accent-bordeaux"
+                          className="h-5 w-5 accent-bordeaux"
                         />
                         <span>
                           Cookie tecnici (necessari) — Funzionamento del sito
                         </span>
                       </label>
-                      <label className="flex items-center gap-2 text-xs text-mid-gray">
+                      <label className="min-h-[44px] flex items-center gap-2 text-xs text-mid-gray">
                         <input
                           type="checkbox"
                           checked={analyticsChecked}
                           onChange={(e) =>
                             setAnalyticsChecked(e.target.checked)
                           }
-                          className="h-3 w-3 accent-bordeaux"
+                          className="h-5 w-5 accent-bordeaux"
                         />
                         <span>
                           Cookie analitici (Google Analytics) — Statistiche
@@ -142,29 +143,31 @@ export function CookieBanner() {
                 </AnimatePresence>
               </div>
 
-              <div className="flex flex-wrap gap-2 items-center">
-                <button
-                  onClick={() => setShowDetails(!showDetails)}
-                  className="text-xs text-mid-gray underline hover:text-black-deep transition-colors"
-                >
-                  {showDetails ? "Nascondi" : "Personalizza"}
-                </button>
-                <Button
-                  onClick={() => handleConsent("necessary")}
-                  variant="outline"
-                  size="sm"
-                  className="text-xs"
-                >
-                  Solo necessari
-                </Button>
+              <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
                 <Button
                   onClick={() => handleConsent("all")}
                   variant="bordeaux"
                   size="sm"
-                  className="text-xs"
+                  className="w-full sm:w-auto text-xs"
                 >
                   Accetta tutti
                 </Button>
+                <div className="flex gap-2 items-center">
+                  <Button
+                    onClick={() => handleConsent("necessary")}
+                    variant="outline"
+                    size="sm"
+                    className="text-xs"
+                  >
+                    Solo necessari
+                  </Button>
+                  <button
+                    onClick={() => setShowDetails(!showDetails)}
+                    className="text-xs text-mid-gray underline hover:text-black-deep transition-colors"
+                  >
+                    {showDetails ? "Nascondi" : "Personalizza"}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

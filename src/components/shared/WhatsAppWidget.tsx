@@ -3,14 +3,40 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CONTACT_INFO } from "@/lib/constants";
+import Cookies from "js-cookie";
+
+const CONSENT_COOKIE = "mood_cookie_consent";
 
 export function WhatsAppWidget() {
   const [isVisible, setIsVisible] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Track cookie banner visibility
+  useEffect(() => {
+    // Check immediately
+    const hasCookie = !!Cookies.get(CONSENT_COOKIE);
+    setBannerVisible(!hasCookie);
+
+    // Poll for cookie changes (banner sets cookie on dismiss)
+    const interval = setInterval(() => {
+      const hasCookie = !!Cookies.get(CONSENT_COOKIE);
+      if (hasCookie) {
+        setBannerVisible(false);
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const bottomStyle = bannerVisible
+    ? { bottom: "calc(12rem + env(safe-area-inset-bottom, 0px))" }
+    : { bottom: "calc(6rem + env(safe-area-inset-bottom, 0px))" };
 
   return (
     <AnimatePresence>
@@ -22,7 +48,8 @@ export function WhatsAppWidget() {
           href={CONTACT_INFO.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-24 right-6 z-[70] flex lg:hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5A] transition-colors"
+          className="fixed right-6 z-[70] flex lg:hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5A] transition-all duration-300"
+          style={bottomStyle}
           aria-label="Contattaci su WhatsApp"
           title="Scrivici su WhatsApp"
         >

@@ -45,22 +45,22 @@ export function PromoPopup() {
 
       {/* Modal */}
       <div
-        className="relative w-full max-w-[95vw] sm:max-w-[90vw] lg:max-w-7xl animate-scaleIn"
+        className="relative w-full max-w-[100vw] sm:max-w-[90vw] lg:max-w-7xl mx-2 sm:mx-4 animate-scaleIn"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={close}
-          className="absolute -top-3 -right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 cursor-pointer"
+          className="absolute top-3 right-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white transition-transform hover:scale-110 cursor-pointer"
           aria-label="Chiudi"
         >
-          <svg className="h-5 w-5 text-charcoal-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
         {/* Image */}
-        <div className="overflow-hidden rounded-2xl shadow-2xl">
+        <div className="overflow-hidden rounded-2xl shadow-2xl min-h-[200px] sm:min-h-0">
           <Image
             src="/images/Offerta-anniversario-3-30.04-scaled.jpg"
             alt="Offerta Anniversario — 20 anni di Oknoplast in Italia. Sconto del 40% sulle finestre Koncept Plus. Detrazioni fiscali fino al 50%. Entro il 30.04.26"
@@ -72,11 +72,11 @@ export function PromoPopup() {
         </div>
 
         {/* CTA */}
-        <div className="mt-4 flex justify-center">
+        <div className="mt-4 flex justify-center p-5 sm:p-4">
           <a
             href="/contatti"
             onClick={close}
-            className="rounded-full bg-bordeaux px-8 py-3 font-ui text-sm font-semibold uppercase tracking-widest text-white transition-all hover:bg-bordeaux-dark hover:shadow-lg"
+            className="w-full sm:w-auto text-center rounded-full bg-bordeaux px-8 py-3 font-ui text-sm font-semibold uppercase tracking-widest text-white transition-all hover:bg-bordeaux-dark hover:shadow-lg"
           >
             Richiedi Preventivo
           </a>
