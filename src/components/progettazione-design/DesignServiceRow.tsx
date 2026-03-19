@@ -26,7 +26,7 @@ export function DesignServiceRow({
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <div
-        className="group relative cursor-pointer overflow-hidden border-b border-[#E5E5E5]"
+        className="group relative cursor-pointer overflow-hidden border-b border-[#E5E5E5] active:bg-black-deep/[0.03]"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -42,7 +42,7 @@ export function DesignServiceRow({
         />
 
         {/* Content */}
-        <div className="relative z-10 flex items-center gap-4 sm:gap-6 lg:gap-10 py-5 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center gap-4 sm:gap-6 lg:gap-10 py-6 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
           {/* Number */}
           <span
             className="font-display font-bold leading-none shrink-0 w-12 sm:w-16 lg:w-20 text-[#1A1A1A] group-hover:text-white transition-colors duration-300"
@@ -66,7 +66,7 @@ export function DesignServiceRow({
 
           {/* Arrow */}
           <span
-            className="hidden md:block text-2xl lg:text-3xl shrink-0 text-[#1A1A1A] group-hover:text-white group-hover:translate-x-2 transition-all duration-300"
+            className="text-2xl lg:text-3xl shrink-0 text-[#1A1A1A] group-hover:text-white group-hover:translate-x-2 transition-all duration-300"
             aria-hidden
           >
             →
