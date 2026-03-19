@@ -21,7 +21,30 @@ export function FreeConsultationBanner({ isScrolled }: FreeConsultationBannerPro
           : "bg-gradient-to-r from-transparent via-white/20 to-transparent"
       )} />
 
-      <div className="flex items-center justify-center gap-3 sm:gap-5 px-6 py-2 sm:py-2.5">
+      {/* Mobile: tappable link */}
+      <Link href="/contatti" className={cn(
+        "md:hidden flex items-center justify-center gap-3 px-6 py-2.5 transition-colors duration-500",
+        isScrolled ? "text-black-deep" : "text-white/70"
+      )}>
+        <span className={cn(
+          "font-display text-[0.8rem] tracking-wide text-center leading-snug transition-colors duration-500",
+          isScrolled ? "text-black-deep" : "text-white/70"
+        )}>
+          Sopralluoghi, preventivi e consulenze{" "}
+          <span className={cn(
+            "inline-flex items-center font-bold uppercase tracking-[0.15em] mx-0.5 px-2 py-0.5 rounded-sm transition-all duration-500",
+            isScrolled
+              ? "text-bordeaux bg-bordeaux/[0.07]"
+              : "text-white bg-white/[0.1]"
+          )}>
+            gratuite
+          </span>
+        </span>
+        <span className="text-[0.75rem] opacity-60">&rarr;</span>
+      </Link>
+
+      {/* Desktop: existing static banner (unchanged) */}
+      <div className="hidden md:flex items-center justify-center gap-3 sm:gap-5 px-6 py-2 sm:py-2.5">
         {/* Decorative dash */}
         <span className={cn(
           "hidden sm:block w-6 h-px flex-shrink-0 transition-colors duration-500",
