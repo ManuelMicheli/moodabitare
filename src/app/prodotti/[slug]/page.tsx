@@ -6,12 +6,16 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
 import { HorizontalGallery, type GalleryImage } from "@/components/products/HorizontalGallery";
 import { PvcGalleryWithSheet } from "@/components/products/PvcGalleryWithSheet";
+import { GalleryWithSheet } from "@/components/products/GalleryWithSheet";
 import { ALL_PRODUCTS, MACRO_CATEGORIES } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
+import { aluminumDetails, interiorDoorDetails, securityDoorDetails } from "@/lib/product-details";
 
 const heroImages: Record<string, string> = {
   "infissi-legno": "/images/finestralegnohero.jpg",
-  "infissi-alluminio": "/images/Finestre in alluminio.jpg",
+  "infissi-alluminio": "/prodotti/wmremove-transformed (1).png",
+  "infissi-alluminio-legno": "/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.png",
+  "infissi-pvc": "/images/wmremove-transformed (69).png",
 };
 
 const productImages: Record<string, GalleryImage[]> = {
@@ -23,9 +27,14 @@ const productImages: Record<string, GalleryImage[]> = {
     { src: "/images/finestralegno5.jpg", name: "Sezione interna" },
   ],
   "infissi-alluminio": [
-    { src: "/images/Finestre in alluminio.jpg", name: "Finestra in alluminio" },
-    { src: "/images/finestra in alluminio 2.jpg", name: "Dettaglio profilo" },
-    { src: "/images/finestra in alluminio 3.jpg", name: "Vista interna" },
+    { src: "/prodotti/oknoplast-alu-titano.jpg", name: "Titano" },
+    { src: "/prodotti/oknoplast-alu-titano-evo.jpg", name: "Titano EVO" },
+    { src: "/prodotti/oknoplast-alu-titano-oc.jpg", name: "Titano OC" },
+    { src: "/prodotti/oknoplast-alu-titano-evo-oc.jpg", name: "Titano EVO OC" },
+    { src: "/prodotti/oknoplast-alu-titano-steel.jpg", name: "Titano Steel" },
+    { src: "/prodotti/oknoplast-alu-futural.jpg", name: "Futural" },
+    { src: "/prodotti/oknoplast-alu-futural-oc.jpg", name: "Futural OC" },
+    { src: "/prodotti/oknoplast-alu-prolux-alu.jpg", name: "Prolux ALU" },
   ],
   "infissi-pvc": [
     { src: "/images/1Finestra-Prolux-2017-1024x768.png", name: "Prolux" },
@@ -41,6 +50,38 @@ const productImages: Record<string, GalleryImage[]> = {
     { src: "/images/9Finestra-Winergetic-Premium-1024x768.png", name: "Winergetic Premium" },
     { src: "/images/10Finestra-Winergetic-Premium-Passive-1024x768.png", name: "Winergetic Premium Passive" },
     { src: "/images/11Finestra-Winergetic-Alu-1024x768.png", name: "Winergetic Alu" },
+  ],
+  "infissi-alluminio-legno": [
+    { src: "/prodotti/Korus-allumunio-legno2.jpg", name: "Skywood EVO Original Energy 1.0" },
+    { src: "/prodotti/Korus-allumunio-legno3.jpg", name: "Skywood EVO Original" },
+    { src: "/prodotti/Korus-allumunio-legno4.jpg", name: "Skywood EVO Linear Energy 1.0" },
+    { src: "/prodotti/Korus-allumunio-legno5.jpg", name: "Skywood EVO Linear" },
+    { src: "/prodotti/Korus-allumunio-legno6.jpg", name: "Skywood EVO Energy 1.0" },
+    { src: "/prodotti/Korus-allumunio-legno7.jpg", name: "Skywood EVO" },
+    { src: "/prodotti/Korus-alluminio-legno8.jpg", name: "Air SlideWood" },
+  ],
+  "porte-interne": [
+    { src: "/prodotti/pail-tratto-boiserie.jpeg", name: "Pail — Tratto Boiserie" },
+    { src: "/prodotti/pail-belvedere.jpeg", name: "Pail — Belvedere" },
+    { src: "/prodotti/pail-luna-doppia.jpeg", name: "Pail — Luna Doppia" },
+    { src: "/prodotti/pail-linea-laccata.jpeg", name: "Pail — Filomuro" },
+    { src: "/prodotti/pail-linea-vetro-laccata.jpeg", name: "Pail — Scorrevoli" },
+    { src: "/prodotti/pail-cammeo-napoli.jpeg", name: "Pail — Dolcevita" },
+    { src: "/prodotti/doorarreda-pandora.jpg", name: "Door Arreda — Pandora" },
+    { src: "/prodotti/doorarreda-pandora-classic.jpg", name: "Door Arreda — Pandora Sablè" },
+    { src: "/prodotti/doorarreda-seven.jpg", name: "Door Arreda — Seven Shop" },
+    { src: "/prodotti/doorarreda-meraki.jpg", name: "Door Arreda — Meraki Elysia" },
+    { src: "/prodotti/doorarreda-fila.jpg", name: "Door Arreda — Tineo" },
+  ],
+  "porte-blindate": [
+    { src: "/prodotti/alias-wall-rasomuro.jpg", name: "Alias — Wall Rasomuro" },
+    { src: "/prodotti/alias-wall-rasomuro-2.jpg", name: "Alias — Wall" },
+    { src: "/prodotti/alias-twenty-led.jpg", name: "Alias — Twenty LED" },
+    { src: "/prodotti/alias-dream.jpg", name: "Alias — Dream" },
+    { src: "/prodotti/alias-due-ante.jpg", name: "Alias — Due Ante" },
+    { src: "/prodotti/alias-wing-wall-head.jpg", name: "Alias — Magma" },
+    { src: "/prodotti/erreci-capri-main.jpg", name: "Erreci — Capri" },
+    { src: "/prodotti/erreci-ischia-main.jpg", name: "Erreci — Capri Interno" },
   ],
 };
 
@@ -370,6 +411,81 @@ export default async function ProductPage({ params }: Props) {
   const content = productContent[slug];
   const heroImage = heroImages[slug];
 
+  const korusProducts = slug === "infissi-alluminio-legno" ? [
+    {
+      name: "Skywood EVO Original Energy 1.0",
+      subtitle: "UN NUOVO CLASSICO",
+      features: [
+        "Triplo vetro che riduce la perdita di calore interno",
+        "Design moderno, linee classiche ed eleganti, ricercate e senza tempo",
+        "Legno pregiato naturale di altissima qualità",
+        "Profili che aprono grandi superfici vetrate per la massima panoramicità",
+        "Estrema economicità e rispetto della previdenza energetica",
+      ],
+    },
+    {
+      name: "Skywood EVO Original",
+      subtitle: "UN NUOVO CLASSICO",
+      features: [
+        "Design moderno, linee classiche ed eleganti, ricercate e senza tempo",
+        "Consente la realizzazione di altissime superfici vetrate",
+        "Legno pregiato naturale di altissima qualità",
+        "Personalizzazione in combinazione di materiali e colori",
+        "Massima durata dell'infisso",
+      ],
+    },
+    {
+      name: "Skywood EVO Linear Energy 1.0",
+      subtitle: "ELEGANZA LINEARE",
+      features: [
+        "Triplo vetro di serie per un maggior isolamento",
+        "Profili Flat per performance estetiche ai massimi livelli",
+        "Grandi superfici vetrate con sezioni ridotte per massima panoramicità",
+        "Legno pregiato naturale di altissima qualità con ampie personalizzazioni",
+      ],
+    },
+    {
+      name: "Skywood EVO Linear",
+      subtitle: "ELEGANZA LINEARE",
+      features: [
+        "Design minimalista ricercato di altissima qualità",
+        "Legno pregiato naturale di altissima qualità",
+        "Grandi superfici vetrate con sezioni ridotte",
+        "Verniciatura con trattamento anticorrosione di serie",
+      ],
+    },
+    {
+      name: "Skywood EVO Energy 1.0",
+      subtitle: "SCENOGRAFIE DEL LEGNO",
+      features: [
+        "Triplo vetro che riduce la perdita di calore interno",
+        "Profili Flat per performance estetiche ai massimi livelli",
+        "Grandi superfici vetrate con massimo comfort e soddisfazione",
+        "Legno pregiato naturale di altissima qualità con ampie personalizzazioni",
+      ],
+    },
+    {
+      name: "Skywood EVO",
+      subtitle: "TUTTO IL CALORE DEL LEGNO",
+      features: [
+        "Legno pregiato naturale di altissima qualità per le prestazioni",
+        "Ampia scelta con oltre 60 colori personalizzabili della struttura in alluminio",
+        "Design moderno, geometrie equilibrate, sobrietà tipicamente italiana",
+        "Resistente e durevole nel tempo",
+      ],
+    },
+    {
+      name: "Air SlideWood",
+      subtitle: "NATURALE E INNOVATIVO",
+      features: [
+        "Legno pregiato naturale di altissima qualità",
+        "Ottima illuminazione degli ambienti",
+        "Nessun ingombro interno ed esterno",
+        "Massima compatibilità con tapparelle, cassonetti e persiane di sicurezza",
+      ],
+    },
+  ] : null;
+
   // BreadcrumbList JSON-LD for rich breadcrumb display in Google
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -415,29 +531,43 @@ export default async function ProductPage({ params }: Props) {
             sizes="100vw"
           />
         )}
+        {slug === "infissi-alluminio" && (
+          <div className="absolute inset-0 flex items-center justify-center z-[1] pointer-events-none">
+            <div className="relative w-full h-full">
+              <Image
+                src="/prodotti/wmremove-transformed.png"
+                alt={product.name}
+                fill
+                className="object-contain"
+                priority
+                sizes="40vw"
+              />
+            </div>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-black-deep/40 to-black-deep/20" />
-        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
+        <div className={`relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20 ${slug === "infissi-alluminio" ? "text-right" : "text-center"}`}>
           <FadeInView>
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-label text-white/30">
+            <div className={`flex items-center gap-3 mb-4 ${slug === "infissi-alluminio" ? "justify-end" : "justify-center"}`}>
+              <span className="text-label text-white tracking-[0.2em]">
                 {macroCategory?.label}
               </span>
               {product.brand && (
                 <>
-                  <span className="text-white/10">—</span>
-                  <span className="text-label text-white/30">
+                  <span className="text-white/40">|</span>
+                  <span className="text-label text-white tracking-[0.2em]">
                     {product.brand}
                   </span>
                 </>
               )}
             </div>
-            <h1 className="font-section-title max-w-3xl">
+            <h1 className={`font-page-title ${slug === "infissi-alluminio" ? "ml-auto" : "mx-auto"}`}>
               {product.name}
             </h1>
-            <p className="mt-8 text-body text-white/35 max-w-xl">
+            <p className={`mt-6 text-body text-white ${slug === "infissi-alluminio" ? "ml-auto" : "mx-auto"}`}>
               {content?.cardDescription || `Scopri la gamma ${product.name} di ${product.brand} disponibile nel nostro showroom di Gorla Maggiore.`}
             </p>
-            <div className="mt-12 flex flex-wrap gap-6">
+            <div className={`mt-10 flex flex-wrap gap-6 ${slug === "infissi-alluminio" ? "justify-end" : "justify-center"}`}>
               <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors">
                 Richiedi preventivo
               </a>
@@ -474,26 +604,6 @@ export default async function ProductPage({ params }: Props) {
         </div>
       )}
 
-      {/* Gallery alluminio — 3 card attaccate sotto hero */}
-      {slug === "infissi-alluminio" && gallery && (
-        <div className="grid grid-cols-1 sm:grid-cols-3">
-          {gallery.map((img, i) => (
-            <div key={i} className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={img.src}
-                alt={`${product.name} — ${img.name}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-black-deep/30" />
-              <p className="absolute bottom-3 left-4 text-[0.75rem] font-ui font-medium uppercase tracking-wider text-white/70">
-                {img.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
 
       {/* Pail brand banner + gallery — solo per infissi in legno */}
       {slug === "infissi-legno" && gallery && gallery.length > 0 && (
@@ -511,12 +621,90 @@ export default async function ProductPage({ params }: Props) {
         </div>
       )}
 
-      {/* Horizontal scroll gallery — altri prodotti */}
-      {gallery && gallery.length > 0 && slug !== "infissi-alluminio" && slug !== "infissi-legno" && (
-        slug === "infissi-pvc"
-          ? <PvcGalleryWithSheet images={gallery} alt={product.name} />
-          : <HorizontalGallery images={gallery} alt={product.name} />
+      {/* Korus brand section — solo per infissi alluminio/legno */}
+      {slug === "infissi-alluminio-legno" && gallery && gallery.length > 0 && korusProducts && (
+        <div style={{ backgroundColor: "#B32024" }}>
+          {/* Header con logo e intro */}
+          <div className="px-6 sm:px-10 lg:px-20 pt-16 lg:pt-24 pb-10 lg:pb-16">
+            <a href="https://korusweb.com" target="_blank" rel="noopener noreferrer" className="block w-full max-w-5xl mx-auto mb-14">
+              <Image
+                src="/brandpartner/KORUS.png"
+                alt="Korus — Visita il sito ufficiale"
+                width={1600}
+                height={260}
+                className="w-full h-auto hover:opacity-90 transition-opacity"
+              />
+            </a>
+            <FadeInView>
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-left mb-6">
+                Perché scegliere le finestre in Alluminio/Legno
+              </h2>
+              <p className="text-body text-white/70 max-w-2xl text-left leading-relaxed">
+                Le finestre in Alluminio/Legno sono la punta di diamante degli infissi Korus.
+                Realizzate con materiali di primissima fattura, hanno un design unico
+                e certificazioni che creano ambienti gradevoli, caldi e accoglienti.
+                Le performance termiche sono straordinarie e la loro lunga durata nel tempo è
+                assicurata dalla qualità dei materiali utilizzati.
+              </p>
+            </FadeInView>
+          </div>
+
+          {/* Schede prodotto con immagine affiancata */}
+          <div className="px-6 sm:px-10 lg:px-20 pb-16 lg:pb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              {korusProducts.map((prod, i) => (
+                <FadeInView key={prod.name} delay={i * 0.05}>
+                  <div className="bg-white rounded-lg overflow-hidden h-full flex flex-col sm:flex-row">
+                    {/* Immagine prodotto */}
+                    <div className="relative w-full sm:w-2/5 flex-shrink-0 bg-neutral-50 flex items-center justify-center p-4 sm:p-6">
+                      <div className="relative w-full aspect-square">
+                        <Image
+                          src={gallery[i].src}
+                          alt={prod.name}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 640px) 80vw, (max-width: 1024px) 25vw, 20vw"
+                        />
+                      </div>
+                    </div>
+                    {/* Info prodotto */}
+                    <div className="p-5 sm:p-6 flex flex-col justify-center">
+                      <h3 className="font-display text-lg lg:text-xl font-semibold text-black-deep">
+                        {prod.name}
+                      </h3>
+                      <p className="mt-1 font-ui text-[0.65rem] uppercase tracking-[0.2em] text-black-deep/40">
+                        {prod.subtitle}
+                      </p>
+                      <ul className="mt-4 space-y-2">
+                        {prod.features.map((feat) => (
+                          <li key={feat} className="flex items-start gap-2.5 font-ui text-[0.8rem] text-black-deep/70 leading-relaxed">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#B32024" }} />
+                            {feat}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </FadeInView>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
+
+      {/* Horizontal scroll gallery con schede tecniche */}
+      {gallery && gallery.length > 0 && slug !== "infissi-legno" && slug !== "infissi-alluminio-legno" && (() => {
+        const sheetMap: Record<string, Record<string, import("@/lib/product-details").ProductDetail>> = {
+          "infissi-pvc": {},
+          "infissi-alluminio": aluminumDetails,
+          "porte-interne": interiorDoorDetails,
+          "porte-blindate": securityDoorDetails,
+        };
+        const details = sheetMap[slug];
+        if (slug === "infissi-pvc") return <PvcGalleryWithSheet images={gallery} alt={product.name} />;
+        if (details) return <GalleryWithSheet images={gallery} alt={product.name} details={details} />;
+        return <HorizontalGallery images={gallery} alt={product.name} />;
+      })()}
 
       {/* Description + Specs + Benefits */}
       {content && (

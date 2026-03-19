@@ -256,7 +256,10 @@ export function Header() {
         </div>
 
         {/* Free consultation banner — below nav, hidden when mobile menu is open */}
-        {!isMobileOpen && <FreeConsultationBanner isScrolled={isScrolled} />}
+        {/* On home: always visible. On other pages: only after scrolling past hero */}
+        {!isMobileOpen && (isHomePage || isScrolled) && (
+          <FreeConsultationBanner isScrolled={isScrolled} />
+        )}
       </header>
 
       {/* Subtle backdrop when menu is open */}

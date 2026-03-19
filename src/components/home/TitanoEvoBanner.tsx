@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
@@ -20,7 +21,8 @@ export function TitanoEvoBanner() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="relative w-full pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-0">
+    <Link href="/prodotti/infissi-alluminio?prodotto=Titano+EVO+OC" className="block">
+    <section className="relative w-full pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-0 cursor-pointer">
       {/* Section subtitle + main title — above banner */}
       <div className="text-center mb-8 sm:mb-10 px-6">
         <FadeInView>
@@ -134,5 +136,6 @@ export function TitanoEvoBanner() {
         </div>
       </div>
     </section>
+    </Link>
   );
 }

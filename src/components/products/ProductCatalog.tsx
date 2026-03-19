@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { MACRO_CATEGORIES, ALL_PRODUCTS } from "@/lib/constants";
+import { productCoverImages } from "@/lib/product-images";
 import { cn } from "@/lib/utils";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
@@ -58,16 +60,36 @@ export function ProductCatalog() {
         <div className="absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none sm:hidden" />
       </div>
 
-      {/* Products Grid */}
-      <StaggerContainer key={activeCategory ?? "all"} className="grid grid-cols-2 gap-3 sm:gap-px sm:bg-black/5 bg-transparent sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {/* Products Grid — geometric pattern via chamfered corners + dark gap */}
+      <StaggerContainer
+        key={activeCategory ?? "all"}
+        className="grid grid-cols-2 gap-[6px] sm:gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
         {filtered.map((product) => (
           <StaggerItem key={product.slug} className="h-full">
             <Link
               href={`/prodotti/${product.slug}`}
               className="group flex flex-col h-full bg-white"
+              style={{
+                clipPath: `polygon(
+                  14px 0, calc(100% - 14px) 0,
+                  100% 14px, 100% calc(100% - 14px),
+                  calc(100% - 14px) 100%, 14px 100%,
+                  0 calc(100% - 14px), 0 14px
+                )`,
+              }}
             >
-              <div className="aspect-[4/3] bg-warm-gray/20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black-deep/0 group-hover:bg-black-deep/5 transition-all duration-500" />
+              <div className="aspect-[4/3] relative overflow-hidden bg-warm-gray/20">
+                {productCoverImages[product.slug] ? (
+                  <Image
+                    src={productCoverImages[product.slug]}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                ) : null}
+                <div className="absolute inset-0" />
               </div>
               <div className="p-3 sm:p-6 lg:p-8 flex-1">
                 {product.brand && (

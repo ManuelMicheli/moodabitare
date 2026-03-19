@@ -10,12 +10,24 @@ export interface GalleryImage {
   name: string;
 }
 
+const segmentColor: Record<string, string> = {
+  "Classic": "bg-black-deep/10 text-black-deep/60",
+  "Comfort": "bg-blue-50 text-blue-700",
+  "Design": "bg-amber-50 text-amber-700",
+  "Scorrevoli": "bg-emerald-50 text-emerald-700",
+  "Premium": "bg-bordeaux/10 text-bordeaux",
+  "Top di gamma": "bg-bordeaux/15 text-bordeaux",
+  "Passive House": "bg-green-50 text-green-700",
+  "Sicurezza": "bg-red-50 text-red-700",
+};
+
 interface HorizontalGalleryProps {
   images: GalleryImage[];
   alt: string;
   onImageClick?: (image: GalleryImage) => void;
   gridLayout?: boolean;
   darkBg?: boolean;
+  segments?: Record<string, string>;
 }
 
 function GalleryGrid({
@@ -24,12 +36,14 @@ function GalleryGrid({
   onImageClick,
   isMobile,
   darkBg,
+  segments,
 }: {
   images: GalleryImage[];
   alt: string;
   onImageClick?: (image: GalleryImage) => void;
   isMobile: boolean;
   darkBg?: boolean;
+  segments?: Record<string, string>;
 }) {
   return (
     <section className={isMobile ? "px-4 py-12" : "px-10 lg:px-20 pt-0 pb-16 lg:pb-24"}>
@@ -54,6 +68,11 @@ function GalleryGrid({
               <p className={`${isMobile ? "" : "mt-3"} font-display font-semibold text-center ${isMobile ? "text-sm" : "text-base"} ${darkBg && !isMobile ? "text-white/80" : "text-black-deep/80"}`}>
                 {img.name}
               </p>
+              {segments?.[img.name] && (
+                <span className={`inline-block mt-1.5 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2 py-0.5 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
+                  {segments[img.name]}
+                </span>
+              )}
               {onImageClick && (
                 <span className="mt-1 text-[0.65rem] font-ui font-medium uppercase tracking-wider text-bordeaux/60 block text-center">
                   Scheda tecnica {isMobile && "→"}
@@ -71,10 +90,12 @@ function HorizontalScroll({
   images,
   alt,
   onImageClick,
+  segments,
 }: {
   images: GalleryImage[];
   alt: string;
   onImageClick?: (image: GalleryImage) => void;
+  segments?: Record<string, string>;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -107,6 +128,11 @@ function HorizontalScroll({
               <p className="mt-3 text-base font-display font-semibold text-black-deep/80 text-center">
                 {img.name}
               </p>
+              {segments?.[img.name] && (
+                <span className={`inline-block mt-1.5 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2 py-0.5 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
+                  {segments[img.name]}
+                </span>
+              )}
               {onImageClick && (
                 <span className="mt-1 text-[0.7rem] font-ui font-medium uppercase tracking-wider text-black-deep/0 group-hover/card:text-bordeaux/60 transition-colors duration-300">
                   Scheda tecnica →
@@ -120,12 +146,12 @@ function HorizontalScroll({
   );
 }
 
-export function HorizontalGallery({ images, alt, onImageClick, gridLayout, darkBg }: HorizontalGalleryProps) {
+export function HorizontalGallery({ images, alt, onImageClick, gridLayout, darkBg, segments }: HorizontalGalleryProps) {
   const isMobile = useIsMobile(640);
 
   if (isMobile || gridLayout) {
-    return <GalleryGrid images={images} alt={alt} onImageClick={onImageClick} isMobile={isMobile} darkBg={darkBg} />;
+    return <GalleryGrid images={images} alt={alt} onImageClick={onImageClick} isMobile={isMobile} darkBg={darkBg} segments={segments} />;
   }
 
-  return <HorizontalScroll images={images} alt={alt} onImageClick={onImageClick} />;
+  return <HorizontalScroll images={images} alt={alt} onImageClick={onImageClick} segments={segments} />;
 }
