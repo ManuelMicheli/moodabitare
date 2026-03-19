@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 
 const slides = [
@@ -46,6 +47,7 @@ const REVEAL_CONFIG = {
 };
 
 export function HeroSection() {
+  const isMobile = useIsMobile();
   const [current, setCurrent] = useState(0);
   const [revealingIndex, setRevealingIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -225,7 +227,7 @@ export function HeroSection() {
           {/* Dark overlay for text contrast */}
           <div className="absolute inset-0 bg-black/35" />
           {/* Centered headline + CTA — revealed with the image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-16 sm:px-6 gap-5">
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-16 sm:px-6 gap-5 pb-20 lg:pb-0">
             <Image
               src="/logo/logo-mood-abitare-transparent-opt.png"
               alt="Mood Abitare"
@@ -256,7 +258,7 @@ export function HeroSection() {
       {/* Bottom gradient for CTA readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 via-transparent to-transparent pointer-events-none z-[3]" />
 
-      {/* Navigation arrows */}
+      {/* Navigation arrows — desktop only */}
       <button
         onClick={() => {
           stopAutoplay();
@@ -264,7 +266,7 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide precedente"
-        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer hidden lg:flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
         <svg className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 18l-6-6 6-6" />
@@ -278,20 +280,67 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide successiva"
-        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer hidden lg:flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
         <svg className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
 
-      {/* Counter — bottom right */}
-      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[13px] text-white/60 tracking-widest">
+      {/* Counter — desktop only */}
+      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[13px] text-white/60 tracking-widest hidden lg:block">
         <span className="text-white font-semibold">
           {String(current + 1).padStart(2, "0")}
         </span>
         {" / "}
         {String(slides.length).padStart(2, "0")}
+      </div>
+
+      {/* Mobile bottom bar */}
+      <div
+        className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4 z-20 lg:hidden"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }}
+      >
+        {/* Dot indicators */}
+        <div className="flex gap-1.5">
+          {slides.map((_, i) => (
+            <div
+              key={i}
+              className={`h-[3px] rounded-full transition-all duration-300 ${
+                i === current ? "w-6 bg-white" : "w-4 bg-white/25"
+              }`}
+            />
+          ))}
+        </div>
+        {/* Arrow buttons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => {
+              stopAutoplay();
+              goPrev();
+              startAutoplay();
+            }}
+            aria-label="Slide precedente"
+            className="w-11 h-11 flex items-center justify-center border border-white/30 bg-white/5 text-white"
+          >
+            <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button
+            onClick={() => {
+              stopAutoplay();
+              goNext();
+              startAutoplay();
+            }}
+            aria-label="Slide successiva"
+            className="w-11 h-11 flex items-center justify-center border border-white/30 bg-white/5 text-white"
+          >
+            <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   );
