@@ -22,7 +22,7 @@ const products = [
     image: "/images/wmremove-transformed (69).png",
     href: "/prodotti?categoria=serramenti-oscuranti-portoncini",
     products: 8,
-    className: "col-span-2 lg:col-span-1 lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     from: { x: -120, y: 0 },
   },
   {
@@ -168,7 +168,7 @@ export function ProductBentoGrid() {
         {/* Bento grid — GSAP ScrollTrigger */}
         <div className="relative z-30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:max-w-none lg:px-4">
-            <BentoGrid ref={gridRef} className="grid-cols-2 md:grid-cols-2 lg:grid-cols-3 auto-rows-[14rem] md:auto-rows-[20rem] lg:auto-rows-[22rem] gap-2.5 md:gap-4">
+            <BentoGrid ref={gridRef} className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[18rem] md:auto-rows-[20rem] lg:auto-rows-[22rem]">
               {products.map((product, i) => (
                 <div
                   key={product.name}
@@ -205,7 +205,7 @@ export function ProductBentoGrid() {
                           {product.brands.map((brand) => (
                             <span
                               key={brand}
-                              className="text-[0.75rem] font-ui font-medium uppercase tracking-wider text-white border border-white/20 rounded-full px-2.5 py-0.5"
+                              className="text-[0.6rem] font-ui font-medium uppercase tracking-wider text-white border border-white/20 rounded-full px-2.5 py-0.5"
                             >
                               {brand}
                             </span>

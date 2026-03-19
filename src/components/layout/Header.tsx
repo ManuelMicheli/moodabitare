@@ -255,8 +255,8 @@ export function Header() {
           </div>
         </div>
 
-        {/* Free consultation banner — below nav */}
-        <FreeConsultationBanner isScrolled={isScrolled} />
+        {/* Free consultation banner — below nav, hidden when mobile menu is open */}
+        {!isMobileOpen && <FreeConsultationBanner isScrolled={isScrolled} />}
       </header>
 
       {/* Subtle backdrop when menu is open */}

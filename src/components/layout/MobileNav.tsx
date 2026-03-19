@@ -83,7 +83,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                       )}
                                     >
                                       <span className={cn(
-                                        "text-label font-semibold transition-colors duration-200",
+                                        "text-label font-semibold uppercase transition-colors duration-200",
                                         expandedCategory === cat.id
                                           ? "text-bordeaux"
                                           : "text-bordeaux/60"
@@ -191,7 +191,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                     key={child.href}
                                     href={child.href}
                                     onClick={handleClose}
-                                    className="block py-2 text-caption text-black-deep/60 hover:text-black-deep"
+                                    className="block py-2 text-label uppercase text-bordeaux/70 hover:text-bordeaux"
                                   >
                                     {child.label}
                                   </Link>

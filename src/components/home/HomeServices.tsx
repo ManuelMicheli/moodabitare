@@ -146,11 +146,11 @@ export function HomeServices() {
                       >
                         {service.detail}
                       </p>
-                      <div className="mt-3.5 flex flex-wrap gap-2">
+                      <div className="mt-3.5 flex flex-nowrap gap-2 overflow-x-auto">
                         {service.highlights.map((h) => (
                           <span
                             key={h}
-                            className="inline-block px-3 py-1 rounded-full text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/40 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
+                            className="inline-block flex-shrink-0 px-3 py-1.5 rounded-full text-[0.8rem] font-ui font-semibold tracking-wide uppercase text-black-deep/50 bg-black-deep/[0.06] border border-black-deep/[0.08] group-hover:border-bordeaux/20 group-hover:text-bordeaux/60 group-hover:bg-bordeaux/[0.04] transition-colors duration-500"
                           >
                             {h}
                           </span>
