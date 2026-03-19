@@ -101,7 +101,7 @@ export function RistrutturazioneBanner() {
                     <span className="font-ui text-[0.6rem] tracking-[0.08em] uppercase text-white/70">
                       {s.label}
                     </span>
-                    {i === 0 && <div className="w-px h-3 bg-white/30 ml-4" />}
+                    {i === 0 && <div className="w-px h-4 bg-white/20 ml-4" />}
                   </div>
                 ))}
               </div>
@@ -109,7 +109,7 @@ export function RistrutturazioneBanner() {
               <div className="hidden sm:block w-px h-4 bg-white/30" />
 
               <MagneticButton as="span" strength={0.3}>
-                <span className="inline-flex items-center gap-3 font-ui text-[0.7rem] tracking-[0.1em] uppercase text-white/80 group-hover:text-white transition-colors duration-500">
+                <span className="inline-flex items-center gap-3 font-ui text-[0.75rem] tracking-[0.1em] uppercase text-white/80 group-hover:text-white transition-colors duration-500">
                   Scopri il servizio
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-white/30 group-hover:border-white/60 transition-all duration-500">
                     <svg

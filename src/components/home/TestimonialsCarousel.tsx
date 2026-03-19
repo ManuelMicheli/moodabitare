@@ -114,7 +114,7 @@ export function TestimonialsCarousel() {
             <button
               key={i}
               onClick={() => emblaApi?.scrollTo(i)}
-              className="h-11 flex items-center group"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center group"
               aria-label={`Testimonianza ${i + 1}`}
             >
               <span className="relative block h-px overflow-hidden" style={{ width: i === selectedIndex ? 48 : 24 }}>

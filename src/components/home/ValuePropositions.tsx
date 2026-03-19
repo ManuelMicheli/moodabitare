@@ -29,7 +29,7 @@ export function ValuePropositions() {
           {[...marqueeImages, ...marqueeImages].map((img, i) => (
             <div
               key={i}
-              className="relative flex-shrink-0 h-[50vw] sm:h-[60vh] rounded-sm overflow-hidden bg-warm-gray"
+              className="relative flex-shrink-0 h-[40vw] sm:h-[50vw] rounded-sm overflow-hidden bg-warm-gray"
               style={{ width: "max(55vw, 500px)" }}
             />
 
@@ -63,7 +63,7 @@ export function ValuePropositions() {
               La nostra esperienza in cifre
             </TextRevealByWord>
           </div>
-          <div className="grid grid-cols-2 gap-y-8 gap-x-6">
+          <div className="grid grid-cols-2 gap-y-6 sm:gap-y-8 gap-x-6">
             {VALUE_PROPOSITIONS.map((item, i) => (
               <motion.div
                 key={i}

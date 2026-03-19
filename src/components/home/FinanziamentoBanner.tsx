@@ -6,15 +6,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { MagneticButton } from "@/components/animations/MagneticButton";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export function FinanziamentoBanner() {
   const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["-15%", "15%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] as number[] : [1.05, 1] as number[]);
 
   return (
     <section ref={ref} className="relative bg-black-deep overflow-hidden">
@@ -77,7 +79,7 @@ export function FinanziamentoBanner() {
 
             {/* Arrow CTA */}
             <MagneticButton as="span" strength={0.5}>
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-cream/50 group-hover:border-cream transition-all duration-300 mt-2">
+              <span className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-cream/50 group-hover:border-cream transition-all duration-300 mt-2">
                 <svg
                   width="16"
                   height="16"

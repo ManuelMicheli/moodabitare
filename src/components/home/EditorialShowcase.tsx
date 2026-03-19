@@ -56,7 +56,7 @@ function ParallaxImage({
     <FadeInView delay={delay} className={className}>
       <div
         ref={containerRef}
-        className="relative h-full min-h-[220px] overflow-hidden bg-warm-gray"
+        className="relative h-full min-h-[260px] overflow-hidden bg-warm-gray"
       >
         <div
           ref={imgRef}
@@ -200,7 +200,7 @@ function GsapSlideBlock({
 
 export function EditorialShowcase() {
   return (
-    <section className="py-0">
+    <section className="py-0 pb-4 sm:pb-0">
       {/* Row 1: Image (4) | Text (4) | Image (4) */}
       <div className="grid grid-cols-1 md:grid-cols-12">
         {/* R1 — Photo left — GSAP da sinistra */}

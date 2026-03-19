@@ -109,7 +109,7 @@ export function HomeServices() {
                 {/* Bordeaux accent line — slides in on hover */}
                 <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-bordeaux origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
 
-                <div className="py-7 sm:py-8 lg:py-10 lg:pl-6 group-hover:lg:pl-8 transition-all duration-500 ease-out">
+                <div className="py-8 lg:py-10 lg:pl-6 group-hover:lg:pl-8 transition-all duration-500 ease-out">
                   {/* Desktop: number | title | description + highlights */}
                   <div className="grid grid-cols-1 lg:grid-cols-[3.5rem_1fr_1.4fr] gap-4 lg:gap-8 items-start">
                     {/* Number */}
@@ -150,7 +150,7 @@ export function HomeServices() {
                         {service.highlights.map((h) => (
                           <span
                             key={h}
-                            className="inline-block px-3 py-1 rounded-full text-[0.7rem] font-ui font-medium tracking-wide uppercase text-black-deep/40 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
+                            className="inline-block px-3 py-1 rounded-full text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/40 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
                           >
                             {h}
                           </span>
