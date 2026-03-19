@@ -520,7 +520,7 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+      <section className={`relative flex items-end bg-black-deep text-white overflow-hidden ${slug === "infissi-alluminio" ? "min-h-screen" : "min-h-[70vh]"}`}>
         {heroImage && (
           <Image
             src={heroImage}

@@ -64,7 +64,7 @@ function GalleryGrid({
                 sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 18vw"}
               />
             </div>
-            <div className={isMobile ? "p-3 w-full" : ""}>
+            <div className={isMobile ? "p-3 w-full text-center" : ""}>
               <p className={`${isMobile ? "" : "mt-3"} font-display font-semibold text-center ${isMobile ? "text-sm" : "text-base"} ${darkBg && !isMobile ? "text-white/80" : "text-black-deep/80"}`}>
                 {img.name}
               </p>
