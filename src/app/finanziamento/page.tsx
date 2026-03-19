@@ -40,7 +40,7 @@ export default function Finanziamento() {
         >
           <span
             className="font-display font-bold text-white/[0.03] leading-none block"
-            style={{ fontSize: "clamp(20rem, 40vw, 55rem)" }}
+            style={{ fontSize: "clamp(12rem, 40vw, 55rem)" }}
           >
             0%
           </span>
@@ -87,7 +87,7 @@ export default function Finanziamento() {
                   >
                     {stat.value}
                   </span>
-                  <span className="text-label text-black-deep/30 mt-3 block text-[0.7rem]">
+                  <span className="text-label text-black-deep/30 mt-3 block text-[0.75rem]">
                     {stat.label}
                   </span>
                 </div>
@@ -167,7 +167,7 @@ export default function Finanziamento() {
                     >
                       {item.value}
                     </span>
-                    <span className="text-label text-black-deep/40 mt-4 block text-[0.7rem]">
+                    <span className="text-label text-black-deep/40 mt-4 block text-[0.75rem]">
                       {item.label}
                     </span>
                     <p className="mt-2 font-ui text-[0.8rem] text-black-deep/30">
@@ -237,7 +237,7 @@ export default function Finanziamento() {
                   ].map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block px-4 py-1.5 text-[0.7rem] font-ui font-medium tracking-wide uppercase text-black-deep/35 border border-black-deep/10"
+                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/35 border border-black-deep/10"
                     >
                       {tag}
                     </span>

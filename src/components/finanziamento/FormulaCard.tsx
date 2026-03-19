@@ -12,7 +12,7 @@ export function FormulaCard() {
       {/* 50% you pay */}
       <div className="p-8 lg:p-10">
         <div className="flex items-baseline justify-between mb-4">
-          <span className="text-label text-black-deep/30 text-[0.7rem]">
+          <span className="text-label text-black-deep/30 text-[0.75rem]">
             Paghi subito
           </span>
           <CountUp value={50} suffix="%" isInView={isInView} />
@@ -23,7 +23,7 @@ export function FormulaCard() {
       {/* 50% financed */}
       <div className="p-8 lg:p-10">
         <div className="flex items-baseline justify-between mb-4">
-          <span className="text-label text-black-deep/30 text-[0.7rem]">
+          <span className="text-label text-black-deep/30 text-[0.75rem]">
             Finanziato a tasso 0
           </span>
           <CountUp value={50} suffix="%" isInView={isInView} delay={0.3} />

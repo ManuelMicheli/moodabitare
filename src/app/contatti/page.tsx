@@ -86,16 +86,16 @@ export default function Contatti() {
                 </div>
                 <div>
                   <p className="text-label text-black-deep/25 mb-2">Telefono</p>
-                  <a href={CONTACT_INFO.phoneHref} className="text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.phone}</a>
+                  <a href={CONTACT_INFO.phoneHref} className="inline-block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.phone}</a>
                 </div>
                 <div>
                   <p className="text-label text-black-deep/25 mb-2">WhatsApp</p>
-                  <a href={CONTACT_INFO.whatsappHref} target="_blank" rel="noopener noreferrer" className="text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.whatsapp}</a>
+                  <a href={CONTACT_INFO.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.whatsapp}</a>
                 </div>
                 <div>
                   <p className="text-label text-black-deep/25 mb-2">Email</p>
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="block text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.email}</a>
-                  <a href={`mailto:${CONTACT_INFO.emailCommerciale}`} className="block text-caption text-black-deep/50 hover:text-black-deep transition-colors mt-1">{CONTACT_INFO.emailCommerciale}</a>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.email}</a>
+                  <a href={`mailto:${CONTACT_INFO.emailCommerciale}`} className="block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.emailCommerciale}</a>
                 </div>
                 <div className="pt-6 border-t border-black/5">
                   <p className="text-label text-black-deep/25 mb-2">Orari</p>

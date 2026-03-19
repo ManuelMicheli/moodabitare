@@ -118,7 +118,7 @@ export default function PremiumPartner() {
                     <div className="font-display text-[clamp(1.5rem,2.5vw,2rem)] font-bold text-white leading-none">
                       {item.value}
                     </div>
-                    <div className="mt-3 h-px w-8 bg-white/20 ml-auto" />
+                    <div className="mt-3 h-px w-10 bg-white/30 ml-auto" />
                     <p className="mt-3 text-caption text-white/50">
                       {item.label}
                     </p>

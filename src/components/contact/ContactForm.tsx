@@ -135,8 +135,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" {...register("privacy")} className="mt-0.5 h-5 w-5 accent-black" />
+        <label className="flex items-center gap-3 min-h-[44px] cursor-pointer">
+          <input type="checkbox" {...register("privacy")} className="h-5 w-5 accent-black" />
           <span className={cn("text-caption text-black-deep/35", errors.privacy && "text-red-400")}>
             Dichiaro di aver letto l&apos;informativa sulla{" "}
             <a href="/privacy-policy" className="text-black-deep/60 underline" target="_blank" rel="noopener noreferrer">privacy</a>{" "}
