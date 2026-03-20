@@ -60,3 +60,4 @@ next-env.d.ts
 
 # Videos hosted on Cloudflare R2
 public/videos/
+.wrangler/
