@@ -12,7 +12,7 @@ interface Slide {
   ctaText: string;
   ctaLink: string;
   image: string;
-  video?: string;
+  video?: { desktop: string; mobile: string };
 }
 
 const slides: Slide[] = [
@@ -22,7 +22,10 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "",
-    video: `${R2_CDN}/videos/0320(3).mp4`,
+    video: {
+      desktop: `${R2_CDN}/videos/0320(3)-desktop.mp4`,
+      mobile: `${R2_CDN}/videos/0320(3)-mobile.mp4`,
+    },
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
@@ -30,7 +33,10 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
-    video: `${R2_CDN}/videos/IMG_7923.mp4`,
+    video: {
+      desktop: `${R2_CDN}/videos/IMG_7923-desktop.mp4`,
+      mobile: `${R2_CDN}/videos/IMG_7923-mobile.mp4`,
+    },
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
@@ -78,6 +84,7 @@ const REVEAL_CONFIG = {
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [revealingIndex, setRevealingIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const [loadedVideos, setLoadedVideos] = useState<Set<number>>(() => {
     // Preload both hero video slides immediately (they download during SiteLoader)
     const initial = new Set<number>();
@@ -90,6 +97,11 @@ export function HeroSection() {
   const isAnimatingRef = useRef(false);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const videoRefsMap = useRef<Map<number, HTMLVideoElement>>(new Map());
+
+  // Detect mobile once on mount
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   // ---------------------------------------------------------------------------
   // Circle reveal transition
@@ -322,7 +334,7 @@ export function HeroSection() {
           {slide.video ? (
             <video
               ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
-              src={loadedVideos.has(i) ? slide.video : undefined}
+              src={loadedVideos.has(i) ? (isMobile ? slide.video.mobile : slide.video.desktop) : undefined}
               muted
               playsInline
               preload="auto"
@@ -339,30 +351,35 @@ export function HeroSection() {
             />
           )}
           {/* Dark overlay for text contrast */}
-          <div className="absolute inset-0 bg-black/35" />
-          {/* Centered headline + CTA — revealed with the image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-10 lg:px-16 gap-4 sm:gap-5">
-            <Image
-              src="/logo/logo-mood-abitare-transparent-opt.png"
-              alt="Mood Abitare"
-              width={200}
-              height={50}
-              className="w-auto h-10 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
-            />
-            <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(1.15rem,4vw,3rem)] leading-[1.1]">
-              {slide.headline.split("\n").map((line, li) => (
-                <span key={`${i}-${li}`} className="block">{line}</span>
-              ))}
-            </h2>
-            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(0.75rem,1.2vw,1.4rem)] leading-relaxed px-2">
-              {slide.subheadline}
-            </p>
-            <Link
-              href={slide.ctaLink}
-              className="mt-2 sm:mt-4 text-button inline-block bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/85 transition-colors"
-            >
-              {slide.ctaText}
-            </Link>
+          <div className="absolute inset-0 bg-black/20" />
+
+          {/* Logo + titolo in alto, sottotitolo + CTA in basso */}
+          <div className="absolute inset-0 flex flex-col justify-between px-6 sm:px-10 lg:px-16 pt-16 sm:pt-18 lg:pt-20 pb-16 sm:pb-20 lg:pb-24">
+            <div className="flex flex-col items-center gap-3 sm:gap-4">
+              <Image
+                src="/logo/logo-mood-abitare-transparent-opt.png"
+                alt="Mood Abitare"
+                width={200}
+                height={50}
+                className="w-auto h-8 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
+              />
+              <h2 className="font-hero text-white text-center drop-shadow-lg text-[1rem] sm:text-[clamp(1.5rem,4vw,3rem)] leading-[1.1]">
+                {slide.headline.split("\n").map((line, li) => (
+                  <span key={`${i}-${li}`} className="block">{line}</span>
+                ))}
+              </h2>
+            </div>
+            <div className="flex flex-col items-center gap-3 sm:gap-4">
+              <p className="font-body text-white text-center max-w-sm sm:max-w-2xl drop-shadow-md text-[0.8rem] sm:text-[clamp(0.9rem,1.2vw,1.4rem)] leading-relaxed">
+                {slide.subheadline}
+              </p>
+              <Link
+                href={slide.ctaLink}
+                className="text-button inline-block bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/85 transition-colors"
+              >
+                {slide.ctaText}
+              </Link>
+            </div>
           </div>
         </div>
       ))}
