@@ -9,36 +9,52 @@ interface LazyVideoProps {
 
 export function LazyVideo({ src, className }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
+    // Phase 1: start loading the video when within 600px of viewport
+    const preloadObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setShouldLoad(true);
+          preloadObserver.disconnect();
+        }
+      },
+      { rootMargin: "600px" }
+    );
+
+    // Phase 2: play/pause based on actual visibility
+    const playObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
           el.play().catch(() => {});
         } else {
           el.pause();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "50px" }
     );
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    preloadObserver.observe(el);
+    playObserver.observe(el);
+
+    return () => {
+      preloadObserver.disconnect();
+      playObserver.disconnect();
+    };
   }, []);
 
   return (
     <video
       ref={ref}
-      src={isVisible ? src : undefined}
+      src={shouldLoad ? src : undefined}
       muted
       loop
       playsInline
-      preload="none"
+      preload={shouldLoad ? "auto" : "none"}
       className={className}
     />
   );
