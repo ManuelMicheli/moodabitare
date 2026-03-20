@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, R2_CDN } from "@/lib/constants";
 import { LazyVideo } from "@/components/showroom/LazyVideo";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function ShowroomPage() {
       {/* ─── Hero — video 75% + testo ─────────────────────────────── */}
       <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
         <video
-          src="/videos/showroom-hero.mp4"
+          src={`${R2_CDN}/videos/showroom-hero.mp4`}
           autoPlay
           muted
           loop
@@ -35,8 +35,8 @@ export default function ShowroomPage() {
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black-deep/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-black-deep/20 to-transparent" />
+        <div className="absolute inset-0 bg-black-deep/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 via-black-deep/10 to-transparent" />
 
         <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
           <FadeInView delay={0.3}>
@@ -75,7 +75,7 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <LazyVideo src="/videos/0320.mp4" className="absolute inset-0 w-full h-full object-cover" />
+                <LazyVideo src={`${R2_CDN}/videos/0320.mp4`} className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </FadeInView>
             <FadeInView delay={0.16}>
@@ -90,11 +90,13 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <LazyVideo src="/videos/0320(2).mp4" className="absolute inset-0 w-full h-full object-cover" />
+                <LazyVideo src={`${R2_CDN}/videos/0320(2).mp4`} className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </FadeInView>
             <FadeInView delay={0.24}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <Image src="/images/wmremove-transformed (24).webp" alt="Showroom Mood Abitare — esposizione porte" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+              </div>
             </FadeInView>
             <FadeInView delay={0}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">

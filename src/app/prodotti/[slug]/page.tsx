@@ -6,7 +6,7 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
 import { HorizontalGallery } from "@/components/products/HorizontalGallery";
 import { GalleryWithSheet } from "@/components/products/GalleryWithSheet";
-import { ALL_PRODUCTS, MACRO_CATEGORIES } from "@/lib/constants";
+import { ALL_PRODUCTS, MACRO_CATEGORIES, R2_CDN } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
 import { sheetMap } from "@/lib/sheet-map";
 import { productGalleryImages } from "@/lib/product-gallery-images";
@@ -21,7 +21,7 @@ const heroImages: Record<string, string> = {
 };
 
 const heroVideos: Record<string, string> = {
-  "infissi-alluminio-legno": "/videos/IMG_7923.mp4",
+  "infissi-alluminio-legno": `${R2_CDN}/videos/IMG_7923.mp4`,
 };
 
 

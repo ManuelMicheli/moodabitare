@@ -16,12 +16,12 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value: [
-      "default-src 'self'",
+      "default-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.botpress.cloud https://files.bpcontent.cloud",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com https://cdn.botpress.cloud https://files.bpcontent.cloud",
       "font-src 'self' https://cdn.botpress.cloud",
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://*.sanity.io https://*.botpress.cloud https://*.bpcontent.cloud",
+      "connect-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://*.sanity.io https://*.botpress.cloud https://*.bpcontent.cloud",
       "frame-src https://cdn.botpress.cloud",
       "object-src 'none'",
       "base-uri 'self'",

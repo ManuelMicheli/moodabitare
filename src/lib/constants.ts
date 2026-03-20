@@ -1,3 +1,6 @@
+/** Cloudflare R2 CDN base URL for video assets */
+export const R2_CDN = "https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev";
+
 export const SITE_CONFIG = {
   name: "Mood Abitare",
   company: "Mood Abitare",

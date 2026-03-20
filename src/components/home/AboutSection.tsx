@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
+import { R2_CDN } from "@/lib/constants";
 import { AccentText } from "@/components/ui/AccentText";
 import { LinkPreview } from "@/components/ui/LinkPreview";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -267,7 +268,7 @@ export function AboutSection() {
           <div className="flex-1 h-full rounded-sm bg-warm-gray" />
           <div className="flex-shrink-0 relative rounded-sm overflow-hidden aspect-[9/16] self-center" style={{ height: "min(100%, 80vh)" }}>
             <video
-              src="/videos/1nuovo.mp4"
+              src={`${R2_CDN}/videos/1nuovo.mp4`}
               autoPlay
               muted
               loop

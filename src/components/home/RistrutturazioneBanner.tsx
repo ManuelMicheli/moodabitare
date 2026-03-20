@@ -2,32 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MagneticButton } from "@/components/animations/MagneticButton";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
 export function RistrutturazioneBanner() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["-15%", "15%"]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] as number[] : [1.05, 1] as number[]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden">
+    <section ref={ref} className="relative bg-black-deep overflow-hidden">
+      <motion.div
+        className="absolute inset-0 h-[130%] -top-[15%]"
+        style={{ y, scale: imgScale }}
+      >
+        <Image
+          src="/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.webp"
+          alt="Ambiente ristrutturato con serramenti moderni"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={90}
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-black-deep/55" />
       <Link href="/servizi-ristrutturazione" className="group block">
-        <div className="relative bg-black-deep">
-          {/* Background image */}
-          <Image
-            src="/images/ristrutturazione-hero.jpg"
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority={false}
-            quality={90}
-          />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black-deep/40" />
 
           <div className="relative z-10 px-6 sm:px-10 lg:px-20 py-12 sm:py-14 lg:py-16">
             {/* Top — label */}
@@ -59,7 +68,7 @@ export function RistrutturazioneBanner() {
               </div>
               <div className="overflow-hidden">
                 <motion.h3
-                  className="font-display font-bold text-bordeaux leading-[0.93] tracking-[-0.02em]"
+                  className="font-display font-bold text-white leading-[0.93] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(2rem, 1.4rem + 3vw, 3.8rem)" }}
                   initial={{ y: "110%" }}
                   animate={isInView ? { y: 0 } : {}}
@@ -90,20 +99,14 @@ export function RistrutturazioneBanner() {
               transition={{ duration: 0.5, delay: 0.55, ease }}
             >
               <div className="flex items-center gap-6">
-                {[
-                  { value: "30+", label: "anni" },
-                  { value: "50%", label: "detrazioni" },
-                ].map((s, i) => (
-                  <div key={s.label} className="flex items-baseline gap-1.5">
-                    <span className="font-display text-base font-bold text-white">
-                      {s.value}
-                    </span>
-                    <span className="font-ui text-[0.75rem] tracking-[0.08em] uppercase text-white/70">
-                      {s.label}
-                    </span>
-                    {i === 0 && <div className="w-px h-4 bg-white/20 ml-4" />}
-                  </div>
-                ))}
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-display text-base font-bold text-white">
+                    50%
+                  </span>
+                  <span className="font-ui text-[0.75rem] tracking-[0.08em] uppercase text-white/70">
+                    detrazioni
+                  </span>
+                </div>
               </div>
 
               <div className="hidden sm:block w-px h-4 bg-white/30" />
@@ -132,7 +135,6 @@ export function RistrutturazioneBanner() {
               </MagneticButton>
             </motion.div>
           </div>
-        </div>
       </Link>
     </section>
   );

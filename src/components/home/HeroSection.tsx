@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { R2_CDN } from "@/lib/constants";
 
 interface Slide {
   headline: string;
@@ -21,7 +22,7 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "",
-    video: "/videos/0320(3).mp4",
+    video: `${R2_CDN}/videos/0320(3).mp4`,
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
@@ -29,7 +30,7 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
-    video: "/videos/IMG_7923.mp4",
+    video: `${R2_CDN}/videos/IMG_7923.mp4`,
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
