@@ -185,7 +185,7 @@ export function HeroSection() {
       const videoEl = videoRefsMap.current.get(current);
       if (videoEl) {
         videoEl.currentTime = 0;
-        videoEl.play();
+        videoEl.play().catch(() => {});
         const onEnded = () => {
           videoEl.removeEventListener("ended", onEnded);
           goNext();
@@ -229,7 +229,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-svh flex items-end overflow-hidden bg-black-deep"
+      className="relative h-[75svh] flex items-end overflow-hidden bg-black-deep"
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
     >
@@ -264,7 +264,7 @@ export function HeroSection() {
           {/* Dark overlay for text contrast */}
           <div className="absolute inset-0 bg-black/35" />
           {/* Centered headline + CTA — revealed with the image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 sm:px-10 lg:px-16 gap-4 sm:gap-5">
+          <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-10 lg:px-16 gap-4 sm:gap-5">
             <Image
               src="/logo/logo-mood-abitare-transparent-opt.png"
               alt="Mood Abitare"

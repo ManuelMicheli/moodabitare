@@ -110,6 +110,15 @@ export default function ShowroomPage() {
                 <Image src="/images/wmremove-transformed (25).png" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
+            <FadeInView delay={0}>
+              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            </FadeInView>
+            <FadeInView delay={0.08}>
+              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            </FadeInView>
+            <FadeInView delay={0.16}>
+              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            </FadeInView>
           </div>
         </div>
       </section>
