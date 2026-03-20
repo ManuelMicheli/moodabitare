@@ -25,8 +25,7 @@ export function ValuePropositions() {
           {[...marqueeImages, ...marqueeImages].map((img, i) => (
             <div
               key={i}
-              className="relative flex-shrink-0 h-[40vw] sm:h-[50vw] rounded-sm overflow-hidden bg-warm-gray"
-              style={{ width: "max(55vw, 500px)" }}
+              className="relative flex-shrink-0 h-[70vw] sm:h-[40vw] rounded-sm overflow-hidden bg-warm-gray w-[85vw] sm:w-[55vw]"
             >
               <Image
                 src={img.src}

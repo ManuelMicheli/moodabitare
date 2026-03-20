@@ -81,7 +81,6 @@ export const MACRO_CATEGORIES: MacroCategory[] = [
     label: "Sistemi di Sicurezza",
     products: [
       { slug: "grate-sicurezza", name: "Grate di Sicurezza", brand: "Erreci", macroCategoryId: "sistemi-sicurezza" },
-      { slug: "porte-blindate", name: "Porte Blindate", brand: "Alias / Erreci", macroCategoryId: "sistemi-sicurezza" },
       { slug: "persiane-blindate", name: "Persiane Blindate", brand: "Erreci / Ecomet", macroCategoryId: "sistemi-sicurezza" },
       { slug: "allarme-videosorveglianza", name: "Sistemi di Allarme e Videosorveglianza", brand: "Inim", macroCategoryId: "sistemi-sicurezza" },
     ],

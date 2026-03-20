@@ -39,7 +39,7 @@ const products = [
     name: "Riscaldamento & Energie",
     brands: ["Haier", "Samsung", "Ariston"],
     description: "Climatizzatori, pompe di calore, caldaie e fotovoltaico.",
-    image: "/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg",
+    image: "/moodabitarereal/climatizzatore-samsung.png",
     href: "/prodotti?categoria=riscaldamento-energie-rinnovabili",
     products: 6,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
@@ -51,7 +51,7 @@ const products = [
     description: "Grate, persiane blindate, allarmi e videosorveglianza.",
     image: "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
     href: "/prodotti?categoria=sistemi-sicurezza",
-    products: 4,
+    products: 3,
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
     from: { x: 120, y: 0 },
   },
@@ -59,7 +59,7 @@ const products = [
     name: "Porte Interne & Blindate",
     brands: ["Pail", "Alias", "Erreci"],
     description: "Design made in Italy e sicurezza certificata.",
-    image: "/images/Home-bertolotto-opt.jpg",
+    image: "/moodabitarereal/porte-interne-blindate.png",
     href: "/prodotti?categoria=porte-interne-blindate",
     products: 2,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
@@ -69,7 +69,7 @@ const products = [
     name: "Outdoor",
     brands: ["Tendarredo", "Mc Slide", "Persit"],
     description: "Pergole, tende da sole, vetrate panoramiche e piscine.",
-    image: "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg",
+    image: "/moodabitarereal/outdoor-pergola.png",
     href: "/prodotti?categoria=outdoor",
     products: 7,
     className: "lg:col-start-1 lg:col-end-3 lg:row-start-3 lg:row-end-4",
@@ -79,7 +79,7 @@ const products = [
     name: "Comfort & Complementi",
     brands: ["Bettio", "Sharknet", "Grifoflex", "Sinfonia"],
     description: "Zanzariere, tende tecniche, scale e ringhiere.",
-    image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg",
+    image: "/moodabitarereal/comfort-complementi.jfif",
     href: "/prodotti?categoria=comfort-complementi",
     products: 3,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
@@ -182,13 +182,30 @@ export function ProductBentoGrid() {
                     href={product.href}
                     className="group relative flex flex-col justify-end overflow-hidden rounded-xl h-full bg-black-soft"
                   >
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
+                    {"images" in product && product.images ? (
+                      <div className="absolute inset-0 grid grid-cols-3 h-full">
+                        {product.images.map((src, j) => (
+                          <div key={j} className="relative h-full">
+                            <Image
+                              src={src}
+                              alt={`${product.name} ${j + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 33vw, 11vw"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : product.image ? (
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : null}
+                    <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
                     <div className="pointer-events-none relative z-10 flex flex-col justify-end h-full p-5 sm:p-6">
                       <span className="text-label text-white/50 mb-1">

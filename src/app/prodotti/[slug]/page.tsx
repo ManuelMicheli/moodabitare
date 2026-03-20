@@ -16,6 +16,7 @@ const heroImages: Record<string, string> = {
   "infissi-alluminio": "/prodotti/wmremove-transformed (1).png",
   "infissi-alluminio-legno": "/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.png",
   "infissi-pvc": "/images/wmremove-transformed (69).png",
+  "cucine-su-misura": "/images/Hero cucina.jpg",
 };
 
 
@@ -454,7 +455,7 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+      <section className={`relative flex items-end bg-black-deep text-white overflow-hidden ${heroImage === "/images/Hero cucina.jpg" ? "min-h-[50vh]" : "min-h-[70vh]"}`}>
         {heroImage && (
           <Image
             src={heroImage}
@@ -463,6 +464,7 @@ export default async function ProductPage({ params }: Props) {
             className="object-cover object-center"
             priority
             sizes="100vw"
+            quality={95}
           />
         )}
         {slug === "infissi-alluminio" && (
