@@ -184,7 +184,7 @@ export function ProductBentoGrid() {
                   >
                     {"images" in product && product.images ? (
                       <div className="absolute inset-0 grid grid-cols-3 h-full">
-                        {product.images.map((src, j) => (
+                        {(product.images as string[]).map((src, j) => (
                           <div key={j} className="relative h-full">
                             <Image
                               src={src}
