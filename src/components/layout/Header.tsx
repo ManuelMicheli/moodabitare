@@ -211,7 +211,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "hidden lg:inline-flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-300",
+                "inline-flex items-center justify-center w-9 h-9 lg:w-10 lg:h-10 rounded-full border transition-all duration-300",
                 isScrolled
                   ? "border-black-deep/15 text-black-deep hover:bg-[#25D366] hover:border-[#25D366] hover:text-white"
                   : "border-white/20 text-white hover:bg-white hover:text-black-deep"
@@ -260,9 +260,8 @@ export function Header() {
           </div>
         </div>
 
-        {/* Free consultation banner — below nav, hidden when mobile menu is open */}
-        {/* On home: always visible. On other pages: only after scrolling past hero */}
-        {!isMobileOpen && (isHomePage || isScrolled) && (
+        {/* Free consultation banner — only visible when header is sticky (scrolled) */}
+        {!isMobileOpen && isScrolled && (
           <FreeConsultationBanner isScrolled={isScrolled} />
         )}
       </header>

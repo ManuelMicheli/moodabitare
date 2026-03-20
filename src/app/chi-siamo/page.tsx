@@ -78,12 +78,34 @@ export default function ChiSiamo() {
   return (
     <main>
       {/* ─── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-start bg-black-deep text-white overflow-hidden">
+      {/* Mobile: immagine + titolo sotto su sfondo crema */}
+      <div className="sm:hidden">
+        <div className="relative w-full aspect-[4/3] overflow-hidden">
+          <Image
+            src="/moodabitarereal/showroom-esterno-hq.jpg"
+            alt="Showroom Mood Abitare"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        <div className="bg-cream px-6 py-8 text-center">
+          <FadeInView delay={0.3}>
+            <h1 className="font-page-title text-black-deep">
+              Mood Abitare — Benvenuti a casa vostra
+            </h1>
+          </FadeInView>
+        </div>
+      </div>
+
+      {/* Desktop: hero classico con titolo sovrapposto */}
+      <section className="hidden sm:flex relative min-h-[75vh] items-start bg-black-deep text-white overflow-hidden">
         <Image
           src="/moodabitarereal/showroom-esterno-hq.jpg"
           alt="Showroom Mood Abitare"
           fill
-          className="object-contain sm:object-cover object-top"
+          className="object-cover object-top"
           priority
           sizes="100vw"
         />

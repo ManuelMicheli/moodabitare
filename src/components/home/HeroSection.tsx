@@ -317,7 +317,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-svh sm:h-[80svh] flex items-end overflow-hidden bg-black-deep"
+      className="relative h-[calc(100svh-3rem)] sm:h-[80svh] flex items-end overflow-hidden bg-black-deep"
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
     >
@@ -354,7 +354,7 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-black/20" />
 
           {/* Logo + titolo in alto, sottotitolo + CTA in basso */}
-          <div className="absolute inset-0 flex flex-col justify-between px-6 sm:px-10 lg:px-16 pt-16 sm:pt-18 lg:pt-20 pb-16 sm:pb-20 lg:pb-24">
+          <div className="absolute inset-0 flex flex-col justify-between px-6 sm:px-10 lg:px-16 pt-16 sm:pt-18 lg:pt-20 pb-4 sm:pb-6 lg:pb-8">
             <div className="flex flex-col items-center gap-3 sm:gap-4">
               <Image
                 src="/logo/logo-mood-abitare-transparent-opt.png"
@@ -375,7 +375,7 @@ export function HeroSection() {
               </p>
               <Link
                 href={slide.ctaLink}
-                className="text-button inline-block bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/85 transition-colors"
+                className="text-button inline-block bg-bordeaux text-white px-6 py-3 sm:px-8 sm:py-4 hover:bg-bordeaux-dark transition-colors"
               >
                 {slide.ctaText}
               </Link>
@@ -385,9 +385,9 @@ export function HeroSection() {
       ))}
 
       {/* Top gradient for navbar readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black-deep/40 via-transparent to-transparent pointer-events-none z-[3]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black-deep/25 via-transparent to-transparent pointer-events-none z-[3]" />
       {/* Bottom gradient for CTA readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 via-transparent to-transparent pointer-events-none z-[3]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black-deep/35 via-transparent to-transparent pointer-events-none z-[3]" />
 
       {/* Navigation arrows — desktop only */}
       <button

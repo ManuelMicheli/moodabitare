@@ -41,10 +41,10 @@ export default function ShowroomPage() {
         <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
           <FadeInView delay={0.3}>
             <p className="text-label text-white/50 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
-            <h1 className="font-page-title text-white text-[clamp(1.2rem,0.8rem+3vw,4.5rem)]">
+            <h1 className="font-page-title text-white text-[1rem] sm:text-[clamp(1.5rem,1rem+3vw,4.5rem)]">
               Showroom Mood Abitare
             </h1>
-            <p className="mt-3 sm:mt-4 font-display text-white/70 text-[0.85rem] sm:text-base lg:text-lg max-w-2xl">
+            <p className="mt-3 sm:mt-4 font-display text-white/70 text-[0.75rem] sm:text-base lg:text-lg max-w-2xl">
               300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine, arredo e soluzioni per tutta la casa da toccare con mano.
             </p>
             <Link
@@ -85,30 +85,30 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/b3309c72-5391-4152-a8c9-43b7b16036df.webp" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <LazyVideo src={`${R2_CDN}/videos/0320(2).mp4`} className="absolute inset-0 w-full h-full object-cover" />
-              </div>
+              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
             </FadeInView>
             <FadeInView delay={0.24}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (24).webp" alt="Showroom Mood Abitare — esposizione porte" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/images/wmremove-transformed (25).webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/images/b3309c72-5391-4152-a8c9-43b7b16036df.webp" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <LazyVideo src={`${R2_CDN}/videos/0320(2).mp4`} className="absolute inset-0 w-full h-full object-cover" />
+              </div>
             </FadeInView>
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (25).webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/images/wmremove-transformed (24).webp" alt="Showroom Mood Abitare — esposizione porte" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0}>

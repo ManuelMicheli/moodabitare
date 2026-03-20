@@ -21,9 +21,9 @@ export function FreeConsultationBanner({ isScrolled }: FreeConsultationBannerPro
           : "bg-gradient-to-r from-transparent via-white/20 to-transparent"
       )} />
 
-      {/* Mobile: tappable link */}
+      {/* Mobile: hidden to avoid cluttering hero */}
       <Link href="/contatti" className={cn(
-        "md:hidden flex items-center justify-center gap-3 px-6 py-2.5 transition-colors duration-500",
+        "hidden md:hidden items-center justify-center gap-3 px-6 py-2.5 transition-colors duration-500",
         isScrolled ? "text-black-deep" : "text-white/70"
       )}>
         <span className={cn(
