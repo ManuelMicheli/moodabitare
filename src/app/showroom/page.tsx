@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { CONTACT_INFO } from "@/lib/constants";
+import { LazyVideo } from "@/components/showroom/LazyVideo";
 
 export const metadata: Metadata = {
   title: "Showroom — 300mq di Esposizione a Gorla Maggiore",
@@ -26,11 +27,12 @@ export default function ShowroomPage() {
       {/* ─── Hero — video 75% + testo ─────────────────────────────── */}
       <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
         <video
-          src="/videos/0320(8).mp4"
+          src="/videos/showroom-hero.mp4"
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black-deep/25" />
@@ -68,50 +70,49 @@ export default function ShowroomPage() {
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
             <FadeInView delay={0}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/moodabitarereal/cucina-showroom.png" alt="Cucina moderna nello showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/moodabitarereal/cucina-showroom.webp" alt="Cucina moderna nello showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <video
-                  src="/videos/0320.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <LazyVideo src="/videos/0320.mp4" className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </FadeInView>
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/moodabitarereal/showroom-interno.png" alt="Interno showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/moodabitarereal/showroom-interno.webp" alt="Interno showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (26).png" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/images/b3309c72-5391-4152-a8c9-43b7b16036df.webp" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <video
-                  src="/videos/0320(2).mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <LazyVideo src="/videos/0320(2).mp4" className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </FadeInView>
             <FadeInView delay={0.24}>
+              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            </FadeInView>
+            <FadeInView delay={0}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (25).png" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+              </div>
+            </FadeInView>
+            <FadeInView delay={0.08}>
+              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            </FadeInView>
+            <FadeInView delay={0.16}>
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <Image src="/images/wmremove-transformed (25).webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <Image src="/images/wmremove-transformed (27).webp" alt="Showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+              </div>
             </FadeInView>
             <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />

@@ -60,8 +60,8 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 };
 
 const CATEGORY_PREVIEWS: Record<string, { src: string; alt: string }> = {
-  "serramenti-oscuranti-portoncini": { src: "/images/wmremove-transformed (69).png", alt: "Serramenti e infissi" },
-  "porte-interne-blindate": { src: "/moodabitarereal/porte-navbar.png", alt: "Porte interne e blindate" },
+  "serramenti-oscuranti-portoncini": { src: "/images/wmremove-transformed (69).webp", alt: "Serramenti e infissi" },
+  "porte-interne-blindate": { src: "/moodabitarereal/porte-navbar.webp", alt: "Porte interne e blindate" },
   "sistemi-sicurezza": { src: "/images/Alias-home.jpg", alt: "Sistemi di sicurezza" },
   "comfort-complementi": { src: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg", alt: "Comfort e complementi" },
   "outdoor": { src: "/images/unplash1.avif", alt: "Outdoor e giardino" },

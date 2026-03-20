@@ -5,8 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 
+interface Slide {
+  headline: string;
+  subheadline: string;
+  ctaText: string;
+  ctaLink: string;
+  image: string;
+  video?: string;
+}
 
-const slides = [
+const slides: Slide[] = [
   {
     headline: "Benvenuti nel\nnostro showroom",
     subheadline: "300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine e soluzioni per tutta la casa",
@@ -21,7 +29,7 @@ const slides = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
-    video: "/videos/IMG_7923.MOV",
+    video: "/videos/IMG_7923.mp4",
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
@@ -46,6 +54,18 @@ const slides = [
   },
 ];
 
+/** Find the next slide index that has a video */
+function findNextVideoIndex(fromIndex: number): number | null {
+  for (let offset = 1; offset < slides.length; offset++) {
+    const idx = (fromIndex + offset) % slides.length;
+    if (slides[idx].video) return idx;
+  }
+  return null;
+}
+
+/** Max time (ms) to wait for a video to buffer before skipping */
+const VIDEO_READY_TIMEOUT = 4000;
+
 const REVEAL_CONFIG = {
   transitionDuration: 1.4,
   autoplayInterval: 3,
@@ -57,6 +77,12 @@ const REVEAL_CONFIG = {
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [revealingIndex, setRevealingIndex] = useState(0);
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(() => {
+    // Only load the first slide's video at mount
+    const initial = new Set<number>();
+    if (slides[0].video) initial.add(0);
+    return initial;
+  });
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const isFirstRender = useRef(true);
@@ -177,22 +203,71 @@ export function HeroSection() {
     }
   }, []);
 
-  // Quando la slide cambia, gestisci video: riproduci dall'inizio e aspetta la fine
+  // ---------------------------------------------------------------------------
+  // Preload next video when current slide changes
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    const nextVideo = findNextVideoIndex(current);
+    if (nextVideo !== null) {
+      setLoadedVideos((prev) => {
+        if (prev.has(nextVideo)) return prev;
+        const next = new Set(prev);
+        next.add(nextVideo);
+        return next;
+      });
+    }
+  }, [current]);
+
+  // ---------------------------------------------------------------------------
+  // Play / pause videos & manage autoplay per slide
+  // ---------------------------------------------------------------------------
   useEffect(() => {
     const slide = slides[current];
-    if ("video" in slide && slide.video) {
+
+    // Pause all videos except current
+    videoRefsMap.current.forEach((vid, idx) => {
+      if (idx !== current) {
+        vid.pause();
+      }
+    });
+
+    if (slide.video) {
       stopAutoplay();
       const videoEl = videoRefsMap.current.get(current);
-      if (videoEl) {
+      if (!videoEl) return;
+
+      const playVideo = () => {
         videoEl.currentTime = 0;
         videoEl.play().catch(() => {});
-        const onEnded = () => {
-          videoEl.removeEventListener("ended", onEnded);
-          goNext();
-        };
+      };
+
+      const onEnded = () => {
         videoEl.removeEventListener("ended", onEnded);
-        videoEl.addEventListener("ended", onEnded);
+        goNext();
+      };
+      videoEl.addEventListener("ended", onEnded);
+
+      // If enough data is buffered, play immediately
+      if (videoEl.readyState >= 3) {
+        playVideo();
+      } else {
+        // Wait for enough data with a timeout fallback
+        const onCanPlay = () => {
+          videoEl.removeEventListener("canplaythrough", onCanPlay);
+          clearTimeout(fallbackTimer);
+          playVideo();
+        };
+        const fallbackTimer = setTimeout(() => {
+          videoEl.removeEventListener("canplaythrough", onCanPlay);
+          // Try to play anyway — if it stutters, at least it starts
+          playVideo();
+        }, VIDEO_READY_TIMEOUT);
+        videoEl.addEventListener("canplaythrough", onCanPlay);
       }
+
+      return () => {
+        videoEl.removeEventListener("ended", onEnded);
+      };
     } else {
       startAutoplay();
     }
@@ -229,7 +304,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[75svh] flex items-end overflow-hidden bg-black-deep"
+      className="relative h-[80svh] flex items-end overflow-hidden bg-black-deep"
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
     >
@@ -243,12 +318,13 @@ export function HeroSection() {
           className="absolute inset-0"
           style={{ willChange: "clip-path, transform, filter" }}
         >
-          {"video" in slide && slide.video ? (
+          {slide.video ? (
             <video
               ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
-              src={slide.video}
+              src={loadedVideos.has(i) ? slide.video : undefined}
               muted
               playsInline
+              preload={i === current ? "auto" : "metadata"}
               className="absolute inset-0 w-full h-full object-cover"
             />
           ) : (

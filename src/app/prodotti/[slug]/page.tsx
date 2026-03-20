@@ -13,15 +13,15 @@ import { productGalleryImages } from "@/lib/product-gallery-images";
 
 const heroImages: Record<string, string> = {
   "infissi-legno": "/images/finestralegnohero.jpg",
-  "infissi-alluminio": "/prodotti/wmremove-transformed (1).png",
-  "infissi-alluminio-legno": "/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.png",
-  "infissi-pvc": "/images/wmremove-transformed (69).png",
+  "infissi-alluminio": "/prodotti/wmremove-transformed (1).webp",
+  "infissi-alluminio-legno": "/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.webp",
+  "infissi-pvc": "/images/wmremove-transformed (69).webp",
   "cucine-su-misura": "/images/Hero cucina.jpg",
-  "rubinetteria": "/images/wmremove-transformed (18).png",
+  "rubinetteria": "/images/wmremove-transformed (18).webp",
 };
 
 const heroVideos: Record<string, string> = {
-  "infissi-alluminio-legno": "/videos/IMG_7923.MOV",
+  "infissi-alluminio-legno": "/videos/IMG_7923.mp4",
 };
 
 
@@ -486,7 +486,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="absolute inset-0 hidden lg:flex items-center justify-center z-[1] pointer-events-none">
             <div className="relative w-full h-full">
               <Image
-                src="/prodotti/wmremove-transformed.png"
+                src="/prodotti/wmremove-transformed.webp"
                 alt={product.name}
                 fill
                 className="object-contain"

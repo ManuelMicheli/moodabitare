@@ -11,9 +11,9 @@ import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 const marqueeImages = [
-  { src: "/moodabitarereal/cucina-showroom.png", alt: "Cucina moderna nello showroom Mood Abitare", w: 1536, h: 2730 },
-  { src: "/images/wmremove-transformed (24).png", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
-  { src: "/moodabitarereal/dettaglio-cucina.png", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
+  { src: "/moodabitarereal/cucina-showroom.webp", alt: "Cucina moderna nello showroom Mood Abitare", w: 1536, h: 2730 },
+  { src: "/images/wmremove-transformed (24).webp", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
+  { src: "/moodabitarereal/dettaglio-cucina.webp", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
   { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
 ];
 
