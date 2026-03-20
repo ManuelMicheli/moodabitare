@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { IntroEmozionale } from "@/components/chi-siamo/IntroEmozionale";
+import { CertificazioniBanner } from "@/components/chi-siamo/CertificazioniBanner";
 import {
   StaggerContainer,
   StaggerItem,
@@ -77,21 +78,19 @@ export default function ChiSiamo() {
   return (
     <main>
       {/* ─── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <ClipReveal direction="down" duration={1.2} className="absolute inset-0">
-          <Image
-            src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
-            alt="Showroom Mood Abitare"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        </ClipReveal>
-        <div className="absolute inset-0 bg-black-deep/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-transparent to-transparent" />
+      <section className="relative min-h-[75vh] flex items-start bg-black-deep text-white overflow-hidden">
+        <Image
+          src="/moodabitarereal/showroom-esterno-hq.jpg"
+          alt="Showroom Mood Abitare"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black-deep/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/20 via-transparent to-transparent" />
 
-        <div className="relative z-10 w-full pb-16 lg:pb-24 px-6 sm:px-10 lg:px-20 text-center">
+        <div className="relative z-10 w-full pt-32 lg:pt-40 px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView delay={0.4}>
             <h1 className="font-page-title text-white">
               Mood Abitare — Benvenuti a casa vostra
@@ -99,6 +98,9 @@ export default function ChiSiamo() {
           </FadeInView>
         </div>
       </section>
+
+      {/* ─── Certificazioni Oknoplast ────────────────────────────── */}
+      <CertificazioniBanner />
 
       {/* ─── Intro emozionale ──────────────────────────────────────── */}
       <IntroEmozionale />

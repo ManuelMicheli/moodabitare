@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { FadeInView } from "@/components/animations/FadeInView";
@@ -10,14 +11,9 @@ import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 const marqueeImages = [
-  { src: "/images/Home-bertolotto-opt.jpg", alt: "Interni con porte interne di design" },
-  { src: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", alt: "Cucina con finestra Prolux Swing" },
-  { src: "/images/Zona-giorno-con-porta-balcone-Prolux-Evolution-copia-1536x768.jpg", alt: "Zona giorno con porta-finestra Prolux Evolution" },
-  { src: "/images/Bilico_antracite-eff-legno_FINAL.jpg", alt: "Portoncino d'ingresso in alluminio effetto legno" },
-  { src: "/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg", alt: "Frangisole Ekosol grigio scuro" },
-  { src: "/images/Oknoplast_2024_home.jpg", alt: "Serramenti Oknoplast" },
-  { src: "/images/bertolotto.webp", alt: "Porte interne di design" },
-  { src: "/images/Squareline_Tapparella_Vista_Ext_FINAL.jpg", alt: "Serramenti Squareline con tapparella" },
+  { src: "/moodabitarereal/cucina-showroom.png", alt: "Cucina moderna nello showroom Mood Abitare", w: 1536, h: 2730 },
+  { src: "/moodabitarereal/dettaglio-cucina.png", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
+  { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
 ];
 
 export function ValuePropositions() {
@@ -31,8 +27,17 @@ export function ValuePropositions() {
               key={i}
               className="relative flex-shrink-0 h-[40vw] sm:h-[50vw] rounded-sm overflow-hidden bg-warm-gray"
               style={{ width: "max(55vw, 500px)" }}
-            />
-
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={img.w}
+                height={img.h}
+                className="absolute inset-0 w-full h-full object-cover"
+                sizes="(max-width: 640px) 90vw, 55vw"
+                quality={80}
+              />
+            </div>
           ))}
         </div>
       </div>

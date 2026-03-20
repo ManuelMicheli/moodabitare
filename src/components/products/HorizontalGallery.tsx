@@ -21,6 +21,13 @@ const segmentColor: Record<string, string> = {
   "Sicurezza": "bg-red-50 text-red-700",
 };
 
+/** Split "Brand — Product" into two parts; returns [brand, product] or [null, fullName] */
+function splitName(name: string): [string | null, string] {
+  const idx = name.indexOf(" — ");
+  if (idx === -1) return [null, name];
+  return [name.slice(0, idx), name.slice(idx + 3)];
+}
+
 interface HorizontalGalleryProps {
   images: GalleryImage[];
   alt: string;
@@ -64,21 +71,31 @@ function GalleryGrid({
                 sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 18vw"}
               />
             </div>
-            <div className={isMobile ? "p-3 w-full text-center" : ""}>
-              <p className={`${isMobile ? "" : "mt-3"} font-display font-semibold text-center ${isMobile ? "text-sm" : "text-base"} ${darkBg && !isMobile ? "text-white/80" : "text-black-deep/80"}`}>
-                {img.name}
-              </p>
-              {segments?.[img.name] && (
-                <span className={`inline-block mt-1.5 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2 py-0.5 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
-                  {segments[img.name]}
-                </span>
-              )}
-              {onImageClick && (
-                <span className="mt-1 text-[0.65rem] font-ui font-medium uppercase tracking-wider text-bordeaux/60 block text-center">
-                  Scheda tecnica {isMobile && "→"}
-                </span>
-              )}
-            </div>
+            {(() => {
+              const [brand, product] = splitName(img.name);
+              return (
+                <div className={isMobile ? "p-3 w-full text-center" : `mt-6 text-center`}>
+                  {brand && (
+                    <span className={`font-ui text-[0.65rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.18em] ${darkBg && !isMobile ? "text-white/70" : "text-black-deep/60"}`}>
+                      {brand}
+                    </span>
+                  )}
+                  <p className={`${brand ? "mt-1" : ""} font-display font-semibold ${isMobile ? "text-base" : "text-lg lg:text-xl"} leading-tight ${darkBg && !isMobile ? "text-white/90" : "text-black-deep/85"}`}>
+                    {product}
+                  </p>
+                  {segments?.[img.name] && (
+                    <span className={`inline-block mt-2 text-[0.6rem] sm:text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
+                      {segments[img.name]}
+                    </span>
+                  )}
+                  {onImageClick && (
+                    <span className={`mt-1.5 text-[0.6rem] sm:text-[0.65rem] font-ui font-medium uppercase tracking-wider block text-center ${darkBg && !isMobile ? "text-white/30" : "text-bordeaux/50"}`}>
+                      Scheda tecnica {isMobile && "→"}
+                    </span>
+                  )}
+                </div>
+              );
+            })()}
           </button>
         ))}
       </div>
@@ -125,19 +142,31 @@ function HorizontalScroll({
                   sizes="(max-width: 1024px) 50vw, 35vw"
                 />
               </div>
-              <p className="mt-3 text-base font-display font-semibold text-black-deep/80 text-center">
-                {img.name}
-              </p>
-              {segments?.[img.name] && (
-                <span className={`inline-block mt-1.5 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2 py-0.5 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
-                  {segments[img.name]}
-                </span>
-              )}
-              {onImageClick && (
-                <span className="mt-1 text-[0.7rem] font-ui font-medium uppercase tracking-wider text-black-deep/0 group-hover/card:text-bordeaux/60 transition-colors duration-300">
-                  Scheda tecnica →
-                </span>
-              )}
+              {(() => {
+                const [brand, product] = splitName(img.name);
+                return (
+                  <div className="mt-6 text-center">
+                    {brand && (
+                      <span className="font-ui text-[0.7rem] lg:text-xs font-semibold uppercase tracking-[0.18em] text-black-deep/60">
+                        {brand}
+                      </span>
+                    )}
+                    <p className={`${brand ? "mt-1" : ""} text-xl lg:text-2xl font-display font-semibold text-black-deep/85 leading-tight`}>
+                      {product}
+                    </p>
+                    {segments?.[img.name] && (
+                      <span className={`inline-block mt-2 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
+                        {segments[img.name]}
+                      </span>
+                    )}
+                    {onImageClick && (
+                      <span className="mt-1.5 text-[0.7rem] font-ui font-medium uppercase tracking-wider text-black-deep/0 group-hover/card:text-bordeaux/60 transition-colors duration-300 block">
+                        Scheda tecnica →
+                      </span>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
           ))}
         </motion.div>

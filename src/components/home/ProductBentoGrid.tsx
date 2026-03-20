@@ -29,7 +29,7 @@ const products = [
     name: "Casa & Arredo",
     brands: ["Arrex", "Merati", "Ali Parquet"],
     description: "Cucine su misura, arredo bagno, ceramiche e parquet.",
-    image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
+    image: "/moodabitarereal/casa-arredo.jpeg",
     href: "/prodotti?categoria=casa-arredo",
     products: 6,
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2",

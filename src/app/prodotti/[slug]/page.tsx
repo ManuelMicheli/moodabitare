@@ -4,12 +4,12 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
-import { HorizontalGallery, type GalleryImage } from "@/components/products/HorizontalGallery";
-import { PvcGalleryWithSheet } from "@/components/products/PvcGalleryWithSheet";
+import { HorizontalGallery } from "@/components/products/HorizontalGallery";
 import { GalleryWithSheet } from "@/components/products/GalleryWithSheet";
 import { ALL_PRODUCTS, MACRO_CATEGORIES } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
-import { aluminumDetails, interiorDoorDetails, securityDoorDetails } from "@/lib/product-details";
+import { sheetMap } from "@/lib/sheet-map";
+import { productGalleryImages } from "@/lib/product-gallery-images";
 
 const heroImages: Record<string, string> = {
   "infissi-legno": "/images/finestralegnohero.jpg",
@@ -18,72 +18,6 @@ const heroImages: Record<string, string> = {
   "infissi-pvc": "/images/wmremove-transformed (69).png",
 };
 
-const productImages: Record<string, GalleryImage[]> = {
-  "infissi-legno": [
-    { src: "/images/finestralegno.jpg", name: "Profilo bicolore" },
-    { src: "/images/finestre-legno2.jpg", name: "Dettaglio cerniere" },
-    { src: "/images/finestralegno3.jpg", name: "Profilo in legno" },
-    { src: "/images/finestralegno4.jpg", name: "Dettaglio angolare" },
-    { src: "/images/finestralegno5.jpg", name: "Sezione interna" },
-  ],
-  "infissi-alluminio": [
-    { src: "/prodotti/oknoplast-alu-titano.jpg", name: "Titano" },
-    { src: "/prodotti/oknoplast-alu-titano-evo.jpg", name: "Titano EVO" },
-    { src: "/prodotti/oknoplast-alu-titano-oc.jpg", name: "Titano OC" },
-    { src: "/prodotti/oknoplast-alu-titano-evo-oc.jpg", name: "Titano EVO OC" },
-    { src: "/prodotti/oknoplast-alu-titano-steel.jpg", name: "Titano Steel" },
-    { src: "/prodotti/oknoplast-alu-futural.jpg", name: "Futural" },
-    { src: "/prodotti/oknoplast-alu-futural-oc.jpg", name: "Futural OC" },
-    { src: "/prodotti/oknoplast-alu-prolux-alu.jpg", name: "Prolux ALU" },
-  ],
-  "infissi-pvc": [
-    { src: "/images/1Finestra-Prolux-2017-1024x768.png", name: "Prolux" },
-    { src: "/images/2Finestra-Prolux-Evolution-1024x768.png", name: "Prolux Evolution" },
-    { src: "/images/SL_Prolux--1024x768.png", name: "Scorrevole Prolux" },
-    { src: "/images/SL_Prolux-Plus-1024x768.png", name: "Scorrevole Prolux Plus" },
-    { src: "/images/3Prolux-Swing-di-Oknoplast-1024x768.png", name: "Prolux Swing" },
-    { src: "/images/4Prolux-Vitro-di-Oknoplast-1024x768.png", name: "Prolux Vitro" },
-    { src: "/images/5Finestra-Platinium-Plus-1024x768.png", name: "Platinium Plus" },
-    { src: "/images/6Finestra-Squareline-1024x768.png", name: "Squareline" },
-    { src: "/images/7Finestra-Prismatic-1024x768.png", name: "Prismatic" },
-    { src: "/images/8Prismatic-Evolution-1024x768.png", name: "Prismatic Evolution" },
-    { src: "/images/9Finestra-Winergetic-Premium-1024x768.png", name: "Winergetic Premium" },
-    { src: "/images/10Finestra-Winergetic-Premium-Passive-1024x768.png", name: "Winergetic Premium Passive" },
-    { src: "/images/11Finestra-Winergetic-Alu-1024x768.png", name: "Winergetic Alu" },
-  ],
-  "infissi-alluminio-legno": [
-    { src: "/prodotti/Korus-allumunio-legno2.jpg", name: "Skywood EVO Original Energy 1.0" },
-    { src: "/prodotti/Korus-allumunio-legno3.jpg", name: "Skywood EVO Original" },
-    { src: "/prodotti/Korus-allumunio-legno4.jpg", name: "Skywood EVO Linear Energy 1.0" },
-    { src: "/prodotti/Korus-allumunio-legno5.jpg", name: "Skywood EVO Linear" },
-    { src: "/prodotti/Korus-allumunio-legno6.jpg", name: "Skywood EVO Energy 1.0" },
-    { src: "/prodotti/Korus-allumunio-legno7.jpg", name: "Skywood EVO" },
-    { src: "/prodotti/Korus-alluminio-legno8.jpg", name: "Air SlideWood" },
-  ],
-  "porte-interne": [
-    { src: "/prodotti/pail-tratto-boiserie.jpeg", name: "Pail — Tratto Boiserie" },
-    { src: "/prodotti/pail-belvedere.jpeg", name: "Pail — Belvedere" },
-    { src: "/prodotti/pail-luna-doppia.jpeg", name: "Pail — Luna Doppia" },
-    { src: "/prodotti/pail-linea-laccata.jpeg", name: "Pail — Filomuro" },
-    { src: "/prodotti/pail-linea-vetro-laccata.jpeg", name: "Pail — Scorrevoli" },
-    { src: "/prodotti/pail-cammeo-napoli.jpeg", name: "Pail — Dolcevita" },
-    { src: "/prodotti/doorarreda-pandora.jpg", name: "Door Arreda — Pandora" },
-    { src: "/prodotti/doorarreda-pandora-classic.jpg", name: "Door Arreda — Pandora Sablè" },
-    { src: "/prodotti/doorarreda-seven.jpg", name: "Door Arreda — Seven Shop" },
-    { src: "/prodotti/doorarreda-meraki.jpg", name: "Door Arreda — Meraki Elysia" },
-    { src: "/prodotti/doorarreda-fila.jpg", name: "Door Arreda — Tineo" },
-  ],
-  "porte-blindate": [
-    { src: "/prodotti/alias-wall-rasomuro.jpg", name: "Alias — Wall Rasomuro" },
-    { src: "/prodotti/alias-wall-rasomuro-2.jpg", name: "Alias — Wall" },
-    { src: "/prodotti/alias-twenty-led.jpg", name: "Alias — Twenty LED" },
-    { src: "/prodotti/alias-dream.jpg", name: "Alias — Dream" },
-    { src: "/prodotti/alias-due-ante.jpg", name: "Alias — Due Ante" },
-    { src: "/prodotti/alias-wing-wall-head.jpg", name: "Alias — Magma" },
-    { src: "/prodotti/erreci-capri-main.jpg", name: "Erreci — Capri" },
-    { src: "/prodotti/erreci-ischia-main.jpg", name: "Erreci — Capri Interno" },
-  ],
-};
 
 /** Keyword mirate per ogni categoria prodotto — local SEO + prodotto + brand */
 const productKeywords: Record<string, string[]> = {
@@ -407,7 +341,7 @@ export default async function ProductPage({ params }: Props) {
 
   const macroCategory = MACRO_CATEGORIES.find((mc) => mc.id === product.macroCategoryId);
   const relatedProducts = macroCategory?.products.filter((p) => p.slug !== slug) || [];
-  const gallery = productImages[slug];
+  const gallery = productGalleryImages[slug];
   const content = productContent[slug];
   const heroImage = heroImages[slug];
 
@@ -694,14 +628,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Horizontal scroll gallery con schede tecniche */}
       {gallery && gallery.length > 0 && slug !== "infissi-legno" && slug !== "infissi-alluminio-legno" && (() => {
-        const sheetMap: Record<string, Record<string, import("@/lib/product-details").ProductDetail>> = {
-          "infissi-pvc": {},
-          "infissi-alluminio": aluminumDetails,
-          "porte-interne": interiorDoorDetails,
-          "porte-blindate": securityDoorDetails,
-        };
         const details = sheetMap[slug];
-        if (slug === "infissi-pvc") return <PvcGalleryWithSheet images={gallery} alt={product.name} />;
         if (details) return <GalleryWithSheet images={gallery} alt={product.name} details={details} />;
         return <HorizontalGallery images={gallery} alt={product.name} />;
       })()}
