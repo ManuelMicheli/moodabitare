@@ -25,7 +25,7 @@ export default function ShowroomPage() {
   return (
     <main>
       {/* ─── Hero — video 75% + testo ─────────────────────────────── */}
-      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
+      <section className="relative min-h-svh sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
         <video
           src={`${R2_CDN}/videos/showroom-hero.mp4`}
           autoPlay
@@ -40,11 +40,11 @@ export default function ShowroomPage() {
 
         <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
           <FadeInView delay={0.3}>
-            <p className="text-label text-white/50 mb-3 sm:mb-4">Il nostro spazio</p>
-            <h1 className="font-page-title text-white">
+            <p className="text-label text-white/50 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
+            <h1 className="font-page-title text-white text-[clamp(1.5rem,1rem+3vw,4.5rem)]">
               Showroom Mood Abitare
             </h1>
-            <p className="mt-3 sm:mt-4 font-display text-white/70 text-base sm:text-lg max-w-2xl">
+            <p className="mt-3 sm:mt-4 font-display text-white/70 text-[0.85rem] sm:text-base lg:text-lg max-w-2xl">
               300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine, arredo e soluzioni per tutta la casa da toccare con mano.
             </p>
             <Link
