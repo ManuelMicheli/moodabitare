@@ -315,8 +315,8 @@ export function AboutSection() {
           style={{ transformOrigin: "left" }}
         />
 
-        {/* Body paragraphs */}
-        <div className="space-y-8 lg:space-y-10 max-w-3xl">
+        {/* Body paragraphs — with mobile video cards between p1 and p2 */}
+        <div className="max-w-3xl">
           {isMobile ? (
             <>
               <SimpleRichParagraph
@@ -325,21 +325,60 @@ export function AboutSection() {
                 style={bodyStyle}
                 delay={0.1}
               />
-              <SimpleRichParagraph
-                parts={BODY_2}
-                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
-                style={bodyStyle}
-                delay={0.1}
-              />
-              <SimpleRichParagraph
-                parts={BODY_3}
-                className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
-                style={bodyStyle}
-                delay={0.1}
-              />
+
+              {/* Mobile: two horizontal cards with split video */}
+              <motion.div
+                className="my-10 flex flex-col gap-3 lg:hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                {/* Top card */}
+                <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden">
+                  <video
+                    src={`${R2_CDN}/videos/1nuovo.mp4`}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    className="absolute w-full object-cover"
+                    style={{ height: "calc(200% + 0.75rem)", top: 0 }}
+                  />
+                </div>
+                {/* Bottom card */}
+                <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden">
+                  <video
+                    src={`${R2_CDN}/videos/1nuovo.mp4`}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    className="absolute w-full object-cover"
+                    style={{ height: "calc(200% + 0.75rem)", bottom: 0 }}
+                  />
+                </div>
+              </motion.div>
+
+              <div className="space-y-8">
+                <SimpleRichParagraph
+                  parts={BODY_2}
+                  className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                  style={bodyStyle}
+                  delay={0.1}
+                />
+                <SimpleRichParagraph
+                  parts={BODY_3}
+                  className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
+                  style={bodyStyle}
+                  delay={0.1}
+                />
+              </div>
             </>
           ) : (
-            <>
+            <div className="space-y-8 lg:space-y-10">
               <ScrollRichParagraph
                 parts={BODY_1}
                 progress={scrollYProgress}
@@ -364,7 +403,7 @@ export function AboutSection() {
                 className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"
                 style={bodyStyle}
               />
-            </>
+            </div>
           )}
         </div>
         </div>

@@ -41,7 +41,7 @@ export default function ShowroomPage() {
         <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
           <FadeInView delay={0.3}>
             <p className="text-label text-white/50 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
-            <h1 className="font-page-title text-white text-[clamp(1.5rem,1rem+3vw,4.5rem)]">
+            <h1 className="font-page-title text-white text-[clamp(1.2rem,0.8rem+3vw,4.5rem)]">
               Showroom Mood Abitare
             </h1>
             <p className="mt-3 sm:mt-4 font-display text-white/70 text-[0.85rem] sm:text-base lg:text-lg max-w-2xl">

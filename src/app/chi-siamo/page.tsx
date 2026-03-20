@@ -83,7 +83,7 @@ export default function ChiSiamo() {
           src="/moodabitarereal/showroom-esterno-hq.jpg"
           alt="Showroom Mood Abitare"
           fill
-          className="object-cover"
+          className="object-contain sm:object-cover object-top"
           priority
           sizes="100vw"
         />

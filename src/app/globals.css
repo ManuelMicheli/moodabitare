@@ -139,7 +139,7 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 /* Hero headline: H1 hero size, for main page hero only */
 .font-hero {
   font-family: "Double Porte 3", "Gravitica", sans-serif;
-  font-size: clamp(2rem, 1.4rem + 3.5vw, 3rem);  /* 32px → 48px */
+  font-size: clamp(1.25rem, 0.8rem + 3.5vw, 3rem);  /* 20px → 48px */
   line-height: 1.1;
   letter-spacing: -0.02em;
   font-weight: 700;
@@ -148,7 +148,7 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
 /* Page title: large hero titles for interior pages */
 .font-page-title {
   font-family: "Double Porte 3", "Gravitica", sans-serif;
-  font-size: clamp(2rem, 1.2rem + 4vw, 4.5rem);  /* 32px → 72px */
+  font-size: clamp(1.3rem, 0.8rem + 4vw, 4.5rem);  /* 21px → 72px */
   line-height: 1.05;
   letter-spacing: -0.025em;
   font-weight: 700;
