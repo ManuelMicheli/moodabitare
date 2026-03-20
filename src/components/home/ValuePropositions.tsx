@@ -12,6 +12,7 @@ import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 const marqueeImages = [
   { src: "/moodabitarereal/cucina-showroom.png", alt: "Cucina moderna nello showroom Mood Abitare", w: 1536, h: 2730 },
+  { src: "/images/wmremove-transformed (24).png", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
   { src: "/moodabitarereal/dettaglio-cucina.png", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
   { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
 ];
@@ -24,7 +25,7 @@ export function ValuePropositions() {
         <div className="flex w-max gap-10 sm:gap-16 animate-marquee-scroll">
           {[...marqueeImages, ...marqueeImages].map((img, i) => (
             <div
-              key={i}
+              key={`marquee-${i}`}
               className="relative flex-shrink-0 h-[70vw] sm:h-[40vw] rounded-sm overflow-hidden bg-warm-gray w-[85vw] sm:w-[55vw]"
             >
               <Image
@@ -41,7 +42,7 @@ export function ValuePropositions() {
         </div>
       </div>
 
-      <div className="py-10 sm:py-14 lg:py-16" />
+      <div className="py-8 sm:py-14 lg:py-16" />
 
       {/* Ristrutturazione banner */}
       <RistrutturazioneBanner />
@@ -50,10 +51,10 @@ export function ValuePropositions() {
       <AboutSection />
 
       {/* Title + Stats */}
-      <div className="py-12 lg:py-16 px-6 sm:px-10 lg:px-20">
+      <div className="py-10 sm:py-12 lg:py-16 px-6 sm:px-10 lg:px-20">
         {/* Mobile layout */}
         <div className="lg:hidden">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8 sm:mb-10">
             <FadeInView>
               <p className="text-label text-black-deep/40 mb-3">
                 I numeri che ci definiscono
@@ -67,7 +68,7 @@ export function ValuePropositions() {
               La nostra esperienza in cifre
             </TextRevealByWord>
           </div>
-          <div className="grid grid-cols-2 gap-y-6 sm:gap-y-8 gap-x-6">
+          <div className="grid grid-cols-2 gap-y-5 sm:gap-y-8 gap-x-4 sm:gap-x-6">
             {VALUE_PROPOSITIONS.map((item, i) => (
               <motion.div
                 key={i}
@@ -81,7 +82,7 @@ export function ValuePropositions() {
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
               >
-                <div className="font-display text-3xl font-bold leading-none text-black-deep">
+                <div className="font-display text-2xl sm:text-3xl font-bold leading-none text-black-deep">
                   <AnimatedCounter target={item.number} suffix={item.suffix} />
                 </div>
                 <DrawLine className="!w-8 mx-auto mt-2 !bg-bordeaux/30" delay={i * 0.12 + 0.3} />

@@ -59,7 +59,7 @@ const products = [
     name: "Porte Interne & Blindate",
     brands: ["Pail", "Alias", "Erreci"],
     description: "Design made in Italy e sicurezza certificata.",
-    image: "/moodabitarereal/porte-interne-blindate.png",
+    image: "/moodabitarereal/porte-showroom.jpeg",
     href: "/prodotti?categoria=porte-interne-blindate",
     products: 2,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
@@ -135,8 +135,8 @@ export function ProductBentoGrid() {
       <div className="relative">
         {/* Section title */}
         <h2
-          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-black-deep sm:whitespace-nowrap"
-          style={{ fontSize: "clamp(1.75rem, 4.2vw, 9rem)" }}
+          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-black-deep lg:whitespace-nowrap"
+          style={{ fontSize: "clamp(1.5rem, 4.2vw, 9rem)" }}
         >
           <TextShimmer
             duration={4}

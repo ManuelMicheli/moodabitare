@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import Image from "next/image";
 import { AccentText } from "@/components/ui/AccentText";
 import { LinkPreview } from "@/components/ui/LinkPreview";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -260,7 +261,26 @@ export function AboutSection() {
       ref={containerRef}
       className="py-20 lg:py-56 px-6 sm:px-10 lg:px-20"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto lg:flex lg:gap-16 lg:items-stretch">
+        {/* Card verticali con video — solo desktop (video non caricato su mobile) */}
+        <div className="hidden lg:flex flex-[2.33] gap-3 self-stretch" style={{ marginLeft: "calc(-50vw + 50%)" }}>
+          <div className="flex-1 h-full rounded-sm bg-warm-gray" />
+          <div className="flex-shrink-0 relative rounded-sm overflow-hidden aspect-[9/16] self-center" style={{ height: "min(100%, 80vh)" }}>
+            <video
+              src="/videos/1nuovo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Divisore centrale per effetto 2 card */}
+            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-3 bg-cream z-10" />
+          </div>
+        </div>
+
+        <div className="flex-1">
         {/* Label */}
         <p className="text-label text-black-deep/30 mb-10 lg:mb-14">
           Chi siamo
@@ -345,6 +365,7 @@ export function AboutSection() {
               />
             </>
           )}
+        </div>
         </div>
       </div>
     </section>

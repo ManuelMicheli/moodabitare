@@ -8,18 +8,27 @@ import gsap from "gsap";
 
 const slides = [
   {
+    headline: "Benvenuti nel\nnostro showroom",
+    subheadline: "300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine e soluzioni per tutta la casa",
+    ctaText: "Scopri lo showroom",
+    ctaLink: "/showroom",
+    image: "",
+    video: "/videos/0320(3).mp4",
+  },
+  {
     headline: "Luce, comfort\ne isolamento perfetto",
     subheadline: "Serramenti in PVC, alluminio e legno — persiane, tapparelle, frangisole e zanzariere dei migliori brand",
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
-    image: "/images/Hero 1.jpg",
+    image: "",
+    video: "/videos/IMG_7923.MOV",
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
     subheadline: "Porte interne, blindate e portoncini — grate, persiane blindate, allarmi e videosorveglianza",
     ctaText: "Scopri le soluzioni",
     ctaLink: "/prodotti/porte-interne",
-    image: "/images/Hero 2.jpg",
+    image: "/images/WhatsApp Image 2026-03-20 at 17.09.11 (1).jpeg",
   },
   {
     headline: "Arredo, outdoor\ne spazi da vivere",
@@ -53,7 +62,7 @@ export function HeroSection() {
   const isFirstRender = useRef(true);
   const isAnimatingRef = useRef(false);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
+  const videoRefsMap = useRef<Map<number, HTMLVideoElement>>(new Map());
 
   // ---------------------------------------------------------------------------
   // Circle reveal transition
@@ -153,10 +162,13 @@ export function HeroSection() {
   // ---------------------------------------------------------------------------
   const startAutoplay = useCallback(() => {
     if (autoplayRef.current) clearInterval(autoplayRef.current);
+    // Se la slide corrente è un video, non avviare il timer
+    const currentSlide = slides[current];
+    if ("video" in currentSlide && currentSlide.video) return;
     autoplayRef.current = setInterval(() => {
       goNext();
     }, REVEAL_CONFIG.autoplayInterval * 1000);
-  }, [goNext]);
+  }, [goNext, current]);
 
   const stopAutoplay = useCallback(() => {
     if (autoplayRef.current) {
@@ -165,10 +177,27 @@ export function HeroSection() {
     }
   }, []);
 
+  // Quando la slide cambia, gestisci video: riproduci dall'inizio e aspetta la fine
   useEffect(() => {
-    startAutoplay();
+    const slide = slides[current];
+    if ("video" in slide && slide.video) {
+      stopAutoplay();
+      const videoEl = videoRefsMap.current.get(current);
+      if (videoEl) {
+        videoEl.currentTime = 0;
+        videoEl.play();
+        const onEnded = () => {
+          videoEl.removeEventListener("ended", onEnded);
+          goNext();
+        };
+        videoEl.removeEventListener("ended", onEnded);
+        videoEl.addEventListener("ended", onEnded);
+      }
+    } else {
+      startAutoplay();
+    }
     return () => stopAutoplay();
-  }, [startAutoplay, stopAutoplay]);
+  }, [current, startAutoplay, stopAutoplay, goNext]);
 
   // ---------------------------------------------------------------------------
   // Initial slide setup
@@ -207,43 +236,53 @@ export function HeroSection() {
       {/* Slides — image + centered headline, clipped together on reveal */}
       {slides.map((slide, i) => (
         <div
-          key={slide.image}
+          key={`slide-${i}`}
           ref={(el) => {
             slidesRef.current[i] = el;
           }}
           className="absolute inset-0"
           style={{ willChange: "clip-path, transform, filter" }}
         >
-          <Image
-            src={slide.image}
-            alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className="object-cover"
-          />
+          {"video" in slide && slide.video ? (
+            <video
+              ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
+              src={slide.video}
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={slide.image}
+              alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
           {/* Dark overlay for text contrast */}
           <div className="absolute inset-0 bg-black/35" />
           {/* Centered headline + CTA — revealed with the image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-16 sm:px-6 gap-5">
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 sm:px-10 lg:px-16 gap-4 sm:gap-5">
             <Image
               src="/logo/logo-mood-abitare-transparent-opt.png"
               alt="Mood Abitare"
               width={200}
               height={50}
-              className="w-auto h-12 sm:h-16 object-contain drop-shadow-lg brightness-0 invert"
+              className="w-auto h-10 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
             />
-            <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(2.5rem,6vw,5rem)] leading-[1.1]">
+            <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(2rem,6vw,5rem)] leading-[1.1]">
               {slide.headline.split("\n").map((line, li) => (
                 <span key={`${i}-${li}`} className="block">{line}</span>
               ))}
             </h2>
-            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(1.1rem,2vw,1.6rem)] leading-relaxed">
+            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(0.95rem,2vw,1.6rem)] leading-relaxed px-2">
               {slide.subheadline}
             </p>
             <Link
               href={slide.ctaLink}
-              className="mt-4 text-button inline-block bg-white text-black-deep px-8 py-4 hover:bg-white/85 transition-colors"
+              className="mt-2 sm:mt-4 text-button inline-block bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/85 transition-colors"
             >
               {slide.ctaText}
             </Link>
@@ -286,7 +325,7 @@ export function HeroSection() {
       </button>
 
       {/* Counter — bottom right */}
-      <div className="absolute bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[13px] text-white/60 tracking-widest">
+      <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[11px] sm:text-[13px] text-white/60 tracking-widest">
         <span className="text-white font-semibold">
           {String(current + 1).padStart(2, "0")}
         </span>

@@ -14,6 +14,7 @@ import { FreeConsultationBanner } from "./FreeConsultationBanner";
 export function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isLightHero = false;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -22,11 +23,15 @@ export function Header() {
 
   useEffect(() => {
     let threshold = 50;
-    const hero = document.querySelector("section");
-    if (hero) threshold = hero.offsetHeight - 80;
+    if (isLightHero) {
+      threshold = 0;
+    } else {
+      const hero = document.querySelector("section");
+      if (hero) threshold = hero.offsetHeight - 80;
+    }
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > threshold);
+      setIsScrolled(isLightHero || window.scrollY > threshold);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();

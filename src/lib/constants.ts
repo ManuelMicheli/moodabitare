@@ -217,12 +217,13 @@ export const NAV_ITEMS = [
     hasDropdown: true,
     children: [
       { label: "Chi Siamo", href: "/chi-siamo" },
+      { label: "Premium Partner", href: "/premium-partner" },
       { label: "Progettazione e Design", href: "/progettazione-design" },
       { label: "Servizi di Ristrutturazione", href: "/servizi-ristrutturazione" },
     ],
   },
   { label: "Prodotti", href: "/prodotti", hasMegaMenu: true },
-  { label: "Premium Partner", href: "/premium-partner" },
+  { label: "Showroom", href: "/showroom" },
   { label: "Finanziamento", href: "/finanziamento" },
   { label: "Contatti", href: "/contatti" },
 ];

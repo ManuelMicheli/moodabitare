@@ -72,10 +72,10 @@ export function ProductCatalog() {
               className="group flex flex-col h-full bg-white"
               style={{
                 clipPath: `polygon(
-                  14px 0, calc(100% - 14px) 0,
-                  100% 14px, 100% calc(100% - 14px),
-                  calc(100% - 14px) 100%, 14px 100%,
-                  0 calc(100% - 14px), 0 14px
+                  8px 0, calc(100% - 8px) 0,
+                  100% 8px, 100% calc(100% - 8px),
+                  calc(100% - 8px) 100%, 8px 100%,
+                  0 calc(100% - 8px), 0 8px
                 )`,
               }}
             >
@@ -85,22 +85,22 @@ export function ProductCatalog() {
                     src={productCoverImages[product.slug]}
                     alt={product.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 ) : null}
                 <div className="absolute inset-0" />
               </div>
-              <div className="p-3 sm:p-6 lg:p-8 flex-1">
+              <div className="p-2.5 sm:p-6 lg:p-8 flex-1">
                 {product.brand && (
-                  <span className="text-label text-black-deep/25">
+                  <span className="text-label text-[0.55rem] sm:text-[0.65rem] text-black-deep/25">
                     {product.brand}
                   </span>
                 )}
-                <h3 className="mt-2 font-card-title text-black-deep group-hover:text-black-deep/60 transition-colors">
+                <h3 className="mt-1 sm:mt-2 font-card-title text-[0.85rem] sm:text-base text-black-deep group-hover:text-black-deep/60 transition-colors leading-tight">
                   {product.name}
                 </h3>
-                <span className="inline-block mt-4 text-caption text-black-deep/30 group-hover:text-black-deep/60 transition-colors">
+                <span className="inline-block mt-2 sm:mt-4 text-caption text-black-deep/30 group-hover:text-black-deep/60 transition-colors">
                   Scopri →
                 </span>
               </div>

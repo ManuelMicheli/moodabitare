@@ -17,6 +17,11 @@ const heroImages: Record<string, string> = {
   "infissi-alluminio-legno": "/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.png",
   "infissi-pvc": "/images/wmremove-transformed (69).png",
   "cucine-su-misura": "/images/Hero cucina.jpg",
+  "rubinetteria": "/images/wmremove-transformed (18).png",
+};
+
+const heroVideos: Record<string, string> = {
+  "infissi-alluminio-legno": "/videos/IMG_7923.MOV",
 };
 
 
@@ -345,6 +350,7 @@ export default async function ProductPage({ params }: Props) {
   const gallery = productGalleryImages[slug];
   const content = productContent[slug];
   const heroImage = heroImages[slug];
+  const heroVideo = heroVideos[slug];
 
   const korusProducts = slug === "infissi-alluminio-legno" ? [
     {
@@ -455,8 +461,17 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Hero */}
-      <section className={`relative flex items-end bg-black-deep text-white overflow-hidden ${heroImage === "/images/Hero cucina.jpg" ? "min-h-[50vh]" : "min-h-[70vh]"}`}>
-        {heroImage && (
+      <section className={`relative flex items-end bg-black-deep text-white overflow-hidden ${heroImage === "/images/Hero cucina.jpg" ? "min-h-[45vh] sm:min-h-[50vh]" : "min-h-[55vh] sm:min-h-[70vh]"}`}>
+        {heroVideo ? (
+          <video
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : heroImage ? (
           <Image
             src={heroImage}
             alt={product.name}
@@ -466,7 +481,7 @@ export default async function ProductPage({ params }: Props) {
             sizes="100vw"
             quality={95}
           />
-        )}
+        ) : null}
         {slug === "infissi-alluminio" && (
           <div className="absolute inset-0 hidden lg:flex items-center justify-center z-[1] pointer-events-none">
             <div className="relative w-full h-full">
@@ -482,9 +497,9 @@ export default async function ProductPage({ params }: Props) {
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-black-deep/40 to-black-deep/20" />
-        <div className={`relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20 ${slug === "infissi-alluminio" ? "text-right" : "text-center"}`}>
+        <div className={`relative z-10 w-full pb-10 sm:pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20 ${slug === "infissi-alluminio" ? "text-center sm:text-right" : "text-center"}`}>
           <FadeInView>
-            <div className={`flex items-center gap-3 mb-4 ${slug === "infissi-alluminio" ? "justify-end" : "justify-center"}`}>
+            <div className={`flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 ${slug === "infissi-alluminio" ? "justify-center sm:justify-end" : "justify-center"}`}>
               <span className="text-label text-white tracking-[0.2em]">
                 {macroCategory?.label}
               </span>
@@ -497,14 +512,14 @@ export default async function ProductPage({ params }: Props) {
                 </>
               )}
             </div>
-            <h1 className={`font-page-title ${slug === "infissi-alluminio" ? "ml-auto" : "mx-auto"}`}>
+            <h1 className={`font-page-title ${slug === "infissi-alluminio" ? "mx-auto sm:ml-auto sm:mr-0" : "mx-auto"}`}>
               {product.name}
             </h1>
-            <p className={`mt-6 text-body text-white ${slug === "infissi-alluminio" ? "ml-auto" : "mx-auto"}`}>
+            <p className={`mt-4 sm:mt-6 text-body text-white text-sm sm:text-base ${slug === "infissi-alluminio" ? "mx-auto sm:ml-auto sm:mr-0" : "mx-auto"}`}>
               {content?.cardDescription || `Scopri la gamma ${product.name} di ${product.brand} disponibile nel nostro showroom di Gorla Maggiore.`}
             </p>
-            <div className={`mt-10 flex flex-wrap gap-6 ${slug === "infissi-alluminio" ? "justify-end" : "justify-center"}`}>
-              <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors">
+            <div className={`mt-6 sm:mt-10 flex flex-wrap gap-4 sm:gap-6 ${slug === "infissi-alluminio" ? "justify-center sm:justify-end" : "justify-center"}`}>
+              <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/90 transition-colors">
                 Richiedi preventivo
               </a>
               <a
@@ -561,7 +576,7 @@ export default async function ProductPage({ params }: Props) {
       {slug === "infissi-alluminio-legno" && gallery && gallery.length > 0 && korusProducts && (
         <div style={{ backgroundColor: "#B32024" }}>
           {/* Header con logo e intro */}
-          <div className="px-6 sm:px-10 lg:px-20 pt-16 lg:pt-24 pb-10 lg:pb-16">
+          <div className="px-6 sm:px-10 lg:px-20 pt-10 sm:pt-16 lg:pt-24 pb-8 sm:pb-10 lg:pb-16">
             <a href="https://korusweb.com" target="_blank" rel="noopener noreferrer" className="block w-full max-w-5xl mx-auto mb-14">
               <Image
                 src="/brandpartner/KORUS.png"
@@ -586,14 +601,14 @@ export default async function ProductPage({ params }: Props) {
           </div>
 
           {/* Schede prodotto con immagine affiancata */}
-          <div className="px-6 sm:px-10 lg:px-20 pb-16 lg:pb-24">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="px-4 sm:px-10 lg:px-20 pb-10 sm:pb-16 lg:pb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {korusProducts.map((prod, i) => (
                 <FadeInView key={prod.name} delay={i * 0.05}>
                   <div className="bg-white rounded-lg overflow-hidden h-full flex flex-col sm:flex-row">
                     {/* Immagine prodotto */}
-                    <div className="relative w-full sm:w-2/5 flex-shrink-0 bg-neutral-50 flex items-center justify-center p-4 sm:p-6">
-                      <div className="relative w-full aspect-square">
+                    <div className="relative w-full sm:w-2/5 flex-shrink-0 bg-neutral-50 flex items-center justify-center p-3 sm:p-6">
+                      <div className="relative w-full aspect-[4/3] sm:aspect-square">
                         <Image
                           src={gallery[i].src}
                           alt={prod.name}
@@ -604,16 +619,16 @@ export default async function ProductPage({ params }: Props) {
                       </div>
                     </div>
                     {/* Info prodotto */}
-                    <div className="p-5 sm:p-6 flex flex-col justify-center">
-                      <h3 className="font-display text-lg lg:text-xl font-semibold text-black-deep">
+                    <div className="p-4 sm:p-6 flex flex-col justify-center">
+                      <h3 className="font-display text-base sm:text-lg lg:text-xl font-semibold text-black-deep">
                         {prod.name}
                       </h3>
-                      <p className="mt-1 font-ui text-[0.65rem] uppercase tracking-[0.2em] text-black-deep/40">
+                      <p className="mt-1 font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] text-black-deep/40">
                         {prod.subtitle}
                       </p>
-                      <ul className="mt-4 space-y-2">
+                      <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
                         {prod.features.map((feat) => (
-                          <li key={feat} className="flex items-start gap-2.5 font-ui text-[0.8rem] text-black-deep/70 leading-relaxed">
+                          <li key={feat} className="flex items-start gap-2 sm:gap-2.5 font-ui text-[0.75rem] sm:text-[0.8rem] text-black-deep/70 leading-relaxed">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#B32024" }} />
                             {feat}
                           </li>
@@ -637,7 +652,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Description + Specs + Benefits */}
       {content && (
-        <section className="py-16 lg:py-36 px-6 sm:px-10 lg:px-20">
+        <section className="py-12 sm:py-16 lg:py-36 px-6 sm:px-10 lg:px-20">
           {/* Description */}
           <FadeInView>
             <p className="font-display font-medium leading-[1.4] tracking-[-0.015em] text-black-deep max-w-3xl mx-auto text-center text-lg sm:text-xl lg:text-2xl">
@@ -645,7 +660,7 @@ export default async function ProductPage({ params }: Props) {
             </p>
           </FadeInView>
 
-          <div className="mt-16 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
+          <div className="mt-10 sm:mt-16 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-32">
             {/* Specs */}
             <FadeInView>
               <p className="text-label text-black-deep/30 mb-10">
@@ -691,7 +706,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <section className="py-20 lg:py-44 bg-black-deep text-white">
+        <section className="py-14 sm:py-20 lg:py-44 bg-black-deep text-white">
           <div className="px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <p className="text-label text-white/25 mb-16">
@@ -732,16 +747,16 @@ export default async function ProductPage({ params }: Props) {
       )}
 
       {/* CTA */}
-      <section className="py-20 lg:py-44">
+      <section className="py-14 sm:py-20 lg:py-44">
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
             <h2 className="font-section-title text-black-deep max-w-2xl mx-auto">
               Vuoi saperne di più?
             </h2>
-            <p className="mt-6 text-body text-black-deep/35 max-w-md mx-auto">
+            <p className="mt-4 sm:mt-6 text-body text-black-deep/35 max-w-md mx-auto">
               Sopralluogo e preventivo sono gratuiti e senza impegno. Vieni a vedere i prodotti dal vivo nel nostro showroom oppure contattaci: ti rispondiamo entro 24 ore.
             </p>
-            <a href="/contatti" className="inline-block mt-12 text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors">
+            <a href="/contatti" className="inline-block mt-8 sm:mt-12 text-button bg-black-deep text-white px-6 py-3 sm:px-8 sm:py-4 hover:bg-black-soft transition-colors">
               Richiedi preventivo gratuito
             </a>
           </FadeInView>
