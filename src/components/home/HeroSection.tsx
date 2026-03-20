@@ -79,9 +79,9 @@ export function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [revealingIndex, setRevealingIndex] = useState(0);
   const [loadedVideos, setLoadedVideos] = useState<Set<number>>(() => {
-    // Only load the first slide's video at mount
+    // Preload both hero video slides immediately (they download during SiteLoader)
     const initial = new Set<number>();
-    if (slides[0].video) initial.add(0);
+    slides.forEach((s, i) => { if (s.video) initial.add(i); });
     return initial;
   });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -325,7 +325,7 @@ export function HeroSection() {
               src={loadedVideos.has(i) ? slide.video : undefined}
               muted
               playsInline
-              preload={i === current ? "auto" : "metadata"}
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             />
           ) : (
@@ -349,12 +349,12 @@ export function HeroSection() {
               height={50}
               className="w-auto h-10 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
             />
-            <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(1.4rem,5vw,5rem)] leading-[1.1]">
+            <h2 className="font-hero text-white text-center drop-shadow-lg text-[clamp(1.15rem,4vw,3rem)] leading-[1.1]">
               {slide.headline.split("\n").map((line, li) => (
                 <span key={`${i}-${li}`} className="block">{line}</span>
               ))}
             </h2>
-            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(0.8rem,1.5vw,1.6rem)] leading-relaxed px-2">
+            <p className="font-body text-white text-center max-w-2xl drop-shadow-md text-[clamp(0.75rem,1.2vw,1.4rem)] leading-relaxed px-2">
               {slide.subheadline}
             </p>
             <Link
