@@ -80,12 +80,13 @@ export default function ChiSiamo() {
       {/* ─── Hero ──────────────────────────────────────────────────── */}
       {/* Mobile: immagine + titolo sotto su sfondo crema */}
       <div className="sm:hidden">
-        <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <div className="relative w-full max-h-[80vh] overflow-hidden">
           <Image
             src="/moodabitarereal/showroom-esterno-hq.jpg"
             alt="Showroom Mood Abitare"
-            fill
-            className="object-cover object-center"
+            width={1920}
+            height={1080}
+            className="w-full h-auto"
             priority
             sizes="100vw"
           />
@@ -100,29 +101,28 @@ export default function ChiSiamo() {
       </div>
 
       {/* Desktop: hero classico con titolo sovrapposto */}
-      <section className="hidden sm:flex relative min-h-[75vh] items-start bg-black-deep text-white overflow-hidden">
-        <Image
-          src="/moodabitarereal/showroom-esterno-hq.jpg"
-          alt="Showroom Mood Abitare"
-          fill
-          className="object-cover object-top"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black-deep/5" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/20 via-transparent to-transparent" />
+      <section className="hidden sm:block relative bg-black-deep text-white overflow-hidden">
+        <div className="relative w-full h-[80vh]">
+          <Image
+            src="/moodabitarereal/showroom-esterno-hq.jpg"
+            alt="Showroom Mood Abitare"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black-deep/5" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black-deep/20 via-transparent to-transparent" />
 
-        <div className="relative z-10 w-full pt-32 lg:pt-40 px-6 sm:px-10 lg:px-20 text-center">
-          <FadeInView delay={0.4}>
-            <h1 className="font-page-title text-white">
-              Mood Abitare — Benvenuti a casa vostra
-            </h1>
-          </FadeInView>
+          <div className="absolute inset-0 flex items-start justify-center pt-32 lg:pt-40 px-6 sm:px-10 lg:px-20">
+            <FadeInView delay={0.4}>
+              <h1 className="font-page-title text-white text-center">
+                Mood Abitare — Benvenuti a casa vostra
+              </h1>
+            </FadeInView>
+          </div>
         </div>
       </section>
-
-      {/* ─── Certificazioni Oknoplast ────────────────────────────── */}
-      <CertificazioniBanner />
 
       {/* ─── Intro emozionale ──────────────────────────────────────── */}
       <IntroEmozionale />
@@ -200,6 +200,9 @@ export default function ChiSiamo() {
           </div>
         </a>
       </section>
+
+      {/* ─── Certificazioni ──────────────────────────────────────── */}
+      <CertificazioniBanner />
 
       {/* ─── CTA ───────────────────────────────────────────────────── */}
       <section className="py-16 lg:py-36 bg-cream">

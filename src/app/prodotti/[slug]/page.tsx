@@ -12,7 +12,7 @@ import { sheetMap } from "@/lib/sheet-map";
 import { productGalleryImages } from "@/lib/product-gallery-images";
 
 const heroImages: Record<string, string> = {
-  "infissi-legno": "/images/finestralegnohero.jpg",
+  "infissi-legno": "/images/pail-belvedere.jpeg",
   "infissi-alluminio": "/prodotti/wmremove-transformed (1).webp",
   "infissi-alluminio-legno": "/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.webp",
   "infissi-pvc": "/images/wmremove-transformed (69).webp",
@@ -21,7 +21,7 @@ const heroImages: Record<string, string> = {
 };
 
 const heroVideos: Record<string, string> = {
-  "infissi-alluminio-legno": `${R2_CDN}/videos/IMG_7923.mp4`,
+  "infissi-alluminio-legno": `${R2_CDN}/videos/IMG_7923-stabilized.mp4`,
 };
 
 
@@ -460,7 +460,201 @@ export default async function ProductPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      {/* Hero */}
+      {/* Hero — cinematic full-bleed for infissi-alluminio-legno */}
+      {slug === "infissi-alluminio-legno" ? (
+        <section className="relative h-[75svh] min-h-[500px] flex flex-col justify-end bg-black text-white overflow-hidden">
+          {/* Placeholder — video temporarily disabled */}
+          <div className="absolute inset-0 bg-[#2b2b2b]" />
+
+          {/* Cinematic gradient — heavier at bottom for typography */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+
+          {/* Top-left: category label */}
+          <div className="absolute top-24 sm:top-28 lg:top-32 left-6 sm:left-10 lg:left-20 z-10">
+            <FadeInView delay={0.6}>
+              <div className="flex items-center gap-3">
+                <span className="font-ui text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.3em] text-white/25">
+                  {macroCategory?.label}
+                </span>
+                <span className="w-6 h-px bg-white/10" />
+                <span className="font-ui text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.3em] text-white/25">
+                  {product.brand}
+                </span>
+              </div>
+            </FadeInView>
+          </div>
+
+          {/* Content — bottom-anchored, editorial left-aligned */}
+          <div className="relative z-10 px-6 sm:px-10 lg:px-20 pb-8 sm:pb-12 lg:pb-16">
+
+            {/* Decorative line */}
+            <FadeInView delay={0.1}>
+              <div className="w-12 h-px bg-white/20 mb-6 sm:mb-8" />
+            </FadeInView>
+
+            {/* Giant display title */}
+            <FadeInView delay={0.15}>
+              <h1 className="font-display text-[2.8rem] sm:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem] font-semibold leading-[0.88] tracking-[-0.04em]">
+                <span className="block">Alluminio</span>
+                <span className="block">
+                  <span className="font-body italic font-normal text-white/25">/</span>
+                  {" "}Legno
+                </span>
+              </h1>
+            </FadeInView>
+
+            {/* Two-column: description left + stats right */}
+            <div className="mt-6 sm:mt-8 lg:mt-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
+
+              {/* Left — Description + CTAs */}
+              <div className="max-w-md">
+                <FadeInView delay={0.25}>
+                  <p className="font-body text-white/40 text-sm sm:text-base lg:text-lg leading-relaxed">
+                    L&apos;eleganza naturale del legno all&apos;interno, la resistenza
+                    indistruttibile dell&apos;alluminio all&apos;esterno.
+                    Prestazioni termiche ai vertici della categoria, zero manutenzione.
+                  </p>
+                </FadeInView>
+
+                <FadeInView delay={0.35}>
+                  <div className="mt-6 sm:mt-8 flex items-center gap-5 sm:gap-6">
+                    <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/90 transition-colors">
+                      Richiedi preventivo
+                    </a>
+                    <a
+                      href="https://wa.me/393517278053"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-button text-white/40 hover:text-white transition-colors duration-300"
+                    >
+                      <span>WhatsApp</span>
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M7 17L17 7M17 7H7M17 7v10" />
+                      </svg>
+                    </a>
+                  </div>
+                </FadeInView>
+              </div>
+
+              {/* Right — Stats row */}
+              <FadeInView delay={0.45}>
+                <div className="flex items-start gap-6 sm:gap-10 lg:gap-12">
+                  <div>
+                    <p className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-none">0,80</p>
+                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/20">W/m²K</p>
+                  </div>
+                  <div className="w-px h-8 sm:h-10 bg-white/[0.07]" />
+                  <div>
+                    <p className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-none">46 dB</p>
+                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/20">Isolamento</p>
+                  </div>
+                  <div className="w-px h-8 sm:h-10 bg-white/[0.07]" />
+                  <div>
+                    <p className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-none">RC2</p>
+                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/20">Sicurezza</p>
+                  </div>
+                </div>
+              </FadeInView>
+            </div>
+          </div>
+
+          {/* Scroll indicator — subtle animated line */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-30">
+            <span className="font-ui text-[0.5rem] uppercase tracking-[0.3em] text-white/50">Scroll</span>
+            <div className="w-px h-6 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
+          </div>
+        </section>
+      ) : slug === "infissi-pvc" ? (
+      /* Hero — infissi PVC: split layout desktop (text left + image right) */
+      <section className="relative bg-black-deep text-white overflow-hidden">
+        {/* Mobile: standard image hero */}
+        <div className="lg:hidden relative min-h-[55vh] flex items-end">
+          {heroImage && (
+            <Image
+              src={heroImage}
+              alt={product.name}
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="100vw"
+              unoptimized
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-black-deep/40 to-black-deep/20" />
+          <div className="relative z-10 w-full pb-10 px-6 sm:px-10 text-center">
+            <FadeInView>
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 justify-center">
+                <span className="text-label text-white tracking-[0.2em]">{macroCategory?.label}</span>
+                {product.brand && (
+                  <>
+                    <span className="text-white/40">|</span>
+                    <span className="text-label text-white tracking-[0.2em]">{product.brand}</span>
+                  </>
+                )}
+              </div>
+              <h1 className="font-page-title mx-auto">{product.name}</h1>
+              <p className="mt-4 sm:mt-6 text-body text-white text-sm sm:text-base mx-auto">
+                {content?.cardDescription || `Scopri la gamma ${product.name} di ${product.brand} disponibile nel nostro showroom di Gorla Maggiore.`}
+              </p>
+              <div className="mt-6 sm:mt-10 flex flex-wrap gap-4 sm:gap-6 justify-center">
+                <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 hover:bg-white/90 transition-colors">
+                  Richiedi preventivo
+                </a>
+                <a href="https://wa.me/393517278053" target="_blank" rel="noopener noreferrer" className="inline-block text-button text-white border-b border-white/20 pb-1 hover:border-white/60 transition-colors">
+                  Info su WhatsApp
+                </a>
+              </div>
+            </FadeInView>
+          </div>
+        </div>
+
+        {/* Desktop: split layout — text left, image right */}
+        <div className="hidden lg:grid grid-cols-2 min-h-[70vh]">
+          {/* Left — text */}
+          <div className="flex flex-col justify-center px-20 xl:px-28 py-24">
+            <FadeInView direction="left">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-label text-white/50 tracking-[0.25em] text-[0.65rem]">{macroCategory?.label}</span>
+                {product.brand && (
+                  <>
+                    <span className="w-4 h-px bg-white/20" />
+                    <span className="text-label text-white/50 tracking-[0.25em] text-[0.65rem]">{product.brand}</span>
+                  </>
+                )}
+              </div>
+              <h1 className="font-page-title">{product.name}</h1>
+              <p className="mt-6 text-body text-white/70 text-base max-w-lg">
+                {content?.cardDescription || `Scopri la gamma ${product.name} di ${product.brand} disponibile nel nostro showroom di Gorla Maggiore.`}
+              </p>
+              <div className="mt-10 flex flex-wrap gap-5">
+                <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors">
+                  Richiedi preventivo
+                </a>
+                <a href="https://wa.me/393517278053" target="_blank" rel="noopener noreferrer" className="inline-block text-button text-white/60 border-b border-white/20 pb-1 hover:text-white hover:border-white/60 transition-colors">
+                  Info su WhatsApp
+                </a>
+              </div>
+            </FadeInView>
+          </div>
+          {/* Right — image (no crop) */}
+          <FadeInView direction="right" className="relative min-h-[70vh]">
+            {heroImage && (
+              <Image
+                src={heroImage}
+                alt={product.name}
+                fill
+                className="object-contain object-center"
+                priority
+                sizes="50vw"
+                unoptimized
+              />
+            )}
+          </FadeInView>
+        </div>
+      </section>
+      ) : (
+      /* Hero — standard layout */
       <section className={`relative flex items-end bg-black-deep text-white overflow-hidden ${heroImage === "/images/Hero cucina.jpg" ? "min-h-[45vh] sm:min-h-[50vh]" : "min-h-[55vh] sm:min-h-[70vh]"}`}>
         {heroVideo ? (
           <video
@@ -479,7 +673,7 @@ export default async function ProductPage({ params }: Props) {
             className="object-cover object-center"
             priority
             sizes="100vw"
-            quality={95}
+            unoptimized
           />
         ) : null}
         {slug === "infissi-alluminio" && (
@@ -534,6 +728,7 @@ export default async function ProductPage({ params }: Props) {
           </FadeInView>
         </div>
       </section>
+      )}
 
       {/* Oknoplast mini banner */}
       {(slug === "infissi-alluminio" || slug === "infissi-pvc") && (

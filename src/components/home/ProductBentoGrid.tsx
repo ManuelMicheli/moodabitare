@@ -79,7 +79,7 @@ const products = [
     name: "Comfort & Complementi",
     brands: ["Bettio", "Sharknet", "Grifoflex", "Sinfonia"],
     description: "Zanzariere, tende tecniche, scale e ringhiere.",
-    image: "/moodabitarereal/comfort-complementi.webp",
+    image: "/moodabitarereal/comfort-complementi.jfif",
     href: "/prodotti?categoria=comfort-complementi",
     products: 3,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",

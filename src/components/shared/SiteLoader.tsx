@@ -73,9 +73,35 @@ export function SiteLoader() {
     }
   }
 
+  function waitForVideoAndExit() {
+    // Not on the home page — no hero video to wait for
+    if (!(window as any).__heroVideoExpected) {
+      animateOut();
+      return;
+    }
+
+    // Video already signalled ready (race condition: event fired before we listened)
+    if ((window as any).__heroVideoReady) {
+      animateOut();
+      return;
+    }
+
+    let exited = false;
+    const exit = () => {
+      if (exited) return;
+      exited = true;
+      window.removeEventListener("hero-video-ready", exit);
+      animateOut();
+    };
+
+    window.addEventListener("hero-video-ready", exit);
+    // Safety: max 6s additional wait so the loader doesn't stay forever on very slow connections
+    setTimeout(exit, 6000);
+  }
+
   function runAnimation() {
     const tl = gsap.timeline({
-      onComplete: () => animateOut(),
+      onComplete: () => waitForVideoAndExit(),
       defaults: { ease: "expo.out" },
     });
 

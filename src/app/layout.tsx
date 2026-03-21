@@ -4,6 +4,7 @@ import { cormorantGaramond, outfit } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LazyOverlays } from "@/components/shared/LazyOverlays";
+import { R2_CDN } from "@/lib/constants";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -194,7 +195,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className={`${cormorantGaramond.variable} ${outfit.variable}`}>
+      <head>
+        {/* Preload first hero video — responsive desktop/mobile.
+            Starts download immediately on page load, before React hydrates. */}
+        <link
+          rel="preload"
+          as="video"
+          type="video/mp4"
+          href={`${R2_CDN}/videos/0320(3)-desktop.mp4`}
+          media="(min-width: 768px)"
+        />
+        <link
+          rel="preload"
+          as="video"
+          type="video/mp4"
+          href={`${R2_CDN}/videos/0320(3)-mobile.mp4`}
+          media="(max-width: 767px)"
+        />
+      </head>
       <body className="antialiased">
+        {/* Inline preload: force-start video download on mobile browsers
+            that may ignore <link rel="preload" as="video"> */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(sessionStorage.getItem("moschiano-loaded"))return;var m=window.innerWidth<768;var u=m?"${R2_CDN}/videos/0320(3)-mobile.mp4":"${R2_CDN}/videos/0320(3)-desktop.mp4";fetch(u,{mode:"no-cors",priority:"high"}).catch(function(){})}catch(e){}})();`,
+          }}
+        />
         {/* Server-rendered backdrop — visible from first paint, before JS hydrates */}
         <div
           id="site-loader-backdrop"

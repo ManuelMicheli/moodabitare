@@ -6,6 +6,7 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
 import { DrawLine } from "@/components/animations/DrawLine";
+import Link from "next/link";
 import { AboutSection } from "@/components/home/AboutSection";
 import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner";
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
@@ -15,11 +16,30 @@ const marqueeImages = [
   { src: "/images/wmremove-transformed (24).webp", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
   { src: "/moodabitarereal/dettaglio-cucina.webp", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
   { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
+  { src: "/showroom/wmremove-transformed (35).png", alt: "Showroom Mood Abitare — dettaglio", w: 1536, h: 2730 },
+  { src: "/showroom/wmremove-transformed (28).png", alt: "Showroom Mood Abitare — esposizione", w: 1536, h: 2730 },
 ];
 
 export function ValuePropositions() {
   return (
     <section>
+      {/* Scopri lo showroom */}
+      <div className="px-6 sm:px-10 lg:px-20 pb-8 sm:pb-12 flex items-end justify-between">
+        <FadeInView>
+          <h2 className="font-section-title text-black-deep">
+            Scopri lo showroom
+          </h2>
+        </FadeInView>
+        <FadeInView delay={0.1}>
+          <Link
+            href="/showroom"
+            className="text-button inline-block border border-black-deep/15 text-black-deep px-6 py-3 sm:px-8 sm:py-3.5 btn-press hover:border-black-deep/40 transition-colors whitespace-nowrap"
+          >
+            Visita lo showroom
+          </Link>
+        </FadeInView>
+      </div>
+
       {/* Infinite scrolling images */}
       <div className="overflow-hidden">
         <div className="flex w-max gap-10 sm:gap-16 animate-marquee-scroll">
@@ -35,7 +55,8 @@ export function ValuePropositions() {
                 height={img.h}
                 className="absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 640px) 90vw, 55vw"
-                quality={80}
+                quality={100}
+                unoptimized
               />
             </div>
           ))}

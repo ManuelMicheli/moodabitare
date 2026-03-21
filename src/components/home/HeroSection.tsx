@@ -22,10 +22,6 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "",
-    video: {
-      desktop: `${R2_CDN}/videos/0320(3)-desktop.mp4`,
-      mobile: `${R2_CDN}/videos/0320(3)-mobile.mp4`,
-    },
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
@@ -33,10 +29,6 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
-    video: {
-      desktop: `${R2_CDN}/videos/IMG_7923-desktop.mp4`,
-      mobile: `${R2_CDN}/videos/IMG_7923-mobile.mp4`,
-    },
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
@@ -84,7 +76,7 @@ const REVEAL_CONFIG = {
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [revealingIndex, setRevealingIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [loadedVideos, setLoadedVideos] = useState<Set<number>>(() => {
     // Preload both hero video slides immediately (they download during SiteLoader)
     const initial = new Set<number>();
@@ -98,10 +90,50 @@ export function HeroSection() {
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const videoRefsMap = useRef<Map<number, HTMLVideoElement>>(new Map());
 
-  // Detect mobile once on mount
+  // Detect mobile once on mount — must run before video src is set
+  // to avoid downloading the desktop video first on mobile devices
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
+    // Signal to SiteLoader that hero videos exist on this page
+    (window as any).__heroVideoExpected = true;
   }, []);
+
+  // ---------------------------------------------------------------------------
+  // Signal SiteLoader when first hero video is buffered enough to play
+  // ---------------------------------------------------------------------------
+  useEffect(() => {
+    if (isMobile === null) return; // Wait for mobile detection
+
+    const firstVideoIdx = slides.findIndex((s) => s.video);
+    if (firstVideoIdx === -1) {
+      (window as any).__heroVideoReady = true;
+      window.dispatchEvent(new Event("hero-video-ready"));
+      return;
+    }
+
+    const trySignal = () => {
+      const el = videoRefsMap.current.get(firstVideoIdx);
+      if (!el || !el.src) {
+        requestAnimationFrame(trySignal);
+        return;
+      }
+      if (el.readyState >= 3) {
+        (window as any).__heroVideoReady = true;
+        window.dispatchEvent(new Event("hero-video-ready"));
+        return;
+      }
+      el.addEventListener(
+        "canplaythrough",
+        () => {
+          (window as any).__heroVideoReady = true;
+          window.dispatchEvent(new Event("hero-video-ready"));
+        },
+        { once: true }
+      );
+    };
+
+    trySignal();
+  }, [isMobile]);
 
   // ---------------------------------------------------------------------------
   // Circle reveal transition
@@ -334,13 +366,13 @@ export function HeroSection() {
           {slide.video ? (
             <video
               ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
-              src={loadedVideos.has(i) ? (isMobile ? slide.video.mobile : slide.video.desktop) : undefined}
+              src={isMobile !== null && loadedVideos.has(i) ? (isMobile ? slide.video.mobile : slide.video.desktop) : undefined}
               muted
               playsInline
               preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             />
-          ) : (
+          ) : slide.image ? (
             <Image
               src={slide.image}
               alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
@@ -349,7 +381,10 @@ export function HeroSection() {
               sizes="100vw"
               className="object-cover"
             />
+          ) : (
+            <div className="absolute inset-0 bg-[#2b2b2b]" />
           )}
+
           {/* Dark overlay for text contrast */}
           <div className="absolute inset-0 bg-black/20" />
 
@@ -388,6 +423,9 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black-deep/25 via-transparent to-transparent pointer-events-none z-[3]" />
       {/* Bottom gradient for CTA readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black-deep/35 via-transparent to-transparent pointer-events-none z-[3]" />
+
+      {/* Film grain texture overlay */}
+      <div className="hero-grain" />
 
       {/* Navigation arrows — desktop only */}
       <button

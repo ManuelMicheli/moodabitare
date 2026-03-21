@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
-import { R2_CDN } from "@/lib/constants";
+
 import { AccentText } from "@/components/ui/AccentText";
 import { LinkPreview } from "@/components/ui/LinkPreview";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -263,22 +263,10 @@ export function AboutSection() {
       className="py-20 lg:py-56 px-6 sm:px-10 lg:px-20"
     >
       <div className="max-w-6xl mx-auto lg:flex lg:gap-16 lg:items-stretch">
-        {/* Card verticali con video — solo desktop (video non caricato su mobile) */}
+        {/* Card verticali placeholder — solo desktop */}
         <div className="hidden lg:flex flex-[2.33] gap-3 self-stretch" style={{ marginLeft: "calc(-50vw + 50%)" }}>
           <div className="flex-1 h-full rounded-sm bg-warm-gray" />
-          <div className="flex-shrink-0 relative rounded-sm overflow-hidden aspect-[9/16] self-center" style={{ height: "min(100%, 80vh)" }}>
-            <video
-              src={`${R2_CDN}/videos/1nuovo.mp4`}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="none"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Divisore centrale per effetto 2 card */}
-            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-3 bg-cream z-10" />
-          </div>
+          <div className="flex-1 h-full rounded-sm bg-warm-gray" />
         </div>
 
         <div className="flex-1">
@@ -326,40 +314,16 @@ export function AboutSection() {
                 delay={0.1}
               />
 
-              {/* Mobile: two horizontal cards with split video */}
+              {/* Mobile: two placeholder cards */}
               <motion.div
-                className="my-10 flex flex-col gap-3 lg:hidden"
+                className="my-10 flex gap-3 lg:hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                {/* Top card */}
-                <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden">
-                  <video
-                    src={`${R2_CDN}/videos/1nuovo.mp4`}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="absolute w-full object-cover"
-                    style={{ height: "calc(200% + 0.75rem)", top: 0 }}
-                  />
-                </div>
-                {/* Bottom card */}
-                <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden">
-                  <video
-                    src={`${R2_CDN}/videos/1nuovo.mp4`}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="absolute w-full object-cover"
-                    style={{ height: "calc(200% + 0.75rem)", bottom: 0 }}
-                  />
-                </div>
+                <div className="flex-1 aspect-[3/4] rounded-sm bg-warm-gray" />
+                <div className="flex-1 aspect-[3/4] rounded-sm bg-warm-gray" />
               </motion.div>
 
               <div className="space-y-8">
