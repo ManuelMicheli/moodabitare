@@ -136,7 +136,7 @@ export function HomeServices() {
                     </div>
 
                     {/* Description + Highlights */}
-                    <div className="pl-8 lg:pl-0">
+                    <div className="pl-0 lg:pl-0">
                       <p
                         className="leading-relaxed font-ui text-black-deep"
                         style={{
@@ -146,11 +146,11 @@ export function HomeServices() {
                       >
                         {service.detail}
                       </p>
-                      <div className="mt-3.5 flex flex-nowrap gap-2 overflow-x-auto">
+                      <div className="mt-3.5 flex flex-wrap gap-2">
                         {service.highlights.map((h) => (
                           <span
                             key={h}
-                            className="inline-block flex-shrink-0 px-3 py-1.5 rounded-full text-[0.8rem] font-ui font-semibold tracking-wide uppercase text-black-deep/50 bg-black-deep/[0.06] border border-black-deep/[0.08] group-hover:border-bordeaux/20 group-hover:text-bordeaux/60 group-hover:bg-bordeaux/[0.04] transition-colors duration-500"
+                            className="inline-block flex-shrink-0 px-3 py-1.5 rounded-full text-[0.75rem] sm:text-[0.8rem] font-ui font-semibold tracking-wide uppercase text-black-deep/50 bg-black-deep/[0.06] border border-black-deep/[0.08] group-hover:border-bordeaux/20 group-hover:text-bordeaux/60 group-hover:bg-bordeaux/[0.04] transition-colors duration-500"
                           >
                             {h}
                           </span>

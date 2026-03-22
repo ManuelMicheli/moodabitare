@@ -128,7 +128,7 @@ export default function ServiziRistrutturazione() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <Image
           src="/images/ristrutturazione-hero.jpg"
           alt="Ristrutturazione chiavi in mano"

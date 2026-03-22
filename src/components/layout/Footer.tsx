@@ -26,10 +26,10 @@ export function Footer() {
       </div>
 
       {/* Main content */}
-      <div className="py-16 lg:py-20 px-6 sm:px-10 lg:px-20">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
+      <div className="py-12 sm:py-16 lg:py-20 px-6 sm:px-10 lg:px-20">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           {/* Column 1: Brand + about */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 sm:col-span-2 lg:col-span-4">
             <Link href="/" className="inline-block mb-6">
               <Image
                 src="/logo/logo-mood-abitare-transparent-opt.png"
@@ -83,7 +83,7 @@ export function Footer() {
           </div>
 
           {/* Column 4: Contact + hours */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 sm:col-span-2 lg:col-span-4">
             <h3 className="text-label text-white/70 mb-5">Contatti</h3>
             <address className="not-italic space-y-2.5 text-caption text-white/80">
               <p>{CONTACT_INFO.fullAddress}</p>
@@ -114,10 +114,11 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5 py-5 px-6 sm:px-10 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <p className="text-caption text-white/60">
-            &copy; {currentYear} Mood Abitare. Tutti i diritti riservati. — P.IVA 03940950128
+          <p className="text-caption text-[0.75rem] sm:text-[clamp(0.875rem,0.85rem+0.15vw,1.0625rem)] text-white/60 text-center sm:text-left">
+            &copy; {currentYear} Mood Abitare. Tutti i diritti riservati.
+            <span className="block sm:inline"> P.IVA 03940950128</span>
           </p>
-          <Link href="/privacy-policy" className="text-caption text-white/60 hover:text-white transition-colors">
+          <Link href="/privacy-policy" className="text-caption text-[0.75rem] sm:text-[clamp(0.875rem,0.85rem+0.15vw,1.0625rem)] text-white/60 hover:text-white transition-colors flex-shrink-0">
             Privacy e Cookie Policy
           </Link>
         </div>

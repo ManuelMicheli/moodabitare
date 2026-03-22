@@ -148,7 +148,7 @@ export function CookieBanner() {
                   onClick={() => handleConsent("all")}
                   variant="bordeaux"
                   size="sm"
-                  className="w-full sm:w-auto text-xs"
+                  className="w-full sm:w-auto text-xs min-h-[44px]"
                 >
                   Accetta tutti
                 </Button>
@@ -157,13 +157,13 @@ export function CookieBanner() {
                     onClick={() => handleConsent("necessary")}
                     variant="outline"
                     size="sm"
-                    className="text-xs"
+                    className="text-xs min-h-[44px]"
                   >
                     Solo necessari
                   </Button>
                   <button
                     onClick={() => setShowDetails(!showDetails)}
-                    className="text-xs text-mid-gray underline hover:text-black-deep transition-colors"
+                    className="text-xs text-mid-gray underline hover:text-black-deep transition-colors min-h-[44px] px-2"
                   >
                     {showDetails ? "Nascondi" : "Personalizza"}
                   </button>

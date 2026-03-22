@@ -222,16 +222,16 @@ export default function ChiSiamo() {
           </FadeInView>
 
           <FadeInView delay={0.15}>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
               <Link
                 href="/contatti"
-                className="text-button inline-block bg-black-deep text-white px-10 py-4 btn-press hover:bg-black-soft transition-colors"
+                className="text-button block sm:inline-block text-center bg-black-deep text-white px-10 py-4 btn-press hover:bg-black-soft transition-colors"
               >
                 Contattaci
               </Link>
               <Link
                 href={`tel:${CONTACT_INFO.phoneHref}`}
-                className="text-button inline-block border border-black-deep/15 text-black-deep px-10 py-4 btn-press hover:border-black-deep/40 transition-colors"
+                className="text-button block sm:inline-block text-center border border-black-deep/15 text-black-deep px-10 py-4 btn-press hover:border-black-deep/40 transition-colors"
               >
                 {CONTACT_INFO.phone}
               </Link>

@@ -32,7 +32,7 @@ export default function Contatti() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>

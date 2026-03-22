@@ -23,12 +23,12 @@ export function ProductCatalog() {
   return (
     <div>
       {/* Filter Tabs — with gradient fade hint on mobile */}
-      <div className="relative mb-16 lg:mb-20">
-        <div className="flex justify-start sm:justify-center gap-1 overflow-x-auto sm:overflow-visible pb-2 scrollbar-hide sm:flex-wrap">
+      <div className="relative mb-10 sm:mb-16 lg:mb-20">
+        <div className="flex justify-start sm:justify-center gap-2 overflow-x-auto sm:overflow-visible pb-2 scrollbar-hide sm:flex-wrap px-1">
           <button
             onClick={() => setActiveCategory(null)}
             className={cn(
-              "px-5 py-2.5 text-label transition-all flex-shrink-0 rounded-full border border-black-deep/10",
+              "px-4 sm:px-5 py-2.5 min-h-[44px] text-label transition-all flex-shrink-0 rounded-full border border-black-deep/10",
               !activeCategory
                 ? "bg-black-deep text-white border-black-deep"
                 : "text-black-deep/40 hover:text-black-deep"
@@ -44,7 +44,7 @@ export function ProductCatalog() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "px-5 py-2.5 text-label transition-all flex-shrink-0 rounded-full border border-black-deep/10",
+                  "px-4 sm:px-5 py-2.5 min-h-[44px] text-label transition-all flex-shrink-0 rounded-full border border-black-deep/10",
                   activeCategory === cat.id
                     ? "bg-black-deep text-white border-black-deep"
                     : "text-black-deep/40 hover:text-black-deep"
@@ -57,7 +57,7 @@ export function ProductCatalog() {
           })}
         </div>
         {/* Fade hint — mobile only */}
-        <div className="absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none sm:hidden" />
+        <div className="absolute right-0 top-0 bottom-2 w-10 bg-gradient-to-l from-white to-transparent pointer-events-none sm:hidden" />
       </div>
 
       {/* Products Grid — geometric pattern via chamfered corners + dark gap */}
@@ -91,17 +91,17 @@ export function ProductCatalog() {
                 ) : null}
                 <div className="absolute inset-0" />
               </div>
-              <div className="p-2.5 sm:p-6 lg:p-8 flex-1">
+              <div className="p-3 sm:p-6 lg:p-8 flex-1">
                 {product.brand && (
-                  <span className="text-label text-[0.55rem] sm:text-[0.65rem] text-black-deep/25">
+                  <span className="text-label text-[0.6rem] sm:text-[0.65rem] text-black-deep/30">
                     {product.brand}
                   </span>
                 )}
-                <h3 className="mt-1 sm:mt-2 font-card-title text-[0.85rem] sm:text-base text-black-deep group-hover:text-black-deep/60 transition-colors leading-tight">
+                <h3 className="mt-1 sm:mt-2 font-card-title text-[0.875rem] sm:text-base text-black-deep group-hover:text-black-deep/60 transition-colors leading-tight">
                   {product.name}
                 </h3>
-                <span className="inline-block mt-2 sm:mt-4 text-caption text-black-deep/60 group-hover:text-black-deep/60 transition-colors">
-                  Scopri →
+                <span className="inline-block mt-2 sm:mt-4 text-caption text-[0.8rem] text-black-deep/60 group-hover:text-black-deep/60 transition-colors">
+                  Scopri &rarr;
                 </span>
               </div>
             </Link>

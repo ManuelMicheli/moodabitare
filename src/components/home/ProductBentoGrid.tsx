@@ -222,7 +222,7 @@ export function ProductBentoGrid() {
                           {product.brands.map((brand) => (
                             <span
                               key={brand}
-                              className="text-[0.6rem] font-ui font-medium uppercase tracking-wider text-white border border-white/20 rounded-full px-2.5 py-0.5"
+                              className="text-[0.6rem] sm:text-[0.65rem] font-ui font-medium uppercase tracking-wider text-white/90 border border-white/20 rounded-full px-2.5 py-0.5"
                             >
                               {brand}
                             </span>

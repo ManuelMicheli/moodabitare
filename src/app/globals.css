@@ -440,6 +440,13 @@ h3 { font-size: clamp(1.125rem, 0.95rem + 1vw, 1.5rem); line-height: 1.3; }  /* 
   }
 }
 
+/* Prevent iOS zoom on input focus — force 16px minimum */
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
 /* Safe area bottom padding for fixed elements on notched devices */
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);

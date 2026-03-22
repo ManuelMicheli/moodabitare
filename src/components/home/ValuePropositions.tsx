@@ -24,7 +24,7 @@ export function ValuePropositions() {
   return (
     <section>
       {/* Scopri lo showroom */}
-      <div className="px-6 sm:px-10 lg:px-20 pb-8 sm:pb-12 flex items-end justify-between">
+      <div className="px-6 sm:px-10 lg:px-20 pb-8 sm:pb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6">
         <FadeInView>
           <h2 className="font-section-title text-black-deep">
             Scopri lo showroom
@@ -33,7 +33,7 @@ export function ValuePropositions() {
         <FadeInView delay={0.1}>
           <Link
             href="/showroom"
-            className="text-button inline-block border border-black-deep/15 text-black-deep px-6 py-3 sm:px-8 sm:py-3.5 btn-press hover:border-black-deep/40 transition-colors whitespace-nowrap"
+            className="text-button inline-block border border-black-deep/15 text-black-deep px-6 py-3 sm:px-8 sm:py-3.5 btn-press hover:border-black-deep/40 transition-colors whitespace-nowrap text-center"
           >
             Visita lo showroom
           </Link>

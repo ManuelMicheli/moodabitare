@@ -43,11 +43,11 @@ export function CTAFinale() {
         <DrawLine className="mx-auto !w-16 !bg-white/10 mt-10" delay={0.4} />
 
         <FadeInView delay={0.5}>
-          <div className="mt-10 flex flex-wrap justify-center gap-6">
+          <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4 sm:gap-6">
             <MagneticButton>
               <Link
                 href="/contatti"
-                className="text-button inline-block bg-white text-black-deep px-8 py-4 btn-press hover:bg-white/85 transition-colors"
+                className="text-button block sm:inline-block text-center bg-white text-black-deep px-8 py-4 btn-press hover:bg-white/85 transition-colors"
               >
                 Richiedi preventivo
               </Link>
@@ -57,7 +57,7 @@ export function CTAFinale() {
                 href="https://wa.me/3517278053"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-button inline-block border border-white/20 text-white px-8 py-4 btn-press hover:bg-white hover:text-black-deep transition-all duration-300"
+                className="text-button block sm:inline-block text-center border border-white/20 text-white px-8 py-4 btn-press hover:bg-white hover:text-black-deep transition-all duration-300"
               >
                 Scrivici su WhatsApp
               </a>

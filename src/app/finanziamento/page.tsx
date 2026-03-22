@@ -32,7 +32,7 @@ export default function Finanziamento() {
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="relative min-h-[80vh] flex items-end bg-black-deep overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-end bg-black-deep overflow-hidden">
         {/* Large decorative 0% */}
         <div
           className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] select-none pointer-events-none"
@@ -262,16 +262,16 @@ export default function Finanziamento() {
               <p className="mt-6 text-body text-cream/80 max-w-md mx-auto">
                 Contattaci per scoprire come finanziare il tuo progetto a tasso zero, cumulabile con le detrazioni fiscali.
               </p>
-              <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="mt-12 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
                 <Link
                   href="/contatti"
-                  className="text-button inline-block bg-cream text-black-deep px-10 py-4 btn-press hover:bg-cream/90 transition-colors"
+                  className="text-button block sm:inline-block text-center bg-cream text-black-deep px-10 py-4 btn-press hover:bg-cream/90 transition-colors"
                 >
                   Richiedi un preventivo
                 </Link>
                 <Link
                   href="tel:03311120048"
-                  className="text-button inline-block text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 btn-press transition-colors"
+                  className="text-button block sm:inline-block text-center text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 btn-press transition-colors"
                 >
                   0331.1120048
                 </Link>

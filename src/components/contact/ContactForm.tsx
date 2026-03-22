@@ -137,9 +137,9 @@ export function ContactForm() {
       <div>
         <label className="flex items-center gap-3 min-h-[44px] cursor-pointer">
           <input type="checkbox" {...register("privacy")} className="h-5 w-5 accent-black" />
-          <span className={cn("text-caption text-black-deep/35", errors.privacy && "text-red-400")}>
+          <span className={cn("text-caption text-black-deep/60", errors.privacy && "text-red-400")}>
             Dichiaro di aver letto l&apos;informativa sulla{" "}
-            <a href="/privacy-policy" className="text-black-deep/60 underline" target="_blank" rel="noopener noreferrer">privacy</a>{" "}
+            <a href="/privacy-policy" className="text-black-deep/80 underline" target="_blank" rel="noopener noreferrer">privacy</a>{" "}
             e autorizzo il trattamento dei miei dati personali.
           </span>
         </label>
@@ -153,7 +153,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors disabled:opacity-50"
+        className="text-button w-full sm:w-auto bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors disabled:opacity-50"
       >
         {status === "sending" ? "Invio in corso..." : "Invia messaggio"}
       </button>

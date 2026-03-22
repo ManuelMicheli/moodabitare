@@ -389,28 +389,28 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-black/20" />
 
           {/* Logo + titolo in alto, sottotitolo + CTA in basso */}
-          <div className="absolute inset-0 flex flex-col justify-between px-6 sm:px-10 lg:px-16 pt-16 sm:pt-18 lg:pt-20 pb-4 sm:pb-6 lg:pb-8">
-            <div className="flex flex-col items-center gap-3 sm:gap-4">
+          <div className="absolute inset-0 flex flex-col justify-between px-5 sm:px-10 lg:px-16 pt-20 sm:pt-18 lg:pt-20 pb-8 sm:pb-6 lg:pb-8">
+            <div className="flex flex-col items-center gap-2 sm:gap-4">
               <Image
                 src="/logo/logo-mood-abitare-transparent-opt.png"
                 alt="Mood Abitare"
                 width={200}
                 height={50}
-                className="w-auto h-8 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
+                className="w-auto h-7 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
               />
-              <h2 className="font-hero text-white text-center drop-shadow-lg text-[1rem] sm:text-[clamp(1.5rem,4vw,3rem)] leading-[1.1]">
+              <h2 className="font-hero text-white text-center drop-shadow-lg text-[0.95rem] sm:text-[clamp(1.5rem,4vw,3rem)] leading-[1.15]">
                 {slide.headline.split("\n").map((line, li) => (
                   <span key={`${i}-${li}`} className="block">{line}</span>
                 ))}
               </h2>
             </div>
             <div className="flex flex-col items-center gap-3 sm:gap-4">
-              <p className="font-body text-white text-center max-w-sm sm:max-w-2xl drop-shadow-md text-[0.8rem] sm:text-[clamp(0.9rem,1.2vw,1.4rem)] leading-relaxed">
+              <p className="font-body text-white text-center max-w-[280px] sm:max-w-2xl drop-shadow-md text-[0.8rem] sm:text-[clamp(0.9rem,1.2vw,1.4rem)] leading-relaxed">
                 {slide.subheadline}
               </p>
               <Link
                 href={slide.ctaLink}
-                className="text-button inline-block bg-bordeaux text-white px-6 py-3 sm:px-8 sm:py-4 hover:bg-bordeaux-dark transition-colors"
+                className="text-button inline-block bg-bordeaux text-white px-6 py-3.5 sm:px-8 sm:py-4 hover:bg-bordeaux-dark transition-colors"
               >
                 {slide.ctaText}
               </Link>
@@ -427,7 +427,7 @@ export function HeroSection() {
       {/* Film grain texture overlay */}
       <div className="hero-grain" />
 
-      {/* Navigation arrows — desktop only */}
+      {/* Navigation arrows — hidden on small mobile, visible from sm up */}
       <button
         onClick={() => {
           stopAutoplay();
@@ -435,9 +435,9 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide precedente"
-        className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
-        <svg className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
@@ -449,15 +449,15 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide successiva"
-        className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
-        <svg className="w-3.5 h-3.5 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
 
-      {/* Counter — bottom right */}
-      <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[11px] sm:text-[13px] text-white/60 tracking-widest">
+      {/* Counter — bottom right, hidden on very small screens to avoid CTA overlap */}
+      <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 lg:right-20 z-10 font-ui text-[11px] sm:text-[13px] text-white/60 tracking-widest hidden sm:block">
         <span className="text-white font-semibold">
           {String(current + 1).padStart(2, "0")}
         </span>

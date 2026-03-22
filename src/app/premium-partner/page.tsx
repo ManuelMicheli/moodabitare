@@ -51,7 +51,7 @@ export default function PremiumPartner() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
@@ -73,7 +73,7 @@ export default function PremiumPartner() {
       </section>
 
       {/* Oknoplast image banner */}
-      <section className="relative h-[65vh] min-h-[450px] flex items-end justify-end text-white overflow-hidden">
+      <section className="relative h-[55vh] sm:h-[65vh] min-h-[400px] sm:min-h-[450px] flex items-end justify-end text-white overflow-hidden">
         <Image
           src="/images/Oknoplast-azienda-vista-aerea-opt.jpg"
           alt="Oknoplast azienda vista aerea"
@@ -107,19 +107,19 @@ export default function PremiumPartner() {
             </FadeInView>
 
             <FadeInView delay={0.3}>
-              <div className="mt-8 flex flex-wrap gap-8 lg:gap-10">
+              <div className="mt-8 grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:gap-8 lg:gap-10">
                 {[
                   { value: "30+", label: "Anni di esperienza" },
                   { value: "100%", label: "PVC riciclabile" },
                   { value: "RC2", label: "Classe antieffrazione" },
                   { value: "A+", label: "Efficienza energetica" },
                 ].map((item) => (
-                  <div key={item.label} className="text-right">
-                    <div className="font-display text-[clamp(1.5rem,2.5vw,2rem)] font-bold text-white leading-none">
+                  <div key={item.label} className="text-left sm:text-right">
+                    <div className="font-display text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white leading-none">
                       {item.value}
                     </div>
-                    <div className="mt-3 h-px w-10 bg-white/30 ml-auto" />
-                    <p className="mt-3 text-caption text-white/80">
+                    <div className="mt-2 sm:mt-3 h-px w-8 sm:w-10 bg-white/30 sm:ml-auto" />
+                    <p className="mt-2 sm:mt-3 text-caption text-[0.75rem] sm:text-[clamp(0.875rem,0.85rem+0.15vw,1.0625rem)] text-white/80">
                       {item.label}
                     </p>
                   </div>

@@ -212,7 +212,7 @@ export function Header() {
               rel="noopener noreferrer"
               className={cn(
                 "inline-flex items-center justify-center w-9 h-9 lg:w-10 lg:h-10 rounded-full border transition-all duration-300",
-                isScrolled
+                isMobileOpen || isScrolled
                   ? "border-black-deep/15 text-black-deep hover:bg-[#25D366] hover:border-[#25D366] hover:text-white"
                   : "border-white/20 text-white hover:bg-white hover:text-black-deep"
               )}
@@ -242,17 +242,17 @@ export function Header() {
               <div className="flex flex-col gap-1.5">
                 <span className={cn(
                   "block h-[1px] w-6 transition-all duration-300",
-                  isScrolled ? "bg-black-deep" : "bg-white",
+                  isMobileOpen || isScrolled ? "bg-black-deep" : "bg-white",
                   isMobileOpen && "translate-y-[7px] rotate-45"
                 )} />
                 <span className={cn(
                   "block h-[1px] w-6 transition-all duration-300",
-                  isScrolled ? "bg-black-deep" : "bg-white",
+                  isMobileOpen || isScrolled ? "bg-black-deep" : "bg-white",
                   isMobileOpen && "opacity-0"
                 )} />
                 <span className={cn(
                   "block h-[1px] w-6 transition-all duration-300",
-                  isScrolled ? "bg-black-deep" : "bg-white",
+                  isMobileOpen || isScrolled ? "bg-black-deep" : "bg-white",
                   isMobileOpen && "-translate-y-[7px] -rotate-45"
                 )} />
               </div>
