@@ -212,7 +212,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
             </div>
 
-            <div className="sticky bottom-0 left-0 right-0 border-t border-black-deep/10 bg-white px-6 pt-4" style={{ paddingBottom: `calc(1.25rem + env(safe-area-inset-bottom, 0px))` }}>
+            {/* CTA bar — z-[9998] to stay above Botpress bot widget (z-9997) */}
+            <div className="sticky bottom-0 left-0 right-0 z-[9998] border-t border-black-deep/10 bg-white px-6 pt-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" style={{ paddingBottom: `calc(1.25rem + env(safe-area-inset-bottom, 0px))` }}>
               <div className="flex gap-3">
                 <Link
                   href="/contatti"
