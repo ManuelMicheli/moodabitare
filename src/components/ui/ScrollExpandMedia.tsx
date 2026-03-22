@@ -205,7 +205,7 @@ function DesktopScrollExpandMedia({
                   )}
                   {scrollToExpand && (
                     <p
-                      className="font-ui text-white/40 text-sm"
+                      className="font-ui text-white/80 text-sm"
                       style={{ transform: `translateX(${textTranslateX}vw)` }}
                     >
                       {scrollToExpand}

@@ -69,7 +69,7 @@ export default function ProgettazioneDesign() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">
+            <p className="text-label text-white/80 mb-6">
               Progettazione e Design
             </p>
           </FadeInView>
@@ -79,7 +79,7 @@ export default function ProgettazioneDesign() {
             </h1>
           </ClipReveal>
           <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-white/35 max-w-xl">
+            <p className="mt-8 text-body text-white/80 max-w-xl">
               Ogni casa racconta una storia unica. Il nostro metodo parte
               dall&apos;ascolto per comprendere come vivi i tuoi spazi, le tue
               abitudini, aspettative e necessit&agrave; pratiche.
@@ -108,7 +108,7 @@ export default function ProgettazioneDesign() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
               {/* Left — title block */}
               <div className="lg:col-span-5">
-                <p className="text-label text-black-deep/30 mb-6">
+                <p className="text-label text-black-deep/60 mb-6">
                   La nostra filosofia
                 </p>
                 <h2 className="font-section-title text-black-deep">
@@ -130,12 +130,12 @@ export default function ProgettazioneDesign() {
                       >
                         {item.value}
                         {item.unit && (
-                          <span className="text-[0.6em] text-black-deep/30 ml-1">
+                          <span className="text-[0.6em] text-black-deep/60 ml-1">
                             {item.unit}
                           </span>
                         )}
                       </span>
-                      <p className="text-label text-black-deep/30 mt-2 text-[0.75rem]">
+                      <p className="text-label text-black-deep/60 mt-2 text-[0.75rem]">
                         {item.label}
                       </p>
                     </div>
@@ -146,14 +146,14 @@ export default function ProgettazioneDesign() {
               {/* Right — text with decorative border */}
               <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
                 <div className="border-l-2 border-black-deep/8 pl-8 lg:pl-12 space-y-6">
-                  <p className="text-body text-black-deep/55 leading-relaxed">
+                  <p className="text-body text-black-deep leading-relaxed">
                     Le nostre designer sono professioniste esperte che uniscono
                     sensibilit&agrave; estetica a solida competenza tecnica. Il
                     metodo parte dall&apos;ascolto per comprendere come il cliente
                     vive i propri spazi, le abitudini, le aspettative e le
                     necessit&agrave; pratiche.
                   </p>
-                  <p className="text-body text-black-deep/55 leading-relaxed">
+                  <p className="text-body text-black-deep leading-relaxed">
                     Il cliente pu&ograve; inoltre contare sul supporto di un
                     architetto, che aiuter&agrave; non solo a scegliere i prodotti
                     pi&ugrave; adatti, ma anche a dare forma alle idee con
@@ -171,7 +171,7 @@ export default function ProgettazioneDesign() {
                   ].map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wider uppercase text-black-deep/30 border border-black-deep/8"
+                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wider uppercase text-black-deep/60 border border-black-deep/8"
                     >
                       {tag}
                     </span>
@@ -204,13 +204,13 @@ export default function ProgettazioneDesign() {
         <div className="px-6 sm:px-10 lg:px-20 relative z-10">
           <FadeInView>
             <div className="max-w-3xl mx-auto text-center">
-              <p className="text-label text-cream/25 mb-6">
+              <p className="text-label text-cream/80 mb-6">
                 Inizia il tuo progetto
               </p>
               <h2 className="font-section-title text-cream max-w-3xl mx-auto">
                 <AccentText>Raccontaci la tua visione</AccentText>
               </h2>
-              <p className="mt-8 text-body text-cream/35 max-w-lg mx-auto">
+              <p className="mt-8 text-body text-cream/80 max-w-lg mx-auto">
                 Vieni a trovarci nello showroom di 300&thinsp;mq a Gorla
                 Maggiore per un primo incontro senza impegno. Ti guideremo
                 passo dopo passo, dall&apos;idea alla realizzazione.
@@ -240,7 +240,7 @@ export default function ProgettazioneDesign() {
                 ].map((item) => (
                   <span
                     key={item}
-                    className="text-[0.75rem] font-ui tracking-wider uppercase text-cream/20"
+                    className="text-[0.75rem] font-ui tracking-wider uppercase text-cream/80"
                   >
                     {item}
                   </span>

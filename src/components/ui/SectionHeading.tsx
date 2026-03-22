@@ -29,7 +29,7 @@ export function SectionHeading({
         <span
           className={cn(
             "text-label mb-3 inline-block",
-            dark ? "text-white/50" : "text-black-deep/50"
+            dark ? "text-white/80" : "text-black-deep"
           )}
         >
           {label}
@@ -48,7 +48,7 @@ export function SectionHeading({
           className={cn(
             "mt-4 max-w-2xl text-body",
             align === "center" && "mx-auto",
-            dark ? "text-warm-gray" : "text-mid-gray"
+            dark ? "text-warm-gray" : "text-black-deep"
           )}
         >
           {description}

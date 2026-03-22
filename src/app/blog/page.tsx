@@ -32,7 +32,7 @@ export default function Blog() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">Blog</p>
+            <p className="text-label text-white/80 mb-6">Blog</p>
             <h1 className="font-section-title max-w-3xl">
               News e approfondimenti
             </h1>
@@ -50,16 +50,16 @@ export default function Blog() {
                   <div className="aspect-[16/10] bg-warm-gray/10 mb-8 overflow-hidden">
                     <div className="h-full w-full bg-warm-gray/5 group-hover:scale-105 transition-transform duration-700" />
                   </div>
-                  <span className="text-label text-black-deep/25">
+                  <span className="text-label text-black-deep/60">
                     {post.category}
                   </span>
                   <h3 className="mt-3 font-display text-xl lg:text-2xl font-medium text-black-deep tracking-tight group-hover:text-black-deep/60 transition-colors leading-tight">
                     {post.title}
                   </h3>
-                  <p className="mt-4 text-caption text-black-deep/35">
+                  <p className="mt-4 text-caption text-black-deep">
                     {post.excerpt}
                   </p>
-                  <span className="inline-block mt-6 text-caption text-black-deep/25">
+                  <span className="inline-block mt-6 text-caption text-black-deep/60">
                     {post.date}
                   </span>
                 </Link>

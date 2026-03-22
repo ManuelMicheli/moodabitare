@@ -35,6 +35,7 @@ interface HorizontalGalleryProps {
   gridLayout?: boolean;
   darkBg?: boolean;
   segments?: Record<string, string>;
+  cover?: boolean;
 }
 
 function GalleryGrid({
@@ -44,6 +45,7 @@ function GalleryGrid({
   isMobile,
   darkBg,
   segments,
+  cover,
 }: {
   images: GalleryImage[];
   alt: string;
@@ -51,6 +53,7 @@ function GalleryGrid({
   isMobile: boolean;
   darkBg?: boolean;
   segments?: Record<string, string>;
+  cover?: boolean;
 }) {
   return (
     <section className={isMobile ? "px-4 py-12" : "px-10 lg:px-20 pt-0 pb-16 lg:pb-24"}>
@@ -62,12 +65,12 @@ function GalleryGrid({
             className={`flex flex-col items-center text-left group/card ${isMobile ? "bg-white rounded-lg overflow-hidden" : ""}`}
             onClick={() => onImageClick?.(img)}
           >
-            <div className={`relative w-full ${isMobile ? "aspect-[4/3]" : "aspect-[3/4]"}`}>
+            <div className={`relative w-full ${isMobile ? "aspect-[4/3]" : "aspect-[3/4]"} ${cover ? "rounded-lg overflow-hidden" : ""}`}>
               <Image
                 src={img.src}
                 alt={`${alt} — ${img.name}`}
                 fill
-                className="object-contain drop-shadow-lg group-hover/card:scale-105 transition-transform duration-300"
+                className={`${cover ? "object-cover" : "object-contain drop-shadow-lg"} group-hover/card:scale-105 transition-transform duration-300`}
                 sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 18vw"}
               />
             </div>
@@ -76,7 +79,7 @@ function GalleryGrid({
               return (
                 <div className={isMobile ? "p-3 w-full text-center" : `mt-6 text-center`}>
                   {brand && (
-                    <span className={`font-ui text-[0.65rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.18em] ${darkBg && !isMobile ? "text-white/70" : "text-black-deep/60"}`}>
+                    <span className={`font-ui text-[0.65rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.18em] ${darkBg && !isMobile ? "text-white" : "text-black-deep"}`}>
                       {brand}
                     </span>
                   )}
@@ -84,12 +87,12 @@ function GalleryGrid({
                     {product}
                   </p>
                   {segments?.[img.name] && (
-                    <span className={`inline-block mt-2 text-[0.6rem] sm:text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
+                    <span className={`inline-block mt-2 text-[0.6rem] sm:text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/70"}`}>
                       {segments[img.name]}
                     </span>
                   )}
                   {onImageClick && (
-                    <span className={`mt-1.5 text-[0.6rem] sm:text-[0.65rem] font-ui font-medium uppercase tracking-wider block text-center ${darkBg && !isMobile ? "text-white/30" : "text-bordeaux/50"}`}>
+                    <span className={`mt-1.5 text-[0.6rem] sm:text-[0.65rem] font-ui font-medium uppercase tracking-wider block text-center ${darkBg && !isMobile ? "text-white/70" : "text-bordeaux/80"}`}>
                       Scheda tecnica {isMobile && "→"}
                     </span>
                   )}
@@ -108,11 +111,13 @@ function HorizontalScroll({
   alt,
   onImageClick,
   segments,
+  cover,
 }: {
   images: GalleryImage[];
   alt: string;
   onImageClick?: (image: GalleryImage) => void;
   segments?: Record<string, string>;
+  cover?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -133,12 +138,12 @@ function HorizontalScroll({
               className={`flex-shrink-0 w-[50vw] lg:w-[35vw] flex flex-col items-center ${onImageClick ? "cursor-pointer group/card" : ""}`}
               onClick={() => onImageClick?.(img)}
             >
-              <div className="relative w-full aspect-[4/3] flex items-center justify-center">
+              <div className={`relative w-full aspect-[4/3] flex items-center justify-center ${cover ? "rounded-xl overflow-hidden" : ""}`}>
                 <Image
                   src={img.src}
                   alt={`${alt} — ${img.name}`}
                   fill
-                  className={`object-contain drop-shadow-2xl transition-transform duration-300 ${onImageClick ? "group-hover/card:scale-105" : ""}`}
+                  className={`${cover ? "object-cover" : "object-contain drop-shadow-2xl"} transition-transform duration-300 ${onImageClick ? "group-hover/card:scale-105" : ""}`}
                   sizes="(max-width: 1024px) 50vw, 35vw"
                 />
               </div>
@@ -147,7 +152,7 @@ function HorizontalScroll({
                 return (
                   <div className="mt-6 text-center">
                     {brand && (
-                      <span className="font-ui text-[0.7rem] lg:text-xs font-semibold uppercase tracking-[0.18em] text-black-deep/60">
+                      <span className="font-ui text-[0.7rem] lg:text-xs font-semibold uppercase tracking-[0.18em] text-black-deep">
                         {brand}
                       </span>
                     )}
@@ -155,7 +160,7 @@ function HorizontalScroll({
                       {product}
                     </p>
                     {segments?.[img.name] && (
-                      <span className={`inline-block mt-2 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/50"}`}>
+                      <span className={`inline-block mt-2 text-[0.65rem] font-ui font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${segmentColor[segments[img.name]] || "bg-black-deep/5 text-black-deep/70"}`}>
                         {segments[img.name]}
                       </span>
                     )}
@@ -175,12 +180,12 @@ function HorizontalScroll({
   );
 }
 
-export function HorizontalGallery({ images, alt, onImageClick, gridLayout, darkBg, segments }: HorizontalGalleryProps) {
+export function HorizontalGallery({ images, alt, onImageClick, gridLayout, darkBg, segments, cover }: HorizontalGalleryProps) {
   const isMobile = useIsMobile(640);
 
   if (isMobile || gridLayout) {
-    return <GalleryGrid images={images} alt={alt} onImageClick={onImageClick} isMobile={isMobile} darkBg={darkBg} segments={segments} />;
+    return <GalleryGrid images={images} alt={alt} onImageClick={onImageClick} isMobile={isMobile} darkBg={darkBg} segments={segments} cover={cover} />;
   }
 
-  return <HorizontalScroll images={images} alt={alt} onImageClick={onImageClick} segments={segments} />;
+  return <HorizontalScroll images={images} alt={alt} onImageClick={onImageClick} segments={segments} cover={cover} />;
 }

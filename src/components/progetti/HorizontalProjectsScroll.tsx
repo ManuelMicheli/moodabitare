@@ -93,7 +93,7 @@ export function HorizontalProjectsScroll() {
       {/* Fixed UI overlay — counter + progress */}
       <div className="absolute bottom-6 lg:bottom-10 left-6 sm:left-10 lg:left-20 right-6 sm:right-10 lg:right-20 z-20 pointer-events-none">
         <div className="flex items-center gap-4">
-          <span className="text-label text-black-deep/40">
+          <span className="text-label text-black-deep/60">
             <span ref={counterRef}>01</span>
             <span className="mx-1">/</span>
             <span>{String(projects.length).padStart(2, "0")}</span>
@@ -127,11 +127,11 @@ export function HorizontalProjectsScroll() {
               {/* Project info */}
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-label text-black-deep/40">
+                  <span className="text-label text-black-deep/60">
                     {project.category}
                   </span>
                   <span className="w-4 h-[1px] bg-black-deep/15" />
-                  <span className="text-label text-black-deep/30">
+                  <span className="text-label text-black-deep/60">
                     {project.location}
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export function HorizontalProjectsScroll() {
                 </h3>
 
                 <div className="mt-5 flex items-center justify-between">
-                  <span className="text-caption text-black-deep/25">
+                  <span className="text-caption text-black-deep/60">
                     {project.year}
                   </span>
                   <div className="flex items-center gap-2 text-black-deep/30 group-hover:text-black-deep transition-colors duration-300">
@@ -175,7 +175,7 @@ export function HorizontalProjectsScroll() {
             <h3 className="font-section-title text-black-deep mb-4">
               Il tuo prossimo progetto
             </h3>
-            <p className="text-body text-mid-gray mb-10 max-w-sm mx-auto">
+            <p className="text-body text-black-deep mb-10 max-w-sm mx-auto">
               Realizziamo insieme la casa dei tuoi sogni. Ogni progetto parte da un&apos;idea.
             </p>
             <Link

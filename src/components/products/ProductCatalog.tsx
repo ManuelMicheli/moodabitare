@@ -100,7 +100,7 @@ export function ProductCatalog() {
                 <h3 className="mt-1 sm:mt-2 font-card-title text-[0.85rem] sm:text-base text-black-deep group-hover:text-black-deep/60 transition-colors leading-tight">
                   {product.name}
                 </h3>
-                <span className="inline-block mt-2 sm:mt-4 text-caption text-black-deep/30 group-hover:text-black-deep/60 transition-colors">
+                <span className="inline-block mt-2 sm:mt-4 text-caption text-black-deep/60 group-hover:text-black-deep/60 transition-colors">
                   Scopri →
                 </span>
               </div>

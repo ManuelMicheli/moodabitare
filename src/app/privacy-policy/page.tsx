@@ -75,13 +75,13 @@ export default function PrivacyPolicy() {
           <FadeInView>
             <div className="space-y-10">
               <div>
-                <p className="text-xs text-mid-gray mb-6">
+                <p className="text-xs text-black-deep mb-6">
                   Ultimo aggiornamento: {LAST_UPDATED}
                 </p>
-                <p className="text-caption text-black-deep/40 leading-[1.8]">
+                <p className="text-caption text-black-deep leading-[1.8]">
                   La presente informativa descrive le modalità di trattamento
                   dei dati personali degli utenti che consultano il sito web{" "}
-                  <strong className="text-black-deep/60">
+                  <strong className="text-black-deep">
                     www.moschianosrl.it
                   </strong>
                   , gestito da Mood Abitare, ai sensi del Regolamento UE
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
                   <h2 className="font-display text-lg font-medium text-black-deep tracking-tight mb-4">
                     {section.title}
                   </h2>
-                  <p className="text-caption text-black-deep/40 leading-[1.8] whitespace-pre-line">
+                  <p className="text-caption text-black-deep leading-[1.8] whitespace-pre-line">
                     {section.content}
                   </p>
                 </div>

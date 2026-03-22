@@ -151,7 +151,7 @@ export function ProductBentoGrid() {
         {/* Subtitle */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 sm:px-10 lg:px-20 pt-8 lg:pt-12 pb-16 lg:pb-24">
           <FadeInView>
-            <p className="text-label text-black-deep/40 mb-8">
+            <p className="text-label text-black-deep/60 mb-8">
               I nostri prodotti
             </p>
             <p
@@ -208,13 +208,13 @@ export function ProductBentoGrid() {
                     <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
                     <div className="pointer-events-none relative z-10 flex flex-col justify-end h-full p-5 sm:p-6">
-                      <span className="text-label text-white/50 mb-1">
+                      <span className="text-label text-white/70 mb-1">
                         {product.products} prodotti
                       </span>
                       <h3 className="font-card-title text-white">
                         {product.name}
                       </h3>
-                      <p className="text-caption text-white/60 mt-1 max-w-[30ch]">
+                      <p className="text-caption text-white/80 mt-1 max-w-[30ch]">
                         {product.description}
                       </p>
                       <div className="flex items-end justify-between mt-3">

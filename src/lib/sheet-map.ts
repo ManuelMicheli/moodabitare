@@ -2,6 +2,7 @@ import type { ProductDetail } from "./product-details";
 import { aluminumDetails, interiorDoorDetails, securityDoorDetails } from "./product-details";
 import { windowDetails } from "./window-details";
 import { portoncinoDetails, persianeDetails, frangisoleDetails, tapparelleDetails } from "./details/serramenti-details";
+import { korusAlluminioLegnoDetails } from "./details/alluminio-legno-details";
 import { grateDetails, persianeBlinDateDetails, allarmeDetails } from "./details/sicurezza-details";
 import { zanzariereDetails, tendeTecnicheDetails, scaleDetails } from "./details/comfort-details";
 import { pergoleDetails, tendeSoleDetails, vetratePanoramicheDetails } from "./details/outdoor-details";
@@ -16,7 +17,7 @@ export const sheetMap: Record<string, Record<string, ProductDetail>> = {
   /* ── Serramenti ─────────────────────────── */
   "infissi-pvc": windowDetails,
   "infissi-alluminio": aluminumDetails,
-  // infissi-alluminio-legno usa layout Korus custom (non sheetMap)
+  "infissi-alluminio-legno": korusAlluminioLegnoDetails,
   // infissi-legno usa layout Pail custom (non sheetMap)
   "portoncini": portoncinoDetails,
   "persiane": persianeDetails,

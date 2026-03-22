@@ -34,7 +34,7 @@ export function ProductHighlights() {
         {/* Label + editorial quote — z-10, title passes OVER this */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 sm:px-10 lg:px-20 pt-8 lg:pt-12 pb-16 lg:pb-24">
           <FadeInView>
-            <p className="text-label text-black-deep/40 mb-8">
+            <p className="text-label text-black-deep/60 mb-8">
               I nostri prodotti
             </p>
             <p
@@ -70,7 +70,7 @@ export function ProductHighlights() {
                   )}
                 </div>
                 <div className="flex flex-col justify-center px-4 py-3 min-w-0">
-                  <span className="text-label text-white/40">
+                  <span className="text-label text-white/80">
                     {cat.products.length} prodotti
                   </span>
                   <h3 className="mt-0.5 font-card-title text-white truncate">
@@ -109,7 +109,7 @@ export function ProductHighlights() {
                   )}
                 </div>
                 <div className="p-5">
-                  <span className="text-label text-white/40">
+                  <span className="text-label text-white/80">
                     {cat.products.length} prodotti
                   </span>
                   <h3 className="mt-1 font-card-title text-white">

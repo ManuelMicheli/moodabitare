@@ -160,7 +160,7 @@ export function CertificazioniBanner() {
     <section className="py-16 lg:py-24 bg-cream">
       <div className="px-6 sm:px-10 lg:px-20">
         <FadeInView>
-          <p className="text-label text-black-deep/40 text-center mb-4">
+          <p className="text-label text-black-deep/60 text-center mb-4">
             Garanzia di qualità
           </p>
           <h2 className="font-section-title text-black-deep text-center mb-14 lg:mb-20">
@@ -182,7 +182,7 @@ export function CertificazioniBanner() {
                     sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 250px"
                   />
                 </div>
-                <p className="font-display text-sm sm:text-base text-black-deep/70 leading-relaxed max-w-[280px]">
+                <p className="font-display text-sm sm:text-base text-black-deep leading-relaxed max-w-[280px]">
                   {cert.description}
                 </p>
               </div>
@@ -207,7 +207,7 @@ export function CertificazioniBanner() {
                 <p className="font-ui text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.1em] text-bordeaux mb-3">
                   {cert.subtitle}
                 </p>
-                <p className="font-display text-xs sm:text-sm text-black-deep/55 leading-relaxed max-w-[280px]">
+                <p className="font-display text-xs sm:text-sm text-black-deep leading-relaxed max-w-[280px]">
                   {cert.description}
                 </p>
               </div>
@@ -217,7 +217,7 @@ export function CertificazioniBanner() {
 
         {/* ─── Footer note ─────────────────────────────────────────── */}
         <FadeInView delay={0.3}>
-          <p className="mt-14 lg:mt-20 text-center font-ui text-[13px] text-black-deep/35 leading-relaxed">
+          <p className="mt-14 lg:mt-20 text-center font-ui text-[13px] text-black-deep leading-relaxed">
             Tutte le certificazioni sono regolarmente aggiornate e disponibili per consultazione presso il nostro showroom.
           </p>
         </FadeInView>

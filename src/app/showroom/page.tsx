@@ -32,11 +32,11 @@ export default function ShowroomPage() {
 
         <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
           <FadeInView delay={0.3}>
-            <p className="text-label text-white/50 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
+            <p className="text-label text-white/80 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
             <h1 className="font-page-title text-white text-[1rem] sm:text-[clamp(1.5rem,1rem+3vw,4.5rem)]">
               Showroom Mood Abitare
             </h1>
-            <p className="mt-3 sm:mt-4 font-display text-white/70 text-[0.75rem] sm:text-base lg:text-lg max-w-2xl">
+            <p className="mt-3 sm:mt-4 font-display text-white/90 text-[0.75rem] sm:text-base lg:text-lg max-w-2xl">
               300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine, arredo e soluzioni per tutta la casa da toccare con mano.
             </p>
             <Link
@@ -101,16 +101,32 @@ export default function ShowroomPage() {
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
             </FadeInView>
+            {/* ── Riga 4 (ex righe 7+8) ── */}
             <FadeInView delay={0}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (27).webp" alt="Showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+                <Image src="/showroom/wmremove-transformed (32).png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
             <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
             </FadeInView>
             <FadeInView delay={0.16}>
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <Image src="/showroom/wmremove-transformed (34).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+              </div>
+            </FadeInView>
+            <FadeInView delay={0}>
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <Image src="/showroom/wmremove-transformed (33).png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+              </div>
+            </FadeInView>
+            <FadeInView delay={0.08}>
               <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            </FadeInView>
+            <FadeInView delay={0.16}>
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                <Image src="/showroom/wmremove-transformed (35).png" alt="Showroom Mood Abitare — dettaglio" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
+              </div>
             </FadeInView>
 
             {/* ── Riga 5 ── */}
@@ -138,36 +154,6 @@ export default function ShowroomPage() {
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
             </FadeInView>
-
-            {/* ── Riga 7 ── */}
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (32).png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (34).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-
-            {/* ── Riga 8 ── */}
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (33).png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (35).png" alt="Showroom Mood Abitare — dettaglio" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
           </div>
         </div>
       </section>
@@ -181,7 +167,7 @@ export default function ShowroomPage() {
                 <h2 className="font-section-title text-black-deep mb-8">
                   <AccentText>Dove siamo</AccentText>
                 </h2>
-                <div className="space-y-4 font-display text-black-deep/70">
+                <div className="space-y-4 font-display text-black-deep">
                   <p>Viale Europa, 65<br />21050 Gorla Maggiore (VA)</p>
                   <p>
                     Tel: <a href={`tel:${CONTACT_INFO.phoneHref}`} className="text-bordeaux hover:underline">{CONTACT_INFO.phone}</a>
@@ -196,7 +182,7 @@ export default function ShowroomPage() {
                 <h2 className="font-section-title text-black-deep mb-8">
                   <AccentText>Orari di apertura</AccentText>
                 </h2>
-                <div className="space-y-2 font-display text-black-deep/70">
+                <div className="space-y-2 font-display text-black-deep">
                   <p>Lunedì — Venerdì: 8:30 – 12:30 / 14:30 – 19:00</p>
                   <p>Sabato: 9:00 – 12:30</p>
                   <p>Domenica: Chiuso</p>
@@ -214,7 +200,7 @@ export default function ShowroomPage() {
             <h2 className="font-page-title text-black-deep">
               <AccentText>Vieni a trovarci</AccentText>
             </h2>
-            <p className="mt-6 text-body text-black-deep/35 max-w-md mx-auto">
+            <p className="mt-6 text-body text-black-deep max-w-md mx-auto">
               Prenota una visita in showroom — ti accoglieremo con un caffè e una consulenza personalizzata, senza impegno.
             </p>
           </FadeInView>

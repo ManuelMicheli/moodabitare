@@ -10,9 +10,10 @@ interface GalleryWithSheetProps {
   images: GalleryImage[];
   alt: string;
   details: Record<string, ProductDetail>;
+  cover?: boolean;
 }
 
-function GalleryWithSheetInner({ images, alt, details }: GalleryWithSheetProps) {
+function GalleryWithSheetInner({ images, alt, details, cover }: GalleryWithSheetProps) {
   const [selected, setSelected] = useState<GalleryImage | null>(null);
   const searchParams = useSearchParams();
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -51,7 +52,7 @@ function GalleryWithSheetInner({ images, alt, details }: GalleryWithSheetProps) 
 
   return (
     <div ref={galleryRef}>
-      <HorizontalGallery images={images} alt={alt} onImageClick={handleClick} segments={segments} />
+      <HorizontalGallery images={images} alt={alt} onImageClick={handleClick} segments={segments} cover={cover} />
       <ProductSheet
         detail={detail}
         imageSrc={selected?.src ?? ""}

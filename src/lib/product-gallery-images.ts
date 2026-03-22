@@ -50,21 +50,8 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
   "porte-interne": [],
   "porte-blindate": [],
 
-  /* ── Portoncini Oknoplast Tenvis ─────── */
-  "portoncini": [
-    { src: "/images/oknoplast-tenvis-design-pro.png", name: "Oknoplast — Tenvis Design Pro" },
-    { src: "/images/oknoplast-tenvis-black-design.png", name: "Oknoplast — Tenvis Black Design" },
-    { src: "/images/oknoplast-tenvis-infinity.png", name: "Oknoplast — Tenvis Infinity" },
-    { src: "/images/oknoplast-tenvis-groove.png", name: "Oknoplast — Tenvis Groove" },
-    { src: "/images/oknoplast-tenvis-classic.png", name: "Oknoplast — Tenvis Classic" },
-    { src: "/images/oknoplast-tenvis-intarsio.png", name: "Oknoplast — Tenvis Intarsio" },
-    { src: "/images/oknoplast-tenvis-inox.png", name: "Oknoplast — Tenvis Inox" },
-    { src: "/images/oknoplast-tenvis-eco.png", name: "Oknoplast — Tenvis ECO" },
-    { src: "/images/oknoplast-tenvis-vintage.png", name: "Oknoplast — Tenvis Vintage" },
-    { src: "/prodotti/kopen-vitrum.jpg", name: "Kopen — Vitrum" },
-    { src: "/prodotti/kopen-materika.jpg", name: "Kopen — Materika" },
-    { src: "/prodotti/kopen-pure.jpg", name: "Kopen — Pure" },
-  ],
+  /* portoncini ora usa PortonciniCatalog con categorie — vedi portoncini-categories.ts */
+  "portoncini": [],
   "persiane": [
     { src: "/prodotti/maxima-plus.png", name: "Erreci — Maxima Plus" },
     { src: "/prodotti/maxima-light.png", name: "Erreci — Maxima Light" },
@@ -74,19 +61,21 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
     { src: "/prodotti/korus-crono.jpg", name: "Korus — Crono" },
   ],
   "frangisole": [
-    { src: "/prodotti/placeholder.svg", name: "Lupak — Lume Pro" },
-    { src: "/prodotti/placeholder.svg", name: "Lupak — Lume Esse" },
-    { src: "/prodotti/placeholder.svg", name: "Lupak — Lume Light" },
-    { src: "/prodotti/placeholder.svg", name: "Lupak — Filo 90" },
-    { src: "/prodotti/placeholder.svg", name: "Lupak — Filo 65" },
+    { src: "/prodotti/wmremove-transformed (41).png", name: "Lupak — Lume Pro" },
+    { src: "/prodotti/lupak-lume.jpg", name: "Lupak — Lume" },
+    { src: "/prodotti/lupak-lume-esse.jpg", name: "Lupak — Lume Esse" },
+    { src: "/prodotti/lupak-lume-light.jpg", name: "Lupak — Lume Light" },
+    { src: "/prodotti/lupak-filo-90.jpg", name: "Lupak — Filo 90" },
+    { src: "/prodotti/lupak-filo-90-esse.jpg", name: "Lupak — Filo 90 Esse" },
+    { src: "/prodotti/lupak-filo-80.jpg", name: "Lupak — Filo 80" },
+    { src: "/prodotti/lupak-filo-70.jpg", name: "Lupak — Filo 70" },
+    { src: "/prodotti/lupak-filo-65.jpg", name: "Lupak — Filo 65" },
+    { src: "/prodotti/lupak-lupafix-ic120.jpg", name: "Lupak — Lupafix IC120" },
+    { src: "/prodotti/lupak-lupafix-fc180.jpg", name: "Lupak — Lupafix FC180" },
+    { src: "/prodotti/lupak-lupafix-ff108.jpg", name: "Lupak — Lupafix FF108" },
   ],
-  "tapparelle": [
-    { src: "/prodotti/placeholder.svg", name: "Pasini — Roll 55" },
-    { src: "/prodotti/placeholder.svg", name: "Pasini — Roll 45" },
-    { src: "/prodotti/placeholder.svg", name: "Pasini — Maxi Roll 55" },
-    { src: "/prodotti/placeholder.svg", name: "Pasini — Roll 50 Air" },
-    { src: "/prodotti/placeholder.svg", name: "Pasini — Blind 45 AE" },
-  ],
+  /* tapparelle ora usa TapparelleCatalog con categorie — vedi tapparelle-categories.ts */
+  "tapparelle": [],
 
   /* ── Sicurezza (placeholder) ────────────── */
   "grate-sicurezza": [

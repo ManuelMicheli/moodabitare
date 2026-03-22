@@ -35,7 +35,7 @@ export function PortfolioGallery() {
       <div className="px-6 sm:px-10 lg:px-20">
         <div className="text-center mb-10 lg:mb-24">
           <FadeInView>
-            <p className="text-label text-black-deep/50 mb-6">
+            <p className="text-label text-black-deep/60 mb-6">
               I nostri progetti
             </p>
           </FadeInView>
@@ -69,7 +69,7 @@ export function PortfolioGallery() {
               viewport={{ once: true, margin: "-50px" }}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-warm-gray flex items-center justify-center group cursor-pointer border-glow">
-                <span className="text-mid-gray/40 font-ui text-sm uppercase tracking-widest group-hover:text-mid-gray/60 transition-colors duration-500">{project.category}</span>
+                <span className="text-black-deep/60 font-ui text-sm uppercase tracking-widest group-hover:text-black-deep transition-colors duration-500">{project.category}</span>
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black-deep/0 group-hover:bg-black-deep/5 transition-colors duration-500" />
               </div>
@@ -89,7 +89,7 @@ export function PortfolioGallery() {
               viewport={{ once: true, margin: "-50px" }}
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-warm-gray flex items-center justify-center group cursor-pointer border-glow">
-                <span className="text-mid-gray/40 font-ui text-sm uppercase tracking-widest group-hover:text-mid-gray/60 transition-colors duration-500">{project.category}</span>
+                <span className="text-black-deep/60 font-ui text-sm uppercase tracking-widest group-hover:text-black-deep transition-colors duration-500">{project.category}</span>
                 <div className="absolute inset-0 bg-black-deep/0 group-hover:bg-black-deep/5 transition-colors duration-500" />
               </div>
             </motion.div>

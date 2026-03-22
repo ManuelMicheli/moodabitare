@@ -49,7 +49,7 @@ export function TestimonialsCarousel() {
       <div className="px-6 sm:px-10 lg:px-20">
         <div className="mb-10 lg:mb-24">
           <FadeInView>
-            <p className="text-label text-black-deep/50 mb-4">
+            <p className="text-label text-black-deep/60 mb-4">
               Testimonianze
             </p>
           </FadeInView>

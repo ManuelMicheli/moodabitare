@@ -141,7 +141,7 @@ export default function ServiziRistrutturazione() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/50 to-black-deep/20" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">
+            <p className="text-label text-white/80 mb-6">
               Servizi di Ristrutturazione
             </p>
           </FadeInView>
@@ -151,7 +151,7 @@ export default function ServiziRistrutturazione() {
             </h1>
           </ClipReveal>
           <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-white/50 max-w-xl">
+            <p className="mt-8 text-body text-white/80 max-w-xl">
               Un servizio completo per rinnovare la tua casa: dalla
               progettazione alla consegna, con un unico referente per tutto.
             </p>
@@ -163,7 +163,7 @@ export default function ServiziRistrutturazione() {
       <section className="py-16 lg:py-24 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-black-deep/30 mb-4 text-center">
+            <p className="text-label text-black-deep/60 mb-4 text-center">
               Il nostro metodo
             </p>
           </FadeInView>
@@ -177,7 +177,7 @@ export default function ServiziRistrutturazione() {
                   <h3 className="mt-3 font-display text-[1.15rem] font-semibold text-black-deep tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-caption text-black-deep/45 leading-relaxed">
+                  <p className="mt-2 text-caption text-black-deep leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -192,7 +192,7 @@ export default function ServiziRistrutturazione() {
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="text-center mb-14 lg:mb-20">
             <FadeInView>
-              <p className="text-label text-black-deep/30 mb-5">
+              <p className="text-label text-black-deep/60 mb-5">
                 Cosa facciamo
               </p>
             </FadeInView>
@@ -221,7 +221,7 @@ export default function ServiziRistrutturazione() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-4 text-caption text-black-deep/55 leading-relaxed flex-1">
+                  <p className="mt-4 text-caption text-black-deep leading-relaxed flex-1">
                     {service.description}
                   </p>
 
@@ -230,7 +230,7 @@ export default function ServiziRistrutturazione() {
                     {service.highlights.map((h) => (
                       <span
                         key={h}
-                        className="inline-block px-3 py-1.5 text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/35 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
+                        className="inline-block px-3 py-1.5 text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/60 bg-black-deep/[0.04] border border-black-deep/[0.06] group-hover:border-bordeaux/15 group-hover:text-bordeaux/50 transition-colors duration-500"
                       >
                         {h}
                       </span>
@@ -254,7 +254,7 @@ export default function ServiziRistrutturazione() {
                 <h3 className="mt-6 font-display text-[1.25rem] font-semibold text-cream tracking-tight">
                   Richiedi un preventivo
                 </h3>
-                <p className="mt-3 text-caption text-cream/40 leading-relaxed max-w-[26ch]">
+                <p className="mt-3 text-caption text-cream/80 leading-relaxed max-w-[26ch]">
                   Sopralluogo gratuito e preventivo dettagliato senza impegno
                 </p>
               </Link>
@@ -267,7 +267,7 @@ export default function ServiziRistrutturazione() {
       <section className="py-14 lg:py-20 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-black-deep/30 mb-8 text-center">
+            <p className="text-label text-black-deep/60 mb-8 text-center">
               I brand con cui lavoriamo
             </p>
           </FadeInView>
@@ -290,7 +290,7 @@ export default function ServiziRistrutturazione() {
             <h2 className="font-section-title text-white max-w-2xl mx-auto">
               <AccentText>Vuoi ristrutturare la tua casa?</AccentText>
             </h2>
-            <p className="mt-6 text-body text-white/45 max-w-md mx-auto">
+            <p className="mt-6 text-body text-white/80 max-w-md mx-auto">
               Contattaci per un sopralluogo gratuito e un preventivo
               dettagliato senza impegno.
             </p>

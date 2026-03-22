@@ -55,7 +55,7 @@ export default function PremiumPartner() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">
+            <p className="text-label text-white/80 mb-6">
               Premium Partner
             </p>
           </FadeInView>
@@ -65,7 +65,7 @@ export default function PremiumPartner() {
             </h1>
           </ClipReveal>
           <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-white/35 max-w-xl">
+            <p className="mt-8 text-body text-white/80 max-w-xl">
               Mood Abitare è stata selezionata da Oknoplast come Premium Partner per la provincia di Varese. Fa parte di una ristretta rete di operatori che garantiscono ai propri clienti un&apos;elevata qualità dei prodotti e dei servizi offerti.
             </p>
           </FadeInView>
@@ -86,7 +86,7 @@ export default function PremiumPartner() {
         <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 pb-12 lg:pb-16">
           <div className="flex flex-col items-end text-right">
             <FadeInView>
-              <p className="text-label text-white/50 mb-4">
+              <p className="text-label text-white/80 mb-4">
                 Premium Partner Oknoplast
               </p>
             </FadeInView>
@@ -100,7 +100,7 @@ export default function PremiumPartner() {
             </FadeInView>
 
             <FadeInView delay={0.2}>
-              <p className="mt-5 text-body text-white/60 max-w-md">
+              <p className="mt-5 text-body text-white/90 max-w-md">
                 Mood Abitare è stata selezionata come Premium Partner Oknoplast per la provincia di Varese.
                 Una ristretta rete di operatori che garantisce qualità ed eccellenza.
               </p>
@@ -119,7 +119,7 @@ export default function PremiumPartner() {
                       {item.value}
                     </div>
                     <div className="mt-3 h-px w-10 bg-white/30 ml-auto" />
-                    <p className="mt-3 text-caption text-white/50">
+                    <p className="mt-3 text-caption text-white/80">
                       {item.label}
                     </p>
                   </div>
@@ -135,13 +135,13 @@ export default function PremiumPartner() {
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <FadeInView direction="left">
-              <p className="text-label text-black-deep/30 mb-6">
+              <p className="text-label text-black-deep/60 mb-6">
                 Il nostro riconoscimento
               </p>
               <h2 className="font-section-title text-black-deep">
                 Cosa significa essere Premium Partner
               </h2>
-              <div className="mt-10 space-y-5 text-caption text-black-deep/40 max-w-lg">
+              <div className="mt-10 space-y-5 text-caption text-black-deep max-w-lg">
                 <p>
                   La qualifica di Premium Partner Oknoplast è il riconoscimento della qualità del nostro lavoro, della nostra esperienza trentennale e della grande conoscenza dell&apos;area di Varese.
                 </p>
@@ -162,7 +162,7 @@ export default function PremiumPartner() {
                       <h3 className="mt-4 font-display text-base font-medium text-black-deep tracking-tight">
                         <AccentText>{benefit.title}</AccentText>
                       </h3>
-                      <p className="mt-3 text-caption text-black-deep/35">
+                      <p className="mt-3 text-caption text-black-deep">
                         {benefit.description}
                       </p>
                     </div>
@@ -183,7 +183,7 @@ export default function PremiumPartner() {
             </FadeInView>
 
             <FadeInView direction="right">
-              <p className="text-label text-white/30 mb-6">
+              <p className="text-label text-white/80 mb-6">
                 Il brand
               </p>
               <h2 className="font-section-title">
@@ -193,7 +193,7 @@ export default function PremiumPartner() {
                 {oknoplastFeatures.map((feature) => (
                   <li key={feature} className="flex items-start gap-4">
                     <span className="flex-shrink-0 mt-1.5 h-px w-4 bg-white/20" />
-                    <span className="text-caption text-white/40">{feature}</span>
+                    <span className="text-caption text-white/80">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -215,7 +215,7 @@ export default function PremiumPartner() {
             <h2 className="font-section-title text-black-deep max-w-3xl mx-auto">
               <AccentText>Scegli la qualità Premium Partner</AccentText>
             </h2>
-            <p className="mt-8 text-body text-black-deep/35 max-w-md mx-auto">
+            <p className="mt-8 text-body text-black-deep max-w-md mx-auto">
               Contattaci per scoprire tutti i vantaggi.
             </p>
             <a

@@ -46,20 +46,20 @@ export function Footer() {
 
           {/* Column 2: Navigation */}
           <div className="lg:col-span-2">
-            <h3 className="text-label text-white/30 mb-5">Navigazione</h3>
+            <h3 className="text-label text-white/70 mb-5">Navigazione</h3>
             <ul className="space-y-0">
               {NAV_ITEMS.flatMap((item) =>
                 item.hasDropdown && item.children
                   ? item.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} className="block py-2 text-caption text-white/50 hover:text-white transition-colors duration-300">
+                        <Link href={child.href} className="block py-2 text-caption text-white/80 hover:text-white transition-colors duration-300">
                           {child.label}
                         </Link>
                       </li>
                     ))
                   : [
                       <li key={item.href}>
-                        <Link href={item.href} className="block py-2 text-caption text-white/50 hover:text-white transition-colors duration-300">
+                        <Link href={item.href} className="block py-2 text-caption text-white/80 hover:text-white transition-colors duration-300">
                           {item.label}
                         </Link>
                       </li>,
@@ -70,11 +70,11 @@ export function Footer() {
 
           {/* Column 3: Products */}
           <div className="lg:col-span-2">
-            <h3 className="text-label text-white/30 mb-5">Prodotti</h3>
+            <h3 className="text-label text-white/70 mb-5">Prodotti</h3>
             <ul className="space-y-0">
               {MACRO_CATEGORIES.map((cat) => (
                 <li key={cat.id}>
-                  <Link href={`/prodotti?categoria=${cat.id}`} className="block py-2 text-caption text-white/50 hover:text-white transition-colors duration-300">
+                  <Link href={`/prodotti?categoria=${cat.id}`} className="block py-2 text-caption text-white/80 hover:text-white transition-colors duration-300">
                     {cat.label}
                   </Link>
                 </li>
@@ -84,8 +84,8 @@ export function Footer() {
 
           {/* Column 4: Contact + hours */}
           <div className="lg:col-span-4">
-            <h3 className="text-label text-white/30 mb-5">Contatti</h3>
-            <address className="not-italic space-y-2.5 text-caption text-white/50">
+            <h3 className="text-label text-white/70 mb-5">Contatti</h3>
+            <address className="not-italic space-y-2.5 text-caption text-white/80">
               <p>{CONTACT_INFO.fullAddress}</p>
               <p>
                 <a href={CONTACT_INFO.phoneHref} className="hover:text-white transition-colors duration-300">
@@ -100,10 +100,10 @@ export function Footer() {
             </address>
 
             <div className="mt-5 pt-5 border-t border-white/5">
-              <p className="text-caption text-white/30">
+              <p className="text-caption text-white/70">
                 {OPENING_HOURS.weekdays.label}: {OPENING_HOURS.weekdays.morning} / {OPENING_HOURS.weekdays.afternoon}
               </p>
-              <p className="text-caption text-white/30 mt-1">
+              <p className="text-caption text-white/70 mt-1">
                 {OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning} / {OPENING_HOURS.saturday.afternoon}
               </p>
             </div>
@@ -114,10 +114,10 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5 py-5 px-6 sm:px-10 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <p className="text-caption text-white/20">
+          <p className="text-caption text-white/60">
             &copy; {currentYear} Mood Abitare. Tutti i diritti riservati. — P.IVA 03940950128
           </p>
-          <Link href="/privacy-policy" className="text-caption text-white/20 hover:text-white/40 transition-colors">
+          <Link href="/privacy-policy" className="text-caption text-white/60 hover:text-white transition-colors">
             Privacy e Cookie Policy
           </Link>
         </div>

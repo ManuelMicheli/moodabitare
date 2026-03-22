@@ -51,7 +51,7 @@ export function ContactForm() {
         <h3 className="font-display text-2xl font-medium text-black-deep mb-3">
           Messaggio inviato
         </h3>
-        <p className="text-caption text-black-deep/40">
+        <p className="text-caption text-black-deep">
           Ti risponderemo il prima possibile.
         </p>
       </div>
@@ -62,7 +62,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
       <div className="grid gap-8 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-label text-black-deep/30 mb-3">
+          <label htmlFor="name" className="block text-label text-black-deep/60 mb-3">
             Nome *
           </label>
           <input
@@ -78,7 +78,7 @@ export function ContactForm() {
           {errors.name && <p className="mt-2 text-caption text-red-400">{errors.name.message}</p>}
         </div>
         <div>
-          <label htmlFor="phone" className="block text-label text-black-deep/30 mb-3">
+          <label htmlFor="phone" className="block text-label text-black-deep/60 mb-3">
             Telefono
           </label>
           <input
@@ -92,7 +92,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-label text-black-deep/30 mb-3">
+        <label htmlFor="email" className="block text-label text-black-deep/60 mb-3">
           Email *
         </label>
         <input
@@ -109,7 +109,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-label text-black-deep/30 mb-3">
+        <label htmlFor="subject" className="block text-label text-black-deep/60 mb-3">
           Oggetto
         </label>
         <input
@@ -122,7 +122,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-label text-black-deep/30 mb-3">
+        <label htmlFor="message" className="block text-label text-black-deep/60 mb-3">
           Messaggio
         </label>
         <textarea

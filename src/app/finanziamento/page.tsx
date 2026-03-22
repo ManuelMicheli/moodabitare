@@ -48,7 +48,7 @@ export default function Finanziamento() {
 
         <div className="relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-cream/30 mb-6">Finanziamento</p>
+            <p className="text-label text-cream/80 mb-6">Finanziamento</p>
           </FadeInView>
           <ClipReveal direction="up" delay={0.15} duration={0.9}>
             <h1 className="font-page-title text-cream max-w-4xl">
@@ -56,7 +56,7 @@ export default function Finanziamento() {
             </h1>
           </ClipReveal>
           <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-cream/35 max-w-xl">
+            <p className="mt-8 text-body text-cream/80 max-w-xl">
               Rinnova la tua casa senza pensieri grazie al finanziamento a tasso
               zero, cumulabile con le detrazioni fiscali.
             </p>
@@ -87,7 +87,7 @@ export default function Finanziamento() {
                   >
                     {stat.value}
                   </span>
-                  <span className="text-label text-black-deep/30 mt-3 block text-[0.75rem]">
+                  <span className="text-label text-black-deep/60 mt-3 block text-[0.75rem]">
                     {stat.label}
                   </span>
                 </div>
@@ -104,7 +104,7 @@ export default function Finanziamento() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
               {/* Left — large number */}
               <div className="lg:col-span-5 flex flex-col justify-center">
-                <p className="text-label text-black-deep/25 mb-6">
+                <p className="text-label text-black-deep/60 mb-6">
                   La formula
                 </p>
                 <h2 className="font-section-title text-black-deep">
@@ -112,7 +112,7 @@ export default function Finanziamento() {
                     Anticipo del 50%, il resto a tasso 0
                   </AccentText>
                 </h2>
-                <p className="mt-8 text-body text-black-deep/45 max-w-md">
+                <p className="mt-8 text-body text-black-deep max-w-md">
                   Il finanziamento prevede un anticipo del 50%, con il restante
                   importo finanziato a tasso 0 (TAN 0% &ndash; TAEG 0%) con una
                   rata annuale.
@@ -133,7 +133,7 @@ export default function Finanziamento() {
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <div className="max-w-4xl mx-auto">
-              <p className="text-label text-black-deep/25 mb-6 text-center">
+              <p className="text-label text-black-deep/60 mb-6 text-center">
                 Esempio pratico
               </p>
 
@@ -167,17 +167,17 @@ export default function Finanziamento() {
                     >
                       {item.value}
                     </span>
-                    <span className="text-label text-black-deep/40 mt-4 block text-[0.75rem]">
+                    <span className="text-label text-black-deep/60 mt-4 block text-[0.75rem]">
                       {item.label}
                     </span>
-                    <p className="mt-2 font-ui text-[0.8rem] text-black-deep/30">
+                    <p className="mt-2 font-ui text-[0.8rem] text-black-deep/60">
                       {item.sub}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <p className="mt-8 text-center font-ui text-[0.75rem] text-black-deep/25">
+              <p className="mt-8 text-center font-ui text-[0.75rem] text-black-deep/60">
                 Prestito finalizzato Agos One erogato da Agos Ducato S.p.A.,
                 soggetto ad approvazione.
               </p>
@@ -193,7 +193,7 @@ export default function Finanziamento() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
               {/* Left — big 50% */}
               <div className="lg:col-span-5 flex flex-col items-start">
-                <p className="text-label text-black-deep/25 mb-6">
+                <p className="text-label text-black-deep/60 mb-6">
                   Detrazioni fiscali
                 </p>
                 <span
@@ -205,7 +205,7 @@ export default function Finanziamento() {
                 >
                   50%
                 </span>
-                <p className="text-label text-black-deep/30 mt-4">
+                <p className="text-label text-black-deep/60 mt-4">
                   Recupero massimo
                 </p>
               </div>
@@ -217,13 +217,13 @@ export default function Finanziamento() {
                     Recupera fino al 50% con le detrazioni fiscali
                   </AccentText>
                 </h2>
-                <p className="text-body text-black-deep/50 leading-relaxed">
+                <p className="text-body text-black-deep leading-relaxed">
                   Il finanziamento a tasso zero &egrave; cumulabile con le
                   detrazioni fiscali previste per la sostituzione dei serramenti.
                   Questo significa che puoi recuperare fino al 50% del costo
                   totale dell&apos;intervento.
                 </p>
-                <p className="text-body text-black-deep/50 leading-relaxed">
+                <p className="text-body text-black-deep leading-relaxed">
                   Ci occupiamo noi di tutta la parte burocratica: compilazione
                   della documentazione e presentazione delle pratiche incluse nel
                   servizio.
@@ -237,7 +237,7 @@ export default function Finanziamento() {
                   ].map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/35 border border-black-deep/10"
+                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wide uppercase text-black-deep/60 border border-black-deep/10"
                     >
                       {tag}
                     </span>
@@ -259,7 +259,7 @@ export default function Finanziamento() {
                   Richiedi un preventivo gratuito
                 </AccentText>
               </h2>
-              <p className="mt-6 text-body text-cream/35 max-w-md mx-auto">
+              <p className="mt-6 text-body text-cream/80 max-w-md mx-auto">
                 Contattaci per scoprire come finanziare il tuo progetto a tasso zero, cumulabile con le detrazioni fiscali.
               </p>
               <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">

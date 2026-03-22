@@ -77,7 +77,7 @@ export function ValuePropositions() {
         <div className="lg:hidden">
           <div className="text-center mb-8 sm:mb-10">
             <FadeInView>
-              <p className="text-label text-black-deep/40 mb-3">
+              <p className="text-label text-black-deep/60 mb-3">
                 I numeri che ci definiscono
               </p>
             </FadeInView>
@@ -107,7 +107,7 @@ export function ValuePropositions() {
                   <AnimatedCounter target={item.number} suffix={item.suffix} />
                 </div>
                 <DrawLine className="!w-8 mx-auto mt-2 !bg-bordeaux/30" delay={i * 0.12 + 0.3} />
-                <p className="text-caption text-black-deep/50 mt-2">
+                <p className="text-caption text-black-deep mt-2">
                   {item.label}
                 </p>
               </motion.div>
@@ -119,7 +119,7 @@ export function ValuePropositions() {
         <div className="hidden lg:grid lg:grid-cols-5 lg:divide-x lg:divide-black/10">
           <div className="pr-10">
             <FadeInView>
-              <p className="text-label text-black-deep/40 mb-4">
+              <p className="text-label text-black-deep/60 mb-4">
                 I numeri che ci definiscono
               </p>
             </FadeInView>
@@ -148,7 +148,7 @@ export function ValuePropositions() {
                 <AnimatedCounter target={item.number} suffix={item.suffix} />
               </div>
               <DrawLine className="!w-10 mt-3 !bg-black-deep/15" delay={0.3 + i * 0.15} />
-              <p className="text-caption text-black-deep/50 mt-3">
+              <p className="text-caption text-black-deep mt-3">
                 {item.label}
               </p>
             </motion.div>

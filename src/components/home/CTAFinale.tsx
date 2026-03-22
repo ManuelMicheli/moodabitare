@@ -21,7 +21,7 @@ export function CTAFinale() {
 
       <div className="relative z-10 text-center px-6 sm:px-10 lg:px-20 py-16 lg:py-20 w-full">
         <FadeInView direction="none">
-          <p className="text-label text-white/40 mb-6">
+          <p className="text-label text-white/80 mb-6">
             Inizia il tuo progetto
           </p>
         </FadeInView>
@@ -35,7 +35,7 @@ export function CTAFinale() {
         </TextRevealByWord>
 
         <FadeInView delay={0.3}>
-          <p className="mt-8 text-body text-white/50 max-w-lg mx-auto">
+          <p className="mt-8 text-body text-white/80 max-w-lg mx-auto">
             Contattaci per una consulenza personalizzata. Sopralluogo gratuito e preventivo senza impegno.
           </p>
         </FadeInView>

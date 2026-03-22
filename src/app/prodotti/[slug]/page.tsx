@@ -10,6 +10,12 @@ import { ALL_PRODUCTS, MACRO_CATEGORIES, R2_CDN } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
 import { sheetMap } from "@/lib/sheet-map";
 import { productGalleryImages } from "@/lib/product-gallery-images";
+import { TapparelleCatalog } from "@/components/products/TapparelleCatalog";
+import { tapparelleCategories } from "@/lib/tapparelle-categories";
+import { tapparelleDetails } from "@/lib/details/serramenti-details";
+import { PortonciniCatalog } from "@/components/products/PortonciniCatalog";
+import { portonciniCategories } from "@/lib/portoncini-categories";
+import { portoncinoDetails } from "@/lib/details/serramenti-details";
 
 const heroImages: Record<string, string> = {
   "infissi-legno": "/images/pail-belvedere.jpeg",
@@ -18,6 +24,7 @@ const heroImages: Record<string, string> = {
   "infissi-pvc": "/images/wmremove-transformed (69).webp",
   "cucine-su-misura": "/images/Hero cucina.jpg",
   "rubinetteria": "/images/wmremove-transformed (18).webp",
+  "frangisole": "/prodotti/wmremove-transformed (41).png",
 };
 
 const heroVideos: Record<string, string> = {
@@ -64,7 +71,9 @@ const productKeywords: Record<string, string[]> = {
   ],
   "portoncini": [
     "portoncini ingresso alluminio",
-    "portoncini Oknoplast",
+    "portoncini Oknoplast Tenvis",
+    "portoncini PVC Oknoplast",
+    "porte Cosmo Oknoplast",
     "portoncini Kopen",
     "porta ingresso sicurezza Varese",
     "portoncini isolamento termico",
@@ -510,7 +519,7 @@ export default async function ProductPage({ params }: Props) {
               {/* Left — Description + CTAs */}
               <div className="max-w-md">
                 <FadeInView delay={0.25}>
-                  <p className="font-body text-white/40 text-sm sm:text-base lg:text-lg leading-relaxed">
+                  <p className="font-body text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed">
                     L&apos;eleganza naturale del legno all&apos;interno, la resistenza
                     indistruttibile dell&apos;alluminio all&apos;esterno.
                     Prestazioni termiche ai vertici della categoria, zero manutenzione.
@@ -526,7 +535,7 @@ export default async function ProductPage({ params }: Props) {
                       href="https://wa.me/393517278053"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-button text-white/40 hover:text-white transition-colors duration-300"
+                      className="inline-flex items-center gap-2 text-button text-white/80 hover:text-white transition-colors duration-300"
                     >
                       <span>WhatsApp</span>
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -542,17 +551,17 @@ export default async function ProductPage({ params }: Props) {
                 <div className="flex items-start gap-6 sm:gap-10 lg:gap-12">
                   <div>
                     <p className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-none">0,80</p>
-                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/20">W/m²K</p>
+                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/60">W/m²K</p>
                   </div>
                   <div className="w-px h-8 sm:h-10 bg-white/[0.07]" />
                   <div>
                     <p className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-none">46 dB</p>
-                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/20">Isolamento</p>
+                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/60">Isolamento</p>
                   </div>
                   <div className="w-px h-8 sm:h-10 bg-white/[0.07]" />
                   <div>
                     <p className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-none">RC2</p>
-                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/20">Sicurezza</p>
+                    <p className="mt-1.5 font-ui text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em] text-white/60">Sicurezza</p>
                   </div>
                 </div>
               </FadeInView>
@@ -561,7 +570,7 @@ export default async function ProductPage({ params }: Props) {
 
           {/* Scroll indicator — subtle animated line */}
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-30">
-            <span className="font-ui text-[0.5rem] uppercase tracking-[0.3em] text-white/50">Scroll</span>
+            <span className="font-ui text-[0.5rem] uppercase tracking-[0.3em] text-white/70">Scroll</span>
             <div className="w-px h-6 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
           </div>
         </section>
@@ -615,23 +624,23 @@ export default async function ProductPage({ params }: Props) {
           <div className="flex flex-col justify-center px-20 xl:px-28 py-24">
             <FadeInView direction="left">
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-label text-white/50 tracking-[0.25em] text-[0.65rem]">{macroCategory?.label}</span>
+                <span className="text-label text-white/80 tracking-[0.25em] text-[0.65rem]">{macroCategory?.label}</span>
                 {product.brand && (
                   <>
                     <span className="w-4 h-px bg-white/20" />
-                    <span className="text-label text-white/50 tracking-[0.25em] text-[0.65rem]">{product.brand}</span>
+                    <span className="text-label text-white/80 tracking-[0.25em] text-[0.65rem]">{product.brand}</span>
                   </>
                 )}
               </div>
               <h1 className="font-page-title">{product.name}</h1>
-              <p className="mt-6 text-body text-white/70 text-base max-w-lg">
+              <p className="mt-6 text-body text-white/95 text-base max-w-lg">
                 {content?.cardDescription || `Scopri la gamma ${product.name} di ${product.brand} disponibile nel nostro showroom di Gorla Maggiore.`}
               </p>
               <div className="mt-10 flex flex-wrap gap-5">
                 <a href="/contatti" className="inline-block text-button bg-white text-black-deep px-8 py-4 hover:bg-white/90 transition-colors">
                   Richiedi preventivo
                 </a>
-                <a href="https://wa.me/393517278053" target="_blank" rel="noopener noreferrer" className="inline-block text-button text-white/60 border-b border-white/20 pb-1 hover:text-white hover:border-white/60 transition-colors">
+                <a href="https://wa.me/393517278053" target="_blank" rel="noopener noreferrer" className="inline-block text-button text-white/90 border-b border-white/20 pb-1 hover:text-white hover:border-white/60 transition-colors">
                   Info su WhatsApp
                 </a>
               </div>
@@ -756,7 +765,7 @@ export default async function ProductPage({ params }: Props) {
         <div style={{ backgroundColor: "#533430" }}>
           <div className="flex flex-col items-center justify-center px-6 sm:px-10 lg:px-20 py-12 lg:py-16">
             <FadeInView>
-              <p className="text-body text-white/70 max-w-xl mx-auto text-center leading-relaxed">
+              <p className="text-body text-white/90 max-w-xl mx-auto text-center leading-relaxed">
                 Infissi in legno di alta qualità, realizzati artigianalmente in Italia
                 con legni selezionati e certificati per resistere nel tempo
                 senza perdere la loro eleganza naturale.
@@ -785,7 +794,7 @@ export default async function ProductPage({ params }: Props) {
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-left mb-6">
                 Perché scegliere le finestre in Alluminio/Legno
               </h2>
-              <p className="text-body text-white/70 max-w-2xl text-left leading-relaxed">
+              <p className="text-body text-white/90 max-w-2xl text-left leading-relaxed">
                 Le finestre in Alluminio/Legno sono la punta di diamante degli infissi Korus.
                 Realizzate con materiali di primissima fattura, hanno un design unico
                 e certificazioni che creano ambienti gradevoli, caldi e accoglienti.
@@ -818,12 +827,12 @@ export default async function ProductPage({ params }: Props) {
                       <h3 className="font-display text-base sm:text-lg lg:text-xl font-semibold text-black-deep">
                         {prod.name}
                       </h3>
-                      <p className="mt-1 font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] text-black-deep/40">
+                      <p className="mt-1 font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] text-black-deep/70">
                         {prod.subtitle}
                       </p>
                       <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
                         {prod.features.map((feat) => (
-                          <li key={feat} className="flex items-start gap-2 sm:gap-2.5 font-ui text-[0.75rem] sm:text-[0.8rem] text-black-deep/70 leading-relaxed">
+                          <li key={feat} className="flex items-start gap-2 sm:gap-2.5 font-ui text-[0.75rem] sm:text-[0.8rem] text-black-deep leading-relaxed">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#B32024" }} />
                             {feat}
                           </li>
@@ -838,11 +847,23 @@ export default async function ProductPage({ params }: Props) {
         </div>
       )}
 
+      {/* Tapparelle — catalogo categorizzato Pasini */}
+      {slug === "tapparelle" && (
+        <TapparelleCatalog categories={tapparelleCategories} details={tapparelleDetails} />
+      )}
+
+      {/* Portoncini — catalogo categorizzato Oknoplast / Kopen */}
+      {slug === "portoncini" && (
+        <PortonciniCatalog categories={portonciniCategories} details={portoncinoDetails} />
+      )}
+
       {/* Horizontal scroll gallery con schede tecniche */}
-      {gallery && gallery.length > 0 && slug !== "infissi-legno" && slug !== "infissi-alluminio-legno" && (() => {
+      {gallery && gallery.length > 0 && slug !== "infissi-legno" && slug !== "infissi-alluminio-legno" && slug !== "tapparelle" && slug !== "portoncini" && (() => {
         const details = sheetMap[slug];
-        if (details) return <GalleryWithSheet images={gallery} alt={product.name} details={details} />;
-        return <HorizontalGallery images={gallery} alt={product.name} />;
+        const coverSlugs = ["persiane", "frangisole"];
+        const useCover = coverSlugs.includes(slug);
+        if (details) return <GalleryWithSheet images={gallery} alt={product.name} details={details} cover={useCover} />;
+        return <HorizontalGallery images={gallery} alt={product.name} cover={useCover} />;
       })()}
 
       {/* Description + Specs + Benefits */}
@@ -858,7 +879,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="mt-10 sm:mt-16 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-32">
             {/* Specs */}
             <FadeInView>
-              <p className="text-label text-black-deep/30 mb-10">
+              <p className="text-label text-black-deep/60 mb-10">
                 Specifiche tecniche
               </p>
               <div className="space-y-0">
@@ -867,7 +888,7 @@ export default async function ProductPage({ params }: Props) {
                     key={spec.label}
                     className="flex justify-between items-baseline py-4 lg:py-5 border-b border-black-deep/10"
                   >
-                    <span className="font-ui text-[0.95rem] sm:text-base lg:text-lg font-medium text-black-deep/60">
+                    <span className="font-ui text-[0.95rem] sm:text-base lg:text-lg font-medium text-black-deep">
                       {spec.label}
                     </span>
                     <span className="font-ui text-[0.95rem] sm:text-base lg:text-lg font-semibold text-black-deep ml-6 text-right">
@@ -880,14 +901,14 @@ export default async function ProductPage({ params }: Props) {
 
             {/* Benefits */}
             <FadeInView delay={0.1}>
-              <p className="text-label text-black-deep/30 mb-10">
+              <p className="text-label text-black-deep/60 mb-10">
                 I vantaggi per te
               </p>
               <ul className="space-y-5">
                 {content.benefits.map((benefit) => (
                   <li
                     key={benefit}
-                    className="flex items-start gap-4 font-ui text-[0.95rem] sm:text-base lg:text-lg font-medium text-black-deep/70 leading-relaxed"
+                    className="flex items-start gap-4 font-ui text-[0.95rem] sm:text-base lg:text-lg font-medium text-black-deep leading-relaxed"
                   >
                     <span className="mt-2.5 w-2 h-2 rounded-full bg-bordeaux flex-shrink-0" />
                     {benefit}
@@ -913,14 +934,14 @@ export default async function ProductPage({ params }: Props) {
                 <FadeInView key={related.slug}>
                   <a href={`/prodotti/${related.slug}`} className="group block bg-black-deep p-8 lg:p-10">
                     {related.brand && (
-                      <span className="text-label text-white/20">
+                      <span className="text-label text-white/60">
                         {related.brand}
                       </span>
                     )}
                     <h3 className="mt-3 font-display text-xl font-medium text-white/80 group-hover:text-white transition-colors tracking-tight">
                       {related.name}
                     </h3>
-                    <span className="inline-block mt-4 text-caption text-white/20 group-hover:text-white/50 transition-colors">
+                    <span className="inline-block mt-4 text-caption text-white/50 group-hover:text-white/80 transition-colors">
                       Scopri →
                     </span>
                   </a>

@@ -89,7 +89,7 @@ export default function Servizi() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-4">
+            <p className="text-label text-white/80 mb-4">
               I nostri servizi
             </p>
           </FadeInView>
@@ -115,13 +115,13 @@ export default function Servizi() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 py-14 lg:py-20 border-t border-black/5 items-start">
                   {/* Left — number + title + summary */}
                   <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
-                    <span className="text-label text-black-deep/20">
+                    <span className="text-label text-black-deep/50">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h2 className="mt-3 font-section-title text-black-deep">
                       {service.title}
                     </h2>
-                    <p className="mt-4 text-body text-black-deep/40">
+                    <p className="mt-4 text-body text-black-deep">
                       {service.summary}
                     </p>
                   </div>
@@ -153,7 +153,7 @@ export default function Servizi() {
       <section className="py-16 lg:py-36 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-black-deep/40 mb-4">
+            <p className="text-label text-black-deep/60 mb-4">
               Come lavoriamo
             </p>
             <h2 className="font-section-title text-black-deep mb-10 lg:mb-24">
@@ -187,7 +187,7 @@ export default function Servizi() {
           <FadeInView>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               <div>
-                <p className="text-label text-black-deep/40 mb-4">
+                <p className="text-label text-black-deep/60 mb-4">
                   Perché sceglierci
                 </p>
                 <h2 className="font-section-title text-black-deep">

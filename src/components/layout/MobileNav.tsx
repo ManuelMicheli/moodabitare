@@ -91,7 +91,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                         {cat.label}
                                       </span>
                                       <div className="flex items-center gap-2">
-                                        <span className="text-[0.75rem] text-black-deep/30 font-[var(--font-ui)] bg-warm-gray/50 px-2 py-0.5 rounded-full">
+                                        <span className="text-[0.75rem] text-black-deep/60 font-[var(--font-ui)] bg-warm-gray/50 px-2 py-0.5 rounded-full">
                                           {cat.products.length}
                                         </span>
                                         <svg
@@ -129,7 +129,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                                       {product.name}
                                                     </span>
                                                     {product.brand && (
-                                                      <span className="text-[0.75rem] uppercase tracking-wider text-black-deep/20 group-hover:text-bordeaux/50 transition-colors duration-200">
+                                                      <span className="text-[0.75rem] uppercase tracking-wider text-black-deep/50 group-hover:text-bordeaux/50 transition-colors duration-200">
                                                         {product.brand}
                                                       </span>
                                                     )}

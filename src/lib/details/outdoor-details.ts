@@ -10,7 +10,7 @@ import {
 
 export const pergoleDetails: Record<string, ProductDetail> = {
   ...Object.fromEntries(Object.entries(tendarredoPergoleDetails).map(([k, v]) => [`Tendarredo — ${k}`, v])),
-  ...Object.fromEntries(Object.entries(persitDetails).map(([k, v]) => [`Persit — ${k.replace("Pergola Bioclimatica ", "")}`, v])),
+  ...Object.fromEntries(Object.entries(persitDetails).map(([k, v]) => [`Persit — ${k}`, v])),
 };
 
 /* ── TENDE DA SOLE — Tendarredo ──────────────────────────────── */

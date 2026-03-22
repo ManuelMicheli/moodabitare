@@ -18,7 +18,7 @@ export function HoverFillSection({ services }: HoverFillSectionProps) {
       <div className="px-6 sm:px-10 lg:px-20">
         {/* Header */}
         <div className="mb-12 lg:mb-20">
-          <p className="text-label text-black-deep/30 mb-5">
+          <p className="text-label text-black-deep/60 mb-5">
             Il nostro approccio
           </p>
           <h2

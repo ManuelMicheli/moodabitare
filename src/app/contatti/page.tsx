@@ -36,7 +36,7 @@ export default function Contatti() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">
+            <p className="text-label text-white/80 mb-6">
               Contattaci
             </p>
           </FadeInView>
@@ -46,7 +46,7 @@ export default function Contatti() {
             </h1>
           </ClipReveal>
           <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-white/35 max-w-xl">
+            <p className="mt-8 text-body text-white/80 max-w-xl">
               Compila il form per richiedere un preventivo o informazioni. Ti risponderemo il prima possibile.
             </p>
           </FadeInView>
@@ -75,39 +75,39 @@ export default function Contatti() {
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
             {/* Contact Info */}
             <FadeInView direction="left">
-              <p className="text-label text-black-deep/30 mb-10">
+              <p className="text-label text-black-deep/60 mb-10">
                 Come trovarci
               </p>
 
               <div className="space-y-8">
                 <div>
-                  <p className="text-label text-black-deep/25 mb-2">Indirizzo</p>
-                  <p className="text-caption text-black-deep/50">{CONTACT_INFO.fullAddress}</p>
+                  <p className="text-label text-black-deep/60 mb-2">Indirizzo</p>
+                  <p className="text-caption text-black-deep">{CONTACT_INFO.fullAddress}</p>
                 </div>
                 <div>
-                  <p className="text-label text-black-deep/25 mb-2">Telefono</p>
-                  <a href={CONTACT_INFO.phoneHref} className="inline-block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.phone}</a>
+                  <p className="text-label text-black-deep/60 mb-2">Telefono</p>
+                  <a href={CONTACT_INFO.phoneHref} className="inline-block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.phone}</a>
                 </div>
                 <div>
-                  <p className="text-label text-black-deep/25 mb-2">WhatsApp</p>
-                  <a href={CONTACT_INFO.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.whatsapp}</a>
+                  <p className="text-label text-black-deep/60 mb-2">WhatsApp</p>
+                  <a href={CONTACT_INFO.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.whatsapp}</a>
                 </div>
                 <div>
-                  <p className="text-label text-black-deep/25 mb-2">Email</p>
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.email}</a>
-                  <a href={`mailto:${CONTACT_INFO.emailCommerciale}`} className="block py-2 text-caption text-black-deep/50 hover:text-black-deep transition-colors">{CONTACT_INFO.emailCommerciale}</a>
+                  <p className="text-label text-black-deep/60 mb-2">Email</p>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.email}</a>
+                  <a href={`mailto:${CONTACT_INFO.emailCommerciale}`} className="block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.emailCommerciale}</a>
                 </div>
                 <div className="pt-6 border-t border-black/5">
-                  <p className="text-label text-black-deep/25 mb-2">Orari</p>
-                  <p className="text-caption text-black-deep/40">{OPENING_HOURS.weekdays.label}: {OPENING_HOURS.weekdays.morning} / {OPENING_HOURS.weekdays.afternoon}</p>
-                  <p className="text-caption text-black-deep/40 mt-1">{OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning} / {OPENING_HOURS.saturday.afternoon}</p>
+                  <p className="text-label text-black-deep/60 mb-2">Orari</p>
+                  <p className="text-caption text-black-deep">{OPENING_HOURS.weekdays.label}: {OPENING_HOURS.weekdays.morning} / {OPENING_HOURS.weekdays.afternoon}</p>
+                  <p className="text-caption text-black-deep mt-1">{OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning} / {OPENING_HOURS.saturday.afternoon}</p>
                 </div>
               </div>
             </FadeInView>
 
             {/* Form */}
             <FadeInView direction="right">
-              <p className="text-label text-black-deep/30 mb-10">
+              <p className="text-label text-black-deep/60 mb-10">
                 Richiedi informazioni
               </p>
               <ContactForm />

@@ -44,7 +44,7 @@ export function PremiumPartnerBanner() {
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 py-12 sm:py-0 sm:pb-12 lg:pb-16">
         <div className="flex flex-col items-center text-center sm:items-end sm:text-right">
           <FadeInView>
-            <p className="text-label text-white/50 mb-4">
+            <p className="text-label text-white/80 mb-4">
               Premium Partner Oknoplast
             </p>
           </FadeInView>
@@ -80,7 +80,7 @@ export function PremiumPartnerBanner() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                     style={{ transformOrigin: "right" }}
                   />
-                  <p className="mt-3 text-caption text-white/50">
+                  <p className="mt-3 text-caption text-white/80">
                     {item.label}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export function PremiumPartnerBanner() {
                     transition={{ duration: 0.5, delay: 0.7 }}
                     style={{ transformOrigin: "right" }}
                   />
-                  <p className="mt-3 text-caption text-white/50">
+                  <p className="mt-3 text-caption text-white/80">
                     {item.label}
                   </p>
                 </div>

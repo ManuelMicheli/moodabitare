@@ -25,13 +25,13 @@ export default function Progetti() {
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
         <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <p className="text-label text-white/40 mb-6">
+            <p className="text-label text-white/80 mb-6">
               Portfolio
             </p>
             <h1 className="font-page-title max-w-5xl">
               <AccentText>I nostri progetti</AccentText>
             </h1>
-            <p className="mt-8 text-body text-white/35 max-w-xl">
+            <p className="mt-8 text-body text-white/80 max-w-xl">
               Scorri per esplorare.
             </p>
           </FadeInView>
@@ -45,7 +45,7 @@ export default function Progetti() {
       <section className="py-20 lg:py-44 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20 text-center">
           <FadeInView>
-            <p className="text-label text-black-deep/40 mb-6">
+            <p className="text-label text-black-deep/60 mb-6">
               Vuoi vedere il tuo progetto qui?
             </p>
             <h2 className="font-section-title text-black-deep mb-8">

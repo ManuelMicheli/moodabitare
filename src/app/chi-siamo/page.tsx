@@ -189,7 +189,7 @@ export default function ChiSiamo() {
                 <p className="font-section-title text-white">
                   Seguici su Instagram
                 </p>
-                <p className="font-display text-white/50 text-sm mt-1">
+                <p className="font-display text-white/80 text-sm mt-1">
                   @moodabitare — Ispirazioni, cantieri e novità dallo showroom
                 </p>
               </div>
@@ -208,13 +208,13 @@ export default function ChiSiamo() {
       <section className="py-16 lg:py-36 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20 max-w-3xl mx-auto text-center">
           <FadeInView>
-            <p className="text-label text-black-deep/25 mb-6">
+            <p className="text-label text-black-deep/60 mb-6">
               Il prossimo passo
             </p>
             <h2 className="font-page-title text-black-deep">
               <AccentText>Ci piacerebbe conoscerti</AccentText>
             </h2>
-            <p className="mt-6 text-body text-black-deep/35 max-w-md mx-auto">
+            <p className="mt-6 text-body text-black-deep max-w-md mx-auto">
               Passa a trovarci in showroom per un caffè e una chiacchierata
               senza impegno, oppure scrivici. Saremo felici di ascoltare la tua
               idea e aiutarti a realizzarla.

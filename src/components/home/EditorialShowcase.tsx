@@ -220,10 +220,10 @@ export function EditorialShowcase() {
             <h3 className="font-section-title text-black-deep">
               Simmetria e risparmio energetico
             </h3>
-            <p className="mt-4 text-caption text-mid-gray leading-relaxed max-w-[28ch]">
+            <p className="mt-4 text-caption text-black-deep leading-relaxed max-w-[28ch]">
               Finestre in PVC a 5 e 7 camere con trasmittanza fino a 0,73 W/m²K. Isolamento termico e acustico, risparmio in bolletta tutto l&apos;anno.
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors link-draw">
+            <span className="mt-5 text-button text-black-deep/60 group-hover:text-black-deep transition-colors link-draw">
               Scopri
             </span>
           </Link>
@@ -250,10 +250,10 @@ export function EditorialShowcase() {
             <h3 className="font-section-title text-black-deep">
               Luce naturale e design moderno
             </h3>
-            <p className="mt-4 text-caption text-mid-gray leading-relaxed">
+            <p className="mt-4 text-caption text-black-deep leading-relaxed">
               Porte-finestre scorrevoli e alzanti scorrevoli Oknoplast: ampie superfici vetrate che eliminano la barriera tra interno ed esterno.
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors link-draw">
+            <span className="mt-5 text-button text-black-deep/60 group-hover:text-black-deep transition-colors link-draw">
               Scopri
             </span>
           </Link>
@@ -276,10 +276,10 @@ export function EditorialShowcase() {
             <h3 className="font-section-title text-black-deep">
               Tanti modelli per un ingresso unico
             </h3>
-            <p className="mt-4 text-caption text-mid-gray leading-relaxed max-w-[30ch]">
+            <p className="mt-4 text-caption text-black-deep leading-relaxed max-w-[30ch]">
               Portoncini d&apos;ingresso in alluminio Oknoplast, personalizzabili in finiture, colori e accessori. Classe antieffrazione RC2 di serie.
             </p>
-            <span className="mt-5 text-button text-black-deep/40 group-hover:text-black-deep transition-colors link-draw">
+            <span className="mt-5 text-button text-black-deep/60 group-hover:text-black-deep transition-colors link-draw">
               Scopri
             </span>
           </Link>
@@ -319,7 +319,7 @@ export function EditorialShowcase() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: "left" }}
                 />
-                <cite className="text-label text-white/50 not-italic">
+                <cite className="text-label text-white/80 not-italic">
                   Esperienza in showroom
                 </cite>
               </footer>
@@ -342,7 +342,7 @@ export function EditorialShowcase() {
 
               {/* Content */}
               <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5 sm:px-8 md:px-14 py-8 sm:py-12">
-                <p className="text-label text-white/40 mb-4">
+                <p className="text-label text-white/80 mb-4">
                   Porte Interne
                 </p>
                 <h3 className="font-section-title text-white max-w-lg">

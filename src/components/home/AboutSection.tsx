@@ -265,13 +265,19 @@ export function AboutSection() {
       <div className="max-w-6xl mx-auto lg:flex lg:gap-16 lg:items-stretch">
         {/* Card verticali placeholder — solo desktop */}
         <div className="hidden lg:flex flex-[2.33] gap-3 self-stretch" style={{ marginLeft: "calc(-50vw + 50%)" }}>
-          <div className="flex-1 h-full rounded-sm bg-warm-gray" />
-          <div className="flex-1 h-full rounded-sm bg-warm-gray" />
+          <div className="flex-1 h-full rounded-sm overflow-hidden flex flex-col gap-1">
+            <div className="flex-1 min-h-0 bg-warm-gray" />
+            <div className="flex-1 min-h-0 bg-warm-gray" />
+          </div>
+          <div className="flex-1 h-full rounded-sm overflow-hidden flex flex-col gap-1">
+            <div className="flex-1 min-h-0 bg-warm-gray" />
+            <div className="flex-1 min-h-0 bg-warm-gray" />
+          </div>
         </div>
 
         <div className="flex-1">
         {/* Label */}
-        <p className="text-label text-black-deep/30 mb-10 lg:mb-14">
+        <p className="text-label text-black-deep/60 mb-10 lg:mb-14">
           Chi siamo
         </p>
 
@@ -322,8 +328,14 @@ export function AboutSection() {
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className="flex-1 aspect-[3/4] rounded-sm bg-warm-gray" />
-                <div className="flex-1 aspect-[3/4] rounded-sm bg-warm-gray" />
+                <div className="flex-1 aspect-[3/4] rounded-sm overflow-hidden flex flex-col gap-1">
+                  <div className="flex-1 min-h-0 bg-warm-gray" />
+                  <div className="flex-1 min-h-0 bg-warm-gray" />
+                </div>
+                <div className="flex-1 aspect-[3/4] rounded-sm overflow-hidden flex flex-col gap-1">
+                  <div className="flex-1 min-h-0 bg-warm-gray" />
+                  <div className="flex-1 min-h-0 bg-warm-gray" />
+                </div>
               </motion.div>
 
               <div className="space-y-8">

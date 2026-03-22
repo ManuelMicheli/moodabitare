@@ -74,7 +74,7 @@ export function HomeServices() {
         {/* Header */}
         <div className="mb-14 lg:mb-24 text-center">
           <FadeInView>
-            <p className="text-label text-black-deep/30 mb-5">
+            <p className="text-label text-black-deep/60 mb-5">
               I nostri servizi
             </p>
           </FadeInView>
@@ -88,7 +88,7 @@ export function HomeServices() {
           </TextRevealByWord>
           <FadeInView delay={0.3}>
             <p
-              className="mt-6 max-w-xl mx-auto font-display text-black-deep/50"
+              className="mt-6 max-w-xl mx-auto font-display text-black-deep"
               style={{
                 fontSize: "clamp(0.95rem, 0.85rem + 0.4vw, 1.15rem)",
               }}
@@ -114,14 +114,14 @@ export function HomeServices() {
                   <div className="grid grid-cols-1 lg:grid-cols-[3.5rem_1fr_1.4fr] gap-4 lg:gap-8 items-start">
                     {/* Number */}
                     <span
-                      className="hidden lg:block font-ui text-[0.8rem] font-medium text-black-deep/20 group-hover:text-bordeaux/60 pt-[0.35rem] tabular-nums transition-colors duration-500"
+                      className="hidden lg:block font-ui text-[0.8rem] font-medium text-black-deep/40 group-hover:text-bordeaux/60 pt-[0.35rem] tabular-nums transition-colors duration-500"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
                     {/* Title */}
                     <div className="flex items-start gap-3 lg:gap-0">
-                      <span className="lg:hidden font-ui text-[0.75rem] font-medium text-black-deep/20 group-hover:text-bordeaux/60 pt-[0.2rem] tabular-nums shrink-0 transition-colors duration-500">
+                      <span className="lg:hidden font-ui text-[0.75rem] font-medium text-black-deep/40 group-hover:text-bordeaux/60 pt-[0.2rem] tabular-nums shrink-0 transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3

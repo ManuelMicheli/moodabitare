@@ -80,7 +80,7 @@ export function StackingTimeline({ items }: { items: TimelineItem[] }) {
       <div ref={pinnedRef} className={`${isMobile ? "" : "min-h-screen"} flex flex-col text-white`}>
         {/* Header */}
         <div className="pt-20 lg:pt-28 pb-10 lg:pb-16 px-6 sm:px-10 lg:px-20 text-center flex-shrink-0">
-          <p className="text-label text-white/20 mb-5">Il nostro percorso</p>
+          <p className="text-label text-white/70 mb-5">Il nostro percorso</p>
           <h2 className="font-section-title">
             <AccentText>Il nostro cammino, insieme a voi</AccentText>
           </h2>
