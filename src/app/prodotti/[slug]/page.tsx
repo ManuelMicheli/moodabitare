@@ -6,6 +6,8 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
 import { HorizontalGallery } from "@/components/products/HorizontalGallery";
 import { GalleryWithSheet } from "@/components/products/GalleryWithSheet";
+import { PremiumCatalog } from "@/components/products/PremiumCatalog";
+import { premiumCatalogData } from "@/lib/premium-catalog-data";
 import { ALL_PRODUCTS, MACRO_CATEGORIES, R2_CDN } from "@/lib/constants";
 import { productContent } from "@/lib/product-content";
 import { sheetMap } from "@/lib/sheet-map";
@@ -16,6 +18,14 @@ import { tapparelleDetails } from "@/lib/details/serramenti-details";
 import { PortonciniCatalog } from "@/components/products/PortonciniCatalog";
 import { portonciniCategories } from "@/lib/portoncini-categories";
 import { portoncinoDetails } from "@/lib/details/serramenti-details";
+import { InfissiPvcCatalog } from "@/components/products/InfissiPvcCatalog";
+import { infissiPvcCategories } from "@/lib/infissi-pvc-categories";
+import { windowDetails } from "@/lib/window-details";
+import { PorteBlindateCatalog } from "@/components/products/PorteBlindateCatalog";
+import { porteBlindateCategories } from "@/lib/porte-blindate-categories";
+import { securityDoorDetails, interiorDoorDetails } from "@/lib/product-details";
+import { PorteInterneCatalog } from "@/components/products/PorteInterneCatalog";
+import { porteInterneCategories } from "@/lib/porte-interne-categories";
 
 const heroImages: Record<string, string> = {
   "infissi-legno": "/images/pail-belvedere.jpeg",
@@ -37,12 +47,14 @@ const productKeywords: Record<string, string[]> = {
   "infissi-pvc": [
     "infissi PVC Varese",
     "finestre PVC Oknoplast",
+    "finestre Oknoplast Prolux",
+    "finestre Oknoplast Winergetic",
+    "finestre Oknoplast Prismatic",
+    "scorrevoli PVC Oknoplast",
     "infissi PVC prezzo",
     "finestre isolamento termico",
     "finestre risparmio energetico",
     "Oknoplast Premium Partner Varese",
-    "sostituzione finestre PVC",
-    "detrazioni fiscali finestre",
   ],
   "infissi-alluminio": [
     "infissi alluminio Varese",
@@ -857,13 +869,40 @@ export default async function ProductPage({ params }: Props) {
         <PortonciniCatalog categories={portonciniCategories} details={portoncinoDetails} />
       )}
 
-      {/* Horizontal scroll gallery con schede tecniche */}
-      {gallery && gallery.length > 0 && slug !== "infissi-legno" && slug !== "infissi-alluminio-legno" && slug !== "tapparelle" && slug !== "portoncini" && (() => {
+      {/* Infissi PVC — catalogo categorizzato Oknoplast */}
+      {slug === "infissi-pvc" && (
+        <InfissiPvcCatalog categories={infissiPvcCategories} details={windowDetails} />
+      )}
+
+      {/* Porte Blindate — catalogo categorizzato Alias & Erreci */}
+      {slug === "porte-blindate" && (
+        <PorteBlindateCatalog categories={porteBlindateCategories} details={securityDoorDetails} />
+      )}
+
+      {/* Porte Interne — catalogo categorizzato Pail & Door Arreda */}
+      {slug === "porte-interne" && (
+        <PorteInterneCatalog categories={porteInterneCategories} details={interiorDoorDetails} />
+      )}
+
+      {/* Premium catalog — editorial layout matching tapparelle/portoncini quality */}
+      {(() => {
+        const cfg = premiumCatalogData[slug];
+        if (!cfg) return null;
         const details = sheetMap[slug];
         const coverSlugs = ["persiane", "frangisole"];
         const useCover = coverSlugs.includes(slug);
-        if (details) return <GalleryWithSheet images={gallery} alt={product.name} details={details} cover={useCover} />;
-        return <HorizontalGallery images={gallery} alt={product.name} cover={useCover} />;
+        return (
+          <PremiumCatalog
+            brandLabel={cfg.brandLabel}
+            title={cfg.title}
+            description={cfg.description}
+            stats={cfg.stats}
+            categories={cfg.categories}
+            images={cfg.categories ? undefined : gallery}
+            details={details ?? {}}
+            cover={useCover}
+          />
+        );
       })()}
 
       {/* Description + Specs + Benefits */}

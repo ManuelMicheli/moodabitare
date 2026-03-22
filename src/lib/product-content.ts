@@ -16,23 +16,23 @@ export const productContent: Record<string, ProductContent> = {
   /* ── SERRAMENTI, OSCURANTI, PORTONCINI ─────────────────────────── */
 
   "infissi-pvc": {
-    tagline: "Isolamento superiore, bollette più leggere",
+    tagline: "Isolamento superiore, bollette pi\u00F9 leggere",
     description:
-      "Le finestre in PVC Oknoplast combinano profili multicamera ad alta densità con vetri basso-emissivi per offrirti il massimo isolamento termico e acustico. Risultato concreto: fino al 40% di risparmio in bolletta e una casa silenziosa anche in contesti urbani. Come Premium Partner Oknoplast selezionati per la provincia di Varese, ti garantiamo condizioni esclusive e garanzia estesa fino a 10 anni.",
+      "20 modelli di finestre e scorrevoli in PVC Oknoplast: dalla famiglia Prolux alle linee Prismatic e Winergetic con certificazione CasaClima Gold (Uw fino a 0,6 W/m\u00B2K), fino ai sistemi scorrevoli panoramici oltre 6 metri. Profili multicamera, vetri basso-emissivi e fino al 40% di risparmio in bolletta. Come Premium Partner Oknoplast per la provincia di Varese, ti garantiamo condizioni esclusive e garanzia estesa fino a 10 anni.",
     specs: [
       { label: "Materiale", value: "PVC multicamera rinforzato in acciaio" },
-      { label: "Trasmittanza termica", value: "Uw fino a 0,71 W/m²K" },
+      { label: "Trasmittanza termica", value: "Uw da 0,6 a 1,0 W/m\u00B2K" },
       { label: "Abbattimento acustico", value: "Fino a 47 dB" },
       { label: "Classe antieffrazione", value: "Fino a RC2" },
       { label: "Garanzia", value: "Fino a 10 anni" },
-      { label: "Certificazioni", value: "CE, Passivhaus, PVC riciclabile" },
+      { label: "Certificazioni", value: "CE, CasaClima, Passivhaus, PVC riciclabile" },
     ],
     benefits: [
+      "20 modelli: Prolux, Prismatic, Winergetic e 5 scorrevoli",
       "Risparmio fino al 40% sui costi di riscaldamento e raffrescamento",
-      "Zero manutenzione: non servono verniciature o trattamenti nel tempo",
-      "Profili slim per massima luminosità negli ambienti",
-      "Ampia gamma di colori e finiture effetto legno",
-      "Accesso diretto a detrazioni fiscali al 50% con pratica gestita da noi",
+      "Zero manutenzione: non servono verniciature o trattamenti",
+      "Scorrevoli panoramici oltre 6 metri con soglia ribassata",
+      "Detrazioni fiscali al 50% con pratica gestita da noi",
     ],
     cardDescription: "Isolamento termico e acustico superiore, fino al 40% di risparmio in bolletta",
   },
@@ -218,23 +218,23 @@ export const productContent: Record<string, ProductContent> = {
   "porte-blindate": {
     tagline: "Sicurezza certificata, design che si integra nella tua casa",
     description:
-      "Le porte blindate Alias ed Erreci combinano struttura in acciaio ad alta resistenza con finiture eleganti che si adattano a qualsiasi stile d'interni. Ogni porta è certificata in classe antieffrazione fino a 4 e garantisce isolamento termico e acustico superiore, proteggendo la tua famiglia senza compromessi estetici.",
+      "Le porte blindate Alias ed Erreci combinano struttura in acciaio ad alta resistenza con finiture eleganti che si adattano a qualsiasi stile d'interni. Dalla Classe 3 entry-level alla Classe 5 di massima sicurezza, ogni porta garantisce isolamento termico e acustico superiore. Soluzioni a cerniera nascosta, filomuro, coplanari, a bilico e smart con LED e apertura biometrica: protezione totale senza compromessi estetici.",
     specs: [
-      { label: "Struttura", value: "Acciaio zincato, spessore lamiera 20/10" },
-      { label: "Classe antieffrazione", value: "Fino a Classe 4 (UNI ENV 1627)" },
-      { label: "Punti di chiusura", value: "Fino a 15 punti di ancoraggio" },
-      { label: "Isolamento termico", value: "Uw fino a 1,0 W/m²K" },
-      { label: "Abbattimento acustico", value: "Fino a 40 dB" },
-      { label: "Finiture", value: "Laccato, legno, laminato, effetto pietra" },
+      { label: "Struttura", value: "Acciaio zincato 12/10 – 15/10, rinforzi omega" },
+      { label: "Classe antieffrazione", value: "Da Classe 3 a Classe 5 (UNI-EN 1627)" },
+      { label: "Punti di chiusura", value: "Fino a 17 punti di ancoraggio" },
+      { label: "Isolamento termico", value: "Ud fino a 1,0 W/m²K (0,8 con aerogel)" },
+      { label: "Abbattimento acustico", value: "Fino a 42 dB" },
+      { label: "Finiture", value: "Laccato RAL, legno, laminato, LED, coplanare" },
     ],
     benefits: [
-      "Massima sicurezza per la tua famiglia con certificazione antieffrazione fino a Classe 4",
-      "Isolamento termico e acustico: la porta d'ingresso non è più il punto debole",
-      "Finiture personalizzabili: da fuori protegge, da dentro arreda",
-      "Serrature europee di ultima generazione con cilindro antitrapano",
+      "Massima sicurezza: da Classe 3 a Classe 5 con acciaio al manganese e cilindro Widia",
+      "Isolamento termico e acustico ai vertici della categoria — Ud fino a 0,8 W/m²K",
+      "Design contemporaneo: filomuro, coplanare, a bilico o con LED integrato",
+      "Serrature smart: da cilindro europeo a biometrica con app Bluetooth",
       "Installazione e assistenza diretta con garanzia Mood Abitare",
     ],
-    cardDescription: "Protezione fino a Classe 4, isolamento termico e acustico, finiture eleganti",
+    cardDescription: "Protezione da Classe 3 a Classe 5, isolamento termoacustico, design filomuro e smart",
   },
 
   /* ── SISTEMI DI SICUREZZA ──────────────────────────────────────── */
@@ -242,23 +242,24 @@ export const productContent: Record<string, ProductContent> = {
   "grate-sicurezza": {
     tagline: "Protezione invisibile, tranquillità visibile",
     description:
-      "Le grate di sicurezza Erreci offrono protezione antieffrazione certificata con un design discreto che non compromette la vista e la luminosità dei tuoi ambienti. Disponibili in versione fissa o apribile, si integrano con qualsiasi tipo di serramento e si adattano a ogni contesto architettonico, dalla villa alla palazzina.",
+      "Le grate di sicurezza Erreci offrono protezione antieffrazione certificata fino a Classe 4 con un design discreto che non compromette la vista e la luminosità dei tuoi ambienti. 9 modelli — dall'acciaio carbonitrurato alla versione in alluminio anticorrosione, dalla grata estensibile a quella in acciaio inox — si integrano con qualsiasi serramento e contesto architettonico.",
     specs: [
-      { label: "Materiale", value: "Acciaio zincato e verniciato" },
-      { label: "Barre", value: "Tonde o quadre, sezione da 12 a 16 mm" },
-      { label: "Tipologie", value: "Fissa, a battente, scorrevole, estensibile" },
-      { label: "Certificazione", value: "UNI EN 1627 fino a Classe 3" },
-      { label: "Verniciatura", value: "A polvere, gamma colori RAL" },
-      { label: "Serratura", value: "A cilindro europeo con chiave di sicurezza" },
+      { label: "Materiale", value: "Acciaio zincato, carbonitrurato, inox AISI 304, alluminio" },
+      { label: "Barre", value: "Tonde piene, sezione 14 mm" },
+      { label: "Tipologie", value: "A battente, scorrevole, estensibile, in acciaio inox" },
+      { label: "Certificazione", value: "UNI EN 1627 fino a Classe 4" },
+      { label: "Verniciatura", value: "A polvere poliestere a forno 180°C, gamma RAL" },
+      { label: "Serratura", value: "Cilindro europeo antitrapano con chiave unica" },
     ],
     benefits: [
-      "Protezione certificata senza compromettere luce e panorama",
-      "Modelli apribili per uscita di sicurezza conforme alle normative",
-      "Design discreto che si adatta a qualsiasi facciata",
-      "Verniciatura a polvere: resistente, durevole e personalizzabile",
+      "9 modelli per ogni esigenza: dalla Classe 2 alla Classe 4 antieffrazione",
+      "Modelli in acciaio inox e alluminio per zone costiere e ambienti corrosivi",
+      "Grata estensibile Kiusa per aperture non standard",
+      "Cerniere brevettate a scomparsa e flip per estetica senza sporgenze",
+      "Verniciatura a polvere: resistente, durevole e personalizzabile in gamma RAL",
       "Sopralluogo e preventivo gratuiti per la soluzione su misura",
     ],
-    cardDescription: "Sicurezza certificata con design discreto, per luce e panorama senza compromessi",
+    cardDescription: "Sicurezza certificata fino a Classe 4, 9 modelli in acciaio, inox e alluminio",
   },
 
   "persiane-blindate": {

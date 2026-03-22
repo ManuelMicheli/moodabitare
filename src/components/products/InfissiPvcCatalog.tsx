@@ -13,34 +13,41 @@ import { DrawLine } from "@/components/animations/DrawLine";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { HoverTilt } from "@/components/animations/HoverTilt";
 import type { GalleryImage } from "./HorizontalGallery";
-import type { PortonciniSubCategory } from "@/lib/portoncini-categories";
+import type { InfissiPvcSubCategory } from "@/lib/infissi-pvc-categories";
 import type { ProductDetail } from "@/lib/product-details";
 
-/* ── Material icons ───────────────────────────── */
+/* ── Icons per ogni categoria ─────────────────── */
 const categoryIcons: Record<string, React.ReactNode> = {
-  alluminio: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M3 9h18M3 15h18M9 3v18M15 3v18" strokeOpacity="0.4" />
-    </svg>
-  ),
-  pvc: (
+  prolux: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
       <circle cx="12" cy="12" r="9" />
-      <path d="M12 3c-2 3-2 6 0 9s-2 6 0 9" strokeOpacity="0.4" />
-      <path d="M3 12h18" strokeOpacity="0.4" />
+      <path d="M12 3v18M3 12h18" strokeOpacity="0.3" />
     </svg>
   ),
-  cosmo: (
+  design: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z" />
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18M9 3v18" strokeOpacity="0.4" />
     </svg>
   ),
-  kopen: (
+  prismatic: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
+      <path d="M12 2l10 20H2z" />
+      <path d="M12 8l5 12H7z" strokeOpacity="0.3" />
+    </svg>
+  ),
+  winergetic: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
       <path d="M12 2L2 7l10 5 10-5-10-5z" />
       <path d="M2 17l10 5 10-5" />
       <path d="M2 12l10 5 10-5" />
+    </svg>
+  ),
+  scorrevoli: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="M12 4v16" strokeDasharray="2 2" />
+      <path d="M8 12h8M14 9l3 3-3 3" strokeOpacity="0.6" />
     </svg>
   ),
 };
@@ -53,10 +60,13 @@ function splitName(name: string): [string | null, string] {
 
 const segmentColor: Record<string, string> = {
   Classic: "bg-white/75 text-black-deep/60 backdrop-blur-sm",
+  Comfort: "bg-blue-50/80 text-blue-700 backdrop-blur-sm",
   Compact: "bg-sky-50/80 text-sky-700 backdrop-blur-sm",
   Premium: "bg-bordeaux/10 text-bordeaux backdrop-blur-sm",
   "Top di gamma": "bg-bordeaux/15 text-bordeaux backdrop-blur-sm",
   Design: "bg-amber-50/80 text-amber-700 backdrop-blur-sm",
+  Scorrevoli: "bg-emerald-50/80 text-emerald-700 backdrop-blur-sm",
+  "Passive House": "bg-green-50/80 text-green-700 backdrop-blur-sm",
   Sicurezza: "bg-red-50/80 text-red-700 backdrop-blur-sm",
 };
 
@@ -89,11 +99,7 @@ function ProductCard({
             src={image.src}
             alt={product}
             fill
-            className={cn(
-              "object-contain transition-all duration-700 ease-out",
-              isMobile ? "p-4" : "p-6 lg:p-8",
-              "group-hover/card:scale-[1.06]"
-            )}
+            className={cn("object-contain transition-all duration-700 ease-out", isMobile ? "p-4" : "p-6 lg:p-8", "group-hover/card:scale-[1.06]")}
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
           />
         ) : (
@@ -142,7 +148,7 @@ function CategoryNav({
   onSelect,
   isMobile,
 }: {
-  categories: PortonciniSubCategory[];
+  categories: InfissiPvcSubCategory[];
   activeId: string;
   onSelect: (id: string) => void;
   isMobile: boolean;
@@ -198,11 +204,11 @@ function CategoryNav({
 }
 
 /* ── Main component ─────────────────────────── */
-function PortonciniCatalogInner({
+function InfissiPvcCatalogInner({
   categories,
   details,
 }: {
-  categories: PortonciniSubCategory[];
+  categories: InfissiPvcSubCategory[];
   details: Record<string, ProductDetail>;
 }) {
   const isMobile = useIsMobile(640);
@@ -239,12 +245,11 @@ function PortonciniCatalogInner({
     <section className="py-20 sm:py-28 lg:py-36">
       <div className="px-6 sm:px-10 lg:px-20">
 
-        {/* ═══════════ Editorial Header ═══════════ */}
         <div className="flex items-center gap-4 mb-6">
           <DrawLine className="!w-12 !bg-bordeaux/40" duration={0.6} />
           <FadeInView delay={0.2}>
             <span className="font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] text-bordeaux/60 font-semibold">
-              Catalogo Oknoplast &middot; Kopen
+              Catalogo Oknoplast
             </span>
           </FadeInView>
         </div>
@@ -254,13 +259,14 @@ function PortonciniCatalogInner({
           className="font-display text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-black-deep tracking-tight leading-[1.1]"
           stagger={0.05}
         >
-          Portoncini d&apos;ingresso per ogni architettura
+          Finestre e scorrevoli in PVC Oknoplast
         </TextRevealByWord>
 
         <FadeInView delay={0.4}>
           <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/55 max-w-2xl leading-relaxed">
-            Portoncini d&apos;ingresso in alluminio a taglio termico Tenvis, PVC ad alte
-            prestazioni, la linea decorativa Cosmo e il premium Kopen.
+            Dalla famiglia Prolux best-seller ai sistemi Winergetic con certificazione
+            CasaClima, fino agli scorrevoli panoramici oltre 6 metri. Finestre e
+            scorrevoli in PVC Oknoplast per ogni progetto.
           </p>
         </FadeInView>
 
@@ -269,8 +275,8 @@ function PortonciniCatalogInner({
           <div className="mt-8 flex items-center gap-8 sm:gap-12 lg:gap-16">
             {[
               { n: totalProducts, label: "Modelli" },
-              { n: categories.length, label: "Linee" },
-              { n: 3, label: "Brand" } as const,
+              { n: categories.length, label: "Famiglie" },
+              { n: 7, label: "Camere profilo", suffix: "" },
             ].map((stat: { n: number; label: string; suffix?: string }) => (
               <div key={stat.label} className="flex items-baseline gap-2">
                 <AnimatedCounter target={stat.n} suffix={stat.suffix} className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-black-deep tracking-tight" duration={1.8} />
@@ -280,7 +286,6 @@ function PortonciniCatalogInner({
           </div>
         </FadeInView>
 
-        {/* ═══════════ Category Navigation ═══════════ */}
         <div className="mt-14 sm:mt-16 lg:mt-20">
           <CategoryNav categories={categories} activeId={activeTab} onSelect={setActiveTab} isMobile={isMobile} />
         </div>
@@ -294,7 +299,6 @@ function PortonciniCatalogInner({
           </motion.div>
         </AnimatePresence>
 
-        {/* ═══════════ Product Grid ═══════════ */}
         <AnimatePresence mode="wait">
           <motion.div key={activeCat.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
             <div className={cn("mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10", isMobile ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
@@ -307,7 +311,6 @@ function PortonciniCatalogInner({
           </motion.div>
         </AnimatePresence>
 
-        {/* ═══════════ Bottom Stats Bar (desktop) ═══════════ */}
         {!isMobile && (
           <FadeInView delay={0.2} className="mt-16 lg:mt-24">
             <DrawLine className="!bg-black-deep/[0.08]" once={false} />
@@ -334,13 +337,13 @@ function PortonciniCatalogInner({
   );
 }
 
-export function PortonciniCatalog(props: {
-  categories: PortonciniSubCategory[];
+export function InfissiPvcCatalog(props: {
+  categories: InfissiPvcSubCategory[];
   details: Record<string, ProductDetail>;
 }) {
   return (
     <Suspense>
-      <PortonciniCatalogInner {...props} />
+      <InfissiPvcCatalogInner {...props} />
     </Suspense>
   );
 }

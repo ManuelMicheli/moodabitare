@@ -1,0 +1,479 @@
+import type { PremiumCategory } from "@/components/products/PremiumCatalog";
+
+export interface PremiumCatalogConfig {
+  brandLabel: string;
+  title: string;
+  description: string;
+  stats: { n: number; label: string; suffix?: string }[];
+  categories?: PremiumCategory[];
+}
+
+/**
+ * Contenuti editoriali e configurazione catalogo premium per ogni prodotto.
+ * I prodotti con `categories` mostrano navigazione a tab; gli altri griglia piatta.
+ */
+export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
+  /* ═══════════════════════════════════════════════════════════════
+   *  SERRAMENTI
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "infissi-alluminio": {
+    brandLabel: "Catalogo Oknoplast",
+    title: "Serramenti in alluminio per la massima luminosità",
+    description:
+      "Profili ultra-sottili che massimizzano la superficie vetrata e la luce naturale. L\u2019alluminio garantisce resistenza strutturale eccezionale, durata nel tempo e oltre 200 colori RAL per un\u2019estetica senza compromessi.",
+    stats: [
+      { n: 8, label: "Modelli" },
+      { n: 3, label: "Famiglie" },
+      { n: 200, label: "Colori RAL", suffix: "+" },
+    ],
+    categories: [
+      {
+        id: "titano",
+        label: "Titano",
+        tagline: "La famiglia ammiraglia: profili minimal, prestazioni massime e versatilità assoluta per grandi vetrate e scorrevoli.",
+        products: [
+          { src: "/images/oknoplast-alu-titano.png", name: "Titano" },
+          { src: "/images/oknoplast-alu-titano-evo.png", name: "Titano EVO" },
+          { src: "/images/oknoplast-alu-titano-oc.png", name: "Titano OC" },
+          { src: "/images/oknoplast-alu-titano-evo-oc.png", name: "Titano EVO OC" },
+          { src: "/images/oknoplast-alu-titano-steel.png", name: "Titano Steel" },
+        ],
+      },
+      {
+        id: "futural",
+        label: "Futural",
+        tagline: "Design contemporaneo con profili sottili e isolamento termico di livello superiore, ideale per architetture moderne.",
+        products: [
+          { src: "/images/oknoplast-alu-futural.png", name: "Futural" },
+          { src: "/images/oknoplast-alu-futural-oc.png", name: "Futural OC" },
+        ],
+      },
+      {
+        id: "prolux-alu",
+        label: "Prolux ALU",
+        tagline: "Il bestseller Prolux in versione alluminio: l\u2019equilibrio perfetto tra prestazioni collaudate e leggerezza strutturale.",
+        products: [
+          { src: "/images/oknoplast-alu-prolux-alu.png", name: "Prolux ALU" },
+        ],
+      },
+    ],
+  },
+
+  "persiane": {
+    brandLabel: "Catalogo Erreci \u00B7 Persit \u00B7 Korus",
+    title: "Persiane di sicurezza per ogni facciata",
+    description:
+      "Sicurezza antieffrazione e oscuramento in un\u2019unica soluzione elegante. Alluminio e acciaio con lamelle orientabili, verniciatura a polvere resistente a sole e intemperie, personalizzabili in gamma RAL completa.",
+    stats: [
+      { n: 6, label: "Modelli" },
+      { n: 3, label: "Brand" },
+    ],
+    categories: [
+      {
+        id: "erreci",
+        label: "Erreci",
+        tagline: "Persiane in alluminio di alta sicurezza con cerniere antistrappo e profili antintrusione, dal design pulito e contemporaneo.",
+        products: [
+          { src: "/prodotti/maxima-plus.png", name: "Erreci \u2014 Maxima Plus" },
+          { src: "/prodotti/maxima-light.png", name: "Erreci \u2014 Maxima Light" },
+        ],
+      },
+      {
+        id: "persit",
+        label: "Persit",
+        tagline: "Persiane orientabili di design: lamelle regolabili per dosare luce e ventilazione con la massima flessibilit\u00E0.",
+        products: [
+          { src: "/prodotti/persit-elisa.jpg", name: "Persit \u2014 Elisa" },
+          { src: "/prodotti/persit-clara.jpg", name: "Persit \u2014 Clara" },
+        ],
+      },
+      {
+        id: "korus",
+        label: "Korus",
+        tagline: "Persiane in alluminio Korus: integrazione perfetta con i serramenti alluminio/legno per un sistema coordinato.",
+        products: [
+          { src: "/prodotti/korus-dione.jpg", name: "Korus \u2014 SK45 Dione" },
+          { src: "/prodotti/korus-crono.jpg", name: "Korus \u2014 Crono" },
+        ],
+      },
+    ],
+  },
+
+  "frangisole": {
+    brandLabel: "Catalogo Lupak",
+    title: "Frangisole per architetture di luce",
+    description:
+      "Sistemi di schermatura solare a lamelle orientabili che proteggono dal surriscaldamento estivo mantenendo luminosit\u00E0 e ventilazione naturale. Motorizzabili con sensori automatici sole e vento.",
+    stats: [
+      { n: 12, label: "Modelli" },
+      { n: 3, label: "Serie" },
+      { n: 75, label: "Riduzione calore", suffix: "%" },
+    ],
+    categories: [
+      {
+        id: "lume",
+        label: "Lume",
+        tagline: "La serie Lume: lamelle ellittiche ad alta prestazione per facciate residenziali e commerciali, massima resa estetica.",
+        products: [
+          { src: "/prodotti/wmremove-transformed (41).png", name: "Lupak \u2014 Lume Pro" },
+          { src: "/prodotti/lupak-lume.jpg", name: "Lupak \u2014 Lume" },
+          { src: "/prodotti/lupak-lume-esse.jpg", name: "Lupak \u2014 Lume Esse" },
+          { src: "/prodotti/lupak-lume-light.jpg", name: "Lupak \u2014 Lume Light" },
+        ],
+      },
+      {
+        id: "filo",
+        label: "Filo",
+        tagline: "Profili Filo a sezione ridotta per un\u2019estetica minimale: dal Filo 90 al Filo 65, la schermatura che non si vede.",
+        products: [
+          { src: "/prodotti/lupak-filo-90.jpg", name: "Lupak \u2014 Filo 90" },
+          { src: "/prodotti/lupak-filo-90-esse.jpg", name: "Lupak \u2014 Filo 90 Esse" },
+          { src: "/prodotti/lupak-filo-80.jpg", name: "Lupak \u2014 Filo 80" },
+          { src: "/prodotti/lupak-filo-70.jpg", name: "Lupak \u2014 Filo 70" },
+          { src: "/prodotti/lupak-filo-65.jpg", name: "Lupak \u2014 Filo 65" },
+        ],
+      },
+      {
+        id: "lupafix",
+        label: "Lupafix",
+        tagline: "Soluzioni fisse e impacchettabili per grandi facciate: protezione permanente con impatto visivo zero.",
+        products: [
+          { src: "/prodotti/lupak-lupafix-ic120.jpg", name: "Lupak \u2014 Lupafix IC120" },
+          { src: "/prodotti/lupak-lupafix-fc180.jpg", name: "Lupak \u2014 Lupafix FC180" },
+          { src: "/prodotti/lupak-lupafix-ff108.jpg", name: "Lupak \u2014 Lupafix FF108" },
+        ],
+      },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  SICUREZZA
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "grate-sicurezza": {
+    brandLabel: "Catalogo Erreci",
+    title: "Grate di sicurezza per la protezione che non si vede",
+    description:
+      "Protezione antieffrazione certificata fino a Classe 4 con un design discreto che non compromette vista e luminosit\u00E0. Dall\u2019acciaio carbonitrurato all\u2019inox, dalla grata estensibile a quella apribile: 9 modelli per ogni contesto.",
+    stats: [
+      { n: 9, label: "Modelli" },
+      { n: 4, label: "Classe max" },
+    ],
+  },
+
+  "persiane-blindate": {
+    brandLabel: "Catalogo Erreci \u00B7 Ecomet",
+    title: "Persiane blindate: sicurezza in forma classica",
+    description:
+      "Massima protezione antieffrazione con l\u2019aspetto estetico di una persiana tradizionale. Struttura rinforzata in acciaio, cerniere antistrappo e serrature di sicurezza multipunto.",
+    stats: [
+      { n: 4, label: "Modelli" },
+      { n: 2, label: "Brand" },
+    ],
+    categories: [
+      {
+        id: "erreci",
+        label: "Erreci",
+        tagline: "Persiane blindate Erreci in acciaio zincato con lamelle rinforzate e cerniere antistrappo brevettate.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Erreci \u2014 Maxima Scudo" },
+          { src: "/prodotti/placeholder.svg", name: "Erreci \u2014 Combi CE" },
+        ],
+      },
+      {
+        id: "ecomet",
+        label: "Ecomet",
+        tagline: "Soluzioni Ecomet con sistema combinato persiana + grata per doppia protezione in un unico serramento.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Ecomet \u2014 ECO Persiana" },
+          { src: "/prodotti/placeholder.svg", name: "Ecomet \u2014 ECO Combinato" },
+        ],
+      },
+    ],
+  },
+
+  "allarme-videosorveglianza": {
+    brandLabel: "Catalogo Inim",
+    title: "Sistemi Inim per la casa sempre protetta",
+    description:
+      "Protezione completa e intelligente: centrali antintrusione certificate IMQ, sensori perimetrali e volumetrici, telecamere IP ad alta risoluzione e gestione da app smartphone in tempo reale.",
+    stats: [
+      { n: 4, label: "Sistemi" },
+      { n: 3, label: "Grado sicurezza" },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  COMFORT & COMPLEMENTI
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "zanzariere": {
+    brandLabel: "Catalogo Grifoflex \u00B7 Bettio \u00B7 Sharknet",
+    title: "Zanzariere su misura per ogni serramento",
+    description:
+      "Protezione totale da insetti e pollini senza rinunciare a luce e ventilazione naturale. Scorrimento fluido e silenzioso con guide in alluminio e reti in fibra di vetro di alta qualit\u00E0.",
+    stats: [
+      { n: 9, label: "Modelli" },
+      { n: 3, label: "Brand" },
+    ],
+    categories: [
+      {
+        id: "grifoflex",
+        label: "Grifoflex",
+        tagline: "Zanzariere a rullo e plissettate Grifoflex: scorrimento fluido, design minimal e massima durata nel tempo.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Grifoflex \u2014 Rollblock" },
+          { src: "/prodotti/placeholder.svg", name: "Grifoflex \u2014 Dream Luce" },
+          { src: "/prodotti/placeholder.svg", name: "Grifoflex \u2014 Confort" },
+        ],
+      },
+      {
+        id: "bettio",
+        label: "Bettio",
+        tagline: "La gamma Scenica Bettio: zanzariere a scomparsa totale con meccanismo brevettato e scorrimento ultra-silenzioso.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Bettio \u2014 Scenica" },
+          { src: "/prodotti/placeholder.svg", name: "Bettio \u2014 Miniscenica Evo" },
+          { src: "/prodotti/placeholder.svg", name: "Bettio \u2014 Picoscenica" },
+        ],
+      },
+      {
+        id: "sharknet",
+        label: "Sharknet",
+        tagline: "Sistemi Sharknet con apertura centrale e verticale: massima praticit\u00E0 per porte-finestra e grandi luci.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Apertura Centrale" },
+          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 08" },
+          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Apertura Verticale" },
+        ],
+      },
+    ],
+  },
+
+  "tende-tecniche": {
+    brandLabel: "Catalogo Sharknet \u00B7 Zanzar Sistem",
+    title: "Tende tecniche per il controllo perfetto della luce",
+    description:
+      "Filtra, oscura o modula la luce in ogni ambiente con precisione e stile. Adatte a finestre di qualsiasi forma \u2014 anche triangolari, trapezoidali o ad arco \u2014 con tessuti tecnici che bloccano fino al 99% dei raggi UV.",
+    stats: [
+      { n: 5, label: "Modelli" },
+      { n: 2, label: "Brand" },
+      { n: 99, label: "Protezione UV", suffix: "%" },
+    ],
+    categories: [
+      {
+        id: "sharknet",
+        label: "Sharknet",
+        tagline: "Tende tecniche Sharknet: schermatura solare avanzata e tessuti antipolline per il massimo benessere indoor.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Schermatura Solare" },
+          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Antipolline" },
+        ],
+      },
+      {
+        id: "zanzar-sistem",
+        label: "Zanzar Sistem",
+        tagline: "Gamma Zanzar Sistem con pliss\u00E8, rullo e sistemi integrati nel profilo del serramento per un risultato pulito e minimal.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Zanzar Sistem \u2014 Perfecta" },
+          { src: "/prodotti/placeholder.svg", name: "Zanzar Sistem \u2014 Nanoblind" },
+          { src: "/prodotti/placeholder.svg", name: "Zanzar Sistem \u2014 Linea Plissettata" },
+        ],
+      },
+    ],
+  },
+
+  "scale-ringhiere": {
+    brandLabel: "Catalogo Sinfonia",
+    title: "Scale e ringhiere di design per collegare i tuoi spazi",
+    description:
+      "Ingegneria strutturale e design contemporaneo: scale in legno, acciaio, vetro e combinazioni di materiali, configurabili su misura e certificate per la massima sicurezza.",
+    stats: [
+      { n: 5, label: "Modelli" },
+      { n: 120, label: "cm diametro min" },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  OUTDOOR
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "pergole": {
+    brandLabel: "Catalogo Tendarredo \u00B7 Persit",
+    title: "Pergole bioclimatiche per vivere l\u2019outdoor",
+    description:
+      "Terrazzi e giardini vivibili tutto l\u2019anno. Strutture in alluminio con copertura bioclimatica a lamelle orientabili, integrabili con chiusure laterali, illuminazione LED e sistemi di riscaldamento.",
+    stats: [
+      { n: 6, label: "Modelli" },
+      { n: 2, label: "Brand" },
+      { n: 130, label: "km/h resistenza vento" },
+    ],
+    categories: [
+      {
+        id: "tendarredo",
+        label: "Tendarredo",
+        tagline: "Pergole Tendarredo con telo retrattile e versione waterproof: eleganza e protezione per terrazzi e giardini.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Tendarredo \u2014 P-190" },
+          { src: "/prodotti/placeholder.svg", name: "Tendarredo \u2014 P-150" },
+          { src: "/prodotti/placeholder.svg", name: "Tendarredo \u2014 Oskura Waterproof" },
+        ],
+      },
+      {
+        id: "persit",
+        label: "Persit",
+        tagline: "Pergole bioclimatiche Persit con lamelle orientabili a 0\u00B0\u2013160\u00B0: regola sole, aria e pioggia con un gesto.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Persit \u2014 Pergola Bioclimatica Persit" },
+          { src: "/prodotti/placeholder.svg", name: "Persit \u2014 Pergola Bioclimatica Addossata" },
+          { src: "/prodotti/placeholder.svg", name: "Persit \u2014 Pergola Bioclimatica Autoportante" },
+        ],
+      },
+    ],
+  },
+
+  "tende-da-sole": {
+    brandLabel: "Catalogo Tendarredo",
+    title: "Tende da sole per ogni terrazzo e balcone",
+    description:
+      "Tende a bracci estensibili con cassonetto protettivo, motorizzate e gestibili da telecomando. Tessuti tecnici resistenti a UV, pioggia e vento per un\u2019ombra perfetta in ogni stagione.",
+    stats: [
+      { n: 4, label: "Modelli" },
+    ],
+  },
+
+  "vetrate-panoramiche": {
+    brandLabel: "Catalogo Mc Slide",
+    title: "Vetrate panoramiche per spazi senza confini",
+    description:
+      "Chiusure in vetro a pacchetto e scorrevoli che trasformano terrazzi e verande in ambienti luminosi e protetti. Vetro temperato di sicurezza, guide a pavimento minimal e apertura totale per unire interno ed esterno.",
+    stats: [
+      { n: 4, label: "Sistemi" },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  CASA & ARREDO
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "cucine-su-misura": {
+    brandLabel: "Catalogo Arrex",
+    title: "Cucine Arrex su misura per il cuore della casa",
+    description:
+      "Cucine made in Italy progettate su misura: dall\u2019isola centrale alla composizione lineare, ogni cucina Arrex combina funzionalit\u00E0, materiali di qualit\u00E0 e design contemporaneo per uno spazio che rispecchia il tuo stile.",
+    stats: [
+      { n: 6, label: "Modelli" },
+    ],
+  },
+
+  "arredo-bagno": {
+    brandLabel: "Catalogo Merati",
+    title: "Arredo bagno Merati per ambienti di carattere",
+    description:
+      "Mobili bagno sospesi e a terra, piani in cristallo e ceramica, specchiere retroilluminate: ogni collezione Merati \u00E8 pensata per trasformare il bagno in uno spazio di benessere e design.",
+    stats: [
+      { n: 5, label: "Collezioni" },
+    ],
+  },
+
+  "sanitari": {
+    brandLabel: "Catalogo Sani e Co",
+    title: "Sanitari dal design essenziale e funzionale",
+    description:
+      "Sanitari rimless sospesi e a terra con tecnologia di scarico a risparmio idrico. Linee pulite, ceramica di alta qualit\u00E0 e finiture contemporanee per un bagno che unisce estetica e praticit\u00E0.",
+    stats: [
+      { n: 4, label: "Collezioni" },
+    ],
+  },
+
+  "rubinetteria": {
+    brandLabel: "Catalogo Fiore",
+    title: "Rubinetteria Fiore per il tocco finale",
+    description:
+      "Miscelatori di design in acciaio inox e ottone cromato per bagno e cucina. Tecnologia a risparmio idrico, cartucce ceramiche di precisione e finiture che resistono nel tempo.",
+    stats: [
+      { n: 6, label: "Modelli" },
+    ],
+  },
+
+  "ceramiche": {
+    brandLabel: "Catalogo Class Tile",
+    title: "Ceramiche Class Tile per superfici d\u2019autore",
+    description:
+      "Gres porcellanato di alta gamma con effetto marmo, legno, pietra e cemento. Lastre di grande formato, resistenti a graffi, macchie e agenti chimici, per pavimenti e rivestimenti di grande impatto visivo.",
+    stats: [
+      { n: 6, label: "Collezioni" },
+    ],
+  },
+
+  "parquet": {
+    brandLabel: "Catalogo Ali Parquet",
+    title: "Parquet Ali Parquet per pavimenti senza tempo",
+    description:
+      "Parquet in legno massello e prefinito: rovere, noce, teak e essenze pregiate lavorate in Italia. Compatibile con riscaldamento a pavimento, trattamento a olio o vernice per una finitura naturale e duratura.",
+    stats: [
+      { n: 6, label: "Collezioni" },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  RISCALDAMENTO / ENERGIE RINNOVABILI
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "climatizzatori": {
+    brandLabel: "Catalogo Haier \u00B7 Samsung",
+    title: "Climatizzatori per il comfort in ogni stagione",
+    description:
+      "Climatizzatori inverter di ultima generazione in classe A+++ per raffrescamento estivo e riscaldamento invernale. Tecnologia WindFree Samsung e soluzioni Haier con filtri antibatterici e gestione smart da app.",
+    stats: [
+      { n: 7, label: "Modelli" },
+      { n: 2, label: "Brand" },
+    ],
+    categories: [
+      {
+        id: "haier",
+        label: "Haier",
+        tagline: "Climatizzatori Haier con design premium, filtri antibatterici e connettivit\u00E0 Wi-Fi per la gestione da smartphone.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Haier \u2014 Jade" },
+          { src: "/prodotti/placeholder.svg", name: "Haier \u2014 Flexis Plus" },
+          { src: "/prodotti/placeholder.svg", name: "Haier \u2014 Pearl" },
+        ],
+      },
+      {
+        id: "samsung",
+        label: "Samsung",
+        tagline: "Tecnologia WindFree Samsung: climatizzazione senza getti d\u2019aria diretti, comfort silenzioso e risparmio energetico AI.",
+        products: [
+          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 WindFree Elite S2" },
+          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 WindFree Avant S2" },
+          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 WindFree Black" },
+          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 Cebu S2" },
+        ],
+      },
+    ],
+  },
+
+  "pompe-di-calore": {
+    brandLabel: "Catalogo Ariston",
+    title: "Pompe di calore Ariston per il riscaldamento efficiente",
+    description:
+      "Sistemi aria-acqua Ariston di ultima generazione per riscaldamento, raffrescamento e acqua calda sanitaria. Efficienza fino a COP 5,0 e gestione smart da app per monitorare consumi e comfort.",
+    stats: [
+      { n: 4, label: "Sistemi" },
+      { n: 5, label: "COP max", suffix: ".0" },
+    ],
+  },
+
+  "caldaia": {
+    brandLabel: "Catalogo Hermann",
+    title: "Caldaie Hermann a condensazione per ogni abitazione",
+    description:
+      "Caldaie murali a condensazione Hermann con rendimento fino al 109% e classe energetica A. Compatte, silenziose e connesse: gestione da app, diagnostica remota e manutenzione semplificata.",
+    stats: [
+      { n: 4, label: "Modelli" },
+      { n: 109, label: "Rendimento", suffix: "%" },
+    ],
+  },
+};

@@ -13,34 +13,43 @@ import { DrawLine } from "@/components/animations/DrawLine";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { HoverTilt } from "@/components/animations/HoverTilt";
 import type { GalleryImage } from "./HorizontalGallery";
-import type { PortonciniSubCategory } from "@/lib/portoncini-categories";
+import type { PorteBlindateSubCategory } from "@/lib/porte-blindate-categories";
 import type { ProductDetail } from "@/lib/product-details";
 
-/* ── Material icons ───────────────────────────── */
+/* ── Icons per ogni categoria ─────────────────── */
 const categoryIcons: Record<string, React.ReactNode> = {
-  alluminio: (
+  tradizionali: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M3 9h18M3 15h18M9 3v18M15 3v18" strokeOpacity="0.4" />
+      <rect x="4" y="2" width="16" height="20" rx="1" />
+      <circle cx="17" cy="12" r="1.2" />
+      <path d="M4 6h2M4 18h2" strokeOpacity="0.5" />
     </svg>
   ),
-  pvc: (
+  "cerniere-nascoste": (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 3c-2 3-2 6 0 9s-2 6 0 9" strokeOpacity="0.4" />
-      <path d="M3 12h18" strokeOpacity="0.4" />
+      <rect x="4" y="2" width="16" height="20" rx="1" />
+      <circle cx="17" cy="12" r="1.2" />
+      <path d="M4 2v20" strokeOpacity="0.3" />
     </svg>
   ),
-  cosmo: (
+  filomuro: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z" />
+      <rect x="2" y="2" width="20" height="20" rx="0" />
+      <rect x="7" y="4" width="10" height="16" rx="0" strokeOpacity="0.4" />
+      <circle cx="15" cy="12" r="0.8" />
     </svg>
   ),
-  kopen: (
+  "smart-bilico": (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-      <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" />
+      <path d="M12 2v20" />
+      <path d="M4 4l16 4v12l-16 4z" strokeOpacity="0.5" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  ),
+  "interni-tagliafuoco": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
+      <rect x="4" y="2" width="16" height="20" rx="1" />
+      <path d="M12 8c0 0-3 2-3 5s3 5 3 5 3-2 3-5-3-5-3-5z" strokeOpacity="0.6" />
     </svg>
   ),
 };
@@ -81,7 +90,7 @@ function ProductCard({
         className={cn(
           "relative w-full overflow-hidden",
           isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[3/2] rounded-xl",
-          isPlaceholder ? "bg-warm-gray/60" : "bg-white"
+          isPlaceholder ? "bg-warm-gray/60" : "bg-neutral-100"
         )}
       >
         {!isPlaceholder ? (
@@ -89,11 +98,7 @@ function ProductCard({
             src={image.src}
             alt={product}
             fill
-            className={cn(
-              "object-contain transition-all duration-700 ease-out",
-              isMobile ? "p-4" : "p-6 lg:p-8",
-              "group-hover/card:scale-[1.06]"
-            )}
+            className={cn("object-cover transition-all duration-700 ease-out", "group-hover/card:scale-[1.06]")}
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
           />
         ) : (
@@ -142,7 +147,7 @@ function CategoryNav({
   onSelect,
   isMobile,
 }: {
-  categories: PortonciniSubCategory[];
+  categories: PorteBlindateSubCategory[];
   activeId: string;
   onSelect: (id: string) => void;
   isMobile: boolean;
@@ -198,11 +203,11 @@ function CategoryNav({
 }
 
 /* ── Main component ─────────────────────────── */
-function PortonciniCatalogInner({
+function PorteBlindateCatalogInner({
   categories,
   details,
 }: {
-  categories: PortonciniSubCategory[];
+  categories: PorteBlindateSubCategory[];
   details: Record<string, ProductDetail>;
 }) {
   const isMobile = useIsMobile(640);
@@ -239,12 +244,11 @@ function PortonciniCatalogInner({
     <section className="py-20 sm:py-28 lg:py-36">
       <div className="px-6 sm:px-10 lg:px-20">
 
-        {/* ═══════════ Editorial Header ═══════════ */}
         <div className="flex items-center gap-4 mb-6">
           <DrawLine className="!w-12 !bg-bordeaux/40" duration={0.6} />
           <FadeInView delay={0.2}>
             <span className="font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] text-bordeaux/60 font-semibold">
-              Catalogo Oknoplast &middot; Kopen
+              Catalogo Alias &middot; Erreci
             </span>
           </FadeInView>
         </div>
@@ -254,13 +258,13 @@ function PortonciniCatalogInner({
           className="font-display text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-black-deep tracking-tight leading-[1.1]"
           stagger={0.05}
         >
-          Portoncini d&apos;ingresso per ogni architettura
+          Porte blindate Alias ed Erreci
         </TextRevealByWord>
 
         <FadeInView delay={0.4}>
           <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/55 max-w-2xl leading-relaxed">
-            Portoncini d&apos;ingresso in alluminio a taglio termico Tenvis, PVC ad alte
-            prestazioni, la linea decorativa Cosmo e il premium Kopen.
+            Dalle tradizionali con cerniere a vista alle soluzioni filomuro e coplanari,
+            dalle smart con LED e apertura biometrica fino alle tagliafuoco REI 90.
           </p>
         </FadeInView>
 
@@ -269,8 +273,8 @@ function PortonciniCatalogInner({
           <div className="mt-8 flex items-center gap-8 sm:gap-12 lg:gap-16">
             {[
               { n: totalProducts, label: "Modelli" },
-              { n: categories.length, label: "Linee" },
-              { n: 3, label: "Brand" } as const,
+              { n: categories.length, label: "Tipologie" },
+              { n: 2, label: "Brand" } as const,
             ].map((stat: { n: number; label: string; suffix?: string }) => (
               <div key={stat.label} className="flex items-baseline gap-2">
                 <AnimatedCounter target={stat.n} suffix={stat.suffix} className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-black-deep tracking-tight" duration={1.8} />
@@ -280,7 +284,6 @@ function PortonciniCatalogInner({
           </div>
         </FadeInView>
 
-        {/* ═══════════ Category Navigation ═══════════ */}
         <div className="mt-14 sm:mt-16 lg:mt-20">
           <CategoryNav categories={categories} activeId={activeTab} onSelect={setActiveTab} isMobile={isMobile} />
         </div>
@@ -294,7 +297,6 @@ function PortonciniCatalogInner({
           </motion.div>
         </AnimatePresence>
 
-        {/* ═══════════ Product Grid ═══════════ */}
         <AnimatePresence mode="wait">
           <motion.div key={activeCat.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
             <div className={cn("mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10", isMobile ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
@@ -307,7 +309,6 @@ function PortonciniCatalogInner({
           </motion.div>
         </AnimatePresence>
 
-        {/* ═══════════ Bottom Stats Bar (desktop) ═══════════ */}
         {!isMobile && (
           <FadeInView delay={0.2} className="mt-16 lg:mt-24">
             <DrawLine className="!bg-black-deep/[0.08]" once={false} />
@@ -334,13 +335,13 @@ function PortonciniCatalogInner({
   );
 }
 
-export function PortonciniCatalog(props: {
-  categories: PortonciniSubCategory[];
+export function PorteBlindateCatalog(props: {
+  categories: PorteBlindateSubCategory[];
   details: Record<string, ProductDetail>;
 }) {
   return (
     <Suspense>
-      <PortonciniCatalogInner {...props} />
+      <PorteBlindateCatalogInner {...props} />
     </Suspense>
   );
 }

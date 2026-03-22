@@ -23,21 +23,8 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
     { src: "/images/oknoplast-alu-futural-oc.png", name: "Futural OC" },
     { src: "/images/oknoplast-alu-prolux-alu.png", name: "Prolux ALU" },
   ],
-  "infissi-pvc": [
-    { src: "/images/1Finestra-Prolux-2017-1024x768.png", name: "Prolux" },
-    { src: "/images/2Finestra-Prolux-Evolution-1024x768.png", name: "Prolux Evolution" },
-    { src: "/images/SL_Prolux--1024x768.png", name: "Scorrevole Prolux" },
-    { src: "/images/SL_Prolux-Plus-1024x768.png", name: "Scorrevole Prolux Plus" },
-    { src: "/images/3Prolux-Swing-di-Oknoplast-1024x768.png", name: "Prolux Swing" },
-    { src: "/images/4Prolux-Vitro-di-Oknoplast-1024x768.png", name: "Prolux Vitro" },
-    { src: "/images/5Finestra-Platinium-Plus-1024x768.png", name: "Platinium Plus" },
-    { src: "/images/6Finestra-Squareline-1024x768.png", name: "Squareline" },
-    { src: "/images/7Finestra-Prismatic-1024x768.png", name: "Prismatic" },
-    { src: "/images/8Prismatic-Evolution-1024x768.png", name: "Prismatic Evolution" },
-    { src: "/images/9Finestra-Winergetic-Premium-1024x768.png", name: "Winergetic Premium" },
-    { src: "/images/10Finestra-Winergetic-Premium-Passive-1024x768.png", name: "Winergetic Premium Passive" },
-    { src: "/images/11Finestra-Winergetic-Alu-1024x768.png", name: "Winergetic Alu" },
-  ],
+  /* infissi-pvc ora usa InfissiPvcCatalog con categorie — vedi infissi-pvc-categories.ts */
+  "infissi-pvc": [],
   "infissi-alluminio-legno": [
     { src: "/prodotti/Korus-allumunio-legno2.jpg", name: "Skywood EVO Original Energy 1.0" },
     { src: "/prodotti/Korus-allumunio-legno3.jpg", name: "Skywood EVO Original" },
@@ -47,8 +34,33 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
     { src: "/prodotti/Korus-allumunio-legno7.jpg", name: "Skywood EVO" },
     { src: "/prodotti/Korus-alluminio-legno8.jpg", name: "Air SlideWood" },
   ],
+  /* porte-interne ora usa PorteInterneCatalog con categorie — vedi porte-interne-categories.ts */
   "porte-interne": [],
-  "porte-blindate": [],
+  "porte-blindate": [
+    /* ── Alias ── */
+    { src: "/prodotti/alias-steel.jpg", name: "Alias — Steel" },
+    { src: "/prodotti/alias-vega-plus.jpg", name: "Alias — Vega Plus" },
+    { src: "/prodotti/alias-silver.jpg", name: "Alias — Silver" },
+    { src: "/prodotti/alias-gold.jpg", name: "Alias — Gold" },
+    { src: "/prodotti/alias-platinum.jpg", name: "Alias — Platinum" },
+    { src: "/prodotti/alias-wall-rasomuro.jpg", name: "Alias — Wall" },
+    { src: "/prodotti/alias-twenty-led.jpg", name: "Alias — Twenty LED" },
+    { src: "/prodotti/alias-flat.jpg", name: "Alias — Flat" },
+    { src: "/prodotti/alias-slalom.jpg", name: "Alias — Slalom" },
+    { src: "/prodotti/alias-dream.jpg", name: "Alias — Dream" },
+    { src: "/prodotti/alias-dream-principale.jpg", name: "Alias — Dream One" },
+    { src: "/prodotti/alias-due-ante.jpg", name: "Alias — Due Ante" },
+    { src: "/prodotti/alias-wing-wall-head.jpg", name: "Alias — Magma" },
+    /* ── Erreci ── */
+    { src: "/prodotti/erreci-capri-cover.jpg", name: "Erreci — Capri" },
+    { src: "/prodotti/erreci-ischia.jpg", name: "Erreci — Ischia" },
+    { src: "/prodotti/erreci-lampedusa.jpg", name: "Erreci — Lampedusa" },
+    { src: "/prodotti/erreci-maddalena.jpg", name: "Erreci — Maddalena" },
+    { src: "/prodotti/erreci-panarea.jpg", name: "Erreci — Panarea" },
+    { src: "/prodotti/erreci-pianosa.jpg", name: "Erreci — Pianosa" },
+    { src: "/prodotti/erreci-marettimo.jpg", name: "Erreci — Marettimo" },
+    { src: "/prodotti/erreci-vulcano.jpg", name: "Erreci — Vulcano" },
+  ],
 
   /* portoncini ora usa PortonciniCatalog con categorie — vedi portoncini-categories.ts */
   "portoncini": [],
@@ -79,10 +91,15 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
 
   /* ── Sicurezza (placeholder) ────────────── */
   "grate-sicurezza": [
-    { src: "/prodotti/placeholder.svg", name: "Erreci — Sikura" },
-    { src: "/prodotti/placeholder.svg", name: "Erreci — Evoluta 18" },
-    { src: "/prodotti/placeholder.svg", name: "Erreci — Libera" },
-    { src: "/prodotti/placeholder.svg", name: "Erreci — Marina" },
+    { src: "/prodotti/erreci-sikura-main.jpg", name: "Erreci — Sikura" },
+    { src: "/prodotti/erreci-evoluta18-main.jpg", name: "Erreci — Evoluta 18" },
+    { src: "/prodotti/erreci-libera-main.jpg", name: "Erreci — Libera" },
+    { src: "/prodotti/erreci-libera-ce-main.jpg", name: "Erreci — Libera CE" },
+    { src: "/prodotti/erreci-edilia2-main.jpg", name: "Erreci — Edilia 2" },
+    { src: "/prodotti/erreci-kiusa-main.jpg", name: "Erreci — Kiusa" },
+    { src: "/prodotti/erreci-tenace-main.jpg", name: "Erreci — Tenace" },
+    { src: "/prodotti/erreci-superior-main.jpg", name: "Erreci — Superior" },
+    { src: "/prodotti/erreci-marina-main.jpg", name: "Erreci — Marina" },
   ],
   "persiane-blindate": [
     { src: "/prodotti/placeholder.svg", name: "Erreci — Maxima Scudo" },

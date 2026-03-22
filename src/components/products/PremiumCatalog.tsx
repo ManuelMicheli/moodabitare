@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useLayoutEffect, Suspense } from "react";
+import { useState, useCallback, useRef, useLayoutEffect, Suspense, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
@@ -13,37 +13,41 @@ import { DrawLine } from "@/components/animations/DrawLine";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { HoverTilt } from "@/components/animations/HoverTilt";
 import type { GalleryImage } from "./HorizontalGallery";
-import type { TapparelleSubCategory } from "@/lib/tapparelle-categories";
 import type { ProductDetail } from "@/lib/product-details";
 
-/* ── Material icons ───────────────────────────── */
-const categoryIcons: Record<string, React.ReactNode> = {
-  alluminio: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M3 9h18M3 15h18M9 3v18M15 3v18" strokeOpacity="0.4" />
-    </svg>
-  ),
-  acciaio: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-      <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" />
-    </svg>
-  ),
-  pvc: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 3c-2 3-2 6 0 9s-2 6 0 9" strokeOpacity="0.4" />
-      <path d="M3 12h18" strokeOpacity="0.4" />
-    </svg>
-  ),
-  screen: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-4 h-4 sm:w-5 sm:h-5">
-      <rect x="2" y="3" width="20" height="18" rx="2" />
-      <path d="M2 7h20M2 11h20M2 15h20M2 19h20" strokeOpacity="0.3" />
-    </svg>
-  ),
+/* ── Types ────────────────────────────────────── */
+
+export interface PremiumCategory {
+  id: string;
+  label: string;
+  tagline: string;
+  icon?: React.ReactNode;
+  products: GalleryImage[];
+}
+
+export interface PremiumCatalogProps {
+  brandLabel: string;
+  title: string;
+  description: string;
+  stats: { n: number; label: string; suffix?: string }[];
+  categories?: PremiumCategory[];
+  images?: GalleryImage[];
+  details: Record<string, ProductDetail>;
+  cover?: boolean;
+}
+
+/* ── Segment badge colors ─────────────────────── */
+
+const segmentColor: Record<string, string> = {
+  Classic: "bg-white/75 text-black-deep/60 backdrop-blur-sm",
+  Comfort: "bg-blue-50/80 text-blue-700 backdrop-blur-sm",
+  Compact: "bg-sky-50/80 text-sky-700 backdrop-blur-sm",
+  Premium: "bg-bordeaux/10 text-bordeaux backdrop-blur-sm",
+  "Top di gamma": "bg-bordeaux/15 text-bordeaux backdrop-blur-sm",
+  Design: "bg-amber-50/80 text-amber-700 backdrop-blur-sm",
+  Scorrevoli: "bg-emerald-50/80 text-emerald-700 backdrop-blur-sm",
+  "Passive House": "bg-green-50/80 text-green-700 backdrop-blur-sm",
+  Sicurezza: "bg-red-50/80 text-red-700 backdrop-blur-sm",
 };
 
 /** Split "Brand — Product" into [brand, product] */
@@ -53,27 +57,20 @@ function splitName(name: string): [string | null, string] {
   return [name.slice(0, idx), name.slice(idx + 3)];
 }
 
-/* ── Segment badge colors (with backdrop-blur for in-image positioning) ── */
-const segmentColor: Record<string, string> = {
-  Classic: "bg-white/75 text-black-deep/60 backdrop-blur-sm",
-  Compact: "bg-sky-50/80 text-sky-700 backdrop-blur-sm",
-  Premium: "bg-bordeaux/10 text-bordeaux backdrop-blur-sm",
-  "Top di gamma": "bg-bordeaux/15 text-bordeaux backdrop-blur-sm",
-  Design: "bg-amber-50/80 text-amber-700 backdrop-blur-sm",
-  Sicurezza: "bg-red-50/80 text-red-700 backdrop-blur-sm",
-};
-
 /* ── Premium Product Card ─────────────────────── */
+
 function ProductCard({
   image,
   detail,
   isMobile,
   onClick,
+  cover,
 }: {
   image: GalleryImage;
   detail?: ProductDetail;
   isMobile: boolean;
   onClick: () => void;
+  cover?: boolean;
 }) {
   const [, product] = splitName(image.name);
   const isPlaceholder = image.src.includes("placeholder");
@@ -84,14 +81,11 @@ function ProductCard({
       onClick={onClick}
       className="group/card flex flex-col text-left w-full"
     >
-      {/* Image container */}
       <div
         className={cn(
           "relative w-full overflow-hidden",
           isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[3/2] rounded-xl",
-          isPlaceholder
-            ? "bg-warm-gray/60"
-            : "bg-white"
+          isPlaceholder ? "bg-warm-gray/60" : "bg-white"
         )}
       >
         {!isPlaceholder ? (
@@ -100,8 +94,9 @@ function ProductCard({
             alt={product}
             fill
             className={cn(
-              "object-contain transition-all duration-700 ease-out",
-              isMobile ? "p-4" : "p-6 lg:p-8",
+              "transition-all duration-700 ease-out",
+              cover ? "object-cover" : "object-contain",
+              isMobile ? "p-4" : cover ? "p-0" : "p-6 lg:p-8",
               "group-hover/card:scale-[1.06]"
             )}
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
@@ -113,11 +108,7 @@ function ProductCard({
             </span>
           </div>
         )}
-
-        {/* Hover gradient overlay from bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/[0.04] via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-[inherit]" />
-
-        {/* Segment badge — positioned inside image */}
         {detail?.segment && (
           <span
             className={cn(
@@ -129,8 +120,6 @@ function ProductCard({
           </span>
         )}
       </div>
-
-      {/* Text content */}
       <div className={isMobile ? "mt-3 px-0.5" : "mt-5"}>
         <h3
           className={cn(
@@ -141,15 +130,11 @@ function ProductCard({
         >
           {product}
         </h3>
-
-        {/* Brief highlight — desktop only, truncated */}
         {!isMobile && detail?.highlight && (
           <p className="mt-1.5 font-body text-[0.8rem] text-black-deep/70 leading-snug line-clamp-1 group-hover/card:text-black-deep transition-colors duration-300">
             {detail.highlight.split("—")[0].trim()}
           </p>
         )}
-
-        {/* CTA hint — slides up on hover */}
         {detail && (
           <div className="mt-2 flex items-center gap-1.5 overflow-hidden">
             <span
@@ -193,13 +178,14 @@ function ProductCard({
 }
 
 /* ── Category Navigation with sliding indicator ── */
+
 function CategoryNav({
   categories,
   activeId,
   onSelect,
   isMobile,
 }: {
-  categories: TapparelleSubCategory[];
+  categories: PremiumCategory[];
   activeId: string;
   onSelect: (id: string) => void;
   isMobile: boolean;
@@ -239,9 +225,11 @@ function CategoryNav({
                     : "text-black-deep/35 hover:text-black-deep/60"
                 )}
               >
-                <span className={isActive ? "text-white/60" : "text-black-deep/20"}>
-                  {categoryIcons[cat.id]}
-                </span>
+                {cat.icon && (
+                  <span className={isActive ? "text-white/60" : "text-black-deep/20"}>
+                    {cat.icon}
+                  </span>
+                )}
                 {cat.label}
                 <span
                   className={cn(
@@ -255,7 +243,6 @@ function CategoryNav({
             );
           })}
         </div>
-        {/* Scroll fade hint */}
         <div className="absolute right-0 top-0 bottom-3 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none" />
       </div>
     );
@@ -294,7 +281,6 @@ function CategoryNav({
           </button>
         );
       })}
-      {/* Sliding bordeaux indicator */}
       <motion.div
         className="absolute bottom-0 h-[2px] bg-bordeaux"
         animate={{ left: indicator.left, width: indicator.width }}
@@ -304,18 +290,33 @@ function CategoryNav({
   );
 }
 
-/* ── Main component ─────────────────────────── */
-function TapparelleCatalogInner({
+/* ── Main Component ───────────────────────────── */
+
+function PremiumCatalogInner({
+  brandLabel,
+  title,
+  description,
+  stats,
   categories,
+  images,
   details,
-}: {
-  categories: TapparelleSubCategory[];
-  details: Record<string, ProductDetail>;
-}) {
+  cover,
+}: PremiumCatalogProps) {
   const isMobile = useIsMobile(640);
   const searchParams = useSearchParams();
 
+  const allProducts = useMemo(() => {
+    if (categories) return categories.flatMap((c) => c.products);
+    return images ?? [];
+  }, [categories, images]);
+
+  const totalProducts = allProducts.length;
+
+  const hasCategories = categories && categories.length > 1;
+
+  /* Determine initial tab from URL param */
   const initialTab = (() => {
+    if (!categories) return "";
     const prodotto = searchParams.get("prodotto");
     if (prodotto) {
       const cat = categories.find((c) =>
@@ -330,15 +331,15 @@ function TapparelleCatalogInner({
   const [selected, setSelected] = useState<GalleryImage | null>(() => {
     const prodotto = searchParams.get("prodotto");
     if (prodotto) {
-      for (const cat of categories) {
-        const match = cat.products.find((p) => p.name === prodotto);
-        if (match && details[match.name]) return match;
+      for (const p of allProducts) {
+        if (p.name === prodotto && details[p.name]) return p;
       }
     }
     return null;
   });
 
-  const activeCat = categories.find((c) => c.id === activeTab) ?? categories[0];
+  const activeCat = categories?.find((c) => c.id === activeTab) ?? categories?.[0];
+  const displayProducts = hasCategories && activeCat ? activeCat.products : allProducts;
 
   const handleClick = useCallback(
     (img: GalleryImage) => {
@@ -351,8 +352,6 @@ function TapparelleCatalogInner({
 
   const detail = selected ? details[selected.name] ?? null : null;
 
-  const totalProducts = categories.reduce((sum, c) => sum + c.products.length, 0);
-
   return (
     <section className="py-20 sm:py-28 lg:py-36">
       <div className="px-6 sm:px-10 lg:px-20">
@@ -362,7 +361,7 @@ function TapparelleCatalogInner({
           <DrawLine className="!w-12 !bg-bordeaux/40" duration={0.6} />
           <FadeInView delay={0.2}>
             <span className="font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] text-bordeaux/60 font-semibold">
-              Catalogo Pasini
+              {brandLabel}
             </span>
           </FadeInView>
         </div>
@@ -372,26 +371,20 @@ function TapparelleCatalogInner({
           className="font-display text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-black-deep tracking-tight leading-[1.1]"
           stagger={0.05}
         >
-          Avvolgibili Pasini per ogni esigenza
+          {title}
         </TextRevealByWord>
 
         <FadeInView delay={0.4}>
           <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/55 max-w-2xl leading-relaxed">
-            Dall&apos;alluminio coibentato all&apos;acciaio blindato, dal PVC
-            anti-deformazione agli screen tecnici. Avvolgibili Pasini per ogni
-            esigenza di comfort, sicurezza e design.
+            {description}
           </p>
         </FadeInView>
 
         {/* Inline stats */}
         <DrawLine className="mt-10 sm:mt-12 !bg-black-deep/[0.06]" delay={0.5} />
         <FadeInView delay={0.6}>
-          <div className="mt-8 flex items-center gap-8 sm:gap-12 lg:gap-16">
-            {[
-              { n: totalProducts, label: "Modelli" },
-              { n: 4, label: "Materiali" },
-              { n: 36, label: "Colori standard", suffix: "+" },
-            ].map((stat) => (
+          <div className="mt-8 flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
+            {stats.map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-2">
                 <AnimatedCounter
                   target={stat.n}
@@ -408,78 +401,118 @@ function TapparelleCatalogInner({
         </FadeInView>
 
         {/* ═══════════ Category Navigation ═══════════ */}
-        <div className="mt-14 sm:mt-16 lg:mt-20">
-          <CategoryNav
-            categories={categories}
-            activeId={activeTab}
-            onSelect={setActiveTab}
-            isMobile={isMobile}
-          />
-        </div>
-
-        {/* Category tagline with clip-path transition */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCat.id}
-            initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }}
-            animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
-            exit={{ clipPath: "inset(0% 0% 100% 0%)", opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.77, 0, 0.175, 1] }}
-            className="mt-6 sm:mt-8"
-          >
-            <div className="flex items-start gap-3 sm:gap-4">
-              <span className="flex-shrink-0 mt-0.5 text-black-deep/20">
-                {categoryIcons[activeCat.id]}
-              </span>
-              <p className="font-body text-sm sm:text-base text-black-deep/45 leading-relaxed max-w-xl italic">
-                {activeCat.tagline}
-              </p>
+        {hasCategories && (
+          <>
+            <div className="mt-14 sm:mt-16 lg:mt-20">
+              <CategoryNav
+                categories={categories}
+                activeId={activeTab}
+                onSelect={setActiveTab}
+                isMobile={isMobile}
+              />
             </div>
-          </motion.div>
-        </AnimatePresence>
+
+            {/* Category tagline with clip-path transition */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeCat?.id}
+                initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }}
+                animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
+                exit={{ clipPath: "inset(0% 0% 100% 0%)", opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.77, 0, 0.175, 1] }}
+                className="mt-6 sm:mt-8"
+              >
+                <div className="flex items-start gap-3 sm:gap-4">
+                  {activeCat?.icon && (
+                    <span className="flex-shrink-0 mt-0.5 text-black-deep/20">
+                      {activeCat.icon}
+                    </span>
+                  )}
+                  <p className="font-body text-sm sm:text-base text-black-deep/45 leading-relaxed max-w-xl italic">
+                    {activeCat?.tagline}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </>
+        )}
 
         {/* ═══════════ Product Grid ═══════════ */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCat.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div
-              className={cn(
-                "mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10",
-                isMobile
-                  ? "grid-cols-2"
-                  : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
-              )}
+        {hasCategories ? (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCat?.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              {activeCat.products.map((img, i) => (
-                <motion.div
-                  key={img.name}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.45,
-                    delay: i * 0.05,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  }}
-                >
-                  <ProductCard
-                    image={img}
-                    detail={details[img.name]}
-                    isMobile={isMobile}
-                    onClick={() => handleClick(img)}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+              <div
+                className={cn(
+                  "mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10",
+                  isMobile
+                    ? "grid-cols-2"
+                    : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+                )}
+              >
+                {displayProducts.map((img, i) => (
+                  <motion.div
+                    key={img.name}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.45,
+                      delay: i * 0.05,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                  >
+                    <ProductCard
+                      image={img}
+                      detail={details[img.name]}
+                      isMobile={isMobile}
+                      onClick={() => handleClick(img)}
+                      cover={cover}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        ) : (
+          <div
+            className={cn(
+              "mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10",
+              isMobile
+                ? "grid-cols-2"
+                : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+            )}
+          >
+            {displayProducts.map((img, i) => (
+              <motion.div
+                key={img.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{
+                  duration: 0.45,
+                  delay: i * 0.05,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+              >
+                <ProductCard
+                  image={img}
+                  detail={details[img.name]}
+                  isMobile={isMobile}
+                  onClick={() => handleClick(img)}
+                  cover={cover}
+                />
+              </motion.div>
+            ))}
+          </div>
+        )}
 
-        {/* ═══════════ Bottom Stats Bar (desktop) ═══════════ */}
-        {!isMobile && (
+        {/* ═══════════ Bottom Stats Bar (desktop, with categories) ═══════════ */}
+        {!isMobile && hasCategories && (
           <FadeInView delay={0.2} className="mt-16 lg:mt-24">
             <DrawLine className="!bg-black-deep/[0.08]" once={false} />
             <div className="mt-8 flex items-center justify-between">
@@ -520,7 +553,7 @@ function TapparelleCatalogInner({
         )}
       </div>
 
-      {/* Product sheet overlay — unchanged */}
+      {/* Product sheet overlay */}
       <ProductSheet
         detail={detail}
         imageSrc={selected?.src ?? ""}
@@ -530,13 +563,10 @@ function TapparelleCatalogInner({
   );
 }
 
-export function TapparelleCatalog(props: {
-  categories: TapparelleSubCategory[];
-  details: Record<string, ProductDetail>;
-}) {
+export function PremiumCatalog(props: PremiumCatalogProps) {
   return (
     <Suspense>
-      <TapparelleCatalogInner {...props} />
+      <PremiumCatalogInner {...props} />
     </Suspense>
   );
 }
