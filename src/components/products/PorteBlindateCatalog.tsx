@@ -89,7 +89,7 @@ function ProductCard({
       <div
         className={cn(
           "relative w-full overflow-hidden",
-          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[3/2] rounded-xl",
+          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-square rounded-xl",
           isPlaceholder ? "bg-warm-gray/60" : "bg-neutral-100"
         )}
       >
@@ -98,7 +98,7 @@ function ProductCard({
             src={image.src}
             alt={product}
             fill
-            className={cn("object-cover transition-all duration-700 ease-out", "group-hover/card:scale-[1.06]")}
+            className="object-cover transition-all duration-700 ease-out"
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
           />
         ) : (
@@ -107,16 +107,18 @@ function ProductCard({
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/[0.04] via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-[inherit]" />
-        {detail?.segment && (
-          <span className={cn("absolute top-3 right-3 text-[0.5rem] sm:text-[0.55rem] font-ui font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full", segmentColor[detail.segment] || "bg-white/80 text-black-deep/60 backdrop-blur-sm")}>
-            {detail.segment}
-          </span>
-        )}
       </div>
       <div className={isMobile ? "mt-3 px-0.5" : "mt-5"}>
-        <h3 className={cn("font-display font-semibold leading-tight tracking-tight text-black-deep/90 group-hover/card:text-black-deep transition-colors duration-300", isMobile ? "text-sm" : "text-base lg:text-lg")}>
-          {product}
-        </h3>
+        <div className="flex items-center gap-2 flex-wrap">
+          <h3 className={cn("font-display font-semibold leading-tight tracking-tight text-black-deep/90 group-hover/card:text-black-deep transition-colors duration-300", isMobile ? "text-sm" : "text-base lg:text-lg")}>
+            {product}
+          </h3>
+          {detail?.segment && (
+            <span className={cn("text-[0.5rem] sm:text-[0.55rem] font-ui font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full", segmentColor[detail.segment] || "bg-white/80 text-black-deep/60 backdrop-blur-sm")}>
+              {detail.segment}
+            </span>
+          )}
+        </div>
         {!isMobile && detail?.highlight && (
           <p className="mt-1.5 font-body text-[0.8rem] text-black-deep/70 leading-snug line-clamp-1 group-hover/card:text-black-deep transition-colors duration-300">
             {detail.highlight.split("—")[0].trim()}
@@ -299,7 +301,7 @@ function PorteBlindateCatalogInner({
 
         <AnimatePresence mode="wait">
           <motion.div key={activeCat.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
-            <div className={cn("mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10", isMobile ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
+            <div className={cn("mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10", isMobile ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4")}>
               {activeCat.products.map((img, i) => (
                 <motion.div key={img.name} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: i * 0.05, ease: [0.25, 0.1, 0.25, 1] }}>
                   <ProductCard image={img} detail={details[img.name]} isMobile={isMobile} onClick={() => handleClick(img)} />

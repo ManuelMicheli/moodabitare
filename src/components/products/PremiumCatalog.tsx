@@ -84,7 +84,7 @@ function ProductCard({
       <div
         className={cn(
           "relative w-full overflow-hidden",
-          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[3/2] rounded-xl",
+          isMobile ? "aspect-[4/3] rounded-lg" : cover ? "aspect-square rounded-xl" : "aspect-[4/3] rounded-xl",
           isPlaceholder ? "bg-warm-gray/60" : "bg-white"
         )}
       >
@@ -96,8 +96,8 @@ function ProductCard({
             className={cn(
               "transition-all duration-700 ease-out",
               cover ? "object-cover" : "object-contain",
-              isMobile ? "p-4" : cover ? "p-0" : "p-6 lg:p-8",
-              "group-hover/card:scale-[1.06]"
+              isMobile ? "p-3" : cover ? "p-0" : "p-4 lg:p-5",
+              cover ? "" : "group-hover/card:scale-[1.06]"
             )}
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
           />
@@ -109,27 +109,29 @@ function ProductCard({
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/[0.04] via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-[inherit]" />
-        {detail?.segment && (
-          <span
-            className={cn(
-              "absolute top-3 right-3 text-[0.5rem] sm:text-[0.55rem] font-ui font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full",
-              segmentColor[detail.segment] || "bg-white/80 text-black-deep/60 backdrop-blur-sm"
-            )}
-          >
-            {detail.segment}
-          </span>
-        )}
       </div>
       <div className={isMobile ? "mt-3 px-0.5" : "mt-5"}>
-        <h3
-          className={cn(
-            "font-display font-semibold leading-tight tracking-tight",
-            "text-black-deep/90 group-hover/card:text-black-deep transition-colors duration-300",
-            isMobile ? "text-sm" : "text-base lg:text-lg"
+        <div className="flex items-center gap-2 flex-wrap">
+          <h3
+            className={cn(
+              "font-display font-semibold leading-tight tracking-tight",
+              "text-black-deep/90 group-hover/card:text-black-deep transition-colors duration-300",
+              isMobile ? "text-sm" : "text-base lg:text-lg"
+            )}
+          >
+            {product}
+          </h3>
+          {detail?.segment && (
+            <span
+              className={cn(
+                "text-[0.5rem] sm:text-[0.55rem] font-ui font-semibold uppercase tracking-[0.14em] px-2.5 py-1 rounded-full",
+                segmentColor[detail.segment] || "bg-white/80 text-black-deep/60 backdrop-blur-sm"
+              )}
+            >
+              {detail.segment}
+            </span>
           )}
-        >
-          {product}
-        </h3>
+        </div>
         {!isMobile && detail?.highlight && (
           <p className="mt-1.5 font-body text-[0.8rem] text-black-deep/70 leading-snug line-clamp-1 group-hover/card:text-black-deep transition-colors duration-300">
             {detail.highlight.split("—")[0].trim()}
@@ -452,7 +454,7 @@ function PremiumCatalogInner({
                   "mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10",
                   isMobile
                     ? "grid-cols-2"
-                    : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+                    : "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 )}
               >
                 {displayProducts.map((img, i) => (
