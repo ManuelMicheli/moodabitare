@@ -252,12 +252,12 @@ export default function RootLayout({
         </div>
         <Footer />
         <LazyOverlays />
-        {/* Botpress Chatbot */}
-        <script
+        {/* Botpress Chatbot — temporaneamente disabilitato */}
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var d=document,s1=d.createElement("script");s1.src="https://cdn.botpress.cloud/webchat/v3.6/inject.js";s1.onload=function(){var s2=d.createElement("script");s2.src="https://files.bpcontent.cloud/2026/03/16/18/20260316183415-DXS3QZ46.js";d.body.appendChild(s2)};d.body.appendChild(s1)})();`,
           }}
-        />
+        /> */}
       </body>
     </html>
   );

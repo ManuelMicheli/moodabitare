@@ -48,7 +48,7 @@ export function WhatsAppWidget() {
           href={CONTACT_INFO.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed right-6 z-[70] hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5A] transition-all duration-300"
+          className="fixed right-6 z-[9998] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5A] transition-all duration-300"
           style={bottomStyle}
           aria-label="Contattaci su WhatsApp"
           title="Scrivici su WhatsApp"
