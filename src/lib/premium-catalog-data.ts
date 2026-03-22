@@ -160,6 +160,31 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
       { n: 9, label: "Modelli" },
       { n: 4, label: "Classe max" },
     ],
+    categories: [
+      {
+        id: "apribili",
+        label: "Apribili",
+        tagline: "Grate apribili con snodo autobloccante brevettato: sicurezza certificata con la massima praticità d\u2019uso quotidiano.",
+        products: [
+          { src: "/prodotti/erreci-sikura.jpg", name: "Erreci \u2014 Sikura (Classe 4)" },
+          { src: "/prodotti/erreci-libera.jpg", name: "Erreci \u2014 Libera (Classe 3)" },
+          { src: "/prodotti/erreci-libera-ce.jpg", name: "Erreci \u2014 Libera CE (Classe 3)" },
+          { src: "/prodotti/erreci-evoluta18.jpg", name: "Erreci \u2014 Evoluta 18 (Classe 3)" },
+          { src: "/prodotti/erreci-edilia2.jpg", name: "Erreci \u2014 Edilia 2 (Classe 2)" },
+        ],
+      },
+      {
+        id: "speciali",
+        label: "Speciali",
+        tagline: "Grate estensibili, in acciaio inox e in alluminio marino: soluzioni per ogni contesto, dal balconcino alla zona costiera.",
+        products: [
+          { src: "/prodotti/erreci-kiusa.jpg", name: "Erreci \u2014 Kiusa (Estensibile)" },
+          { src: "/prodotti/erreci-tenace.jpg", name: "Erreci \u2014 Tenace (Inox AISI 304)" },
+          { src: "/prodotti/erreci-superior.jpg", name: "Erreci \u2014 Superior (Inox Classe 3)" },
+          { src: "/prodotti/erreci-marina.jpg", name: "Erreci \u2014 Marina (Alluminio)" },
+        ],
+      },
+    ],
   },
 
   "persiane-blindate": {
@@ -168,7 +193,7 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Massima protezione antieffrazione con l\u2019aspetto estetico di una persiana tradizionale. Struttura rinforzata in acciaio, cerniere antistrappo e serrature di sicurezza multipunto.",
     stats: [
-      { n: 4, label: "Modelli" },
+      { n: 6, label: "Modelli" },
       { n: 2, label: "Brand" },
     ],
     categories: [
@@ -177,8 +202,9 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Erreci",
         tagline: "Persiane blindate Erreci in acciaio zincato con lamelle rinforzate e cerniere antistrappo brevettate.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Erreci \u2014 Maxima Scudo" },
-          { src: "/prodotti/placeholder.svg", name: "Erreci \u2014 Combi CE" },
+          { src: "/prodotti/erreci-maxima-scudo.jpg", name: "Erreci \u2014 Maxima Scudo (Classe 3)" },
+          { src: "/prodotti/erreci-combi-ce.jpg", name: "Erreci \u2014 Combi CE (Classe 3)" },
+          { src: "/prodotti/erreci-combi-slim.jpg", name: "Erreci \u2014 Combi Slim (Classe 2)" },
         ],
       },
       {
@@ -186,8 +212,9 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Ecomet",
         tagline: "Soluzioni Ecomet con sistema combinato persiana + grata per doppia protezione in un unico serramento.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Ecomet \u2014 ECO Persiana" },
-          { src: "/prodotti/placeholder.svg", name: "Ecomet \u2014 ECO Combinato" },
+          { src: "/prodotti/ecomet-persiana-eco.jpg", name: "Ecomet \u2014 Persiana ECO (Classe 3)" },
+          { src: "/prodotti/ecomet-grata-eco.jpg", name: "Ecomet \u2014 Grata ECO Apribile" },
+          { src: "/prodotti/ecomet-persiana-eco-2.jpg", name: "Ecomet \u2014 ECO Combinato" },
         ],
       },
     ],
@@ -201,6 +228,28 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     stats: [
       { n: 4, label: "Sistemi" },
       { n: 3, label: "Grado sicurezza" },
+    ],
+    categories: [
+      {
+        id: "centrali",
+        label: "Centrali",
+        tagline: "Centrali antintrusione Inim: dalla Sol wireless alla SmartLiving ibrida, fino alla Prime professionale con grado 3.",
+        products: [
+          { src: "/prodotti/inim-sol-g.png", name: "Inim \u2014 Sol/G Evo (Wireless)" },
+          { src: "/prodotti/inim-sol-p.png", name: "Inim \u2014 Sol/P (Touch Screen)" },
+          { src: "/prodotti/inim-smartliving-505.png", name: "Inim \u2014 SmartLiving 505" },
+          { src: "/prodotti/inim-smartliving-1050.png", name: "Inim \u2014 SmartLiving 1050" },
+        ],
+      },
+      {
+        id: "videosorveglianza",
+        label: "Videosorveglianza",
+        tagline: "Sistema InVista: telecamere IP 4 MP con deep learning, visione notturna e NVR per la gestione completa da app.",
+        products: [
+          { src: "/prodotti/inim-invista-cam.jpg", name: "Inim \u2014 InVista Telecamera IP 4MP" },
+          { src: "/prodotti/inim-invista-nvr.jpg", name: "Inim \u2014 InVista NVR 8 canali PoE" },
+        ],
+      },
     ],
   },
 
@@ -223,9 +272,9 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Grifoflex",
         tagline: "Zanzariere a rullo e plissettate Grifoflex: scorrimento fluido, design minimal e massima durata nel tempo.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Grifoflex \u2014 Rollblock" },
-          { src: "/prodotti/placeholder.svg", name: "Grifoflex \u2014 Dream Luce" },
-          { src: "/prodotti/placeholder.svg", name: "Grifoflex \u2014 Confort" },
+          { src: "/prodotti/grifoflex-rollblock.jpg", name: "Grifoflex \u2014 Rollblock" },
+          { src: "/prodotti/grifoflex-dream-luce.jpg", name: "Grifoflex \u2014 Dream Luce" },
+          { src: "/prodotti/grifoflex-confort.jpg", name: "Grifoflex \u2014 Confort" },
         ],
       },
       {
@@ -233,19 +282,18 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Bettio",
         tagline: "La gamma Scenica Bettio: zanzariere a scomparsa totale con meccanismo brevettato e scorrimento ultra-silenzioso.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Bettio \u2014 Scenica" },
-          { src: "/prodotti/placeholder.svg", name: "Bettio \u2014 Miniscenica Evo" },
-          { src: "/prodotti/placeholder.svg", name: "Bettio \u2014 Picoscenica" },
+          { src: "/prodotti/bettio-scenica.jpg", name: "Bettio \u2014 Neoscenica" },
+          { src: "/prodotti/bettio-miniscenica-evo.jpg", name: "Bettio \u2014 Miniscenica Evo" },
+          { src: "/prodotti/bettio-picoscenica.jpg", name: "Bettio \u2014 Picoscenica" },
         ],
       },
       {
         id: "sharknet",
         label: "Sharknet",
-        tagline: "Sistemi Sharknet con apertura centrale e verticale: massima praticit\u00E0 per porte-finestra e grandi luci.",
+        tagline: "Sistemi Sharknet plissettati con apertura centrale e verticale: massima praticit\u00E0 per porte-finestra e grandi luci.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Apertura Centrale" },
-          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 08" },
-          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Apertura Verticale" },
+          { src: "/prodotti/sharknet-apertura-centrale.jpg", name: "Sharknet \u2014 Apertura Centrale" },
+          { src: "/prodotti/sharknet-laterale.jpg", name: "Sharknet \u2014 04 Laterale" },
         ],
       },
     ],
@@ -264,11 +312,11 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     categories: [
       {
         id: "sharknet",
-        label: "Sharknet",
-        tagline: "Tende tecniche Sharknet: schermatura solare avanzata e tessuti antipolline per il massimo benessere indoor.",
+        label: "Sharknet Eclypser",
+        tagline: "Tende tecniche Eclypser by Sharknet: oscuranti honeycomb e filtranti, installazione senza fori sugli infissi.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Schermatura Solare" },
-          { src: "/prodotti/placeholder.svg", name: "Sharknet \u2014 Antipolline" },
+          { src: "/prodotti/sharknet-eclypser.jpg", name: "Sharknet \u2014 Eclypser Laterale Blackout" },
+          { src: "/prodotti/sharknet-apertura-centrale.jpg", name: "Sharknet \u2014 Eclypser Verticale Filtrante" },
         ],
       },
       {
@@ -276,9 +324,8 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Zanzar Sistem",
         tagline: "Gamma Zanzar Sistem con pliss\u00E8, rullo e sistemi integrati nel profilo del serramento per un risultato pulito e minimal.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Zanzar Sistem \u2014 Perfecta" },
-          { src: "/prodotti/placeholder.svg", name: "Zanzar Sistem \u2014 Nanoblind" },
-          { src: "/prodotti/placeholder.svg", name: "Zanzar Sistem \u2014 Linea Plissettata" },
+          { src: "/prodotti/zanzarsistem-perfecta.jpg", name: "Zanzar Sistem \u2014 Perfecta" },
+          { src: "/prodotti/zanzarsistem-nanoblind.jpg", name: "Zanzar Sistem \u2014 Nanoblind" },
         ],
       },
     ],
@@ -292,6 +339,27 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     stats: [
       { n: 5, label: "Modelli" },
       { n: 120, label: "cm diametro min" },
+    ],
+    categories: [
+      {
+        id: "scale",
+        label: "Scale",
+        tagline: "Scale Sinfonia su misura in legno, acciaio e vetro: dall\u2019elicoidale al taglio laser, ogni progetto \u00E8 unico.",
+        products: [
+          { src: "/prodotti/sinfonia-aurea.jpg", name: "Sinfonia \u2014 Aurea (Elicoidale)" },
+          { src: "/prodotti/sinfonia-bolero.jpg", name: "Sinfonia \u2014 Bolero (Legno)" },
+          { src: "/prodotti/sinfonia-laser.png", name: "Sinfonia \u2014 Laser (Taglio laser)" },
+          { src: "/prodotti/sinfonia-special.jpg", name: "Sinfonia \u2014 Special (Scale a volte)" },
+        ],
+      },
+      {
+        id: "ringhiere",
+        label: "Ringhiere",
+        tagline: "Ringhiere e balaustre in vetro, acciaio inox e combinazioni miste per interni ed esterni.",
+        products: [
+          { src: "/prodotti/sinfonia-ringhiere.png", name: "Sinfonia \u2014 Fulgur (Vetro + Inox)" },
+        ],
+      },
     ],
   },
 
@@ -313,11 +381,11 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
       {
         id: "tendarredo",
         label: "Tendarredo",
-        tagline: "Pergole Tendarredo con telo retrattile e versione waterproof: eleganza e protezione per terrazzi e giardini.",
+        tagline: "Pergole bioclimatiche Tendarredo con lamelle orientabili e versione waterproof: eleganza e protezione per terrazzi e giardini.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Tendarredo \u2014 P-190" },
-          { src: "/prodotti/placeholder.svg", name: "Tendarredo \u2014 P-150" },
-          { src: "/prodotti/placeholder.svg", name: "Tendarredo \u2014 Oskura Waterproof" },
+          { src: "/prodotti/tendarredo-anima.jpg", name: "Tendarredo \u2014 Anima" },
+          { src: "/prodotti/tendarredo-p150.jpg", name: "Tendarredo \u2014 P-150" },
+          { src: "/prodotti/tendarredo-oskura.jpg", name: "Tendarredo \u2014 Oskura Waterproof" },
         ],
       },
       {
@@ -325,9 +393,8 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Persit",
         tagline: "Pergole bioclimatiche Persit con lamelle orientabili a 0\u00B0\u2013160\u00B0: regola sole, aria e pioggia con un gesto.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Persit \u2014 Pergola Bioclimatica Persit" },
-          { src: "/prodotti/placeholder.svg", name: "Persit \u2014 Pergola Bioclimatica Addossata" },
-          { src: "/prodotti/placeholder.svg", name: "Persit \u2014 Pergola Bioclimatica Autoportante" },
+          { src: "/prodotti/persit-pergola-autoportante.jpg", name: "Persit \u2014 Bioclimatica Autoportante" },
+          { src: "/prodotti/persit-pergola-addossata.jpg", name: "Persit \u2014 Bioclimatica Addossata" },
         ],
       },
     ],
@@ -341,6 +408,26 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     stats: [
       { n: 4, label: "Modelli" },
     ],
+    categories: [
+      {
+        id: "bracci",
+        label: "A bracci",
+        tagline: "Tende a bracci estensibili Tendarredo con cassonetto protettivo, Classe 3 di resistenza al vento e garanzia 8 anni.",
+        products: [
+          { src: "/prodotti/tendarredo-minerva.jpg", name: "Tendarredo \u2014 Minerva (A scomparsa)" },
+          { src: "/prodotti/tendarredo-kelisis.jpg", name: "Tendarredo \u2014 Kelisis (LED integrato)" },
+          { src: "/prodotti/tendarredo-mercurio-gold.png", name: "Tendarredo \u2014 Mercurio Gold" },
+        ],
+      },
+      {
+        id: "caduta",
+        label: "A caduta",
+        tagline: "Tende a caduta con guide laterali e cassonetto, ideali per verande e condomini con resistenza al vento.",
+        products: [
+          { src: "/prodotti/tendarredo-smart.jpg", name: "Tendarredo \u2014 Smart (A caduta)" },
+        ],
+      },
+    ],
   },
 
   "vetrate-panoramiche": {
@@ -350,6 +437,18 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
       "Chiusure in vetro a pacchetto e scorrevoli che trasformano terrazzi e verande in ambienti luminosi e protetti. Vetro temperato di sicurezza, guide a pavimento minimal e apertura totale per unire interno ed esterno.",
     stats: [
       { n: 4, label: "Sistemi" },
+    ],
+    categories: [
+      {
+        id: "exterior",
+        label: "Exterior",
+        tagline: "Sistemi MC Slide Exterior: vetrate panoramiche impacchettabili, scorrevoli e pieghevoli per balconi, terrazzi e verande.",
+        products: [
+          { src: "/prodotti/mcslide-starglass.jpg", name: "MC Slide \u2014 StarGlass" },
+          { src: "/prodotti/mcslide-sliding-floor.jpg", name: "MC Slide \u2014 Sliding Floor" },
+          { src: "/prodotti/mcslide-folding.jpg", name: "MC Slide \u2014 Folding" },
+        ],
+      },
     ],
   },
 
@@ -363,7 +462,19 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Cucine made in Italy progettate su misura: dall\u2019isola centrale alla composizione lineare, ogni cucina Arrex combina funzionalit\u00E0, materiali di qualit\u00E0 e design contemporaneo per uno spazio che rispecchia il tuo stile.",
     stats: [
-      { n: 6, label: "Modelli" },
+      { n: 6, label: "Collezioni" },
+    ],
+    categories: [
+      {
+        id: "moderna",
+        label: "Moderna",
+        tagline: "Cucine Arrex dalla linea contemporanea: superfici laccate, Fenix, gres e moduli XXL per il massimo della funzionalit\u00E0.",
+        products: [
+          { src: "/prodotti/arrex-gea.jpg", name: "Arrex \u2014 Gea (EcoPet)" },
+          { src: "/prodotti/arrex-loft.jpg", name: "Arrex \u2014 Loft 2.2" },
+          { src: "/prodotti/arrex-gea-2.jpg", name: "Arrex \u2014 Gea (Zenitale)" },
+        ],
+      },
     ],
   },
 
@@ -373,7 +484,38 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Mobili bagno sospesi e a terra, piani in cristallo e ceramica, specchiere retroilluminate: ogni collezione Merati \u00E8 pensata per trasformare il bagno in uno spazio di benessere e design.",
     stats: [
-      { n: 5, label: "Collezioni" },
+      { n: 7, label: "Collezioni" },
+    ],
+    categories: [
+      {
+        id: "torana",
+        label: "Torana",
+        tagline: "Collezione Torana: frontali smussati a 45\u00B0, spalle a scomparsa e finiture in legno naturale, laccato e marmo.",
+        products: [
+          { src: "/prodotti/merati-torana-3.jpg", name: "Merati \u2014 Torana 3.0" },
+          { src: "/prodotti/merati-torana-pull.jpg", name: "Merati \u2014 Torana Pull" },
+        ],
+      },
+      {
+        id: "plane",
+        label: "Plane",
+        tagline: "Collezione Plane: effetto tridimensionale ispirato al mare, gres porcellanato e antiche essenze per un bagno d\u2019autore.",
+        products: [
+          { src: "/prodotti/merati-plane-3d.jpg", name: "Merati \u2014 Plane 3D" },
+          { src: "/prodotti/merati-plane-2d.jpg", name: "Merati \u2014 Plane 2D" },
+          { src: "/prodotti/merati-plane-gres.jpg", name: "Merati \u2014 Plane Gres" },
+        ],
+      },
+      {
+        id: "complementi",
+        label: "Complementi",
+        tagline: "Easy, Round e Bath Table: soluzioni versatili per ogni metratura, dallo spazio compatto al bagno padronale.",
+        products: [
+          { src: "/prodotti/merati-easy.jpg", name: "Merati \u2014 Easy" },
+          { src: "/prodotti/merati-round.jpg", name: "Merati \u2014 Round" },
+          { src: "/prodotti/merati-bath-table.jpg", name: "Merati \u2014 Bath Table" },
+        ],
+      },
     ],
   },
 
@@ -385,6 +527,17 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     stats: [
       { n: 4, label: "Collezioni" },
     ],
+    categories: [
+      {
+        id: "sanitari",
+        label: "Sanitari",
+        tagline: "WC e bidet Rimless Sani e Co con rivestimento antibatterico nano e scarico a soli 3,5 litri per il massimo risparmio.",
+        products: [
+          { src: "/prodotti/sanico-dara.jpg", name: "Sani e Co \u2014 Dara (Filomuro)" },
+          { src: "/prodotti/sanico-sophia.jpg", name: "Sani e Co \u2014 Sophia (Sospesi)" },
+        ],
+      },
+    ],
   },
 
   "rubinetteria": {
@@ -393,7 +546,28 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Miscelatori di design in acciaio inox e ottone cromato per bagno e cucina. Tecnologia a risparmio idrico, cartucce ceramiche di precisione e finiture che resistono nel tempo.",
     stats: [
-      { n: 6, label: "Modelli" },
+      { n: 9, label: "Serie" },
+      { n: 7, label: "Finiture Emozioni" },
+    ],
+    categories: [
+      {
+        id: "contemporary",
+        label: "Contemporary",
+        tagline: "Linee contemporanee Fiore: Kube, Xenon in acciaio inox 316L e Katana per un bagno dal design deciso e minimale.",
+        products: [
+          { src: "/prodotti/sanico-dara.jpg", name: "Fiore \u2014 Kube (Squadrato)" },
+          { src: "/prodotti/sanico-sophia.jpg", name: "Fiore \u2014 Xenon (Inox 316L)" },
+        ],
+      },
+      {
+        id: "contract",
+        label: "Contract",
+        tagline: "Serie Kevon e Kevon Chic: design essenziale con variante bicolore nero opaco + cromo per installazioni professionali.",
+        products: [
+          { src: "/prodotti/sanico-dara.jpg", name: "Fiore \u2014 Kevon Chic (Bicolore)" },
+          { src: "/prodotti/sanico-sophia.jpg", name: "Fiore \u2014 King (Cucina)" },
+        ],
+      },
     ],
   },
 
@@ -403,7 +577,29 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Gres porcellanato di alta gamma con effetto marmo, legno, pietra e cemento. Lastre di grande formato, resistenti a graffi, macchie e agenti chimici, per pavimenti e rivestimenti di grande impatto visivo.",
     stats: [
-      { n: 6, label: "Collezioni" },
+      { n: 12, label: "Collezioni" },
+      { n: 4, label: "Effetti" },
+    ],
+    categories: [
+      {
+        id: "marmo",
+        label: "Effetto marmo",
+        tagline: "Collezione Divina: 15 marmi preziosi in gres porcellanato per interni dal look contemporaneo e sofisticato.",
+        products: [
+          { src: "/prodotti/classtile-divina-calacatta.jpg", name: "Class Tile \u2014 Divina Calacatta" },
+          { src: "/prodotti/classtile-divina-carrara.jpg", name: "Class Tile \u2014 Divina Carrara" },
+          { src: "/prodotti/classtile-divina-onice.jpg", name: "Class Tile \u2014 Divina Onice Verde" },
+        ],
+      },
+      {
+        id: "legno-pietra",
+        label: "Legno e pietra",
+        tagline: "Effetto legno e pietra naturale: dalle doghe Arch\u00E8 alle lastre MyStone ispirate alla Borgogna francese.",
+        products: [
+          { src: "/prodotti/classtile-arche.jpg", name: "Class Tile \u2014 Arch\u00E8 (Effetto legno)" },
+          { src: "/prodotti/classtile-mystone.jpg", name: "Class Tile \u2014 MyStone (Effetto pietra)" },
+        ],
+      },
     ],
   },
 
@@ -413,7 +609,28 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Parquet in legno massello e prefinito: rovere, noce, teak e essenze pregiate lavorate in Italia. Compatibile con riscaldamento a pavimento, trattamento a olio o vernice per una finitura naturale e duratura.",
     stats: [
-      { n: 6, label: "Collezioni" },
+      { n: 4, label: "Linee" },
+      { n: 9, label: "Finiture" },
+    ],
+    categories: [
+      {
+        id: "premass",
+        label: "PreMass",
+        tagline: "Il primo prefinito in legno massello: dal 1989 unisce la qualit\u00E0 del massello alla praticit\u00E0 della posa senza finiture aggiuntive.",
+        products: [
+          { src: "/prodotti/classtile-arche.jpg", name: "Ali Parquet \u2014 PreMass Classic" },
+          { src: "/prodotti/classtile-mystone.jpg", name: "Ali Parquet \u2014 SuperPreMass Trend" },
+        ],
+      },
+      {
+        id: "extramass",
+        label: "ExtraMass",
+        tagline: "Grande formato con spessore nobile 14 mm, bisellatura e spazzolatura per un pavimento dalla personalit\u00E0 decisa.",
+        products: [
+          { src: "/prodotti/classtile-arche.jpg", name: "Ali Parquet \u2014 ExtraMass Living" },
+          { src: "/prodotti/classtile-mystone.jpg", name: "Ali Parquet \u2014 ExtraMass Oil" },
+        ],
+      },
     ],
   },
 
@@ -434,11 +651,10 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
       {
         id: "haier",
         label: "Haier",
-        tagline: "Climatizzatori Haier con design premium, filtri antibatterici e connettivit\u00E0 Wi-Fi per la gestione da smartphone.",
+        tagline: "Climatizzatori Haier con design premium, purificatore IFD integrato, connettivit\u00E0 Wi-Fi e gestione da app hOn.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Haier \u2014 Jade" },
-          { src: "/prodotti/placeholder.svg", name: "Haier \u2014 Flexis Plus" },
-          { src: "/prodotti/placeholder.svg", name: "Haier \u2014 Pearl" },
+          { src: "/prodotti/haier-jade.jpg", name: "Haier \u2014 Jade (A+++ \u00B7 15 dB)" },
+          { src: "/prodotti/haier-flexis.webp", name: "Haier \u2014 Flexis Plus (UV-C)" },
         ],
       },
       {
@@ -446,10 +662,9 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Samsung",
         tagline: "Tecnologia WindFree Samsung: climatizzazione senza getti d\u2019aria diretti, comfort silenzioso e risparmio energetico AI.",
         products: [
-          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 WindFree Elite S2" },
-          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 WindFree Avant S2" },
-          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 WindFree Black" },
-          { src: "/prodotti/placeholder.svg", name: "Samsung \u2014 Cebu S2" },
+          { src: "/prodotti/samsung-windfree-elite.png", name: "Samsung \u2014 WindFree Elite S2" },
+          { src: "/prodotti/samsung-windfree-avant.png", name: "Samsung \u2014 WindFree Avant S2" },
+          { src: "/prodotti/samsung-cebu.png", name: "Samsung \u2014 Cebu S2" },
         ],
       },
     ],
@@ -461,8 +676,20 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Sistemi aria-acqua Ariston di ultima generazione per riscaldamento, raffrescamento e acqua calda sanitaria. Efficienza fino a COP 5,0 e gestione smart da app per monitorare consumi e comfort.",
     stats: [
-      { n: 4, label: "Sistemi" },
+      { n: 5, label: "Sistemi Nimbus" },
       { n: 5, label: "COP max", suffix: ".0" },
+    ],
+    categories: [
+      {
+        id: "nimbus",
+        label: "Nimbus NET R32",
+        tagline: "Gamma Nimbus NET R32: pompe di calore inverter aria-acqua in versione split, monoblocco e compatta con bollitore integrato.",
+        products: [
+          { src: "/prodotti/ariston-nimbus-plus.jpg", name: "Ariston \u2014 Nimbus Plus M (Monoblocco)" },
+          { src: "/prodotti/ariston-nimbus-plus.jpg", name: "Ariston \u2014 Nimbus Compact S (Bollitore)" },
+          { src: "/prodotti/ariston-nimbus-plus.jpg", name: "Ariston \u2014 Nimbus Pocket M (Compatta)" },
+        ],
+      },
     ],
   },
 
@@ -472,8 +699,20 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     description:
       "Caldaie murali a condensazione Hermann con rendimento fino al 109% e classe energetica A. Compatte, silenziose e connesse: gestione da app, diagnostica remota e manutenzione semplificata.",
     stats: [
-      { n: 4, label: "Modelli" },
+      { n: 5, label: "Modelli" },
       { n: 109, label: "Rendimento", suffix: "%" },
+    ],
+    categories: [
+      {
+        id: "interno",
+        label: "Da interno",
+        tagline: "Caldaie murali a condensazione Hermann per interno con tecnologia FlameFit e sistema Aquaspeed per acqua calda istantanea.",
+        products: [
+          { src: "/prodotti/hermann-thema-condens.webp", name: "Hermann \u2014 Thema Condens" },
+          { src: "/prodotti/hermann-thema-condens.jpg", name: "Hermann \u2014 ThemaFast Condens" },
+          { src: "/prodotti/hermann-thema-condens.webp", name: "Hermann \u2014 Master 4 Condensing" },
+        ],
+      },
     ],
   },
 };

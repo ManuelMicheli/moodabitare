@@ -889,8 +889,16 @@ export default async function ProductPage({ params }: Props) {
         const cfg = premiumCatalogData[slug];
         if (!cfg) return null;
         const details = sheetMap[slug];
-        const coverSlugs = ["persiane", "frangisole"];
-        const useCover = coverSlugs.includes(slug);
+        /* Prodotti con immagini ritagliate su sfondo bianco → contain;
+           tutte le altre categorie riempiono la card con object-cover */
+        const containSlugs = [
+          "infissi-alluminio",
+          "allarme-videosorveglianza",
+          "climatizzatori",
+          "pompe-di-calore",
+          "caldaia",
+        ];
+        const useCover = !containSlugs.includes(slug);
         return (
           <PremiumCatalog
             brandLabel={cfg.brandLabel}
