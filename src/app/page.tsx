@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { HeroSection } from "@/components/home/HeroSection";
 import { BrandLogos } from "@/components/home/BrandLogos";
 import { BelowFoldSections } from "@/components/home/BelowFoldSections";
+import { testimonials } from "@/lib/testimonials-data";
 
 export const metadata: Metadata = {
   title: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
@@ -18,9 +20,42 @@ export const metadata: Metadata = {
   },
 };
 
+const reviewJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://www.moschianosrl.it/#business",
+  name: "Mood Abitare",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    bestRating: "5",
+    ratingCount: String(testimonials.length),
+    reviewCount: String(testimonials.length),
+  },
+  review: testimonials.map((t) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: t.name,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+    },
+    reviewBody: t.text,
+    datePublished: "2025-01-15",
+  })),
+};
+
 export default function Home() {
   return (
     <main>
+      <Script
+        id="reviews-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+      />
       <HeroSection />
       <BrandLogos />
       <BelowFoldSections />
