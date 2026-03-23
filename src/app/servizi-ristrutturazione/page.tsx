@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
+import { FAQ_RISTRUTTURAZIONE, buildFaqJsonLd } from "@/lib/seo/faq-data";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
@@ -138,6 +139,13 @@ export default function ServiziRistrutturazione() {
               { name: "Servizi di Ristrutturazione", url: "https://www.moschianosrl.it/servizi-ristrutturazione" },
             ])
           ),
+        }}
+      />
+      <Script
+        id="faq-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildFaqJsonLd(FAQ_RISTRUTTURAZIONE)),
         }}
       />
       {/* Hero */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
+import { FAQ_CONTATTI, buildFaqJsonLd } from "@/lib/seo/faq-data";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
@@ -42,6 +43,13 @@ export default function Contatti() {
               { name: "Contatti", url: "https://www.moschianosrl.it/contatti" },
             ])
           ),
+        }}
+      />
+      <Script
+        id="faq-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildFaqJsonLd(FAQ_CONTATTI)),
         }}
       />
       {/* Hero */}

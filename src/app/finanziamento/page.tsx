@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
+import { FAQ_FINANZIAMENTO, buildFaqJsonLd } from "@/lib/seo/faq-data";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -42,6 +43,13 @@ export default function Finanziamento() {
               { name: "Finanziamento", url: "https://www.moschianosrl.it/finanziamento" },
             ])
           ),
+        }}
+      />
+      <Script
+        id="faq-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildFaqJsonLd(FAQ_FINANZIAMENTO)),
         }}
       />
       {/* ── Hero ── */}
