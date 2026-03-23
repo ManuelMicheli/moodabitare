@@ -110,7 +110,9 @@ function ProductCard({
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/[0.04] via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-[inherit]" />
       </div>
-      <div className={isMobile ? "mt-3 px-0.5" : "mt-5"}>
+      {/* Expanding line */}
+      <div className={cn("mx-auto bg-bordeaux/40 group-hover/card:bg-bordeaux transition-all duration-500 ease-out rounded-full", isMobile ? "mt-2.5 h-[1.5px] w-6 group-hover/card:w-full" : "mt-4 h-[2px] w-8 group-hover/card:w-full")} />
+      <div className={isMobile ? "mt-2.5 px-0.5" : "mt-4"}>
         <div className="flex items-center gap-2 flex-wrap">
           <h3
             className={cn(

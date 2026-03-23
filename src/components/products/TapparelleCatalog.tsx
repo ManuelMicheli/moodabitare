@@ -130,8 +130,11 @@ function ProductCard({
         )}
       </div>
 
+      {/* Expanding line */}
+      <div className={cn("mx-auto bg-bordeaux/40 group-hover/card:bg-bordeaux transition-all duration-500 ease-out rounded-full", isMobile ? "mt-2.5 h-[1.5px] w-6 group-hover/card:w-full" : "mt-4 h-[2px] w-8 group-hover/card:w-full")} />
+
       {/* Text content */}
-      <div className={isMobile ? "mt-3 px-0.5" : "mt-5"}>
+      <div className={isMobile ? "mt-2.5 px-0.5" : "mt-4"}>
         <h3
           className={cn(
             "font-display font-semibold leading-tight tracking-tight",

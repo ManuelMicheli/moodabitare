@@ -3,7 +3,7 @@ import type { ProductDetail } from "../product-details";
 /* ── GRATE DI SICUREZZA — Erreci ─────────────────────────────── */
 
 export const grateDetails: Record<string, ProductDetail> = {
-  "Erreci — Sikura": {
+  "Erreci — Sikura (Classe 4)": {
     name: "Sikura",
     brand: "Erreci",
     segment: "Sicurezza Classe 4",
@@ -21,25 +21,7 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
     features: ["Snodo brevettato", "Carbonitrurati anti-taglio", "Compatibile monoblocchi", "Profili di compensazione fuori squadra"],
   },
-  "Erreci — Evoluta 18": {
-    name: "Evoluta 18",
-    brand: "Erreci",
-    segment: "Sicurezza Classe 3",
-    description:
-      "Grata di sicurezza con lo speciale snodo brevettato Erreci per apertura fluida e chiusura sicura. Telaio robusto in acciaio zincato sezione 40×30 mm, serratura a 3 punti con cilindro europeo antitrapano.",
-    highlight: "Snodo brevettato esclusivo — apertura fluida, telaio 40×30 mm",
-    specs: [
-      { label: "Materiale", value: "Acciaio zincato" },
-      { label: "Classe antieffrazione", value: "Classe 3 — EN 1627" },
-      { label: "Telaio", value: "Sezione 40×30×2 mm" },
-      { label: "Serratura", value: "3 punti con cilindro europeo antitrapano" },
-      { label: "Apertura", value: "A battente con snodo brevettato" },
-      { label: "Produzione", value: "Su misura, 100% Made in Italy" },
-    ],
-    colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
-    features: ["Snodo brevettato", "Telaio robusto 40×30 mm", "Serratura 3 punti", "Su misura"],
-  },
-  "Erreci — Libera": {
+  "Erreci — Libera (Classe 3)": {
     name: "Libera",
     brand: "Erreci",
     segment: "Sicurezza Classe 3",
@@ -57,7 +39,7 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
     features: ["Cerniera a scomparsa", "Design minimale", "Profilo ultra-sottile", "Edifici di pregio"],
   },
-  "Erreci — Libera CE": {
+  "Erreci — Libera CE (Classe 3)": {
     name: "Libera CE",
     brand: "Erreci",
     segment: "Sicurezza Classe 3",
@@ -75,7 +57,25 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
     features: ["Becchi antistrappo", "Collo regolabile 12/30/60 mm", "Cerniere autolubrificanti", "7 tipologie telaio"],
   },
-  "Erreci — Edilia 2": {
+  "Erreci — Evoluta 18 (Classe 3)": {
+    name: "Evoluta 18",
+    brand: "Erreci",
+    segment: "Sicurezza Classe 3",
+    description:
+      "Grata di sicurezza con lo speciale snodo brevettato Erreci per apertura fluida e chiusura sicura. Telaio robusto in acciaio zincato sezione 40×30 mm, serratura a 3 punti con cilindro europeo antitrapano.",
+    highlight: "Snodo brevettato esclusivo — apertura fluida, telaio 40×30 mm",
+    specs: [
+      { label: "Materiale", value: "Acciaio zincato" },
+      { label: "Classe antieffrazione", value: "Classe 3 — EN 1627" },
+      { label: "Telaio", value: "Sezione 40×30×2 mm" },
+      { label: "Serratura", value: "3 punti con cilindro europeo antitrapano" },
+      { label: "Apertura", value: "A battente con snodo brevettato" },
+      { label: "Produzione", value: "Su misura, 100% Made in Italy" },
+    ],
+    colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
+    features: ["Snodo brevettato", "Telaio robusto 40×30 mm", "Serratura 3 punti", "Su misura"],
+  },
+  "Erreci — Edilia 2 (Classe 2)": {
     name: "Edilia 2",
     brand: "Erreci",
     segment: "Sicurezza Classe 2",
@@ -93,7 +93,7 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
     features: ["Ultraslim 35 mm", "Compatibile monoblocchi", "Snodo ACS 180", "7 tipologie telaio"],
   },
-  "Erreci — Kiusa": {
+  "Erreci — Kiusa (Estensibile)": {
     name: "Kiusa",
     brand: "Erreci",
     segment: "Sicurezza Classe 3",
@@ -111,7 +111,7 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Gamma RAL completa, verniciatura a polvere Classe 2",
     features: ["Scorrimento a carrelli", "Leveraggi carbonitrurati", "Configurazione a cassetta", "Aperture non standard"],
   },
-  "Erreci — Tenace": {
+  "Erreci — Tenace (Inox AISI 304)": {
     name: "Tenace",
     brand: "Erreci",
     segment: "Acciaio Inox Classe 2",
@@ -129,7 +129,7 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Finitura Scotchbrite naturale",
     features: ["Acciaio inox AISI 304", "Anticorrosione totale", "Finitura Scotchbrite", "Ambienti marini e costieri"],
   },
-  "Erreci — Superior": {
+  "Erreci — Superior (Inox Classe 3)": {
     name: "Superior",
     brand: "Erreci",
     segment: "Acciaio Inox Classe 3",
@@ -147,7 +147,7 @@ export const grateDetails: Record<string, ProductDetail> = {
     colors: "Finitura Scotchbrite naturale",
     features: ["Inox AISI 304 Classe 3", "Chiusini antitalgio", "Anticorrosione premium", "Ville al mare"],
   },
-  "Erreci — Marina": {
+  "Erreci — Marina (Alluminio)": {
     name: "Marina",
     brand: "Erreci",
     segment: "Alluminio Classe 3",
@@ -170,7 +170,7 @@ export const grateDetails: Record<string, ProductDetail> = {
 /* ── PERSIANE BLINDATE — Erreci / Ecomet ─────────────────────── */
 
 export const persianeBlinDateDetails: Record<string, ProductDetail> = {
-  "Erreci — Maxima Scudo": {
+  "Erreci — Maxima Scudo (Classe 3)": {
     name: "Maxima Scudo",
     brand: "Erreci",
     segment: "Sicurezza Classe 3",
@@ -188,7 +188,7 @@ export const persianeBlinDateDetails: Record<string, ProductDetail> = {
     colors: "Verde, Marrone, Grigio gotico, RAL 7001/1013/9010/8017/6005/6009, effetto legno",
     features: ["Acciaio sovradimensionato", "Anti-sfilamento nascosto", "Ovaline o stecche", "Verniciatura Classe 2"],
   },
-  "Erreci — Combi CE": {
+  "Erreci — Combi CE (Classe 3)": {
     name: "Combi CE",
     brand: "Erreci",
     segment: "Premium",
@@ -206,7 +206,25 @@ export const persianeBlinDateDetails: Record<string, ProductDetail> = {
     colors: "Gamma RAL completa, finiture differenziate grata/persiana",
     features: ["Doppia protezione", "Telaio unico 9 cm", "Cerniere autolubrificanti", "Apertura indipendente"],
   },
-  "Ecomet — ECO Persiana": {
+  "Erreci — Combi Slim (Classe 2)": {
+    name: "Combi Slim",
+    brand: "Erreci",
+    segment: "Premium",
+    description:
+      "Versione compatta del sistema combinato Erreci: grata di sicurezza e persiana integrate su un unico telaio di soli 7,5 cm. Struttura in acciaio zincato con cerniere ad infilare e serratura a 2 punti con cilindro europeo. Ideale per finestre di dimensioni contenute.",
+    highlight: "Combinato ultra-compatto — grata + persiana in soli 7,5 cm",
+    specs: [
+      { label: "Componenti", value: "Grata + persiana su telaio unico" },
+      { label: "Classe antieffrazione", value: "Classe 2 — EN 1627" },
+      { label: "Spessore telaio", value: "Solo 7,5 cm" },
+      { label: "Persiane abbinabili", value: "Classic, Diamante, Skuro" },
+      { label: "Cerniere", value: "Ad infilare con rostri antistrappo" },
+      { label: "Serratura", value: "2 punti con cilindro europeo antitrapano" },
+    ],
+    colors: "Gamma RAL completa, finiture differenziate grata/persiana",
+    features: ["Telaio ultra-compatto 7,5 cm", "Doppia protezione", "Classe 2 certificata", "Finestre di dimensioni contenute"],
+  },
+  "Ecomet — Persiana ECO (Classe 3)": {
     name: "ECO Persiana",
     brand: "Ecomet",
     segment: "Sicurezza Classe 3",
@@ -223,6 +241,24 @@ export const persianeBlinDateDetails: Record<string, ProductDetail> = {
     ],
     colors: "24 colori standard RAL + 4 effetto legno con sublimazione",
     features: ["Gancio temprato", "Paletto automatico", "Rostri antistrappo", "4 finiture legno sublimate"],
+  },
+  "Ecomet — Grata ECO Apribile": {
+    name: "Grata ECO Apribile",
+    brand: "Ecomet",
+    segment: "Sicurezza Classe 3",
+    description:
+      "Grata di sicurezza apribile in acciaio zincato altoresistenziale con profili a sezione rettangolare rinforzati. Serratura a 3 punti con cilindro europeo di sicurezza e cerniere ad infilare con rostri antistrappo. Apertura a battente per agevolare la pulizia dei vetri e l'uscita di sicurezza.",
+    highlight: "Grata apribile in acciaio altoresistenziale — Classe 3, apertura a battente",
+    specs: [
+      { label: "Struttura", value: "Acciaio zincato altoresistenziale" },
+      { label: "Classe antieffrazione", value: "Classe 3 — UNI-ENV 1627" },
+      { label: "Serratura", value: "3 punti con cilindro europeo di sicurezza" },
+      { label: "Cerniere", value: "Ad infilare con rostri antistrappo" },
+      { label: "Apertura", value: "A battente, 1 o 2 ante" },
+      { label: "Verniciatura", value: "Polveri poliestere, 24 colori + 4 effetto legno" },
+    ],
+    colors: "24 colori standard RAL + 4 effetto legno con sublimazione",
+    features: ["Apertura a battente", "Rostri antistrappo", "Uscita di sicurezza", "Pulizia vetri agevole"],
   },
   "Ecomet — ECO Combinato": {
     name: "ECO Combinato",
@@ -247,6 +283,60 @@ export const persianeBlinDateDetails: Record<string, ProductDetail> = {
 /* ── ALLARME E VIDEOSORVEGLIANZA — Inim ──────────────────────── */
 
 export const allarmeDetails: Record<string, ProductDetail> = {
+  "Inim — Sol/G Evo (Wireless)": {
+    name: "Sol/G Evo",
+    brand: "Inim",
+    segment: "Design",
+    description:
+      "Centrale antifurto completamente wireless all-in-one della serie Sol Evo con tastiera integrata a pulsanti e display grafico. Portata radio fino a 4,5 km con tecnologia Air2 bidirezionale a 868 MHz. Configurazione rapida QuickGO tramite QR-code per fino a 30 dispositivi.",
+    highlight: "All-in-one wireless con display grafico — portata 4,5 km, QuickGO",
+    specs: [
+      { label: "Tecnologia", value: "Wireless all-in-one Air2 bidirezionale 868 MHz" },
+      { label: "Portata radio", value: "Fino a 4,5 km" },
+      { label: "Certificazione", value: "EN 50131 Grado 2" },
+      { label: "Configurazione", value: "QuickGO — 30 dispositivi via QR-code" },
+      { label: "Connettività", value: "Wi-Fi, LAN, Cloud Inim" },
+      { label: "Interfaccia", value: "Display grafico con tastiera a pulsanti" },
+    ],
+    colors: "Bianco con frontale elegante",
+    features: ["Completamente wireless", "QuickGO QR-code", "Portata 4,5 km", "Display grafico integrato"],
+  },
+  "Inim — Sol/P (Touch Screen)": {
+    name: "Sol/P",
+    brand: "Inim",
+    segment: "Design",
+    description:
+      "Centrale antifurto wireless all-in-one con ampio display touch-screen a colori da 7 pollici. Interfaccia intuitiva per gestione completa dell'impianto di sicurezza. Tecnologia Air2 bidirezionale a 868 MHz con portata fino a 4,5 km e configurazione QuickGO.",
+    highlight: "Touch-screen 7\" a colori — wireless all-in-one, design premium",
+    specs: [
+      { label: "Tecnologia", value: "Wireless all-in-one Air2 bidirezionale 868 MHz" },
+      { label: "Display", value: "Touch-screen a colori 7 pollici" },
+      { label: "Portata radio", value: "Fino a 4,5 km" },
+      { label: "Certificazione", value: "EN 50131 Grado 2" },
+      { label: "Configurazione", value: "QuickGO — 30 dispositivi via QR-code" },
+      { label: "Connettività", value: "Wi-Fi, LAN, Cloud Inim" },
+    ],
+    colors: "Bianco con display a colori",
+    features: ["Touch-screen 7\"", "Completamente wireless", "QuickGO QR-code", "Interfaccia intuitiva"],
+  },
+  "Inim — SmartLiving 505": {
+    name: "SmartLiving 505",
+    brand: "Inim",
+    segment: "Premium",
+    description:
+      "Centrale antifurto ibrida filare/wireless Air2 con comunicazione bidirezionale, fino a 5 terminali espandibili a 10. BUS ad alta velocità per gestione rapida dei dispositivi. Compatta e versatile, ideale per abitazioni di medie dimensioni. Certificata EN 50131 Grado 2.",
+    highlight: "Centrale ibrida compatta — filare + wireless Air2, Grado 2",
+    specs: [
+      { label: "Tecnologia", value: "Ibrida: BUS filare + wireless Air2 bidirezionale" },
+      { label: "Terminali", value: "5 a bordo, espandibili a 10" },
+      { label: "Certificazione", value: "EN 50131-3 Grado 2" },
+      { label: "Connettività", value: "LAN, PSTN, GSM con crittografia AES" },
+      { label: "Gestione", value: "App Inim + Cloud" },
+      { label: "Contenitore", value: "Metallico con tamper antisabotaggio" },
+    ],
+    colors: "Contenitore metallico bianco; tastiere bianco e nero",
+    features: ["Wireless Air2 868 MHz", "BUS alta velocità", "App + Cloud", "Compatta e versatile"],
+  },
   "Inim — SmartLiving 1050": {
     name: "SmartLiving 1050",
     brand: "Inim",
@@ -264,6 +354,42 @@ export const allarmeDetails: Record<string, ProductDetail> = {
     ],
     colors: "Contenitore metallico bianco; tastiere bianco e nero",
     features: ["Wireless Air2 868 MHz", "BUS alta velocità", "App + Cloud", "Domotica integrata"],
+  },
+  "Inim — InVista Telecamera IP 4MP": {
+    name: "InVista Telecamera IP 4MP",
+    brand: "Inim",
+    segment: "Videosorveglianza",
+    description:
+      "Telecamera IP bullet da 4 Megapixel della serie InVista con ottica varifocale motorizzata e illuminazione IR fino a 30 metri. Compressione H.265+ per ottimizzare lo spazio di registrazione. Alimentazione PoE integrata per installazione con singolo cavo di rete.",
+    highlight: "4 MP con IR 30 m e ottica motorizzata — alimentazione PoE",
+    specs: [
+      { label: "Risoluzione", value: "4 Megapixel (2560×1440)" },
+      { label: "Ottica", value: "Varifocale motorizzata 2,8–12 mm" },
+      { label: "IR", value: "Illuminazione fino a 30 m" },
+      { label: "Compressione", value: "H.265+ / H.264+" },
+      { label: "Alimentazione", value: "PoE (IEEE 802.3af) / 12 VDC" },
+      { label: "Protezione", value: "IP67 per installazione esterna" },
+    ],
+    colors: "Bianco",
+    features: ["4 MP ad alta definizione", "IR 30 m", "PoE integrato", "IP67 da esterno"],
+  },
+  "Inim — InVista NVR 8 canali PoE": {
+    name: "InVista NVR 8 canali PoE",
+    brand: "Inim",
+    segment: "Videosorveglianza",
+    description:
+      "Network Video Recorder a 8 canali con switch PoE integrato per alimentare direttamente le telecamere IP InVista tramite cavo di rete. Supporta registrazione fino a 4K e riproduzione simultanea su 4 canali. Compatibile con hard disk fino a 6 TB per archiviazione estesa.",
+    highlight: "NVR 8 canali con PoE integrato — registrazione 4K, fino a 6 TB",
+    specs: [
+      { label: "Canali", value: "8 canali IP con switch PoE integrato" },
+      { label: "Risoluzione massima", value: "Fino a 4K (8 MP)" },
+      { label: "Riproduzione", value: "4 canali simultanei in tempo reale" },
+      { label: "Archiviazione", value: "1 SATA fino a 6 TB" },
+      { label: "Connettività", value: "HDMI, VGA, LAN Gigabit, USB" },
+      { label: "Gestione", value: "App Inim + interfaccia web" },
+    ],
+    colors: "Nero",
+    features: ["PoE integrato 8 porte", "Registrazione 4K", "Archiviazione 6 TB", "App + interfaccia web"],
   },
   "Inim — Prime 060S": {
     name: "Prime 060S",

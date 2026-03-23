@@ -5,9 +5,10 @@ import { portoncinoDetails, persianeDetails, frangisoleDetails, tapparelleDetail
 import { korusAlluminioLegnoDetails } from "./details/alluminio-legno-details";
 import { grateDetails, persianeBlinDateDetails, allarmeDetails } from "./details/sicurezza-details";
 import { zanzariereDetails, tendeTecnicheDetails, scaleDetails } from "./details/comfort-details";
-import { pergoleDetails, tendeSoleDetails, vetratePanoramicheDetails } from "./details/outdoor-details";
+import { pergoleDetails, tendeSoleDetails, vetratePanoramicheDetails, gazebiDetails, piscineDetails, rivestimentoPiscineDetails, arredoGiardinoDetails } from "./details/outdoor-details";
 import { cucineDetails, arredoBagnoDetails, sanitariDetails, rubinetteriaDetails, ceramicheDetails, parquetDetails } from "./details/casa-arredo-details";
-import { climatizzatoriDetails, pompeCaloreDetails, caldaiaDetails } from "./details/riscaldamento-details";
+import { climatizzatoriDetails, pompeCaloreDetails, caldaiaDetails, fotovoltaicoDetails, impiantiElettriciDetails, impiantiIdrauliciDetails } from "./details/riscaldamento-details";
+import { infissiLegnoDetails } from "./details/infissi-legno-details";
 
 /**
  * Mappa centralizzata slug → Record<string, ProductDetail>
@@ -18,7 +19,7 @@ export const sheetMap: Record<string, Record<string, ProductDetail>> = {
   "infissi-pvc": windowDetails,
   "infissi-alluminio": aluminumDetails,
   "infissi-alluminio-legno": korusAlluminioLegnoDetails,
-  // infissi-legno usa layout Pail custom (non sheetMap)
+  "infissi-legno": infissiLegnoDetails,
   "portoncini": portoncinoDetails,
   "persiane": persianeDetails,
   "frangisole": frangisoleDetails,
@@ -42,6 +43,10 @@ export const sheetMap: Record<string, Record<string, ProductDetail>> = {
   "pergole": pergoleDetails,
   "tende-da-sole": tendeSoleDetails,
   "vetrate-panoramiche": vetratePanoramicheDetails,
+  "gazebi-strutture-legno": gazebiDetails,
+  "piscine": piscineDetails,
+  "rivestimento-piscine": rivestimentoPiscineDetails,
+  "arredo-giardino": arredoGiardinoDetails,
 
   /* ── Casa & Arredo ──────────────────────── */
   "cucine-su-misura": cucineDetails,
@@ -55,4 +60,7 @@ export const sheetMap: Record<string, Record<string, ProductDetail>> = {
   "climatizzatori": climatizzatoriDetails,
   "pompe-di-calore": pompeCaloreDetails,
   "caldaia": caldaiaDetails,
+  "impianti-fotovoltaici": fotovoltaicoDetails,
+  "impianti-elettrici": impiantiElettriciDetails,
+  "impianti-idraulici": impiantiIdrauliciDetails,
 };

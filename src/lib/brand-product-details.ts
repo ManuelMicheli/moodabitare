@@ -67,8 +67,8 @@ export const grifoflexDetails: Record<string, ProductDetail> = {
 /* ── BETTIO — Zanzariere ─────────────────────────────────────────────── */
 
 export const bettioDetails: Record<string, ProductDetail> = {
-  "Scenica": {
-    name: "Scenica",
+  "Neoscenica": {
+    name: "Neoscenica",
     brand: "Bettio",
     segment: "Zanzariere senza barriere",
     description:
@@ -145,12 +145,12 @@ export const sharknetZanzariereDetails: Record<string, ProductDetail> = {
     colors: "Bianco, avorio, silver, marrone, testa di moro, grigio antracite RAL 7016, nero, colori RAL a richiesta",
     features: ["Apertura centrale", "Blocco in ogni posizione", "Sicura per bambini", "Installazione in 6 minuti"],
   },
-  "SharkNet 08": {
-    name: "SharkNet 08",
+  "SharkNet 04 Laterale": {
+    name: "SharkNet 04 Laterale",
     brand: "SharkNet",
-    segment: "Zanzariere plissettate senza ostacoli a terra",
+    segment: "Zanzariere plissettate laterali compatte",
     description:
-      "Zanzariera plissettata dotata della brevettata piattina da 4 mm che non presenta alcun ostacolo a pavimento, ideale per porte finestra ad alto transito. Scorrimento laterale con ingombro di 22 mm, blocco in ogni posizione e rete IdroScreen idrorepellente. Guida bassa di 8 mm offre maggiore protezione contro il vento.",
+      "Zanzariera plissettata laterale con profilo da soli 22 mm e piattina brevettata da 4 mm che non crea alcun ostacolo a pavimento. Ideale per porte finestra ad alto transito, con rete IdroScreen idrorepellente certificata e blocco in ogni posizione. Guida bassa di 8 mm per protezione antivento.",
     highlight: "Piattina 4 mm brevettata — nessun ostacolo a pavimento",
     specs: [
       { label: "Tipologia", value: "Plissettata laterale, senza ostacoli a terra" },
@@ -184,41 +184,41 @@ export const sharknetZanzariereDetails: Record<string, ProductDetail> = {
 };
 
 export const sharknetTendeDetails: Record<string, ProductDetail> = {
-  "SharkNet Schermatura Solare": {
-    name: "SharkNet Schermatura Solare",
+  "SharkNet Eclypser Laterale Blackout": {
+    name: "SharkNet Eclypser Laterale Blackout",
     brand: "SharkNet",
-    segment: "Zanzariere con schermatura solare integrata",
+    segment: "Tende tecniche oscuranti honeycomb",
     description:
-      "Tutti i modelli SharkNet possono essere configurati con rete speciale a schermatura solare: una rete 'doppia' con lato metallizzato verso il vetro che respinge il calore solare, mantenendo dall'interno la normale visibilità verso l'esterno. Combinazione perfetta di protezione anti-insetto e controllo termico in un unico sistema.",
-    highlight: "Doppia funzione: anti-insetto + schermatura solare in un solo prodotto",
+      "Tenda tecnica oscurante a struttura honeycomb (a nido d'ape) con scorrimento laterale e oscuramento totale della luce. La cella d'aria interna offre isolamento termico e acustico superiore, riducendo la dispersione di calore in inverno e l'irraggiamento solare in estate. Installazione senza fori direttamente sul profilo dell'infisso con sistema a clip brevettato.",
+    highlight: "Honeycomb blackout laterale — oscuramento totale e isolamento termoacustico",
     specs: [
-      { label: "Tipologia", value: "Rete con schermatura solare su qualsiasi modello SharkNet" },
-      { label: "Lato esterno", value: "Metallizzato, respinge il calore solare" },
-      { label: "Lato interno", value: "Grigio, visibilità trasparente verso l'esterno" },
-      { label: "Riduzione calore", value: "Significativa riduzione dell'irraggiamento solare" },
-      { label: "Compatibilità", value: "Tutti i modelli SharkNet (nuovi e retrofit)" },
-      { label: "Certificazione", value: "100% Made in Italy, normativa UE" },
-    ],
-    colors: "Rete metallizzata/grigia (profili: tutti i colori SharkNet disponibili)",
-    features: ["Schermatura solare integrata", "Retrofit su SharkNet esistenti", "Visibilità mantenuta dall'interno", "Conformità incentivi fiscali"],
-  },
-  "SharkNet Antipolline": {
-    name: "SharkNet Antipolline",
-    brand: "SharkNet",
-    segment: "Zanzariere con filtro antipolline",
-    description:
-      "Versione speciale di qualsiasi modello SharkNet con rete antipolline a maglia fitta, progettata per filtrare pollini e micro-particelle garantendo protezione a chi soffre di allergie stagionali. Mantiene lo stesso ingombro di 22 mm e l'idrorepellenza IdroScreen. Ideale per camere da letto e ambienti con soggetti allergici.",
-    highlight: "Filtro antipolline certificato — aria pura per chi soffre di allergie",
-    specs: [
-      { label: "Tipologia", value: "Plissettata con rete antipolline" },
+      { label: "Tipologia", value: "Tenda tecnica honeycomb oscurante laterale" },
+      { label: "Oscuramento", value: "Totale (blackout 100%)" },
+      { label: "Struttura cella", value: "Honeycomb a nido d'ape con camera d'aria" },
+      { label: "Isolamento termico", value: "Riduzione dispersione fino al 46%" },
+      { label: "Installazione", value: "A clip sull'infisso, senza fori" },
       { label: "Ingombro profilo", value: "22 mm" },
-      { label: "Filtrazione", value: "Pollini e micro-particelle" },
-      { label: "Rete", value: "Antipolline IdroScreen idrorepellente" },
-      { label: "Compatibilità", value: "Tutti i modelli SharkNet" },
-      { label: "Manutenzione", value: "Lavabile con acqua" },
     ],
-    colors: "Bianco, avorio, silver, grigio antracite, marrone, nero, colori RAL a richiesta",
-    features: ["Filtro antipolline", "Ingombro 22 mm", "Rete lavabile", "Ideale per soggetti allergici"],
+    colors: "Bianco, grigio chiaro, grigio scuro, antracite, nero; tessuto interno in 30+ varianti",
+    features: ["Blackout totale", "Honeycomb isolante", "Installazione a clip", "Scorrimento laterale"],
+  },
+  "SharkNet Eclypser Verticale Filtrante": {
+    name: "SharkNet Eclypser Verticale Filtrante",
+    brand: "SharkNet",
+    segment: "Tende tecniche filtranti honeycomb",
+    description:
+      "Tenda tecnica filtrante a struttura honeycomb con movimento verticale, ideale per finestre e vasistas. Filtra la luce solare mantenendo la luminosità naturale dell'ambiente e garantendo privacy diurna. La cella d'aria della struttura a nido d'ape offre un eccellente isolamento termico. Installazione senza fori con sistema a clip sul profilo dell'infisso.",
+    highlight: "Honeycomb filtrante verticale — luce naturale con privacy e isolamento",
+    specs: [
+      { label: "Tipologia", value: "Tenda tecnica honeycomb filtrante verticale" },
+      { label: "Filtrazione luce", value: "Filtrante con privacy diurna" },
+      { label: "Struttura cella", value: "Honeycomb a nido d'ape con camera d'aria" },
+      { label: "Isolamento termico", value: "Riduzione dispersione fino al 40%" },
+      { label: "Installazione", value: "A clip sull'infisso, senza fori" },
+      { label: "Ingombro profilo", value: "22 mm" },
+    ],
+    colors: "Bianco, crema, grigio chiaro, tortora, grigio scuro; tessuto in 25+ varianti",
+    features: ["Luce filtrante naturale", "Honeycomb isolante", "Movimento verticale", "Installazione senza fori"],
   },
 };
 
@@ -284,8 +284,8 @@ export const zanzarSistemDetails: Record<string, ProductDetail> = {
 /* ── SINFONIA — Scale e Ringhiere ────────────────────────────────────── */
 
 export const sinfoniaDetails: Record<string, ProductDetail> = {
-  "Aurea": {
-    name: "Aurea",
+  "Aurea (Elicoidale)": {
+    name: "Aurea (Elicoidale)",
     brand: "Sinfonia",
     segment: "Scale elicoidali di design",
     description:
@@ -302,8 +302,8 @@ export const sinfoniaDetails: Record<string, ProductDetail> = {
     colors: "Acciaio inox satinato naturale; vetro extra-chiaro; possibilità di verniciatura struttura a richiesta",
     features: ["Elicoidale su misura", "Vetro cracklè", "Acciaio inox AISI 304", "Ringhiera R20 coordinata"],
   },
-  "Bolero": {
-    name: "Bolero",
+  "Bolero (Legno)": {
+    name: "Bolero (Legno)",
     brand: "Sinfonia",
     segment: "Scale in legno dal design moderno",
     description:
@@ -320,8 +320,8 @@ export const sinfoniaDetails: Record<string, ProductDetail> = {
     colors: "Faggio naturale, rovere sbiancato, rovere naturale, noce nazionale, iroko; verniciatura struttura a scelta",
     features: ["Gradini sospesi flottanti", "Fascia portante a muro", "Legno massello", "Design contemporaneo"],
   },
-  "Laser": {
-    name: "Laser",
+  "Laser (Taglio laser)": {
+    name: "Laser (Taglio laser)",
     brand: "Sinfonia",
     segment: "Scale in acciaio taglio laser",
     description:
@@ -338,8 +338,8 @@ export const sinfoniaDetails: Record<string, ProductDetail> = {
     colors: "Struttura: Snow RAL 9010, grigio antracite, corten, nero opaco; gradini: rovere miele, rovere naturale, noce",
     features: ["Decorazione taglio laser", "Ringhiera in vetro R60", "Scala rettilinea o a L", "Elemento d'arredo"],
   },
-  "Special": {
-    name: "Special",
+  "Special (Scale a volte)": {
+    name: "Special (Scale a volte)",
     brand: "Sinfonia",
     segment: "Scale speciali e a volte",
     description:
@@ -356,8 +356,8 @@ export const sinfoniaDetails: Record<string, ProductDetail> = {
     colors: "Tutti i colori RAL, essenze legno, vetro chiaro/satinato/colorato — su progetto",
     features: ["Progetto su misura integrale", "Rilievo e render 3D", "Materiali misti", "Pezzi unici artigianali"],
   },
-  "Ringhiere e Balaustre": {
-    name: "Ringhiere e Balaustre",
+  "Fulgur (Vetro + Inox)": {
+    name: "Fulgur (Vetro + Inox)",
     brand: "Sinfonia",
     segment: "Ringhiere e balaustre per scale e balconi",
     description:
@@ -383,8 +383,8 @@ export const sinfoniaDetails: Record<string, ProductDetail> = {
 /* ── TENDARREDO (TA Design) — Pergole ────────────────────────────────── */
 
 export const tendarredoPergoleDetails: Record<string, ProductDetail> = {
-  "P-190": {
-    name: "P-190",
+  "Anima": {
+    name: "Anima",
     brand: "Tendarredo (TA Design)",
     segment: "Pergola bioclimatica a lame orientabili",
     description:
@@ -444,62 +444,26 @@ export const tendarredoPergoleDetails: Record<string, ProductDetail> = {
 /* ── TENDARREDO (TA Design) — Tende da Sole ──────────────────────────── */
 
 export const tendarredoTendeDetails: Record<string, ProductDetail> = {
-  "Perseo": {
-    name: "Perseo",
-    brand: "Tendarredo (TA Design)",
-    segment: "Tende da sole a bracci estensibili",
-    description:
-      "Tenda da sole a bracci estensibili in alluminio con catena in acciaio, progettata per grandi sporgenze e coperture importanti. Il sistema a bracci garantisce una tensione uniforme del telo su tutta la superficie, offrendo un'ombreggiatura perfetta e costante. Motorizzabile con automazioni domotiche e sensori vento/sole.",
-    highlight: "Bracci in alluminio con catena in acciaio — tensione perfetta su grandi sporgenze",
-    specs: [
-      { label: "Tipologia", value: "Tenda a bracci estensibili" },
-      { label: "Bracci", value: "Alluminio con catena in acciaio" },
-      { label: "Motorizzazione", value: "Opzionale, compatibile domotica" },
-      { label: "Sensori", value: "Vento e sole opzionali" },
-      { label: "Telo", value: "Tessuto acrilico o microforato (300+ varianti)" },
-      { label: "Installazione", value: "A parete o a soffitto" },
-    ],
-    colors: "Struttura: bianco, grigio, antracite, avorio; teli: 300+ varianti tinta unita, righe, fantasia",
-    features: ["Bracci in alluminio", "Grandi sporgenze", "Motorizzabile", "300+ tessuti disponibili"],
-  },
-  "Febe 36 Cassonata": {
-    name: "Febe 36 Cassonata",
+  "Minerva (A scomparsa)": {
+    name: "Minerva (A scomparsa)",
     brand: "Tendarredo (TA Design)",
     segment: "Tende da sole cassonata a scomparsa",
     description:
-      "Tenda a bracci con cassonetto integrale che protegge il telo e il meccanismo dagli agenti atmosferici quando richiusa. Il cassonetto dal profilo arrotondato si integra con eleganza in ogni contesto architettonico. Motorizzazione con telecomando e possibilità di automazioni domotiche, sensori pioggia e vento.",
-    highlight: "Cassonetto integrale — telo e meccanismo sempre protetti",
+      "Tenda a bracci con cassonetto integrale a scomparsa totale che protegge il telo e il meccanismo dagli agenti atmosferici quando richiusa. Il cassonetto dal profilo arrotondato si integra con eleganza in ogni contesto architettonico. Motorizzazione con telecomando e possibilità di automazioni domotiche, sensori pioggia e vento.",
+    highlight: "Cassonetto a scomparsa totale — telo e meccanismo sempre protetti",
     specs: [
-      { label: "Tipologia", value: "Tenda a bracci cassonata" },
-      { label: "Cassonetto", value: "Integrale, profilo arrotondato" },
+      { label: "Tipologia", value: "Tenda a bracci cassonata a scomparsa" },
+      { label: "Cassonetto", value: "Integrale a scomparsa, profilo arrotondato" },
       { label: "Bracci", value: "Alluminio con catena in acciaio" },
       { label: "Motorizzazione", value: "Con telecomando, compatibile domotica" },
       { label: "Sensori", value: "Pioggia e vento opzionali" },
       { label: "Telo", value: "Tessuto acrilico o microforato (300+ varianti)" },
     ],
     colors: "Struttura: bianco, grigio, antracite, avorio; teli: 300+ varianti tinta unita, righe, fantasia",
-    features: ["Cassonetto integrale", "Protezione telo totale", "Motorizzata con telecomando", "Design elegante"],
+    features: ["Cassonetto a scomparsa", "Protezione telo totale", "Motorizzata con telecomando", "Design elegante"],
   },
-  "Venere": {
-    name: "Venere",
-    brand: "Tendarredo (TA Design)",
-    segment: "Tende da sole a bracci per balconi",
-    description:
-      "Tenda a bracci in alluminio con catena in acciaio dal design compatto, ideale per balconi e spazi residenziali. Bracci estensibili con tensione regolabile, ampia scelta di tessuti acrilici in oltre 300 varianti cromatiche. Motorizzazione disponibile con gestione da telecomando o smartphone tramite app dedicata.",
-    highlight: "Compatta e versatile — perfetta per balconi, 300+ varianti tessuto",
-    specs: [
-      { label: "Tipologia", value: "Tenda a bracci estensibili per balconi" },
-      { label: "Bracci", value: "Alluminio con catena in acciaio" },
-      { label: "Tensione", value: "Regolabile" },
-      { label: "Motorizzazione", value: "Opzionale, gestione via app/telecomando" },
-      { label: "Telo", value: "Tessuto acrilico o microforato (300+ varianti)" },
-      { label: "Installazione", value: "A parete o a soffitto" },
-    ],
-    colors: "Struttura: bianco, grigio, antracite, avorio; teli: 300+ varianti tinta unita, righe, fantasia",
-    features: ["Design compatto", "Ideale per balconi", "Tensione regolabile", "Gestione via app"],
-  },
-  "Kelisis": {
-    name: "Kelisis",
+  "Kelisis (LED integrato)": {
+    name: "Kelisis (LED integrato)",
     brand: "Tendarredo (TA Design)",
     segment: "Tende da sole con illuminazione LED",
     description:
@@ -516,49 +480,49 @@ export const tendarredoTendeDetails: Record<string, ProductDetail> = {
     colors: "Struttura: bianco, grigio, antracite, avorio; teli: 300+ varianti; LED bianco caldo/freddo",
     features: ["LED integrato nella struttura", "Atmosfera serale", "Motorizzata di serie", "Design contemporaneo"],
   },
+  "Mercurio Gold": {
+    name: "Mercurio Gold",
+    brand: "Tendarredo (TA Design)",
+    segment: "Tende da sole a bracci premium",
+    description:
+      "Tenda a bracci estensibili in alluminio con finitura Gold premium e catena in acciaio ad alta resistenza. Progettata per grandi sporgenze con tensione uniforme del telo su tutta la superficie. Bracci in lega leggera con snodi rinforzati e motorizzazione tubolare con gestione da telecomando e app. Classe 3 di resistenza al vento.",
+    highlight: "Finitura Gold premium — bracci rinforzati, Classe 3 resistenza al vento",
+    specs: [
+      { label: "Tipologia", value: "Tenda a bracci estensibili premium" },
+      { label: "Bracci", value: "Alluminio con catena in acciaio, snodi rinforzati" },
+      { label: "Resistenza al vento", value: "Classe 3 (EN 13561)" },
+      { label: "Motorizzazione", value: "Tubolare con telecomando e app" },
+      { label: "Telo", value: "Tessuto acrilico o microforato (300+ varianti)" },
+      { label: "Installazione", value: "A parete o a soffitto" },
+    ],
+    colors: "Struttura: bianco, grigio, antracite, avorio, gold; teli: 300+ varianti tinta unita, righe, fantasia",
+    features: ["Finitura Gold", "Classe 3 resistenza vento", "Bracci rinforzati", "Gestione via app"],
+  },
+  "Smart (A caduta)": {
+    name: "Smart (A caduta)",
+    brand: "Tendarredo (TA Design)",
+    segment: "Tende da sole a caduta per balconi",
+    description:
+      "Tenda a caduta verticale con braccetti a molla regolabili, ideale per balconi, logge e finestre. Il sistema a caduta crea una schermatura verticale che protegge dal sole e garantisce privacy. Cassonetto opzionale per la protezione del telo. Motorizzazione disponibile con gestione da telecomando o smartphone.",
+    highlight: "A caduta verticale — ideale per balconi e logge, privacy e protezione solare",
+    specs: [
+      { label: "Tipologia", value: "Tenda a caduta verticale con braccetti" },
+      { label: "Braccetti", value: "A molla regolabili, inclinazione variabile" },
+      { label: "Cassonetto", value: "Opzionale per protezione telo" },
+      { label: "Motorizzazione", value: "Opzionale, gestione via app/telecomando" },
+      { label: "Telo", value: "Tessuto acrilico o microforato (300+ varianti)" },
+      { label: "Installazione", value: "A parete, a soffitto o su cassonetto tapparella" },
+    ],
+    colors: "Struttura: bianco, grigio, antracite, avorio; teli: 300+ varianti tinta unita, righe, fantasia",
+    features: ["A caduta verticale", "Braccetti regolabili", "Privacy garantita", "Cassonetto opzionale"],
+  },
 };
 
 /* ── PERSIT — Pergole ────────────────────────────────────────────────── */
 
 export const persitDetails: Record<string, ProductDetail> = {
-  "Pergola Bioclimatica Persit": {
-    name: "Pergola Bioclimatica Persit",
-    brand: "Persit",
-    segment: "Pergole bioclimatiche a lame orientabili",
-    description:
-      "Pergola bioclimatica con lame orientabili in alluminio che consentono di controllare l'ingresso della luce solare a piacimento — un raggio caldo al mattino, ombra piacevole nelle ore intense, brezza leggera che rinfresca le giornate estive. Le lame si chiudono ermeticamente convogliando l'acqua in modo ordinato lungo i bordi. Motorizzazione a pulsante o telecomando.",
-    highlight: "Lame orientabili a chiusura ermetica — comfort outdoor in ogni stagione",
-    specs: [
-      { label: "Tipologia", value: "Pergola bioclimatica a lame orientabili" },
-      { label: "Struttura", value: "Alluminio estruso verniciato a polvere" },
-      { label: "Lame", value: "Orientabili, chiusura ermetica con guarnizioni" },
-      { label: "Drenaggio", value: "Acqua convogliata lungo i bordi" },
-      { label: "Motorizzazione", value: "Pulsante o telecomando" },
-      { label: "Installazione", value: "Addossata a muro o autoportante" },
-    ],
-    colors: "Bianco RAL 9010, grigio antracite RAL 7016, bronzo, marrone corten, nero opaco, colori RAL a richiesta",
-    features: ["Lame orientabili", "Chiusura ermetica", "Addossata o autoportante", "Motorizzata"],
-  },
-  "Pergola Bioclimatica Addossata": {
-    name: "Pergola Bioclimatica Addossata",
-    brand: "Persit",
-    segment: "Pergole bioclimatiche addossate",
-    description:
-      "Versione addossata a muro della pergola bioclimatica Persit, ideale per terrazzi, patii e spazi adiacenti all'edificio. La struttura in alluminio si ancora saldamente alla parete portante, riducendo il numero di montanti a terra e massimizzando lo spazio utilizzabile. Completa di lame orientabili motorizzate e sistema di raccolta acque integrato.",
-    highlight: "Addossata a muro — massimo spazio, montanti ridotti",
-    specs: [
-      { label: "Tipologia", value: "Pergola bioclimatica addossata" },
-      { label: "Ancoraggio", value: "A parete portante" },
-      { label: "Struttura", value: "Alluminio estruso, montanti ridotti" },
-      { label: "Lame", value: "Orientabili, motorizzate con chiusura ermetica" },
-      { label: "Raccolta acque", value: "Integrata nei montanti laterali" },
-      { label: "Chiusure laterali", value: "Zip screen, vetrate, tende (opzionali)" },
-    ],
-    colors: "Bianco RAL 9010, grigio antracite RAL 7016, bronzo, marrone corten, nero opaco, colori RAL a richiesta",
-    features: ["Fissaggio a muro", "Montanti ridotti", "Chiusure laterali opzionali", "Raccolta acque integrata"],
-  },
-  "Pergola Bioclimatica Autoportante": {
-    name: "Pergola Bioclimatica Autoportante",
+  "Bioclimatica Autoportante": {
+    name: "Bioclimatica Autoportante",
     brand: "Persit",
     segment: "Pergole bioclimatiche autoportanti",
     description:
@@ -575,13 +539,31 @@ export const persitDetails: Record<string, ProductDetail> = {
     colors: "Bianco RAL 9010, grigio antracite RAL 7016, bronzo, marrone corten, nero opaco, colori RAL a richiesta",
     features: ["Autoportante", "Posizionamento libero", "Moduli aggregabili", "Ideale giardini e piscine"],
   },
+  "Bioclimatica Addossata": {
+    name: "Bioclimatica Addossata",
+    brand: "Persit",
+    segment: "Pergole bioclimatiche addossate",
+    description:
+      "Versione addossata a muro della pergola bioclimatica Persit, ideale per terrazzi, patii e spazi adiacenti all'edificio. La struttura in alluminio si ancora saldamente alla parete portante, riducendo il numero di montanti a terra e massimizzando lo spazio utilizzabile. Completa di lame orientabili motorizzate e sistema di raccolta acque integrato.",
+    highlight: "Addossata a muro — massimo spazio, montanti ridotti",
+    specs: [
+      { label: "Tipologia", value: "Pergola bioclimatica addossata" },
+      { label: "Ancoraggio", value: "A parete portante" },
+      { label: "Struttura", value: "Alluminio estruso, montanti ridotti" },
+      { label: "Lame", value: "Orientabili, motorizzate con chiusura ermetica" },
+      { label: "Raccolta acque", value: "Integrata nei montanti laterali" },
+      { label: "Chiusure laterali", value: "Zip screen, vetrate, tende (opzionali)" },
+    ],
+    colors: "Bianco RAL 9010, grigio antracite RAL 7016, bronzo, marrone corten, nero opaco, colori RAL a richiesta",
+    features: ["Fissaggio a muro", "Montanti ridotti", "Chiusure laterali opzionali", "Raccolta acque integrata"],
+  },
 };
 
 /* ── MC SLIDE — Vetrate Panoramiche ──────────────────────────────────── */
 
 export const mcSlideDetails: Record<string, ProductDetail> = {
-  "StarGlass H 15": {
-    name: "StarGlass H 15",
+  "StarGlass": {
+    name: "StarGlass",
     brand: "MC Slide",
     segment: "Vetrate panoramiche impacchettabili senza barriere",
     description:
@@ -653,6 +635,24 @@ export const mcSlideDetails: Record<string, ProductDetail> = {
     colors: "Profili: alluminio naturale, bianco, grigio antracite, nero; vetro: trasparente, satinato, basso-emissivo",
     features: ["Guida standard massima stabilità", "Ideale balconi/terrazzi", "Resistenza al vento", "Installazione rapida"],
   },
+  "Folding": {
+    name: "Folding",
+    brand: "MC Slide",
+    segment: "Vetrate panoramiche pieghevoli a libro",
+    description:
+      "Sistema di vetrate pieghevoli a libro che si impacchettano completamente su un lato, liberando il 100% dell'apertura. Le ante in vetro temperato o stratificato ruotano su cerniere verticali e si ripiegano a fisarmonica con movimento fluido e silenzioso. Ideale per verande, pergole e dehors dove si desidera la massima apertura senza elementi intermedi. Soglia ribassata disponibile per l'accessibilità.",
+    highlight: "Pieghevole a libro — apertura totale 100%, impacchettamento laterale",
+    specs: [
+      { label: "Tipologia", value: "Vetrata pieghevole a libro (folding)" },
+      { label: "Apertura", value: "100% del vano con impacchettamento laterale" },
+      { label: "Ante", value: "Da 2 a 8 ante pieghevoli" },
+      { label: "Vetro", value: "Temperato o stratificato 8-10 mm" },
+      { label: "Soglia", value: "Standard o ribassata per accessibilità" },
+      { label: "Applicazione", value: "Verande, pergole, dehors, locali commerciali" },
+    ],
+    colors: "Profili: alluminio naturale, bianco RAL 9010, grigio antracite RAL 7016, nero RAL 9005; vetro: trasparente, satinato",
+    features: ["Apertura totale 100%", "Pieghevole a libro", "Soglia ribassata opzionale", "Movimento silenzioso"],
+  },
 };
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -662,8 +662,8 @@ export const mcSlideDetails: Record<string, ProductDetail> = {
 /* ── HAIER — Climatizzatori ──────────────────────────────────────────── */
 
 export const haierDetails: Record<string, ProductDetail> = {
-  "Jade": {
-    name: "Jade",
+  "Jade (A+++ \u00B7 15 dB)": {
+    name: "Jade (A+++ \u00B7 15 dB)",
     brand: "Haier",
     segment: "Climatizzatori top di gamma",
     description:
@@ -681,8 +681,8 @@ export const haierDetails: Record<string, ProductDetail> = {
     colors: "Bianco, nero (Black Mirror)",
     features: ["15 dB(A) ultrasilenzioso", "Doppi sensori di movimento", "Filtro IFD purificante", "Steri-Clean 56°C", "Self-Hygiene"],
   },
-  "Flexis Plus": {
-    name: "Flexis Plus",
+  "Flexis Plus (UV-C)": {
+    name: "Flexis Plus (UV-C)",
     brand: "Haier",
     segment: "Climatizzatori di design",
     description:
@@ -804,8 +804,8 @@ export const samsungDetails: Record<string, ProductDetail> = {
 /* ── ARISTON — Pompe di Calore ───────────────────────────────────────── */
 
 export const aristonDetails: Record<string, ProductDetail> = {
-  "Nimbus Plus S Net": {
-    name: "Nimbus Plus S Net",
+  "Nimbus Plus M (Monoblocco)": {
+    name: "Nimbus Plus M (Monoblocco)",
     brand: "Ariston",
     segment: "Pompe di calore split aria/acqua",
     description:
@@ -823,8 +823,8 @@ export const aristonDetails: Record<string, ProductDetail> = {
     colors: "Unità interna: bianco; unità esterna: bianco/grigio",
     features: ["Inverter split ad alta efficienza", "App Ariston NET", "Comandi vocali", "Riscaldamento + raffrescamento", "Compatibile impianti radianti"],
   },
-  "Nimbus Compact S Net R32": {
-    name: "Nimbus Compact S Net R32",
+  "Nimbus Compact S (Bollitore)": {
+    name: "Nimbus Compact S (Bollitore)",
     brand: "Ariston",
     segment: "Pompe di calore compatte con bollitore integrato",
     description:
@@ -842,8 +842,8 @@ export const aristonDetails: Record<string, ProductDetail> = {
     colors: "Unità interna: bianco; unità esterna: bianco/grigio",
     features: ["Bollitore ACS integrato", "Gas R32 ecologico", "All-in-one", "App Ariston NET", "Classe A+++"],
   },
-  "Nimbus Pocket M Net": {
-    name: "Nimbus Pocket M Net",
+  "Nimbus Pocket M (Compatta)": {
+    name: "Nimbus Pocket M (Compatta)",
     brand: "Ariston",
     segment: "Pompe di calore monoblocco compatte",
     description:
@@ -940,8 +940,8 @@ export const hermannDetails: Record<string, ProductDetail> = {
     colors: "Bianco",
     features: ["Solo riscaldamento", "Compatta per spazi ridotti", "Compatibile Solar Easy", "Scambiatore inox"],
   },
-  "Micra 4 Condensing": {
-    name: "Micra 4 Condensing",
+  "Master 4 Condensing": {
+    name: "Master 4 Condensing",
     brand: "Hermann Saunier Duval",
     segment: "Caldaie a condensazione smart Wi-Fi",
     description:

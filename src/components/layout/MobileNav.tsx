@@ -85,8 +85,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                       <span className={cn(
                                         "text-label font-semibold uppercase text-left transition-colors duration-200",
                                         expandedCategory === cat.id
-                                          ? "text-bordeaux"
-                                          : "text-bordeaux/60"
+                                          ? "text-black-deep"
+                                          : "text-black-deep/70"
                                       )}>
                                         {cat.label}
                                       </span>
@@ -149,7 +149,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                 <Link
                                   href="/prodotti"
                                   onClick={handleClose}
-                                  className="flex items-center gap-2 pl-4 py-2.5 mt-1 text-label text-[0.75rem] text-bordeaux/60 hover:text-bordeaux transition-colors duration-200"
+                                  className="flex items-center gap-2 pl-4 py-2.5 mt-1 text-label text-[0.75rem] text-black-deep/60 hover:text-black-deep transition-colors duration-200"
                                 >
                                   Tutti i prodotti
                                   <svg className="w-3 h-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -191,7 +191,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                                     key={child.href}
                                     href={child.href}
                                     onClick={handleClose}
-                                    className="block py-2 text-label uppercase text-bordeaux/70 hover:text-bordeaux"
+                                    className="block py-2 text-label uppercase text-black-deep/70 hover:text-black-deep"
                                   >
                                     {child.label}
                                   </Link>

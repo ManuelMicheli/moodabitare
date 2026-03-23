@@ -4,8 +4,6 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
-import { HorizontalGallery } from "@/components/products/HorizontalGallery";
-import { GalleryWithSheet } from "@/components/products/GalleryWithSheet";
 import { PremiumCatalog } from "@/components/products/PremiumCatalog";
 import { premiumCatalogData } from "@/lib/premium-catalog-data";
 import { ALL_PRODUCTS, MACRO_CATEGORIES, R2_CDN } from "@/lib/constants";
@@ -715,21 +713,7 @@ export default async function ProductPage({ params }: Props) {
       )}
 
 
-      {/* Pail brand banner + gallery — solo per infissi in legno */}
-      {slug === "infissi-legno" && gallery && gallery.length > 0 && (
-        <div style={{ backgroundColor: "#533430" }}>
-          <div className="flex flex-col items-center justify-center px-6 sm:px-10 lg:px-20 py-12 lg:py-16">
-            <FadeInView>
-              <p className="text-body text-white/90 max-w-xl mx-auto text-center leading-relaxed">
-                Infissi in legno di alta qualità, realizzati artigianalmente in Italia
-                con legni selezionati e certificati per resistere nel tempo
-                senza perdere la loro eleganza naturale.
-              </p>
-            </FadeInView>
-          </div>
-          <HorizontalGallery images={gallery} alt={product.name} gridLayout darkBg />
-        </div>
-      )}
+      {/* infissi-legno ora usa PremiumCatalog con schede tecniche Pail */}
 
       {/* Korus brand section — solo per infissi alluminio/legno */}
       {slug === "infissi-alluminio-legno" && gallery && gallery.length > 0 && korusProducts && (

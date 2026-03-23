@@ -715,4 +715,106 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
       },
     ],
   },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  INFISSI IN LEGNO — Pail
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "infissi-legno": {
+    brandLabel: "Catalogo Pail",
+    title: "Il calore autentico del legno massello",
+    description:
+      "Infissi in legno massello lamellare realizzati artigianalmente in Italia con legni selezionati e certificati FSC/PEFC. Il legno è tra i migliori isolanti naturali: unisce prestazioni termiche eccellenti al calore tattile ed estetico che nessun altro materiale può offrire.",
+    stats: [
+      { n: 5, label: "Modelli" },
+      { n: 1, label: "Uw W/m²K", suffix: ",0" },
+      { n: 100, label: "Made in Italy", suffix: "%" },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  OUTDOOR — Gazebi, Piscine, Arredo Giardino
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "gazebi-strutture-legno": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Gazebi e strutture in legno lamellare su misura",
+    description:
+      "Strutture in legno lamellare certificato, trattato in autoclave per resistere a intemperie, insetti e funghi. Gazebi autoportanti, carport, pergolati addossati e dehor commerciali: ogni progetto è dimensionato secondo normativa NTC 2018 e realizzato su misura.",
+    stats: [
+      { n: 4, label: "Soluzioni" },
+      { n: 100, label: "Su misura", suffix: "%" },
+    ],
+  },
+
+  "piscine": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Piscine interrate e fuori terra su misura",
+    description:
+      "Dalla piscina in cemento armato alla soluzione prefabbricata in pannelli d'acciaio, dalla fuori terra con rivestimento in legno alla copertura automatica di sicurezza. Servizio chiavi in mano: progettazione con render 3D, scavo, struttura, impianto e rivestimento.",
+    stats: [
+      { n: 4, label: "Tipologie" },
+      { n: 10, label: "Anni garanzia" },
+    ],
+  },
+
+  "rivestimento-piscine": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Rinnova la tua piscina senza ricostruirla",
+    description:
+      "Servizio specializzato di rivestimento per piscine esistenti: PVC armato saldato a caldo, mosaico vetroso o pietra ricostruita. Rinnoviamo completamente l'aspetto e la funzionalità della tua piscina con impermeabilizzazione garantita e senza interventi strutturali invasivi.",
+    stats: [
+      { n: 3, label: "Materiali" },
+      { n: 10, label: "Anni garanzia" },
+    ],
+  },
+
+  "arredo-giardino": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Arreda il tuo giardino con stile e comfort",
+    description:
+      "Set pranzo in teak e alluminio, divani lounge con cuscini Quick Dry, barbecue e cucine outdoor in acciaio inox, illuminazione LED e complementi coordinati. Materiali selezionati per resistere a sole, pioggia e intemperie con zero manutenzione.",
+    stats: [
+      { n: 4, label: "Categorie" },
+      { n: 3, label: "Anni garanzia" },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════════
+   *  IMPIANTI
+   * ═══════════════════════════════════════════════════════════════ */
+
+  "impianti-fotovoltaici": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Energia dal sole, indipendenza dalla bolletta",
+    description:
+      "Impianti fotovoltaici residenziali da 3 a 15 kWp con pannelli monocristallini ad alta efficienza, inverter ibridi e sistemi di accumulo a batterie LFP. Servizio chiavi in mano dalla progettazione all'allaccio, con detrazione fiscale al 50%.",
+    stats: [
+      { n: 4, label: "Configurazioni" },
+      { n: 25, label: "Anni garanzia" },
+      { n: 50, label: "Detrazione", suffix: "%" },
+    ],
+  },
+
+  "impianti-elettrici": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Sicurezza e innovazione per la tua casa",
+    description:
+      "Progettazione e realizzazione di impianti elettrici civili a norma CEI 64-8: dal nuovo impianto all'adeguamento, dalla domotica KNX alla wallbox per auto elettriche. Ogni lavoro è certificato con Dichiarazione di Conformità (DiCo).",
+    stats: [
+      { n: 4, label: "Servizi" },
+      { n: 100, label: "Certificati", suffix: "%" },
+    ],
+  },
+
+  "impianti-idraulici": {
+    brandLabel: "Soluzioni Mood Abitare",
+    title: "Acqua e comfort, progettati su misura",
+    description:
+      "Impianti idraulici completi con distribuzione a collettore, riscaldamento a pavimento radiante, sostituzione tubazioni datate e sistemi di ricircolo per acqua calda istantanea. Ogni impianto è collaudato a 10 bar e certificato con Dichiarazione di Conformità.",
+    stats: [
+      { n: 4, label: "Soluzioni" },
+      { n: 10, label: "Bar collaudo" },
+    ],
+  },
 };

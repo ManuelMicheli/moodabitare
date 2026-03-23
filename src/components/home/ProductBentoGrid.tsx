@@ -165,10 +165,57 @@ export function ProductBentoGrid() {
           </FadeInView>
         </div>
 
-        {/* Bento grid — GSAP ScrollTrigger */}
-        <div className="relative z-30">
+        {/* Mobile cards — 50/50 split: text left, image right */}
+        <div className="relative z-30 flex flex-col gap-3 px-4 md:hidden">
+          {products.map((product, i) => (
+            <FadeInView key={product.name} delay={i * 0.06}>
+              <Link
+                href={product.href}
+                className="group flex overflow-hidden rounded-xl h-36 bg-cream border border-warm-gray/60"
+              >
+                {/* Left — text */}
+                <div className="flex-1 flex flex-col justify-between p-4">
+                  <div>
+                    <span className="text-[0.6rem] font-ui font-medium uppercase tracking-wider text-black-deep/40">
+                      {product.products} prodotti
+                    </span>
+                    <h3 className="font-card-title text-black-deep mt-0.5 leading-tight">
+                      {product.name}
+                    </h3>
+                    <p className="text-[0.7rem] font-body text-black-deep/60 mt-1 leading-snug line-clamp-2">
+                      {product.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[0.6rem] font-ui font-medium uppercase tracking-wider text-bordeaux/70">
+                      Scopri
+                    </span>
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-bordeaux/70 transition-transform duration-300 group-hover:translate-x-1">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+                {/* Right — image */}
+                <div className="relative w-[45%] flex-shrink-0 overflow-hidden">
+                  {product.image && (
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="45vw"
+                    />
+                  )}
+                </div>
+              </Link>
+            </FadeInView>
+          ))}
+        </div>
+
+        {/* Desktop bento grid — GSAP ScrollTrigger */}
+        <div className="relative z-30 hidden md:block">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:max-w-none lg:px-4">
-            <BentoGrid ref={gridRef} className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[18rem] md:auto-rows-[20rem] lg:auto-rows-[22rem]">
+            <BentoGrid ref={gridRef} className="grid-cols-2 lg:grid-cols-3 auto-rows-[20rem] lg:auto-rows-[22rem]">
               {products.map((product, i) => (
                 <div
                   key={product.name}
@@ -191,7 +238,7 @@ export function ProductBentoGrid() {
                               alt={`${product.name} ${j + 1}`}
                               fill
                               className="object-cover"
-                              sizes="(max-width: 768px) 33vw, 11vw"
+                              sizes="11vw"
                             />
                           </div>
                         ))}
@@ -202,7 +249,7 @@ export function ProductBentoGrid() {
                         alt={product.name}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 1024px) 50vw, 33vw"
                       />
                     ) : null}
                     <div className="absolute inset-0 bg-black/20" />
