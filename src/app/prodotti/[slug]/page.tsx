@@ -107,6 +107,10 @@ const productKeywords: Record<string, string[]> = {
     "finestre isolamento termico",
     "finestre risparmio energetico",
     "Oknoplast Premium Partner Varese",
+    "serramenti PVC Busto Arsizio",
+    "finestre PVC Gallarate",
+    "infissi PVC provincia Varese",
+    "sostituzione finestre Varese",
   ],
   "infissi-alluminio": [
     "infissi alluminio Varese",
@@ -116,6 +120,9 @@ const productKeywords: Record<string, string[]> = {
     "scorrevoli alluminio",
     "finestre alluminio minimal",
     "detrazioni fiscali serramenti",
+    "infissi alluminio Busto Arsizio",
+    "serramenti alluminio Gallarate",
+    "finestre alluminio provincia Varese",
   ],
   "infissi-alluminio-legno": [
     "infissi alluminio legno Varese",
@@ -175,6 +182,8 @@ const productKeywords: Record<string, string[]> = {
     "porte filomuro",
     "porte interne design",
     "porte interne su misura",
+    "porte interne Busto Arsizio",
+    "porte interne Gallarate",
   ],
   "porte-blindate": [
     "porte blindate Varese",
@@ -184,6 +193,9 @@ const productKeywords: Record<string, string[]> = {
     "porte blindate antieffrazione",
     "porta blindata ingresso",
     "porte blindate isolamento termico",
+    "porte blindate Busto Arsizio",
+    "porte blindate Gallarate",
+    "porte blindate provincia Varese",
   ],
   "grate-sicurezza": [
     "grate di sicurezza Varese",
@@ -288,6 +300,8 @@ const productKeywords: Record<string, string[]> = {
     "cucine con isola",
     "cucine made in Italy",
     "arredamento cucina Varese",
+    "cucine su misura Busto Arsizio",
+    "cucine Arrex Gallarate",
   ],
   "arredo-bagno": [
     "arredo bagno Varese",
@@ -296,6 +310,8 @@ const productKeywords: Record<string, string[]> = {
     "arredo bagno su misura",
     "arredo bagno design",
     "ristrutturazione bagno Varese",
+    "arredo bagno Busto Arsizio",
+    "ristrutturazione bagno Gallarate",
   ],
   "sanitari": [
     "sanitari Varese",
@@ -333,6 +349,9 @@ const productKeywords: Record<string, string[]> = {
     "condizionatori inverter",
     "climatizzatori A+++",
     "installazione climatizzatori Varese",
+    "climatizzatori Busto Arsizio",
+    "condizionatori Gallarate",
+    "installazione climatizzatori provincia Varese",
   ],
   "pompe-di-calore": [
     "pompe di calore Varese",
@@ -340,6 +359,8 @@ const productKeywords: Record<string, string[]> = {
     "pompa di calore aria acqua",
     "riscaldamento efficiente",
     "sostituzione caldaia pompa di calore",
+    "pompe di calore Busto Arsizio",
+    "pompa calore Gallarate",
   ],
   "caldaia": [
     "caldaia a condensazione Varese",
@@ -347,6 +368,8 @@ const productKeywords: Record<string, string[]> = {
     "sostituzione caldaia",
     "caldaia condensazione prezzo",
     "installazione caldaia Varese",
+    "caldaia condensazione Busto Arsizio",
+    "sostituzione caldaia Gallarate",
   ],
   "impianti-fotovoltaici": [
     "fotovoltaico Varese",
@@ -354,6 +377,9 @@ const productKeywords: Record<string, string[]> = {
     "impianto fotovoltaico residenziale",
     "fotovoltaico con accumulo",
     "incentivi fotovoltaico",
+    "fotovoltaico Busto Arsizio",
+    "pannelli solari Gallarate",
+    "fotovoltaico provincia Varese",
   ],
   "impianti-elettrici": [
     "impianto elettrico Varese",
@@ -392,7 +418,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const content = productContent[slug];
   const brandSuffix = product.brand ? ` ${product.brand}` : "";
   const description = content?.tagline
-    ? `${product.name}${brandSuffix}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore (VA).`
+    ? `${product.name}${brandSuffix}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore — provincia di Varese.`
     : `${product.name}${product.brand ? ` di ${product.brand}` : ""}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`;
   return {
     title: `${product.name}${brandSuffix} — Varese`,
