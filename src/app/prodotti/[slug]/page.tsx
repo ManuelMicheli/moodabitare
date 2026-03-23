@@ -26,6 +26,7 @@ import { porteBlindateCategories } from "@/lib/porte-blindate-categories";
 import { securityDoorDetails, interiorDoorDetails } from "@/lib/product-details";
 import { PorteInterneCatalog } from "@/components/products/PorteInterneCatalog";
 import { porteInterneCategories } from "@/lib/porte-interne-categories";
+import { buildProductJsonLd } from "@/lib/seo/product-jsonld";
 
 const heroImages: Record<string, string> = {
   "infissi-legno": "/images/pail-belvedere.jpeg",
@@ -531,6 +532,13 @@ export default async function ProductPage({ params }: Props) {
         id={`breadcrumb-${slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Script
+        id="product-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildProductJsonLd(product, content, slug)),
+        }}
       />
       {/* Hero — cinematic full-bleed, unified for all products */}
       <section className="relative h-[75svh] min-h-[500px] flex flex-col justify-end bg-black text-white overflow-hidden">
