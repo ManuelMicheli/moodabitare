@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LazyOverlays } from "@/components/shared/LazyOverlays";
 import { R2_CDN } from "@/lib/constants";
+import { SAME_AS_PROFILES } from "@/lib/seo/local-seo";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -36,6 +37,13 @@ export const metadata: Metadata = {
     "serramenti Gorla Maggiore",
     "infissi alluminio Varese",
     "serramenti legno Varese",
+    "serramenti Busto Arsizio",
+    "serramenti Gallarate",
+    "serramenti Saronno",
+    "serramenti Legnano",
+    "infissi provincia Varese",
+    "ristrutturazione Busto Arsizio",
+    "showroom serramenti alto milanese",
   ],
   openGraph: {
     type: "website",
@@ -185,6 +193,41 @@ const jsonLdSchemas = [
       "Arredo bagno",
       "Cucine su misura",
     ],
+    sameAs: SAME_AS_PROFILES,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Prodotti e Servizi Mood Abitare",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Serramenti",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi in PVC Oknoplast" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi in Alluminio Oknoplast" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi in Legno Pail" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi Alluminio/Legno Korus" } },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Porte",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Porte Interne Pail" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Porte Blindate Alias" } },
+            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Portoncini Oknoplast" } },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Ristrutturazioni",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ristrutturazione chiavi in mano" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Rifacimento bagno completo" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Impianti elettrici e idraulici" } },
+          ],
+        },
+      ],
+    },
   },
 ];
 
