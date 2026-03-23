@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { Suspense } from "react";
 import Image from "next/image";
 import { FadeInView } from "@/components/animations/FadeInView";
@@ -44,6 +46,17 @@ export const metadata: Metadata = {
 export default function ProdottiPage() {
   return (
     <main>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbJsonLd([
+              { name: "Prodotti", url: "https://www.moschianosrl.it/prodotti" },
+            ])
+          ),
+        }}
+      />
       {/* Hero */}
       <section className="relative min-h-[45vh] sm:min-h-[70vh] flex items-end text-white overflow-hidden">
         <Image

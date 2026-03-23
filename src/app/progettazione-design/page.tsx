@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -64,6 +66,17 @@ const designServices = [
 export default function ProgettazioneDesign() {
   return (
     <main>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbJsonLd([
+              { name: "Progettazione e Design", url: "https://www.moschianosrl.it/progettazione-design" },
+            ])
+          ),
+        }}
+      />
       {/* Hero */}
       <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />

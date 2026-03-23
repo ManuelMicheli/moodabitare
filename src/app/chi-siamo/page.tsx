@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
@@ -77,6 +79,17 @@ const timeline = [
 export default function ChiSiamo() {
   return (
     <main>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbJsonLd([
+              { name: "Chi Siamo", url: "https://www.moschianosrl.it/chi-siamo" },
+            ])
+          ),
+        }}
+      />
       {/* ─── Hero ──────────────────────────────────────────────────── */}
       {/* Mobile: immagine + titolo sotto su sfondo crema */}
       <div className="sm:hidden">

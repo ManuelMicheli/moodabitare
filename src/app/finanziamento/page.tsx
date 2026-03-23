@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -31,6 +33,17 @@ export const metadata: Metadata = {
 export default function Finanziamento() {
   return (
     <main>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbJsonLd([
+              { name: "Finanziamento", url: "https://www.moschianosrl.it/finanziamento" },
+            ])
+          ),
+        }}
+      />
       {/* ── Hero ── */}
       <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-end bg-black-deep overflow-hidden">
         {/* Large decorative 0% */}

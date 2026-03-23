@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
@@ -127,6 +129,17 @@ const steps = [
 export default function ServiziRistrutturazione() {
   return (
     <main>
+      <Script
+        id="breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumbJsonLd([
+              { name: "Servizi di Ristrutturazione", url: "https://www.moschianosrl.it/servizi-ristrutturazione" },
+            ])
+          ),
+        }}
+      />
       {/* Hero */}
       <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
         <Image
