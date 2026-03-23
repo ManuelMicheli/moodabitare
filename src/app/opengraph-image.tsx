@@ -93,7 +93,7 @@ export default function OGImage() {
             display: "flex",
           }}
         >
-          Serramenti, Porte e Ristrutturazioni
+          Serramenti, Porte, Ristrutturazioni e Arredo Casa
         </div>
 
         {/* Location */}
@@ -105,7 +105,7 @@ export default function OGImage() {
             display: "flex",
           }}
         >
-          Gorla Maggiore (VA) — Premium Partner Oknoplast
+          Showroom 300mq a Gorla Maggiore (VA) — Premium Partner Oknoplast
         </div>
 
         {/* Bottom bordeaux accent */}
