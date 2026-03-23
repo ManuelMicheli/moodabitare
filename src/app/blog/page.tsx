@@ -16,6 +16,10 @@ export const metadata: Metadata = {
       "Guide e approfondimenti su serramenti, ristrutturazioni ed efficienza energetica.",
     url: "https://www.moschianosrl.it/blog",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 const placeholderPosts = [

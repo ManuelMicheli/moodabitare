@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     description: "Portfolio lavori realizzati: serramenti, ristrutturazioni e arredo casa a Varese.",
     url: "https://www.moschianosrl.it/progetti",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function Progetti() {
