@@ -3,9 +3,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { MACRO_CATEGORIES, ALL_PRODUCTS } from "@/lib/constants";
-import { productCoverImages } from "@/lib/product-images";
 import { cn } from "@/lib/utils";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
@@ -79,18 +77,6 @@ export function ProductCatalog() {
                 )`,
               }}
             >
-              <div className="aspect-[4/3] relative overflow-hidden bg-warm-gray/20">
-                {productCoverImages[product.slug] ? (
-                  <Image
-                    src={productCoverImages[product.slug]}
-                    alt={product.name}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                ) : null}
-                <div className="absolute inset-0" />
-              </div>
               <div className="p-3 sm:p-6 lg:p-8 flex-1">
                 {product.brand && (
                   <span className="text-label text-[0.6rem] sm:text-[0.65rem] text-black-deep/30">
