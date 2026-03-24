@@ -135,8 +135,8 @@ export function ProductBentoGrid() {
       <div className="relative">
         {/* Section title */}
         <h2
-          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-black-deep lg:whitespace-nowrap"
-          style={{ fontSize: "clamp(1.5rem, 4.2vw, 9rem)" }}
+          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-black-deep whitespace-nowrap"
+          style={{ fontSize: "clamp(1.15rem, 5.2vw, 9rem)" }}
         >
           <TextShimmer
             duration={4}
@@ -150,12 +150,24 @@ export function ProductBentoGrid() {
 
         {/* Subtitle */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 sm:px-10 lg:px-20 pt-8 lg:pt-12 pb-16 lg:pb-24">
+          {/* Decorative background text — full viewport width behind subtitle */}
+          <div
+            className="absolute inset-0 flex items-center justify-center select-none pointer-events-none -left-[50vw] -right-[50vw]"
+            aria-hidden="true"
+          >
+            <span
+              className="font-display font-bold text-black-deep/[0.04] leading-none block whitespace-nowrap"
+              style={{ fontSize: "clamp(3.5rem, 10vw, 18rem)" }}
+            >
+              Mood Abitare
+            </span>
+          </div>
           <FadeInView>
             <p className="text-label text-black-deep/60 mb-8">
               I nostri prodotti
             </p>
             <p
-              className="font-body text-black-deep/80 leading-relaxed"
+              className="font-body text-black-deep/80 leading-relaxed max-w-[16rem] sm:max-w-none mx-auto sm:mx-0"
               style={{ fontSize: "clamp(1.25rem, 1rem + 1.5vw, 2rem)" }}
             >
               Selezioniamo solo i <em>migliori</em> brand italiani ed europei
@@ -171,7 +183,7 @@ export function ProductBentoGrid() {
             <FadeInView key={product.name} delay={i * 0.06}>
               <Link
                 href={product.href}
-                className="group flex overflow-hidden rounded-xl h-36 bg-cream border border-warm-gray/60"
+                className="group flex overflow-hidden rounded-xl h-44 bg-cream border border-warm-gray/60"
               >
                 {/* Left — text */}
                 <div className="flex-1 flex flex-col justify-between p-4">

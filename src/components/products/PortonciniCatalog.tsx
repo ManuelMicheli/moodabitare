@@ -163,33 +163,13 @@ function CategoryNav({
     }
   }, [activeId]);
 
-  if (isMobile) {
-    return (
-      <div className="relative">
-        <div className="flex gap-1.5 overflow-x-auto pb-3 -mx-6 px-6 scrollbar-hide snap-x snap-mandatory">
-          {categories.map((cat) => {
-            const isActive = cat.id === activeId;
-            return (
-              <button key={cat.id} type="button" onClick={() => onSelect(cat.id)} className={cn("snap-start flex-shrink-0 flex items-center gap-2 px-5 py-3 rounded-full font-ui text-[0.7rem] font-semibold uppercase tracking-[0.12em] transition-all duration-300", isActive ? "bg-black-deep text-white shadow-lg shadow-black-deep/20" : "text-black-deep/35 hover:text-black-deep/60")}>
-                <span className={isActive ? "text-white/60" : "text-black-deep/20"}>{categoryIcons[cat.id]}</span>
-                {cat.label}
-                <span className={cn("ml-0.5 text-[0.55rem] font-normal", isActive ? "text-white/40" : "text-black-deep/20")}>{cat.products.length}</span>
-              </button>
-            );
-          })}
-        </div>
-        <div className="absolute right-0 top-0 bottom-3 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none" />
-      </div>
-    );
-  }
-
   return (
-    <div ref={navRef} className="relative flex items-end border-b border-black-deep/[0.06]">
+    <div ref={navRef} className="relative flex items-end border-b border-black-deep/[0.06] overflow-x-auto scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0">
       {categories.map((cat) => {
         const isActive = cat.id === activeId;
         return (
-          <button key={cat.id} ref={(el) => { if (el) btnRefs.current.set(cat.id, el); }} type="button" onClick={() => onSelect(cat.id)} className={cn("relative px-6 lg:px-10 pb-5 pt-2 transition-colors duration-300", isActive ? "text-black-deep" : "text-black-deep/25 hover:text-black-deep/50")}>
-            <span className="font-display text-lg lg:text-xl xl:text-2xl font-semibold tracking-tight">{cat.label}</span>
+          <button key={cat.id} ref={(el) => { if (el) btnRefs.current.set(cat.id, el); }} type="button" onClick={() => onSelect(cat.id)} className={cn("relative flex-shrink-0 px-4 sm:px-6 lg:px-10 pb-4 sm:pb-5 pt-2 transition-colors duration-300", isActive ? "text-black-deep" : "text-black-deep/25 hover:text-black-deep/50")}>
+            <span className="font-display text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold tracking-tight">{cat.label}</span>
             <sup className={cn("ml-1.5 font-ui text-[0.6rem] font-medium transition-colors duration-300", isActive ? "text-bordeaux" : "text-black-deep/20")}>{cat.products.length}</sup>
           </button>
         );

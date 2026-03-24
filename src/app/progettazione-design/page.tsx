@@ -182,22 +182,6 @@ export default function ProgettazioneDesign() {
                   </p>
                 </div>
 
-                {/* Tags */}
-                <div className="mt-10 flex flex-wrap gap-3">
-                  {[
-                    "Ascolto",
-                    "Progettazione",
-                    "Render 3D",
-                    "Posa certificata",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block px-4 py-1.5 text-[0.75rem] font-ui font-medium tracking-wider uppercase text-black-deep/60 border border-black-deep/8"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </FadeInView>
@@ -211,14 +195,14 @@ export default function ProgettazioneDesign() {
       <section className="py-28 lg:py-44 bg-black-deep relative overflow-hidden">
         {/* Decorative background */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] select-none pointer-events-none"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[10%] select-none pointer-events-none"
           aria-hidden="true"
         >
           <span
             className="font-display font-bold text-white/[0.02] leading-none block whitespace-nowrap"
             style={{ fontSize: "clamp(8rem, 15vw, 20rem)" }}
           >
-            La tua casa
+            Mood Abitare
           </span>
         </div>
 

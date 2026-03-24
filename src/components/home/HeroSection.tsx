@@ -361,7 +361,7 @@ export function HeroSection() {
             slidesRef.current[i] = el;
           }}
           className="absolute inset-0"
-          style={{ willChange: "clip-path, transform, filter" }}
+          style={{ willChange: "clip-path, transform" }}
         >
           {slide.video ? (
             <video
@@ -379,6 +379,7 @@ export function HeroSection() {
               fill
               priority={i === 0}
               sizes="100vw"
+              quality={90}
               className="object-cover"
             />
           ) : (
@@ -435,7 +436,7 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide precedente"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 flex w-8 h-8 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
         <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 18l-6-6 6-6" />
@@ -449,7 +450,7 @@ export function HeroSection() {
           startAutoplay();
         }}
         aria-label="Slide successiva"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 hidden sm:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 flex w-8 h-8 sm:w-12 sm:h-12 rounded-full border border-white/25 bg-black/20 backdrop-blur-sm text-white cursor-pointer items-center justify-center transition-all duration-300 hover:bg-bordeaux/60 hover:border-bordeaux/80"
       >
         <svg className="w-4 h-4 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M9 18l6-6-6-6" />

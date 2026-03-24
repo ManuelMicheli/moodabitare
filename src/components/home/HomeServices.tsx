@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
-import { DrawLine } from "@/components/animations/DrawLine";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { MagneticButton } from "@/components/animations/MagneticButton";
 
@@ -13,57 +11,31 @@ const services = [
     title: "Consulenza progettuale",
     detail:
       "Analisi delle esigenze e delle specifiche dello spazio da rinnovare. Progetto personalizzato per assicurare che le soluzioni proposte migliorino l'estetica degli ambienti e ne aumentino l'efficienza energetica e il comfort.",
-    highlights: [
-      "Analisi personalizzata",
-      "Efficienza energetica",
-      "Comfort abitativo",
-    ],
   },
   {
     title: "Preventivi e sopralluoghi gratuiti",
     detail:
       "Sopralluoghi gratuiti con tecnico qualificato. Preventivi dettagliati, chiari e trasparenti con stima precisa dei costi e delle tempistiche. Nessun costo nascosto, nessun impegno.",
-    highlights: [
-      "Sopralluogo gratuito",
-      "Preventivo dettagliato",
-      "Stima tempistiche",
-    ],
   },
   {
     title: "Installazione e posa in opera",
     detail:
       "Squadra di operatori formata direttamente dall'azienda. Montaggio dei serramenti in totale sicurezza con tecniche all'avanguardia e materiali di alta qualità. Posa in opera certificata con patentino.",
-    highlights: [
-      "Patentino posa certificata",
-      "Tecniche all'avanguardia",
-      "Materiali di qualità",
-    ],
   },
   {
     title: "Supporto detrazioni fiscali",
     detail:
       "Gestione completa dell'aspetto burocratico per interventi di sostituzione dei serramenti. Il team si occupa dell'invio dei dati all'Istituto preposto per usufruire delle detrazioni statali. Compilazione della documentazione e presentazione delle pratiche incluse.",
-    highlights: [
-      "Detrazioni fiscali",
-      "Gestione documenti",
-      "Pratiche incluse",
-    ],
   },
   {
     title: "Smaltimento vecchi serramenti",
     detail:
       "Rimozione e trasporto dei vecchi infissi presso strutture di smaltimento autorizzate, nel rispetto dell'ambiente e delle normative vigenti in materia di gestione dei rifiuti.",
-    highlights: [
-      "Centri autorizzati",
-      "A norma di legge",
-      "Ritiro incluso",
-    ],
   },
   {
     title: "Assistenza post-vendita",
     detail:
       "Servizio completo di assistenza post-vendita: manutenzione, riparazioni e consigli. L'impegno non termina con l'installazione. Intervento rapido e professionale per qualsiasi necessità.",
-    highlights: ["Manutenzione", "Riparazioni", "Intervento rapido"],
   },
 ];
 
@@ -146,16 +118,6 @@ export function HomeServices() {
                       >
                         {service.detail}
                       </p>
-                      <div className="mt-3.5 flex flex-wrap gap-2">
-                        {service.highlights.map((h) => (
-                          <span
-                            key={h}
-                            className="inline-block flex-shrink-0 px-3 py-1.5 rounded-full text-[0.75rem] sm:text-[0.8rem] font-ui font-semibold tracking-wide uppercase text-black-deep/50 bg-black-deep/[0.06] border border-black-deep/[0.08] group-hover:border-bordeaux/20 group-hover:text-bordeaux/60 group-hover:bg-bordeaux/[0.04] transition-colors duration-500"
-                          >
-                            {h}
-                          </span>
-                        ))}
-                      </div>
                     </div>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="sticky bottom-0 z-0 bg-black-deep text-white">
+    <footer className="relative lg:sticky lg:bottom-0 z-0 bg-black-deep text-white">
       {/* Marquee */}
       <div className="border-b border-white/5 py-8 lg:py-10 overflow-hidden">
         <div className="marquee-track will-change-transform"
