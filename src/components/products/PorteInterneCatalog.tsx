@@ -15,6 +15,8 @@ import { HoverTilt } from "@/components/animations/HoverTilt";
 import type { GalleryImage } from "./HorizontalGallery";
 import type { PorteInterneSubCategory } from "@/lib/porte-interne-categories";
 import type { ProductDetail } from "@/lib/product-details";
+import { RequestQuoteBanner } from "./RequestQuoteBanner";
+import { BrandLinks } from "./BrandLinks";
 
 /* ── Icons per ogni macro-categoria ─── */
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -228,10 +230,11 @@ function PorteInterneCatalogInner({
             agli inserti in pietra: porte interne Pail e Door Arreda per ogni ambiente.
           </p>
         </FadeInView>
+        <div className="mt-5 sm:mt-6"><BrandLinks brands="Pail / Door Arreda" /></div>
 
         <DrawLine className="mt-10 sm:mt-12 !bg-black-deep/[0.06]" delay={0.5} />
         <FadeInView delay={0.6}>
-          <div className="mt-8 flex items-center gap-8 sm:gap-12 lg:gap-16">
+          <div className="mt-8 flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
             {[
               { n: totalProducts, label: "Modelli" },
               { n: categories.length, label: "Collezioni" },
@@ -242,6 +245,7 @@ function PorteInterneCatalogInner({
                 <span className="font-ui text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.15em] text-black-deep/30 font-medium">{stat.label}</span>
               </div>
             ))}
+            <RequestQuoteBanner productName="porte interne" />
           </div>
         </FadeInView>
 

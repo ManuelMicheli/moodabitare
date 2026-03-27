@@ -382,80 +382,6 @@ export default async function ProductPage({ params }: Props) {
   const gallery = productGalleryImages[slug];
   const content = productContent[slug];
 
-  const korusProducts = slug === "infissi-alluminio-legno" ? [
-    {
-      name: "Skywood EVO Original Energy 1.0",
-      subtitle: "UN NUOVO CLASSICO",
-      features: [
-        "Triplo vetro che riduce la perdita di calore interno",
-        "Design moderno, linee classiche ed eleganti, ricercate e senza tempo",
-        "Legno pregiato naturale di altissima qualità",
-        "Profili che aprono grandi superfici vetrate per la massima panoramicità",
-        "Estrema economicità e rispetto della previdenza energetica",
-      ],
-    },
-    {
-      name: "Skywood EVO Original",
-      subtitle: "UN NUOVO CLASSICO",
-      features: [
-        "Design moderno, linee classiche ed eleganti, ricercate e senza tempo",
-        "Consente la realizzazione di altissime superfici vetrate",
-        "Legno pregiato naturale di altissima qualità",
-        "Personalizzazione in combinazione di materiali e colori",
-        "Massima durata dell'infisso",
-      ],
-    },
-    {
-      name: "Skywood EVO Linear Energy 1.0",
-      subtitle: "ELEGANZA LINEARE",
-      features: [
-        "Triplo vetro di serie per un maggior isolamento",
-        "Profili Flat per performance estetiche ai massimi livelli",
-        "Grandi superfici vetrate con sezioni ridotte per massima panoramicità",
-        "Legno pregiato naturale di altissima qualità con ampie personalizzazioni",
-      ],
-    },
-    {
-      name: "Skywood EVO Linear",
-      subtitle: "ELEGANZA LINEARE",
-      features: [
-        "Design minimalista ricercato di altissima qualità",
-        "Legno pregiato naturale di altissima qualità",
-        "Grandi superfici vetrate con sezioni ridotte",
-        "Verniciatura con trattamento anticorrosione di serie",
-      ],
-    },
-    {
-      name: "Skywood EVO Energy 1.0",
-      subtitle: "SCENOGRAFIE DEL LEGNO",
-      features: [
-        "Triplo vetro che riduce la perdita di calore interno",
-        "Profili Flat per performance estetiche ai massimi livelli",
-        "Grandi superfici vetrate con massimo comfort e soddisfazione",
-        "Legno pregiato naturale di altissima qualità con ampie personalizzazioni",
-      ],
-    },
-    {
-      name: "Skywood EVO",
-      subtitle: "TUTTO IL CALORE DEL LEGNO",
-      features: [
-        "Legno pregiato naturale di altissima qualità per le prestazioni",
-        "Ampia scelta con oltre 60 colori personalizzabili della struttura in alluminio",
-        "Design moderno, geometrie equilibrate, sobrietà tipicamente italiana",
-        "Resistente e durevole nel tempo",
-      ],
-    },
-    {
-      name: "Air SlideWood",
-      subtitle: "NATURALE E INNOVATIVO",
-      features: [
-        "Legno pregiato naturale di altissima qualità",
-        "Ottima illuminazione degli ambienti",
-        "Nessun ingombro interno ed esterno",
-        "Massima compatibilità con tapparelle, cassonetti e persiane di sicurezza",
-      ],
-    },
-  ] : null;
 
   // BreadcrumbList JSON-LD for rich breadcrumb display in Google
   const breadcrumbJsonLd = {
@@ -525,76 +451,6 @@ export default async function ProductPage({ params }: Props) {
 
       {/* infissi-legno ora usa PremiumCatalog con schede tecniche Pail */}
 
-      {/* Korus brand section — solo per infissi alluminio/legno */}
-      {slug === "infissi-alluminio-legno" && gallery && gallery.length > 0 && korusProducts && (
-        <div style={{ backgroundColor: "#B32024" }}>
-          {/* Header con logo e intro */}
-          <div className="px-6 sm:px-10 lg:px-20 pt-10 sm:pt-16 lg:pt-24 pb-8 sm:pb-10 lg:pb-16">
-            <a href="https://korusweb.com" target="_blank" rel="noopener noreferrer" className="block w-full max-w-5xl mx-auto mb-14">
-              <Image
-                src="/brandpartner/KORUS.png"
-                alt="Korus — Visita il sito ufficiale"
-                width={1600}
-                height={260}
-                className="w-full h-auto hover:opacity-90 transition-opacity"
-              />
-            </a>
-            <FadeInView>
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-white text-left mb-6">
-                Perché scegliere le finestre in Alluminio/Legno
-              </h2>
-              <p className="text-body text-white/90 max-w-2xl text-left leading-relaxed">
-                Le finestre in Alluminio/Legno sono la punta di diamante degli infissi Korus.
-                Realizzate con materiali di primissima fattura, hanno un design unico
-                e certificazioni che creano ambienti gradevoli, caldi e accoglienti.
-                Le performance termiche sono straordinarie e la loro lunga durata nel tempo è
-                assicurata dalla qualità dei materiali utilizzati.
-              </p>
-            </FadeInView>
-          </div>
-
-          {/* Schede prodotto con immagine affiancata */}
-          <div className="px-4 sm:px-10 lg:px-20 pb-10 sm:pb-16 lg:pb-24">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-              {korusProducts.map((prod, i) => (
-                <FadeInView key={prod.name} delay={i * 0.05}>
-                  <div className="bg-white rounded-lg overflow-hidden h-full flex flex-col sm:flex-row">
-                    {/* Immagine prodotto */}
-                    <div className="relative w-full sm:w-2/5 flex-shrink-0 bg-neutral-50 flex items-center justify-center p-3 sm:p-6">
-                      <div className="relative w-full aspect-[4/3] sm:aspect-square">
-                        <Image
-                          src={gallery[i].src}
-                          alt={prod.name}
-                          fill
-                          className="object-contain"
-                          sizes="(max-width: 640px) 80vw, (max-width: 1024px) 25vw, 20vw"
-                        />
-                      </div>
-                    </div>
-                    {/* Info prodotto */}
-                    <div className="p-4 sm:p-6 flex flex-col justify-center">
-                      <h3 className="font-display text-base sm:text-lg lg:text-xl font-semibold text-black-deep">
-                        {prod.name}
-                      </h3>
-                      <p className="mt-1 font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] text-black-deep/70">
-                        {prod.subtitle}
-                      </p>
-                      <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
-                        {prod.features.map((feat) => (
-                          <li key={feat} className="flex items-start gap-2 sm:gap-2.5 font-ui text-[0.75rem] sm:text-[0.8rem] text-black-deep leading-relaxed">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#B32024" }} />
-                            {feat}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </FadeInView>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Tapparelle — catalogo categorizzato Pasini */}
       {slug === "tapparelle" && (
@@ -649,6 +505,8 @@ export default async function ProductPage({ params }: Props) {
             images={cfg.categories ? undefined : gallery}
             details={details ?? {}}
             cover={useCover}
+            brands={product.brand}
+            productName={product.name.toLowerCase()}
           />
         );
       })()}

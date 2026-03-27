@@ -260,7 +260,7 @@ export function AboutSection() {
   return (
     <section
       ref={containerRef}
-      className="py-20 lg:py-56 px-6 sm:px-10 lg:px-20"
+      className="pt-10 pb-20 lg:pt-16 lg:pb-56 px-6 sm:px-10 lg:px-20"
     >
       <div className="max-w-6xl mx-auto lg:flex lg:gap-16 lg:items-stretch">
         {/* Card verticali placeholder — solo desktop */}

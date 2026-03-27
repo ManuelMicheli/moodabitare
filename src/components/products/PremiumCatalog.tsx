@@ -14,6 +14,8 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 import { HoverTilt } from "@/components/animations/HoverTilt";
 import type { GalleryImage } from "./HorizontalGallery";
 import type { ProductDetail } from "@/lib/product-details";
+import { RequestQuoteBanner } from "./RequestQuoteBanner";
+import { BrandLinks } from "./BrandLinks";
 
 /* ── Types ────────────────────────────────────── */
 
@@ -34,6 +36,8 @@ export interface PremiumCatalogProps {
   images?: GalleryImage[];
   details: Record<string, ProductDetail>;
   cover?: boolean;
+  brands?: string;
+  productName?: string;
 }
 
 /* ── Segment badge colors ─────────────────────── */
@@ -96,7 +100,7 @@ function ProductCard({
             className={cn(
               "transition-all duration-700 ease-out",
               "object-contain",
-              cover ? "" : isMobile ? "p-4" : "p-6 lg:p-8",
+              isMobile ? "p-4" : "p-6 lg:p-8",
               "group-hover/card:scale-[1.06]"
             )}
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
@@ -264,6 +268,8 @@ function PremiumCatalogInner({
   images,
   details,
   cover,
+  brands,
+  productName,
 }: PremiumCatalogProps) {
   const isMobile = useIsMobile(640);
   const searchParams = useSearchParams();
@@ -342,8 +348,9 @@ function PremiumCatalogInner({
             {description}
           </p>
         </FadeInView>
+        {brands && <div className="mt-5 sm:mt-6"><BrandLinks brands={brands} /></div>}
 
-        {/* Inline stats */}
+        {/* Inline stats + CTA */}
         <DrawLine className="mt-10 sm:mt-12 !bg-black-deep/[0.06]" delay={0.5} />
         <FadeInView delay={0.6}>
           <div className="mt-8 flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
@@ -360,6 +367,7 @@ function PremiumCatalogInner({
                 </span>
               </div>
             ))}
+            <RequestQuoteBanner productName={productName ?? title.toLowerCase()} />
           </div>
         </FadeInView>
 

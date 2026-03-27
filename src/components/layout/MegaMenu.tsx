@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { MACRO_CATEGORIES, BRAND_PARTNERS } from "@/lib/constants";
-import { productCoverImages } from "@/lib/product-images";
 
 interface MegaMenuProps {
   onNavigate?: () => void;
@@ -60,39 +58,15 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-const CATEGORY_PREVIEWS: Record<string, { src: string; alt: string }> = {
-  "serramenti-oscuranti-portoncini": { src: "/images/wmremove-transformed (69).webp", alt: "Serramenti e infissi" },
-  "porte-interne-blindate": { src: "/moodabitarereal/porte-showroom.jpeg", alt: "Porte interne e blindate" },
-  "sistemi-sicurezza": { src: "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg", alt: "Sistemi di sicurezza" },
-  "comfort-complementi": { src: "/moodabitarereal/comfort-complementi.jfif", alt: "Comfort e complementi" },
-  "outdoor": { src: "/moodabitarereal/outdoor-pergola.webp", alt: "Outdoor e giardino" },
-  "casa-arredo": { src: "/moodabitarereal/casa-arredo.jpeg", alt: "Casa e arredo" },
-  "riscaldamento-rinnovabili": { src: "/moodabitarereal/climatizzatore-samsung.webp", alt: "Riscaldamento e rinnovabili" },
-};
-
-
 export function MegaMenu({ onNavigate }: MegaMenuProps) {
   const [hoveredCategory, setHoveredCategory] = useState(MACRO_CATEGORIES[0].id);
-  const [hoveredProduct, setHoveredProduct] = useState<{ slug: string; name: string } | null>(null);
 
   const uniqueProductCount = new Set(
     MACRO_CATEGORIES.flatMap((mc) => mc.products.map((p) => p.slug))
   ).size;
 
-  const productHeroSrc = hoveredProduct ? productCoverImages[hoveredProduct.slug] : null;
-  const preview = !hoveredProduct ? CATEGORY_PREVIEWS[hoveredCategory] : null;
-  const hoveredLabel = hoveredProduct
-    ? hoveredProduct.name
-    : MACRO_CATEGORIES.find((c) => c.id === hoveredCategory)?.label ?? "";
-  const previewKey = hoveredProduct ? `product-${hoveredProduct.slug}` : `cat-${hoveredCategory}`;
-
   const handleCategoryHover = useCallback((id: string) => {
     setHoveredCategory(id);
-    setHoveredProduct(null);
-  }, []);
-
-  const handleProductHover = useCallback((slug: string, name: string) => {
-    setHoveredProduct({ slug, name });
   }, []);
 
   return (
@@ -109,72 +83,18 @@ export function MegaMenu({ onNavigate }: MegaMenuProps) {
       <div className="bg-black-deep/[0.97] backdrop-blur-xl">
         <div className="px-6 sm:px-10 lg:px-16 xl:px-20 py-6 lg:py-8">
 
-          {/* Categories + Preview */}
-          <div className="flex gap-6 xl:gap-8">
-
-            {/* Left: 7 category columns */}
-            <div className="flex-1 min-w-0 grid grid-cols-7 gap-5 xl:gap-7">
-              {MACRO_CATEGORIES.map((category, catIndex) => (
-                <CategoryColumn
-                  key={category.id}
-                  category={category}
-                  catIndex={catIndex}
-                  isActive={hoveredCategory === category.id}
-                  onHover={handleCategoryHover}
-                  onProductHover={handleProductHover}
-                  onNavigate={onNavigate}
-                />
-              ))}
-            </div>
-
-            {/* Right: Preview square */}
-            <div className="hidden xl:block w-60 2xl:w-72 flex-shrink-0">
-              <div className="relative aspect-square rounded-lg overflow-hidden bg-white/5">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={previewKey}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="absolute inset-0"
-                  >
-                    {/* Image or grey placeholder */}
-                    {productHeroSrc ? (
-                      <Image
-                        src={productHeroSrc}
-                        alt={hoveredLabel}
-                        fill
-                        sizes="288px"
-                        className="object-cover"
-                      />
-                    ) : preview ? (
-                      <Image
-                        src={preview.src}
-                        alt={preview.alt}
-                        fill
-                        sizes="288px"
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-white/[0.06]" />
-                    )}
-                    {/* Gradient overlay for label */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    {/* Label */}
-                    <div className="absolute bottom-0 inset-x-0 p-4">
-                      <p className="font-display font-bold text-white text-sm leading-tight">
-                        {hoveredLabel}
-                      </p>
-                      <span className="font-ui text-[0.6rem] uppercase tracking-widest text-white/60 mt-1 block">
-                        {hoveredProduct ? "Scopri" : "Scopri la gamma"}
-                      </span>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-
+          {/* Categories */}
+          <div className="grid grid-cols-7 gap-5 xl:gap-7">
+            {MACRO_CATEGORIES.map((category, catIndex) => (
+              <CategoryColumn
+                key={category.id}
+                category={category}
+                catIndex={catIndex}
+                isActive={hoveredCategory === category.id}
+                onHover={handleCategoryHover}
+                onNavigate={onNavigate}
+              />
+            ))}
           </div>
 
           {/* Bottom bar */}
@@ -215,14 +135,12 @@ function CategoryColumn({
   catIndex,
   isActive,
   onHover,
-  onProductHover,
   onNavigate,
 }: {
   category: (typeof MACRO_CATEGORIES)[number];
   catIndex: number;
   isActive: boolean;
   onHover: (id: string) => void;
-  onProductHover: (slug: string, name: string) => void;
   onNavigate?: () => void;
 }) {
   return (
@@ -255,7 +173,6 @@ function CategoryColumn({
             <Link
               href={`/prodotti/${product.slug}`}
               onClick={onNavigate}
-              onMouseEnter={() => onProductHover(product.slug, product.name)}
               className="group flex flex-col gap-0 py-1.5 px-2 -mx-2 rounded hover:bg-white/[0.04] transition-all duration-200 relative"
             >
               <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 group-hover:h-3 bg-white/50 rounded-full transition-all duration-200" />

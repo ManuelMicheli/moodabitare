@@ -15,6 +15,8 @@ import { HoverTilt } from "@/components/animations/HoverTilt";
 import type { GalleryImage } from "./HorizontalGallery";
 import type { TapparelleSubCategory } from "@/lib/tapparelle-categories";
 import type { ProductDetail } from "@/lib/product-details";
+import { RequestQuoteBanner } from "./RequestQuoteBanner";
+import { BrandLinks } from "./BrandLinks";
 
 /* ── Material icons ───────────────────────────── */
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -344,11 +346,12 @@ function TapparelleCatalogInner({
             esigenza di comfort, sicurezza e design.
           </p>
         </FadeInView>
+        <div className="mt-5 sm:mt-6"><BrandLinks brands="Pasini" /></div>
 
-        {/* Inline stats */}
+        {/* Inline stats + CTA */}
         <DrawLine className="mt-10 sm:mt-12 !bg-black-deep/[0.06]" delay={0.5} />
         <FadeInView delay={0.6}>
-          <div className="mt-8 flex items-center gap-8 sm:gap-12 lg:gap-16">
+          <div className="mt-8 flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
             {[
               { n: totalProducts, label: "Modelli" },
               { n: 4, label: "Materiali" },
@@ -366,6 +369,7 @@ function TapparelleCatalogInner({
                 </span>
               </div>
             ))}
+            <RequestQuoteBanner productName="tapparelle" />
           </div>
         </FadeInView>
 

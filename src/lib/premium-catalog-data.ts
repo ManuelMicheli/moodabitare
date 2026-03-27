@@ -60,6 +60,17 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
     ],
   },
 
+  "infissi-alluminio-legno": {
+    brandLabel: "Catalogo Korus",
+    title: "Infissi in alluminio e legno Korus",
+    description:
+      "Le finestre in Alluminio/Legno sono la punta di diamante degli infissi Korus. Realizzate con materiali di primissima fattura, hanno un design unico e certificazioni che creano ambienti gradevoli, caldi e accoglienti. Le performance termiche sono straordinarie e la loro lunga durata nel tempo è assicurata dalla qualità dei materiali utilizzati.",
+    stats: [
+      { n: 7, label: "Modelli" },
+      { n: 3, label: "Linee" },
+    ],
+  },
+
   "persiane": {
     brandLabel: "Catalogo Erreci \u00B7 Persit \u00B7 Korus",
     title: "Persiane di sicurezza per ogni facciata",

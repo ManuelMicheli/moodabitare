@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { CONTACT_INFO } from "@/lib/constants";
+import { LazyVideo } from "@/components/showroom/LazyVideo";
 
 
 export const metadata: Metadata = {
@@ -65,9 +66,12 @@ export default function ShowroomPage() {
                 <Image src="/moodabitarereal/cucina-showroom.webp" alt="Cucina moderna nello showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <div className="absolute inset-0 bg-warm-gray" />
+            <FadeInView delay={0.08} className="h-full">
+              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
+                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                  <LazyVideo src="/videos/copy_4FFC0B60-31CF-4922-9051-DEF1497F7248.mov" className="w-full h-auto block" />
+                </div>
+                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
             </FadeInView>
             <FadeInView delay={0.16}>
@@ -80,8 +84,13 @@ export default function ShowroomPage() {
                 <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            <FadeInView delay={0.16} className="h-full">
+              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
+                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                  <LazyVideo src="/videos/copy_4FFC0B60-31CF-4922-9051-DEF1497F7248(1).mov" className="w-full h-auto block" />
+                </div>
+                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
+              </div>
             </FadeInView>
             <FadeInView delay={0.24}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
@@ -93,9 +102,12 @@ export default function ShowroomPage() {
                 <Image src="/showroom/wmremove-transformed (29).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <div className="absolute inset-0 bg-warm-gray" />
+            <FadeInView delay={0.08} className="h-full">
+              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
+                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                  <LazyVideo src="/videos/copy_4FFC0B60-31CF-4922-9051-DEF1497F7248(2).mov" className="w-full h-auto block" />
+                </div>
+                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
             </FadeInView>
             <FadeInView delay={0.16}>
@@ -107,8 +119,13 @@ export default function ShowroomPage() {
                 <Image src="/showroom/wmremove-transformed (32).png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            <FadeInView delay={0.08} className="h-full">
+              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
+                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                  <LazyVideo src="/videos/0323.mp4" className="w-full h-auto block" />
+                </div>
+                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
+              </div>
             </FadeInView>
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
@@ -120,8 +137,13 @@ export default function ShowroomPage() {
                 <Image src="/showroom/wmremove-transformed (33).png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
               </div>
             </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
+            <FadeInView delay={0.08} className="h-full">
+              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
+                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                  <LazyVideo src="/videos/0323(1).mp4" className="w-full h-auto block" />
+                </div>
+                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
+              </div>
             </FadeInView>
             <FadeInView delay={0.16}>
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden">

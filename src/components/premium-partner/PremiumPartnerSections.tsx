@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
@@ -79,49 +81,81 @@ const oknoplastProducts = [
 /* ── Component ─────────────────────────────────────────────────────── */
 
 export function PremiumPartnerSections() {
+  const oknoplastRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const { scrollYProgress: oknoplastScroll } = useScroll({
+    target: oknoplastRef,
+    offset: ["start end", "end start"],
+  });
+  const oknoplastY = useTransform(oknoplastScroll, [0, 1], isMobile ? ["0%", "0%"] : ["-15%", "15%"]);
+  const oknoplastScale = useTransform(oknoplastScroll, [0, 1], isMobile ? [1, 1] as number[] : [1.05, 1] as number[]);
+
   return (
     <>
       {/* ────────────────────── 1. HERO ────────────────────── */}
       <section className="bg-white">
         <div className="pt-32 sm:pt-40 lg:pt-48 pb-14 lg:pb-20 px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-[#009FE3] mb-6">
-              Premium Partner Oknoplast
-            </p>
-          </FadeInView>
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-16">
+            {/* Left — Text */}
+            <div className="flex-1">
+              <FadeInView>
+                <div className="flex justify-center mb-10 lg:mb-12">
+                  <a href="https://www.oknoplast.it/" target="_blank" rel="noopener noreferrer" className="inline-block hover:opacity-80 transition-opacity">
+                    <Image
+                      src="/brandpartner/oknoplast-logo.jpg"
+                      alt="Oknoplast — Le finestre di Design"
+                      width={500}
+                      height={200}
+                      className="w-[280px] sm:w-[360px] lg:w-[450px] h-auto"
+                    />
+                  </a>
+                </div>
+              </FadeInView>
 
-          <ClipReveal direction="up" delay={0.15} duration={0.9}>
-            <h1 className="font-page-title max-w-5xl text-[#003B73]">
-              <AccentText>
-                La qualità di un Premium Partner, la passione di chi la vive ogni giorno
-              </AccentText>
-            </h1>
-          </ClipReveal>
+              <FadeInView delay={0.1}>
+                <p className="text-label text-[#009FE3] mb-6">
+                  Premium Partner Oknoplast
+                </p>
+              </FadeInView>
 
-          <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-[#003B73]/70 max-w-xl">
-              Mood Abitare è stata selezionata da Oknoplast come Premium Partner
-              per la provincia di Varese. Fa parte di una ristretta rete di
-              operatori che garantiscono ai propri clienti un&apos;elevata
-              qualità dei prodotti e dei servizi offerti.
-            </p>
-          </FadeInView>
+              <ClipReveal direction="up" delay={0.2} duration={0.9}>
+                <h1 className="font-page-title text-[#003B73]">
+                  <AccentText>
+                    La qualità di un Premium Partner, la passione di chi la vive ogni giorno
+                  </AccentText>
+                </h1>
+              </ClipReveal>
+
+              <FadeInView delay={0.4}>
+                <p className="mt-8 text-body text-[#003B73]/70 max-w-xl">
+                  Mood Abitare è stata selezionata da Oknoplast come Premium Partner
+                  per la provincia di Varese. Fa parte di una ristretta rete di
+                  operatori che garantiscono ai propri clienti un&apos;elevata
+                  qualità dei prodotti e dei servizi offerti.
+                </p>
+              </FadeInView>
+
+              <FadeInView delay={0.5}>
+                <a
+                  href="https://www.oknoplast.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-8 text-button text-[#003B73] border border-[#003B73]/20 px-6 py-3 btn-press hover:bg-[#003B73] hover:text-white transition-all duration-300"
+                >
+                  Visita oknoplast.it &rarr;
+                </a>
+              </FadeInView>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="py-6 lg:py-10 bg-cream">
-        <div className="px-6 sm:px-10 lg:px-20">
-          <DrawLine delay={0.1} />
-        </div>
-      </div>
-
       {/* ────────────────── 2. STATS BANNER ──────────────────── */}
-      <section className="relative min-h-[500px] sm:h-[75vh] sm:min-h-[500px] flex items-center text-white overflow-hidden">
-        {/* Background image with scale-in */}
+      <section className="bg-cream">
+        {/* Image — full width */}
         <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.1 }}
+          className="relative w-full h-[50vw] sm:h-[40vw] lg:h-[35vw] max-h-[550px] overflow-hidden"
+          initial={{ scale: 1.05 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
@@ -135,58 +169,29 @@ export function PremiumPartnerSections() {
           />
         </motion.div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tl from-black-deep/85 via-black-deep/50 to-transparent" />
-
-        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 py-16 sm:py-0">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20">
-            {/* Decorative oversized text (desktop only) */}
-            <FadeInView className="hidden lg:block flex-1">
-              <p className="font-display font-bold text-white/[0.07] text-[clamp(3rem,2rem+5vw,7rem)] leading-[0.95] select-none pointer-events-none">
-                30+ anni
-                <br />
-                di innovazione
-              </p>
-            </FadeInView>
-
-            {/* Stats */}
-            <div className="flex flex-col gap-0 sm:gap-0">
-              {/* Numeric stats */}
-              {[
-                { value: 30, suffix: "+", label: "Anni di esperienza" },
-                { value: 100, suffix: "%", label: "PVC riciclabile" },
-              ].map((stat, i) => (
-                <FadeInView key={stat.label} delay={i * 0.1}>
-                  <div className="py-6 sm:py-8 flex items-center gap-6 sm:gap-10">
-                    <div className="font-display text-[clamp(1.75rem,2.5vw,2.5rem)] font-bold text-white leading-none min-w-[100px] sm:min-w-[120px] text-right">
-                      <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                    </div>
-                    <div>
-                      <DrawLine className="!w-10 !bg-bordeaux/60 mb-3" delay={0.3 + i * 0.1} />
-                      <p className="text-caption text-white/80">{stat.label}</p>
-                    </div>
+        {/* Stats below */}
+        <div className="px-6 sm:px-10 lg:px-20 py-10 lg:py-14">
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 lg:gap-16">
+            {[
+              { value: 30, suffix: "+", label: "Anni di esperienza", isNumber: true },
+              { value: 100, suffix: "%", label: "PVC riciclabile", isNumber: true },
+              { value: "RC2", suffix: "", label: "Classe antieffrazione", isNumber: false },
+              { value: "A+", suffix: "", label: "Efficienza energetica", isNumber: false },
+            ].map((stat, i) => (
+              <FadeInView key={stat.label} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="font-display text-[clamp(1.75rem,2.5vw,2.5rem)] font-bold text-[#003B73] leading-none">
+                    {stat.isNumber ? (
+                      <AnimatedCounter target={stat.value as number} suffix={stat.suffix} />
+                    ) : (
+                      stat.value
+                    )}
                   </div>
-                </FadeInView>
-              ))}
-
-              {/* Text stats */}
-              {[
-                { value: "RC2", label: "Classe antieffrazione" },
-                { value: "A+", label: "Efficienza energetica" },
-              ].map((stat, i) => (
-                <FadeInView key={stat.label} delay={0.2 + i * 0.1}>
-                  <div className="py-6 sm:py-8 flex items-center gap-6 sm:gap-10">
-                    <div className="font-display text-[clamp(1.75rem,2.5vw,2.5rem)] font-bold text-white leading-none min-w-[100px] sm:min-w-[120px] text-right">
-                      {stat.value}
-                    </div>
-                    <div>
-                      <DrawLine className="!w-10 !bg-bordeaux/60 mb-3" delay={0.5 + i * 0.1} />
-                      <p className="text-caption text-white/80">{stat.label}</p>
-                    </div>
-                  </div>
-                </FadeInView>
-              ))}
-            </div>
+                  <DrawLine className="!w-10 !bg-[#009FE3]/40 mx-auto mt-3 mb-3" delay={0.3 + i * 0.1} />
+                  <p className="text-caption text-[#003B73]/70">{stat.label}</p>
+                </div>
+              </FadeInView>
+            ))}
           </div>
         </div>
       </section>
@@ -195,7 +200,7 @@ export function PremiumPartnerSections() {
       <section className="py-20 lg:py-44 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           {/* Editorial scroll-reveal headline */}
-          <div className="mb-16 lg:mb-24">
+          <div className="mb-16 lg:mb-24 text-center">
             <FadeInView direction="none">
               <p className="text-label text-[#003B73]/60 mb-6">
                 Il nostro riconoscimento
@@ -204,13 +209,13 @@ export function PremiumPartnerSections() {
 
             <TextRevealByWord
               as="h2"
-              className="font-display font-medium text-[#003B73] text-[clamp(1.5rem,1.2rem+1.8vw,2.75rem)] leading-[1.2] max-w-4xl"
+              className="font-display font-medium text-[#003B73] text-[clamp(1.5rem,1.2rem+1.8vw,2.75rem)] leading-[1.2] max-w-4xl mx-auto justify-center"
               delay={0.1}
             >
               Essere Premium Partner Oknoplast significa offrire ai nostri clienti il massimo livello di qualità, assistenza e garanzia
             </TextRevealByWord>
 
-            <DrawLine className="mt-10 max-w-xs" delay={0.3} />
+            <DrawLine className="mt-10 mx-auto !w-16" delay={0.3} />
           </div>
 
           {/* Benefit cards with HoverTilt */}
@@ -240,67 +245,44 @@ export function PremiumPartnerSections() {
       </section>
 
       {/* ────────────── 5. BRAND STORY OKNOPLAST ──────────── */}
-      <section className="py-20 lg:py-44 bg-black-deep text-white">
-        <div className="px-6 sm:px-10 lg:px-20">
-          {/* Image — full width */}
-          <ClipReveal direction="up" delay={0.1}>
-            <div className="img-reveal rounded-sm overflow-hidden h-[30vh] sm:h-[35vh] lg:h-[40vh]">
-              <Image
-                src="/images/oknoplast-headquarter.jpg"
-                alt="Oknoplast headquarter"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </div>
-          </ClipReveal>
+      <section ref={oknoplastRef} className="relative overflow-hidden">
+        {/* Background image with parallax */}
+        <motion.div
+          className="absolute inset-0 h-[130%] -top-[15%]"
+          style={{ y: oknoplastY, scale: oknoplastScale }}
+        >
+          <Image
+            src="/images/oknoplast-headquarter_upscayl_4x_upscayl-standard-4x.png"
+            alt="Oknoplast headquarter"
+            fill
+            className="object-cover object-[center_25%]"
+            sizes="100vw"
+          />
+        </motion.div>
 
-          {/* Content below */}
-          <div className="mt-12 lg:mt-20 max-w-4xl">
-            <FadeInView>
-              <p className="text-label text-white/80 mb-6">Il brand</p>
-            </FadeInView>
+        {/* Banner with centered card dividing the image */}
+        <div className="relative z-10 grid lg:grid-cols-[2fr_auto_1fr] items-stretch">
+          {/* Left — image visible */}
+          <div />
 
-            <FadeInView delay={0.1}>
-              <h2 className="font-section-title">
+          {/* Center — cream card */}
+          <div className="bg-cream px-8 sm:px-12 lg:px-14 py-16 sm:py-20 lg:py-24 w-full lg:w-[420px] text-center">
+            <FadeInView direction="none">
+              <p className="text-label text-[#009FE3] mb-4">Il brand</p>
+
+              <h2 className="font-display font-bold text-[#003B73] leading-[0.93] tracking-[-0.02em]" style={{ fontSize: "clamp(1.75rem, 1.2rem + 2.5vw, 3rem)" }}>
                 <AccentText>Chi è Oknoplast</AccentText>
               </h2>
-            </FadeInView>
 
-            <div className="mt-8">
-              <WordReveal
-                text="Azienda multinazionale fondata a Cracovia nel 1994, Oknoplast è oggi un riferimento nel settore dei serramenti in PVC e alluminio di design. Ogni prodotto nasce dalla ricerca di prestazioni eccezionali di isolamento termico e acustico, unite a un'estetica di altissimo livello."
-                className="text-body text-white/80 leading-relaxed"
-              />
-            </div>
+              <p className="mt-5 text-body text-[#003B73]/75 leading-relaxed" style={{ fontSize: "clamp(0.875rem, 0.8rem + 0.2vw, 1.05rem)" }}>
+                Azienda multinazionale fondata a Cracovia nel 1994, leader mondiale nei serramenti in PVC e alluminio di design.
+              </p>
 
-            {/* Feature highlights */}
-            <StaggerContainer className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8" staggerDelay={0.1}>
-              {brandFeatures.map((feature) => (
-                <StaggerItem key={feature.title}>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-0.5 text-bordeaux/80">
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-display text-sm font-medium text-white tracking-tight">
-                        {feature.title}
-                      </h4>
-                      <p className="mt-1 text-caption text-white/60">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-
-            <FadeInView delay={0.4}>
-              <div className="mt-12">
+              <div className="mt-8">
                 <MagneticButton>
                   <Link
                     href="/prodotti/infissi-pvc"
-                    className="text-button inline-block bg-white text-black-deep px-8 py-4 btn-press hover:bg-white/85 transition-colors"
+                    className="text-button inline-block bg-[#003B73] text-white px-8 py-4 btn-press hover:bg-[#003B73]/90 transition-colors"
                   >
                     Scopri le finestre Oknoplast
                   </Link>
@@ -308,6 +290,9 @@ export function PremiumPartnerSections() {
               </div>
             </FadeInView>
           </div>
+
+          {/* Right — image visible */}
+          <div />
         </div>
       </section>
 
@@ -362,65 +347,6 @@ export function PremiumPartnerSections() {
         </div>
       </section>
 
-      {/* ────────────── 6. CTA PREMIUM ────────────────────── */}
-      <section className="relative flex items-center justify-center bg-black-deep text-white overflow-hidden">
-        {/* Animated gradient background */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            background:
-              "radial-gradient(ellipse at 20% 50%, rgba(122,38,56,0.15), transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(122,38,56,0.1), transparent 60%)",
-          }}
-        />
-
-        <div className="relative z-10 text-center px-6 sm:px-10 lg:px-20 py-16 lg:py-20 w-full">
-          <FadeInView direction="none">
-            <p className="text-label text-white/80 mb-6">
-              Inizia il tuo progetto
-            </p>
-          </FadeInView>
-
-          <TextRevealByWord
-            as="h2"
-            className="font-hero text-white justify-center"
-            delay={0.1}
-          >
-            Scegli la qualità Premium Partner
-          </TextRevealByWord>
-
-          <FadeInView delay={0.3}>
-            <p className="mt-8 text-body text-white/80 max-w-lg mx-auto">
-              Contattaci per una consulenza personalizzata. Sopralluogo gratuito
-              e preventivo senza impegno.
-            </p>
-          </FadeInView>
-
-          <DrawLine className="mx-auto !w-16 !bg-white/10 mt-10" delay={0.4} />
-
-          <FadeInView delay={0.5}>
-            <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4 sm:gap-6">
-              <MagneticButton>
-                <Link
-                  href="/contatti"
-                  className="text-button block sm:inline-block text-center bg-white text-black-deep px-8 py-4 btn-press hover:bg-white/85 transition-colors"
-                >
-                  Richiedi una consulenza
-                </Link>
-              </MagneticButton>
-              <MagneticButton>
-                <a
-                  href="https://wa.me/3517278053"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-button block sm:inline-block text-center border border-white/20 text-white px-8 py-4 btn-press hover:bg-white hover:text-black-deep transition-all duration-300"
-                >
-                  Scrivici su WhatsApp
-                </a>
-              </MagneticButton>
-            </div>
-          </FadeInView>
-        </div>
-      </section>
     </>
   );
 }

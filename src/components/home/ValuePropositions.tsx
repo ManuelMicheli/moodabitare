@@ -63,8 +63,6 @@ export function ValuePropositions() {
         </div>
       </div>
 
-      <div className="py-4 sm:py-6 lg:py-8" />
-
       {/* About — scroll-reveal text */}
       <AboutSection />
 

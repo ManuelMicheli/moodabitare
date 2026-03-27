@@ -174,6 +174,39 @@ export const BRAND_PARTNERS = [
   { name: "Hermann", category: "Caldaie", color: "#003D7C" },
 ];
 
+/** Brand name → official website URL */
+export const BRAND_URLS: Record<string, string> = {
+  Oknoplast: "https://www.oknoplast.it/",
+  Korus: "https://korusweb.com/",
+  Pail: "https://www.pailporte.com/",
+  Kopen: "https://kopendoors.com/",
+  Alias: "https://www.aliasblindate.com/",
+  Erreci: "https://www.errecisicurezza.com/",
+  Pasini: "https://www.pasinispa.it/",
+  Persit: "https://www.persit.it/",
+  Lupak: "https://www.lupakmetal.com/",
+  "Door Arreda": "https://www.doorarreda.it/",
+  Ecomet: "https://www.ecometsrl.com/",
+  Inim: "https://www.inim.biz/",
+  Grifoflex: "https://www.grifoflex.com/it/",
+  Bettio: "https://www.bettio.it/",
+  Sharknet: "https://www.shark-net.com/",
+  "Zanzar Sistem": "https://zanzar.it/",
+  Sinfonia: "https://www.sinfonia.sm/",
+  Tendarredo: "https://www.tendarredo.com/",
+  "Mc Slide": "https://www.mcslide.it/",
+  "Arrex Cucine": "https://www.arrex.it/",
+  Merati: "https://www.merati.com/",
+  "Sani e Co": "https://www.sanieco.it/",
+  Fiore: "https://www.fiore.it/",
+  "Class Tile": "https://class-tile.it/",
+  "Ali Parquet": "https://www.aliparquets.com/",
+  Haier: "https://www.haier-europe.com/it_IT/",
+  Samsung: "https://www.samsung.com/it/business/climate/",
+  Ariston: "https://www.ariston.com/it-it/",
+  Hermann: "https://www.hermann-saunierduval.it/",
+};
+
 export const SERVICES = [
   {
     title: "Consulenza progettuale",
