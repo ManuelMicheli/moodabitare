@@ -3,14 +3,15 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
+/* Ring geometry — viewBox 200×200, circle at center */
+const RING_R = 95;
+const CIRCUMFERENCE = 2 * Math.PI * RING_R;
+
 export function SiteLoader() {
   const [isDone, setIsDone] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const clipRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
-  const decorRef = useRef<HTMLDivElement>(null);
-  const lineLeftRef = useRef<HTMLDivElement>(null);
-  const lineRightRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<SVGCircleElement>(null);
   const hasRun = useRef(false);
 
   useEffect(() => {
@@ -32,8 +33,12 @@ export function SiteLoader() {
     ).matches;
 
     if (prefersReducedMotion) {
-      showAllStatic();
-      setTimeout(() => animateOut(), 500);
+      if (logoRef.current) logoRef.current.style.opacity = "1";
+      if (ringRef.current) {
+        ringRef.current.style.strokeDashoffset = "0";
+        ringRef.current.style.opacity = "1";
+      }
+      setTimeout(() => animateOut(), 300);
       return;
     }
 
@@ -54,33 +59,11 @@ export function SiteLoader() {
     if (backdrop) backdrop.style.display = "none";
   }
 
-  function showAllStatic() {
-    if (clipRef.current) clipRef.current.style.clipPath = "inset(0 0% 0 0%)";
-    if (logoRef.current) {
-      logoRef.current.style.opacity = "1";
-      logoRef.current.style.transform = "scale(1)";
-    }
-    if (decorRef.current) {
-      decorRef.current.style.opacity = "1";
-    }
-    if (lineLeftRef.current) {
-      lineLeftRef.current.style.transform = "scaleX(1)";
-      lineLeftRef.current.style.opacity = "1";
-    }
-    if (lineRightRef.current) {
-      lineRightRef.current.style.transform = "scaleX(1)";
-      lineRightRef.current.style.opacity = "1";
-    }
-  }
-
   function waitForVideoAndExit() {
-    // Not on the home page — no hero video to wait for
     if (!(window as any).__heroVideoExpected) {
       animateOut();
       return;
     }
-
-    // Video already signalled ready (race condition: event fired before we listened)
     if ((window as any).__heroVideoReady) {
       animateOut();
       return;
@@ -95,55 +78,37 @@ export function SiteLoader() {
     };
 
     window.addEventListener("hero-video-ready", exit);
-    // Safety: max 6s additional wait so the loader doesn't stay forever on very slow connections
-    setTimeout(exit, 6000);
+    setTimeout(exit, 4000);
   }
 
   function runAnimation() {
     const tl = gsap.timeline({
       onComplete: () => waitForVideoAndExit(),
-      defaults: { ease: "expo.out" },
     });
 
-    // Phase 1: Logo appears from center — clip-path reveals outward
-    tl.to(clipRef.current, {
-      clipPath: "inset(0 0% 0 0%)",
-      duration: 1.4,
-      ease: "power4.inOut",
-    });
-
-    // Logo subtle scale-up breathe
+    // Logo fades in
     tl.fromTo(
       logoRef.current,
-      { scale: 0.85, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.4, ease: "power4.out" },
+      { opacity: 0, scale: 0.92 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" },
       0
     );
 
-    // Phase 2: Two lines extend outward from center
-    tl.to(
-      lineLeftRef.current,
+    // Ring draws itself around the logo
+    tl.fromTo(
+      ringRef.current,
+      { strokeDashoffset: CIRCUMFERENCE, opacity: 0 },
       {
-        scaleX: 1,
+        strokeDashoffset: 0,
         opacity: 1,
         duration: 0.7,
-        ease: "power3.inOut",
+        ease: "power2.inOut",
       },
-      1.4
-    );
-    tl.to(
-      lineRightRef.current,
-      {
-        scaleX: 1,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power3.inOut",
-      },
-      1.4
+      0.1
     );
 
-    // Hold
-    tl.to({}, { duration: 0.4 });
+    // Brief hold
+    tl.to({}, { duration: 0.15 });
   }
 
   function animateOut() {
@@ -162,30 +127,23 @@ export function SiteLoader() {
       },
     });
 
-    // Logo scales up slightly and fades
-    tl.to(logoRef.current, {
-      scale: 1.06,
+    // Everything fades and scales up
+    tl.to([logoRef.current, ringRef.current?.ownerSVGElement], {
       opacity: 0,
-      duration: 0.6,
-      ease: "power3.inOut",
+      scale: 1.05,
+      duration: 0.35,
+      ease: "power2.in",
     });
 
-    // Lines fade
-    tl.to(
-      [lineLeftRef.current, lineRightRef.current],
-      { opacity: 0, duration: 0.3, ease: "power2.in" },
-      0
-    );
-
-    // Overlay splits — curtain reveal upward
+    // Overlay curtain reveal
     tl.to(
       overlayRef.current,
       {
         clipPath: "inset(0 0 100% 0)",
-        duration: 0.8,
+        duration: 0.5,
         ease: "power4.inOut",
       },
-      0.3
+      0.15
     );
   }
 
@@ -199,83 +157,53 @@ export function SiteLoader() {
         inset: 0,
         zIndex: 9999,
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        background: "#2b2b2b",
+        background: "#ffffff",
         clipPath: "inset(0 0 0 0)",
       }}
       aria-hidden="true"
     >
-      {/* Clip container — reveals logo from center outward */}
-      <div
-        ref={clipRef}
+      {/* Logo */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        ref={logoRef}
+        src="/logo/logo-mood-abitare-transparent-opt.png"
+        alt=""
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          clipPath: "inset(0 50% 0 50%)",
+          height: "clamp(50px, 7vw, 90px)",
+          width: "auto",
+          opacity: 0,
         }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          ref={logoRef}
-          src="/logo/logo-mood-abitare-transparent-opt.png"
-          alt=""
-          style={{
-            height: "clamp(50px, 7vw, 90px)",
-            width: "auto",
-            opacity: 0,
-            transform: "scale(0.85)",
-            filter: "brightness(0) invert(1)",
-          }}
-        />
-      </div>
+      />
 
-      {/* Twin decorative lines — expand outward from center */}
-      <div
-        ref={decorRef}
+      {/* SVG ring — sized to surround the full logo */}
+      <svg
+        viewBox="0 0 200 200"
         style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-          marginTop: "20px",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%) rotate(-90deg)",
+          width: "clamp(220px, 30vw, 400px)",
+          height: "clamp(220px, 30vw, 400px)",
+          pointerEvents: "none",
         }}
       >
-        <div
-          ref={lineLeftRef}
-          style={{
-            width: "40px",
-            height: "1px",
-            background:
-              "linear-gradient(to left, rgba(255,255,255,0.4), transparent)",
-            opacity: 0,
-            transform: "scaleX(0)",
-            transformOrigin: "right center",
-          }}
+        <circle
+          ref={ringRef}
+          cx="100"
+          cy="100"
+          r={RING_R}
+          fill="none"
+          stroke="#7A2638"
+          strokeWidth="1"
+          strokeLinecap="round"
+          strokeDasharray={CIRCUMFERENCE}
+          strokeDashoffset={CIRCUMFERENCE}
+          style={{ opacity: 0 }}
         />
-        <div
-          style={{
-            width: "4px",
-            height: "4px",
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.4)",
-            opacity: 0.6,
-          }}
-        />
-        <div
-          ref={lineRightRef}
-          style={{
-            width: "40px",
-            height: "1px",
-            background:
-              "linear-gradient(to right, rgba(255,255,255,0.4), transparent)",
-            opacity: 0,
-            transform: "scaleX(0)",
-            transformOrigin: "left center",
-          }}
-        />
-      </div>
+      </svg>
     </div>
   );
 }

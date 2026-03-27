@@ -272,7 +272,7 @@ export default function RootLayout({
             position: "fixed",
             inset: 0,
             zIndex: 9998,
-            background: "#2b2b2b",
+            background: "#ffffff",
           }}
         />
         {/* Inline script: immediately hide backdrop if already loaded this session (hide, don't remove — removal would break hydration) */}
