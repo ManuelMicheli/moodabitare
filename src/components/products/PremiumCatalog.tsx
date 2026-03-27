@@ -84,7 +84,7 @@ function ProductCard({
       <div
         className={cn(
           "relative w-full overflow-hidden",
-          isMobile ? "aspect-[4/3] rounded-lg" : cover ? "aspect-square rounded-xl" : "aspect-[4/3] rounded-xl",
+          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[4/3] rounded-xl",
           isPlaceholder ? "bg-warm-gray/60" : cover ? "bg-neutral-100" : "bg-white"
         )}
       >
@@ -95,9 +95,9 @@ function ProductCard({
             fill
             className={cn(
               "transition-all duration-700 ease-out",
-              cover ? "object-cover" : "object-contain",
-              cover ? "p-0" : isMobile ? "p-3" : "p-4 lg:p-5",
-              cover ? "" : "group-hover/card:scale-[1.06]"
+              "object-contain",
+              cover ? "" : isMobile ? "p-4" : "p-6 lg:p-8",
+              "group-hover/card:scale-[1.06]"
             )}
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
           />
@@ -447,7 +447,7 @@ function PremiumCatalogInner({
               "mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10",
               isMobile
                 ? "grid-cols-2"
-                : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+                : "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             )}
           >
             {displayProducts.map((img, i) => (

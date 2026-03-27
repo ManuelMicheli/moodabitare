@@ -88,7 +88,7 @@ function ProductCard({
       <div
         className={cn(
           "relative w-full overflow-hidden",
-          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[3/2] rounded-xl",
+          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[4/3] rounded-xl",
           isPlaceholder
             ? "bg-warm-gray/60"
             : "bg-white"
@@ -414,7 +414,7 @@ function TapparelleCatalogInner({
                 "mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10",
                 isMobile
                   ? "grid-cols-2"
-                  : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
+                  : "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
               )}
             >
               {activeCat.products.map((img, i) => (

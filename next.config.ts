@@ -33,6 +33,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  serverExternalPackages: ["sanity", "@sanity/client", "@sanity/image-url"],
   // SEO: remove trailing slashes for canonical URL consistency
   trailingSlash: false,
   images: {

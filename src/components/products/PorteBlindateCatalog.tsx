@@ -89,7 +89,7 @@ function ProductCard({
       <div
         className={cn(
           "relative w-full overflow-hidden",
-          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-square rounded-xl",
+          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[4/3] rounded-xl",
           isPlaceholder ? "bg-warm-gray/60" : "bg-neutral-100"
         )}
       >
@@ -98,7 +98,7 @@ function ProductCard({
             src={image.src}
             alt={product}
             fill
-            className="object-cover transition-all duration-700 ease-out"
+            className="object-contain transition-all duration-700 ease-out group-hover/card:scale-[1.06]"
             sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 22vw"}
           />
         ) : (

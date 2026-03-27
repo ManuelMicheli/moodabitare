@@ -10,6 +10,10 @@ const HomeServices = dynamic(
   () => import("@/components/home/HomeServices").then((m) => m.HomeServices),
   { ssr: false }
 );
+const RistrutturazioneBanner = dynamic(
+  () => import("@/components/home/RistrutturazioneBanner").then((m) => m.RistrutturazioneBanner),
+  { ssr: false }
+);
 const ValuePropositions = dynamic(
   () => import("@/components/home/ValuePropositions").then((m) => m.ValuePropositions),
   { ssr: false }
@@ -41,6 +45,7 @@ export function BelowFoldSections() {
       <ProductBentoGrid />
       <FinanziamentoBanner />
       <HomeServices />
+      <RistrutturazioneBanner />
       <ValuePropositions />
       <EditorialShowcase />
       <PortfolioGallery />

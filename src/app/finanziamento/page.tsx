@@ -3,6 +3,7 @@ import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_FINANZIAMENTO, buildFaqJsonLd } from "@/lib/seo/faq-data";
 import Link from "next/link";
+import { CONTACT_INFO } from "@/lib/constants";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
@@ -95,10 +96,13 @@ export default function Finanziamento() {
                 { value: "TAEG 0%", label: "Tasso Annuo Effettivo Globale" },
                 { value: "50%", label: "Anticipo richiesto" },
                 { value: "10", label: "Rate annuali" },
-              ].map((stat, i) => (
+              ].map((stat, i) => {
+                const isRightCol = i % 2 === 1;
+                const isSecondRow = i >= 2;
+                return (
                 <div
                   key={stat.label}
-                  className={`py-10 lg:py-14 ${i > 0 ? "border-l border-black-deep/10" : ""} ${i === 2 ? "border-t lg:border-t-0 border-black-deep/10" : ""} ${i === 3 ? "border-t lg:border-t-0 border-black-deep/10" : ""} pl-5 lg:pl-8`}
+                  className={`py-10 lg:py-14 ${isRightCol ? "border-l border-black-deep/10" : ""} ${!isRightCol && i > 0 ? "lg:border-l lg:border-black-deep/10" : ""} ${isSecondRow ? "border-t lg:border-t-0 border-black-deep/10" : ""} pl-5 lg:pl-8`}
                 >
                   <span
                     className="font-display font-bold text-black-deep block leading-none"
@@ -112,17 +116,18 @@ export default function Finanziamento() {
                     {stat.label}
                   </span>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </FadeInView>
         </div>
       </section>
 
       {/* ── La formula ── */}
-      <section className="py-28 lg:py-44 bg-cream">
+      <section className="py-20 lg:py-44 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               {/* Left — large number */}
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <p className="text-label text-black-deep/60 mb-6">
@@ -208,10 +213,10 @@ export default function Finanziamento() {
       </section>
 
       {/* ── Detrazioni fiscali ── */}
-      <section className="py-28 lg:py-44 bg-cream">
+      <section className="py-20 lg:py-44 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
           <FadeInView>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left — big 50% */}
               <div className="lg:col-span-5 flex flex-col items-start">
                 <p className="text-label text-black-deep/60 mb-6">
@@ -291,10 +296,10 @@ export default function Finanziamento() {
                   Richiedi un preventivo
                 </Link>
                 <Link
-                  href="tel:03311120048"
-                  className="text-button block sm:inline-block text-center text-cream/50 px-6 py-4 border border-cream/10 hover:border-cream/25 btn-press transition-colors"
+                  href={CONTACT_INFO.phoneHref}
+                  className="text-button block sm:inline-block text-center text-cream/70 px-6 py-4 border border-cream/10 hover:border-cream/25 btn-press transition-colors"
                 >
-                  0331.1120048
+                  {CONTACT_INFO.phone}
                 </Link>
               </div>
             </div>

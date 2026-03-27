@@ -90,7 +90,7 @@ function ProductCard({
       <div
         className={cn(
           "relative w-full overflow-hidden",
-          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[3/2] rounded-xl",
+          isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[4/3] rounded-xl",
           isPlaceholder ? "bg-warm-gray/60" : "bg-white"
         )}
       >
@@ -283,7 +283,7 @@ function InfissiPvcCatalogInner({
 
         <AnimatePresence mode="wait">
           <motion.div key={activeCat.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
-            <div className={cn("mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10", isMobile ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-4 xl:grid-cols-5")}>
+            <div className={cn("mt-10 sm:mt-14 grid gap-6 sm:gap-8 lg:gap-10", isMobile ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4")}>
               {activeCat.products.map((img, i) => (
                 <motion.div key={img.name} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: i * 0.05, ease: [0.25, 0.1, 0.25, 1] }}>
                   <ProductCard image={img} detail={details[img.name]} isMobile={isMobile} onClick={() => handleClick(img)} />

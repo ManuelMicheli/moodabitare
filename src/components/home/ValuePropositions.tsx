@@ -8,15 +8,15 @@ import { TextRevealByWord } from "@/components/animations/TextRevealByWord";
 import { DrawLine } from "@/components/animations/DrawLine";
 import Link from "next/link";
 import { AboutSection } from "@/components/home/AboutSection";
-import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner";
+
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
 
 const marqueeImages = [
+  { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
   { src: "/moodabitarereal/cucina-showroom.webp", alt: "Cucina moderna nello showroom Mood Abitare", w: 1536, h: 2730 },
+  { src: "/showroom/wmremove-transformed (35).png", alt: "Showroom Mood Abitare — dettaglio", w: 1536, h: 2730 },
   { src: "/images/wmremove-transformed (24).webp", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
   { src: "/moodabitarereal/dettaglio-cucina.webp", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
-  { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
-  { src: "/showroom/wmremove-transformed (35).png", alt: "Showroom Mood Abitare — dettaglio", w: 1536, h: 2730 },
   { src: "/showroom/wmremove-transformed (28).png", alt: "Showroom Mood Abitare — esposizione", w: 1536, h: 2730 },
 ];
 
@@ -24,7 +24,7 @@ export function ValuePropositions() {
   return (
     <section>
       {/* Scopri lo showroom */}
-      <div className="px-6 sm:px-10 lg:px-20 pb-8 sm:pb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6">
+      <div className="px-6 sm:px-10 lg:px-20 pt-20 sm:pt-28 lg:pt-36 pb-8 sm:pb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6">
         <FadeInView>
           <h2 className="font-section-title text-black-deep">
             Scopri lo showroom
@@ -46,7 +46,7 @@ export function ValuePropositions() {
           {[...marqueeImages, ...marqueeImages].map((img, i) => (
             <div
               key={`marquee-${i}`}
-              className="relative flex-shrink-0 h-[70vw] sm:h-[40vw] rounded-sm overflow-hidden bg-warm-gray w-[85vw] sm:w-[55vw]"
+              className="relative flex-shrink-0 h-[55vw] sm:h-[32vw] rounded-sm overflow-hidden bg-warm-gray w-[70vw] sm:w-[45vw]"
             >
               <Image
                 src={img.src}
@@ -63,10 +63,7 @@ export function ValuePropositions() {
         </div>
       </div>
 
-      <div className="py-8 sm:py-14 lg:py-16" />
-
-      {/* Ristrutturazione banner */}
-      <RistrutturazioneBanner />
+      <div className="py-4 sm:py-6 lg:py-8" />
 
       {/* About — scroll-reveal text */}
       <AboutSection />

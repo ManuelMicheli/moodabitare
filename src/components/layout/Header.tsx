@@ -14,7 +14,7 @@ import { FreeConsultationBanner } from "./FreeConsultationBanner";
 export function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const isLightHero = false;
+  const isLightHero = pathname === "/premium-partner" || pathname.startsWith("/prodotti/");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -36,7 +36,7 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isLightHero]);
 
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? "hidden" : "";

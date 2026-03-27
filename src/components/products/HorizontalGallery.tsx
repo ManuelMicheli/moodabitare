@@ -57,7 +57,7 @@ function GalleryGrid({
 }) {
   return (
     <section className={isMobile ? "px-4 py-12" : "px-10 lg:px-20 pt-0 pb-16 lg:pb-24"}>
-      <div className={isMobile ? "grid grid-cols-2 gap-3" : "grid grid-cols-3 lg:grid-cols-5 gap-8"}>
+      <div className={isMobile ? "grid grid-cols-2 gap-3" : "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"}>
         {images.map((img, i) => (
           <button
             key={i}
@@ -65,12 +65,12 @@ function GalleryGrid({
             className={`flex flex-col items-center text-left group/card ${isMobile ? "bg-white rounded-lg overflow-hidden" : ""}`}
             onClick={() => onImageClick?.(img)}
           >
-            <div className={`relative w-full ${isMobile ? "aspect-[4/3]" : "aspect-[3/4]"} ${cover ? "rounded-lg overflow-hidden" : ""}`}>
+            <div className={`relative w-full ${isMobile ? "aspect-[4/3]" : "aspect-[3/4]"} rounded-lg overflow-hidden`}>
               <Image
                 src={img.src}
                 alt={`${alt} — ${img.name}`}
                 fill
-                className={`${cover ? "object-cover" : "object-contain drop-shadow-lg"} group-hover/card:scale-105 transition-transform duration-300`}
+                className="object-contain drop-shadow-lg group-hover/card:scale-105 transition-transform duration-300"
                 sizes={isMobile ? "45vw" : "(max-width: 1024px) 30vw, 18vw"}
               />
             </div>
@@ -138,12 +138,12 @@ function HorizontalScroll({
               className={`flex-shrink-0 w-[50vw] lg:w-[35vw] flex flex-col items-center ${onImageClick ? "cursor-pointer group/card" : ""}`}
               onClick={() => onImageClick?.(img)}
             >
-              <div className={`relative w-full aspect-[4/3] flex items-center justify-center ${cover ? "rounded-xl overflow-hidden" : ""}`}>
+              <div className="relative w-full aspect-[4/3] flex items-center justify-center rounded-xl overflow-hidden">
                 <Image
                   src={img.src}
                   alt={`${alt} — ${img.name}`}
                   fill
-                  className={`${cover ? "object-cover" : "object-contain drop-shadow-2xl"} transition-transform duration-300 ${onImageClick ? "group-hover/card:scale-105" : ""}`}
+                  className={`object-contain drop-shadow-2xl transition-transform duration-300 ${onImageClick ? "group-hover/card:scale-105" : ""}`}
                   sizes="(max-width: 1024px) 50vw, 35vw"
                 />
               </div>
