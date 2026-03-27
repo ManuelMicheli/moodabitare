@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, R2_CDN } from "@/lib/constants";
 import { LazyVideo } from "@/components/showroom/LazyVideo";
 
 
@@ -69,7 +69,7 @@ export default function ShowroomPage() {
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
                 <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src="/videos/copy_4FFC0B60-31CF-4922-9051-DEF1497F7248.mov" className="w-full h-auto block" />
+                  <LazyVideo src={`${R2_CDN}/videos/showroom-1.mov`} className="w-full h-auto block" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -87,7 +87,7 @@ export default function ShowroomPage() {
             <FadeInView delay={0.16} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
                 <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src="/videos/copy_4FFC0B60-31CF-4922-9051-DEF1497F7248(1).mov" className="w-full h-auto block" />
+                  <LazyVideo src={`${R2_CDN}/videos/showroom-2.mov`} className="w-full h-auto block" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -105,7 +105,7 @@ export default function ShowroomPage() {
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
                 <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src="/videos/copy_4FFC0B60-31CF-4922-9051-DEF1497F7248(2).mov" className="w-full h-auto block" />
+                  <LazyVideo src={`${R2_CDN}/videos/showroom-3.mov`} className="w-full h-auto block" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -122,7 +122,7 @@ export default function ShowroomPage() {
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
                 <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src="/videos/0323.mp4" className="w-full h-auto block" />
+                  <LazyVideo src={`${R2_CDN}/videos/showroom-4.mp4`} className="w-full h-auto block" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -140,7 +140,7 @@ export default function ShowroomPage() {
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
                 <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src="/videos/0323(1).mp4" className="w-full h-auto block" />
+                  <LazyVideo src={`${R2_CDN}/videos/showroom-5.mp4`} className="w-full h-auto block" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
