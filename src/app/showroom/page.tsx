@@ -68,8 +68,9 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
                   <LazyVideo src={`${R2_CDN}/videos/showroom-1.mov`} className="w-full h-auto block" />
+                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -86,8 +87,9 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.16} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
                   <LazyVideo src={`${R2_CDN}/videos/showroom-2.mov`} className="w-full h-auto block" />
+                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -104,8 +106,9 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
                   <LazyVideo src={`${R2_CDN}/videos/showroom-3.mov`} className="w-full h-auto block" />
+                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -121,8 +124,9 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
                   <LazyVideo src={`${R2_CDN}/videos/showroom-4.mp4`} className="w-full h-auto block" />
+                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>
@@ -139,8 +143,9 @@ export default function ShowroomPage() {
             </FadeInView>
             <FadeInView delay={0.08} className="h-full">
               <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="rounded-sm overflow-hidden bg-black-deep shrink-0">
+                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
                   <LazyVideo src={`${R2_CDN}/videos/showroom-5.mp4`} className="w-full h-auto block" />
+                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
                 </div>
                 <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
               </div>

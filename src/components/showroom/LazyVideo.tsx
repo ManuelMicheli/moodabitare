@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface LazyVideoProps {
   src: string;
@@ -8,14 +8,20 @@ interface LazyVideoProps {
 }
 
 export function LazyVideo({ src, className }: LazyVideoProps) {
-  const ref = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+
+  const handleCanPlay = useCallback(() => {
+    setIsReady(true);
+  }, []);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const container = containerRef.current;
+    if (!container) return;
 
-    // Phase 1: start loading the video when within 600px of viewport
+    // Start loading when within 400px of viewport
     const preloadObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -23,39 +29,56 @@ export function LazyVideo({ src, className }: LazyVideoProps) {
           preloadObserver.disconnect();
         }
       },
-      { rootMargin: "600px" }
+      { rootMargin: "400px" }
     );
 
-    // Phase 2: play/pause based on actual visibility
+    preloadObserver.observe(container);
+    return () => preloadObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !shouldLoad) return;
+
+    // Play/pause based on visibility
     const playObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.play().catch(() => {});
+          video.play().catch(() => {});
         } else {
-          el.pause();
+          video.pause();
         }
       },
       { rootMargin: "50px" }
     );
 
-    preloadObserver.observe(el);
-    playObserver.observe(el);
-
-    return () => {
-      preloadObserver.disconnect();
-      playObserver.disconnect();
-    };
-  }, []);
+    playObserver.observe(video);
+    return () => playObserver.disconnect();
+  }, [shouldLoad]);
 
   return (
-    <video
-      ref={ref}
-      src={shouldLoad ? src : undefined}
-      muted
-      loop
-      playsInline
-      preload={shouldLoad ? "auto" : "none"}
-      className={className}
-    />
+    <div ref={containerRef} className="relative">
+      {shouldLoad && (
+        <video
+          ref={videoRef}
+          src={src}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          onCanPlay={handleCanPlay}
+          className={className}
+          style={{ opacity: isReady ? 1 : 0, transition: "opacity 0.5s ease" }}
+        />
+      )}
+      {/* Placeholder shimmer while loading */}
+      {!isReady && (
+        <div
+          className={`${className} bg-black-deep/80`}
+          style={{ aspectRatio: "auto" }}
+          aria-hidden
+        />
+      )}
+    </div>
   );
 }
