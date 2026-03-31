@@ -597,9 +597,9 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Effetto marmo",
         tagline: "Collezione Divina: 15 marmi preziosi in gres porcellanato per interni dal look contemporaneo e sofisticato.",
         products: [
-          { src: "/prodotti/classtile-divina-calacatta.jpg", name: "Class Tile \u2014 Divina Calacatta" },
-          { src: "/prodotti/classtile-divina-carrara.jpg", name: "Class Tile \u2014 Divina Carrara" },
-          { src: "/prodotti/classtile-divina-onice.jpg", name: "Class Tile \u2014 Divina Onice Verde" },
+          { src: "/prodotti/classtile-divina-calacatta-new.jpg", name: "Class Tile \u2014 Divina Calacatta" },
+          { src: "/prodotti/classtile-divina-carrara-new.jpg", name: "Class Tile \u2014 Divina Carrara" },
+          { src: "/prodotti/classtile-divina-onice-new.jpg", name: "Class Tile \u2014 Divina Onice Verde" },
         ],
       },
       {
@@ -607,8 +607,8 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Legno e pietra",
         tagline: "Effetto legno e pietra naturale: dalle doghe Arch\u00E8 alle lastre MyStone ispirate alla Borgogna francese.",
         products: [
-          { src: "/prodotti/classtile-arche.jpg", name: "Class Tile \u2014 Arch\u00E8 (Effetto legno)" },
-          { src: "/prodotti/classtile-mystone.jpg", name: "Class Tile \u2014 MyStone (Effetto pietra)" },
+          { src: "/prodotti/classtile-arche-new.jpg", name: "Class Tile \u2014 Arch\u00E8 (Effetto legno)" },
+          { src: "/prodotti/classtile-mystone-new.jpg", name: "Class Tile \u2014 MyStone (Effetto pietra)" },
         ],
       },
     ],
@@ -629,8 +629,8 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "PreMass",
         tagline: "Il primo prefinito in legno massello: dal 1989 unisce la qualit\u00E0 del massello alla praticit\u00E0 della posa senza finiture aggiuntive.",
         products: [
-          { src: "/prodotti/classtile-arche.jpg", name: "Ali Parquet \u2014 PreMass Classic" },
-          { src: "/prodotti/classtile-mystone.jpg", name: "Ali Parquet \u2014 SuperPreMass Trend" },
+          { src: "/prodotti/ali-premass-classic.jpg", name: "Ali Parquet \u2014 PreMass Classic" },
+          { src: "/prodotti/ali-superpremass-trend.jpg", name: "Ali Parquet \u2014 SuperPreMass Trend" },
         ],
       },
       {
@@ -638,8 +638,8 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "ExtraMass",
         tagline: "Grande formato con spessore nobile 14 mm, bisellatura e spazzolatura per un pavimento dalla personalit\u00E0 decisa.",
         products: [
-          { src: "/prodotti/classtile-arche.jpg", name: "Ali Parquet \u2014 ExtraMass Living" },
-          { src: "/prodotti/classtile-mystone.jpg", name: "Ali Parquet \u2014 ExtraMass Oil" },
+          { src: "/prodotti/ali-extramass-living.jpg", name: "Ali Parquet \u2014 ExtraMass Living" },
+          { src: "/prodotti/ali-extramass-oil.jpg", name: "Ali Parquet \u2014 ExtraMass Oil" },
         ],
       },
     ],

@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
-import { CONTACT_INFO, R2_CDN } from "@/lib/constants";
-import { LazyVideo } from "@/components/showroom/LazyVideo";
+import { CurtainHero } from "@/components/animations/CurtainHero";
+import { CONTACT_INFO } from "@/lib/constants";
 
 
 export const metadata: Metadata = {
@@ -26,161 +26,144 @@ export default function ShowroomPage() {
   return (
     <main>
       {/* ─── Hero — video 75% + testo ─────────────────────────────── */}
-      <section className="relative min-h-svh sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black-deep" />
-        <div className="absolute inset-0 bg-black-deep/15" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 via-black-deep/10 to-transparent" />
+      <CurtainHero>
+        <section className="relative min-h-svh sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
+          <div className="absolute inset-0 bg-black-deep" />
+          <div className="absolute inset-0 bg-black-deep/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 via-black-deep/10 to-transparent" />
 
-        <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
-          <FadeInView delay={0.3}>
-            <p className="text-label text-white/80 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
-            <h1 className="font-page-title text-white text-[1rem] sm:text-[clamp(1.5rem,1rem+3vw,4.5rem)]">
-              Showroom Mood Abitare
-            </h1>
-            <p className="mt-3 sm:mt-4 font-display text-white/90 text-[0.75rem] sm:text-base lg:text-lg max-w-2xl">
-              300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine, arredo e soluzioni per tutta la casa da toccare con mano.
-            </p>
-            <Link
-              href="/contatti"
-              className="mt-6 sm:mt-8 text-button inline-block bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 btn-press hover:bg-white/85 transition-colors"
-            >
-              Vieni a trovarci
-            </Link>
-          </FadeInView>
-        </div>
-      </section>
+          <div className="relative z-10 w-full pb-10 sm:pb-12 lg:pb-20 px-6 sm:px-10 lg:px-20 text-left">
+            <FadeInView delay={0.3}>
+              <p className="text-label text-white/80 mb-3 sm:mb-4 text-[0.65rem] sm:text-[0.75rem]">Il nostro spazio</p>
+              <h1 className="font-page-title text-white text-[1rem] sm:text-[clamp(1.5rem,1rem+3vw,4.5rem)]">
+                Showroom Mood Abitare
+              </h1>
+              <p className="mt-3 sm:mt-4 font-display text-white/90 text-[0.75rem] sm:text-base lg:text-lg max-w-2xl">
+                300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine, arredo e soluzioni per tutta la casa da toccare con mano.
+              </p>
+              <Link
+                href="/contatti"
+                className="mt-6 sm:mt-8 text-button inline-block bg-white text-black-deep px-6 py-3 sm:px-8 sm:py-4 btn-press hover:bg-white/85 transition-colors"
+              >
+                Vieni a trovarci
+              </Link>
+            </FadeInView>
+          </div>
+        </section>
+      </CurtainHero>
 
 
       {/* ─── Gallery showroom ─────────────────────────────────────── */}
       <section className="py-14 sm:py-20 lg:py-28 bg-cream">
-        <div className="px-4 sm:px-10 lg:px-20">
+        <div className="px-4 sm:px-10 lg:px-16">
           <FadeInView>
             <h2 className="font-section-title text-black-deep text-center mb-10 sm:mb-14 lg:mb-20">
               <AccentText>Esplora lo showroom</AccentText>
             </h2>
           </FadeInView>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/moodabitarereal/cucina-showroom.webp" alt="Cucina moderna nello showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08} className="h-full">
-              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src={`${R2_CDN}/videos/showroom-1.mov`} className="w-full h-auto block" />
-                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                </div>
-                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/moodabitarereal/showroom-interno.webp" alt="Interno showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.16} className="h-full">
-              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src={`${R2_CDN}/videos/showroom-2.mov`} className="w-full h-auto block" />
-                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                </div>
-                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.24}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/images/wmremove-transformed (25).webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (29).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08} className="h-full">
-              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src={`${R2_CDN}/videos/showroom-3.mov`} className="w-full h-auto block" />
-                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                </div>
-                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
-            {/* ── Riga 4 (ex righe 7+8) ── */}
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (32).png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08} className="h-full">
-              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src={`${R2_CDN}/videos/showroom-4.mp4`} className="w-full h-auto block" />
-                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                </div>
-                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (34).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (33).png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08} className="h-full">
-              <div className="h-full flex flex-col gap-2 sm:gap-3 lg:gap-4">
-                <div className="relative rounded-sm overflow-hidden bg-black-deep shrink-0">
-                  <LazyVideo src={`${R2_CDN}/videos/showroom-5.mp4`} className="w-full h-auto block" />
-                  <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                </div>
-                <div className="flex-1 min-h-0 rounded-sm bg-warm-gray" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (35).png" alt="Showroom Mood Abitare — dettaglio" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
 
-            {/* ── Riga 5 ── */}
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (28).png" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
+            {/* ── Riga 1 — grande + media + piccola ↘ ── */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-8 sm:items-end">
+              <FadeInView delay={0} className="w-full sm:w-[45%]">
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image src="/moodabitarereal/cucina-showroom.webp" alt="Cucina moderna nello showroom" fill className="object-cover" sizes="(max-width: 640px) 100vw, 43vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.15} className="w-full sm:w-[33%]">
+                <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                  <Image src="/moodabitarereal/showroom-interno.webp" alt="Interno showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 640px) 100vw, 31vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-start">
+                <div className="aspect-[2/3] rounded-sm bg-warm-gray" />
+              </FadeInView>
+            </div>
 
-            {/* ── Riga 6 ── */}
-            <FadeInView delay={0}>
-              <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                <Image src="/showroom/wmremove-transformed (30).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 33vw" />
-              </div>
-            </FadeInView>
-            <FadeInView delay={0.08}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
-            <FadeInView delay={0.16}>
-              <div className="relative aspect-[3/4] rounded-sm bg-warm-gray" />
-            </FadeInView>
+            {/* ── Riga 2 — piccola + media + grande ↗ ── */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-8 sm:items-start">
+              <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-end">
+                <div className="aspect-[1/1] rounded-sm bg-warm-gray" />
+              </FadeInView>
+              <FadeInView delay={0.1} className="w-full sm:w-[33%]">
+                <div className="relative aspect-[1/1] rounded-sm overflow-hidden">
+                  <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 31vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0} className="w-full sm:w-[46%]">
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image src="/images/wmremove-transformed (25).webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 640px) 100vw, 44vw" />
+                </div>
+              </FadeInView>
+            </div>
+
+            {/* ── Riga 3 — grande + media + piccola ↘ ── */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-10 sm:items-end">
+              <FadeInView delay={0} className="w-full sm:w-[37%]">
+                <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (29).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 35vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.2} className="w-full sm:w-[35%]">
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (32).png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.35} className="hidden sm:block sm:flex-1 self-start">
+                <div className="aspect-[3/4] rounded-sm bg-warm-gray" />
+              </FadeInView>
+            </div>
+
+            {/* ── Riga 4 — piccola + media + grande ↗ ── */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-8 sm:items-start">
+              <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-end">
+                <div className="aspect-[2/3] rounded-sm bg-warm-gray" />
+              </FadeInView>
+              <FadeInView delay={0.1} className="w-full sm:w-[34%]">
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (34).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 32vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0} className="w-full sm:w-[44%]">
+                <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (33).png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 640px) 100vw, 42vw" />
+                </div>
+              </FadeInView>
+            </div>
+
+            {/* ── Riga 5 — grande + media + piccola ↘ ── */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-10 sm:items-end">
+              <FadeInView delay={0} className="w-full sm:w-[45%]">
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (35).png" alt="Showroom Mood Abitare — dettaglio" fill className="object-cover" sizes="(max-width: 640px) 100vw, 43vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.15} className="w-full sm:w-[32%]">
+                <div className="relative aspect-[1/1] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (28).png" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 30vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-start">
+                <div className="aspect-[1/1] rounded-sm bg-warm-gray" />
+              </FadeInView>
+            </div>
+
+            {/* ── Riga 6 — piccola + centro + piccola ── */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-8 sm:items-center sm:justify-center">
+              <FadeInView delay={0.2} className="hidden sm:block sm:flex-1 self-start">
+                <div className="aspect-[3/4] rounded-sm bg-warm-gray" />
+              </FadeInView>
+              <FadeInView delay={0} className="w-full sm:w-[36%]">
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (30).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 34vw" />
+                </div>
+              </FadeInView>
+              <FadeInView delay={0.2} className="hidden sm:block sm:flex-1 self-end">
+                <div className="aspect-[3/4] rounded-sm bg-warm-gray" />
+              </FadeInView>
+            </div>
+
           </div>
         </div>
       </section>

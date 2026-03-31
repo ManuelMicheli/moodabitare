@@ -5,6 +5,7 @@ import { FAQ_CONTATTI, buildFaqJsonLd } from "@/lib/seo/faq-data";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
+import { CurtainHero } from "@/components/animations/CurtainHero";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
 
@@ -53,26 +54,28 @@ export default function Contatti() {
         }}
       />
       {/* Hero */}
-      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-white/80 mb-6">
-              Contattaci
-            </p>
-          </FadeInView>
-          <ClipReveal direction="up" delay={0.15} duration={0.9}>
-            <h1 className="font-page-title max-w-5xl">
-              <AccentText>Parliamo del tuo progetto</AccentText>
-            </h1>
-          </ClipReveal>
-          <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-white/80 max-w-xl">
-              Compila il form per richiedere un preventivo o informazioni. Ti risponderemo il prima possibile.
-            </p>
-          </FadeInView>
-        </div>
-      </section>
+      <CurtainHero>
+        <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
+          <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
+            <FadeInView>
+              <p className="text-label text-white/80 mb-6">
+                Contattaci
+              </p>
+            </FadeInView>
+            <ClipReveal direction="up" delay={0.15} duration={0.9}>
+              <h1 className="font-page-title max-w-5xl">
+                <AccentText>Parliamo del tuo progetto</AccentText>
+              </h1>
+            </ClipReveal>
+            <FadeInView delay={0.4}>
+              <p className="mt-8 text-body text-white/80 max-w-xl">
+                Compila il form per richiedere un preventivo o informazioni. Ti risponderemo il prima possibile.
+              </p>
+            </FadeInView>
+          </div>
+        </section>
+      </CurtainHero>
 
       {/* Map */}
       <ClipReveal direction="up" duration={1}>

@@ -8,6 +8,7 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { AccentText } from "@/components/ui/AccentText";
+import { CurtainHero } from "@/components/animations/CurtainHero";
 
 export const metadata: Metadata = {
   title: "Servizi di Ristrutturazione — Chiavi in Mano a Varese",
@@ -149,36 +150,38 @@ export default function ServiziRistrutturazione() {
         }}
       />
       {/* Hero */}
-      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
-        <Image
-          src="/images/ristrutturazione-hero.jpg"
-          alt="Ristrutturazione chiavi in mano"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/50 to-black-deep/20" />
-        <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-white/80 mb-6">
-              Servizi di Ristrutturazione
-            </p>
-          </FadeInView>
-          <ClipReveal direction="up" delay={0.15} duration={0.9}>
-            <h1 className="font-page-title max-w-5xl">
-              <AccentText>Ristrutturazioni chiavi in mano</AccentText>
-            </h1>
-          </ClipReveal>
-          <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-white/80 max-w-xl">
-              Un servizio completo per rinnovare la tua casa: dalla
-              progettazione alla consegna, con un unico referente per tutto.
-            </p>
-          </FadeInView>
-        </div>
-      </section>
+      <CurtainHero>
+        <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+          <Image
+            src="/images/ristrutturazione-hero.jpg"
+            alt="Ristrutturazione chiavi in mano"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/50 to-black-deep/20" />
+          <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
+            <FadeInView>
+              <p className="text-label text-white/80 mb-6">
+                Servizi di Ristrutturazione
+              </p>
+            </FadeInView>
+            <ClipReveal direction="up" delay={0.15} duration={0.9}>
+              <h1 className="font-page-title max-w-5xl">
+                <AccentText>Ristrutturazioni chiavi in mano</AccentText>
+              </h1>
+            </ClipReveal>
+            <FadeInView delay={0.4}>
+              <p className="mt-8 text-body text-white/80 max-w-xl">
+                Un servizio completo per rinnovare la tua casa: dalla
+                progettazione alla consegna, con un unico referente per tutto.
+              </p>
+            </FadeInView>
+          </div>
+        </section>
+      </CurtainHero>
 
       {/* Process steps — horizontal timeline */}
       <section className="py-16 lg:py-24 bg-cream">

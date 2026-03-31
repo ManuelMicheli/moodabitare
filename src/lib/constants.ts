@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   company: "Mood Abitare",
   tagline: "Serramenti, Porte e Ristrutturazioni",
   description:
-    "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.",
+    "Da oltre 30 anni al vostro fianco per serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.",
   url: "https://www.moschianosrl.it",
 };
 

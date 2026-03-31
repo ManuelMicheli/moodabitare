@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 const timeline = [
   {
-    year: "1990",
+    year: "1988",
     title: "Tutto inizia qui",
     description:
       "Nasce Mood Abitare con la missione di aiutare le famiglie della provincia di Varese a vivere meglio nella propria casa. Qualità artigianale e attenzione autentica per ogni cliente, fin dal primo giorno.",

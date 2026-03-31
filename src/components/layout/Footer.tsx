@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CONTACT_INFO, OPENING_HOURS, MACRO_CATEGORIES, NAV_ITEMS } from "@/lib/constants";
 
-const MARQUEE_TEXT = "Mood Abitare — Serramenti — Porte — Ristrutturazioni — Arredo Casa — Premium Partner Oknoplast — ";
+const MARQUEE_TEXT = "Mood Abitare — Serramenti, Oscuranti, Portoncini — Porte Interne & Blindate — Sistemi di Sicurezza — Comfort & Complementi — Outdoor — Casa & Arredo — Riscaldamento & Energie Rinnovabili — ";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -30,7 +30,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           {/* Column 1: Brand + about */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-4">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block">
               <Image
                 src="/logo/logo-mood-abitare-transparent-opt.png"
                 alt="Mood Abitare — La tua casa a 360 gradi"
@@ -39,9 +39,6 @@ export function Footer() {
                 className="h-9 w-auto brightness-0 invert"
               />
             </Link>
-            <p className="text-caption text-white/35 leading-relaxed max-w-xs">
-              Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.
-            </p>
           </div>
 
           {/* Column 2: Navigation */}

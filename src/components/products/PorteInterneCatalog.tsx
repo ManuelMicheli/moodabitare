@@ -71,7 +71,7 @@ function ProductCard({
         className={cn(
           "relative w-full overflow-hidden",
           isMobile ? "aspect-[4/3] rounded-lg" : "aspect-[4/3] rounded-xl",
-          isPlaceholder ? "bg-warm-gray/60" : "bg-neutral-100"
+          isPlaceholder ? "bg-warm-gray/60" : "bg-white"
         )}
       >
         {!isPlaceholder ? (

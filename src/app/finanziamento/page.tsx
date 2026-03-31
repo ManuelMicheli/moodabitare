@@ -7,6 +7,7 @@ import { CONTACT_INFO } from "@/lib/constants";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
 import { AccentText } from "@/components/ui/AccentText";
+import { CurtainHero } from "@/components/animations/CurtainHero";
 import { FormulaCard } from "@/components/finanziamento/FormulaCard";
 
 export const metadata: Metadata = {
@@ -54,37 +55,39 @@ export default function Finanziamento() {
         }}
       />
       {/* ── Hero ── */}
-      <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-end bg-black-deep overflow-hidden">
-        {/* Large decorative 0% */}
-        <div
-          className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          <span
-            className="font-display font-bold text-white/[0.03] leading-none block"
-            style={{ fontSize: "clamp(12rem, 40vw, 55rem)" }}
+      <CurtainHero>
+        <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-end bg-black-deep overflow-hidden">
+          {/* Large decorative 0% */}
+          <div
+            className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] select-none pointer-events-none"
+            aria-hidden="true"
           >
-            0%
-          </span>
-        </div>
+            <span
+              className="font-display font-bold text-white/[0.03] leading-none block"
+              style={{ fontSize: "clamp(12rem, 40vw, 55rem)" }}
+            >
+              0%
+            </span>
+          </div>
 
-        <div className="relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-cream/80 mb-6">Finanziamento</p>
-          </FadeInView>
-          <ClipReveal direction="up" delay={0.15} duration={0.9}>
-            <h1 className="font-page-title text-cream max-w-4xl">
-              <AccentText>Tasso zero per i tuoi serramenti</AccentText>
-            </h1>
-          </ClipReveal>
-          <FadeInView delay={0.4}>
-            <p className="mt-8 text-body text-cream/80 max-w-xl">
-              Rinnova la tua casa senza pensieri grazie al finanziamento a tasso
-              zero, cumulabile con le detrazioni fiscali.
-            </p>
-          </FadeInView>
-        </div>
-      </section>
+          <div className="relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20">
+            <FadeInView>
+              <p className="text-label text-cream/80 mb-6">Finanziamento</p>
+            </FadeInView>
+            <ClipReveal direction="up" delay={0.15} duration={0.9}>
+              <h1 className="font-page-title text-cream max-w-4xl">
+                <AccentText>Tasso zero per i tuoi serramenti</AccentText>
+              </h1>
+            </ClipReveal>
+            <FadeInView delay={0.4}>
+              <p className="mt-8 text-body text-cream/80 max-w-xl">
+                Rinnova la tua casa senza pensieri grazie al finanziamento a tasso
+                zero, cumulabile con le detrazioni fiscali.
+              </p>
+            </FadeInView>
+          </div>
+        </section>
+      </CurtainHero>
 
       {/* ── Stats strip ── */}
       <section className="bg-cream">

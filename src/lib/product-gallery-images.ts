@@ -190,17 +190,17 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
     { src: "/prodotti/placeholder.svg", name: "Fiore — King (Cucina)" },
   ],
   "ceramiche": [
-    { src: "/prodotti/placeholder.svg", name: "Class Tile — Divina Calacatta" },
-    { src: "/prodotti/placeholder.svg", name: "Class Tile — Divina Carrara" },
-    { src: "/prodotti/placeholder.svg", name: "Class Tile — Divina Onice Verde" },
-    { src: "/prodotti/placeholder.svg", name: "Class Tile — Archè (Effetto legno)" },
-    { src: "/prodotti/placeholder.svg", name: "Class Tile — MyStone (Effetto pietra)" },
+    { src: "/prodotti/classtile-divina-calacatta-new.jpg", name: "Class Tile — Divina Calacatta" },
+    { src: "/prodotti/classtile-divina-carrara-new.jpg", name: "Class Tile — Divina Carrara" },
+    { src: "/prodotti/classtile-divina-onice-new.jpg", name: "Class Tile — Divina Onice Verde" },
+    { src: "/prodotti/classtile-arche-new.jpg", name: "Class Tile — Archè (Effetto legno)" },
+    { src: "/prodotti/classtile-mystone-new.jpg", name: "Class Tile — MyStone (Effetto pietra)" },
   ],
   "parquet": [
-    { src: "/prodotti/placeholder.svg", name: "Ali Parquet — PreMass Classic" },
-    { src: "/prodotti/placeholder.svg", name: "Ali Parquet — SuperPreMass Trend" },
-    { src: "/prodotti/placeholder.svg", name: "Ali Parquet — ExtraMass Living" },
-    { src: "/prodotti/placeholder.svg", name: "Ali Parquet — ExtraMass Oil" },
+    { src: "/prodotti/ali-premass-classic.jpg", name: "Ali Parquet — PreMass Classic" },
+    { src: "/prodotti/ali-superpremass-trend.jpg", name: "Ali Parquet — SuperPreMass Trend" },
+    { src: "/prodotti/ali-extramass-living.jpg", name: "Ali Parquet — ExtraMass Living" },
+    { src: "/prodotti/ali-extramass-oil.jpg", name: "Ali Parquet — ExtraMass Oil" },
   ],
 
   /* ── Riscaldamento (placeholder) ────────── */

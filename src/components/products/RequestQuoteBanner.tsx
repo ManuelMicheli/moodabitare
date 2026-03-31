@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export function RequestQuoteBanner({ productName }: { productName: string }) {
   return (
-    <div className="bg-black-deep rounded-sm py-3.5 sm:py-4 px-4 sm:px-6 flex items-center justify-between gap-4 sm:gap-6 flex-1 min-w-0">
-      <p className="font-ui text-[0.6rem] sm:text-xs text-white/60 leading-tight">
-        Per saperne di più su <span className="text-white/90">{productName}</span>
+    <div className="bg-black-deep rounded-sm py-3.5 sm:py-4 lg:py-5 px-4 sm:px-6 flex items-center justify-between gap-4 sm:gap-6 flex-1 lg:flex-none lg:max-w-2xl min-w-0">
+      <p className="font-ui text-[0.6rem] sm:text-xs lg:text-sm text-white/60 lg:text-white/70 leading-tight uppercase tracking-wide">
+        Per saperne di più su <span className="text-white/90 lg:text-white">{productName}</span>
       </p>
       <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
         <Link
