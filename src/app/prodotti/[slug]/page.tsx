@@ -429,7 +429,7 @@ export default async function ProductPage({ params }: Props) {
       <div className="pt-20 sm:pt-24 lg:pt-28" />
 
       {/* Oknoplast mini banner */}
-      {(slug === "infissi-alluminio" || slug === "infissi-pvc") && (
+      {slug === "infissi-pvc" && (
         <div className="flex items-center justify-center py-4 lg:py-5 bg-cream">
           <svg viewBox="0 0 220 28" className="h-5 lg:h-6 w-auto" aria-label="Oknoplast">
             <text
@@ -533,10 +533,10 @@ export default async function ProductPage({ params }: Props) {
                     key={spec.label}
                     className="flex justify-between items-baseline py-4 lg:py-5 border-b border-black-deep/10"
                   >
-                    <span className="font-ui text-[0.95rem] sm:text-base lg:text-lg font-medium text-black-deep">
+                    <span className="font-ui text-[0.95rem] sm:text-base lg:text-xl font-medium text-black-deep uppercase">
                       {spec.label}
                     </span>
-                    <span className="font-ui text-[0.95rem] sm:text-base lg:text-lg font-semibold text-black-deep ml-6 text-right">
+                    <span className="font-ui text-[0.95rem] sm:text-base lg:text-xl font-semibold text-black-deep ml-6 text-right uppercase">
                       {spec.value}
                     </span>
                   </div>

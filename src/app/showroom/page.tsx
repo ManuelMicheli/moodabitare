@@ -118,7 +118,13 @@ export default function ShowroomPage() {
             {/* ── Riga 4 — piccola + media + grande ↗ ── */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-8 sm:items-start">
               <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-end">
-                <div className="aspect-[2/3] rounded-sm bg-warm-gray" />
+                <div className="aspect-[4/3] rounded-sm bg-warm-gray" />
+              </FadeInView>
+              <FadeInView delay={0.25} className="hidden sm:block sm:flex-1 self-end">
+                <div className="aspect-[4/3] rounded-sm bg-warm-gray" />
+              </FadeInView>
+              <FadeInView delay={0.2} className="hidden sm:block sm:flex-1 self-end">
+                <div className="aspect-[4/3] rounded-sm bg-warm-gray" />
               </FadeInView>
               <FadeInView delay={0.1} className="w-full sm:w-[34%]">
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
@@ -154,9 +160,9 @@ export default function ShowroomPage() {
               <FadeInView delay={0.2} className="hidden sm:block sm:flex-1 self-start">
                 <div className="aspect-[3/4] rounded-sm bg-warm-gray" />
               </FadeInView>
-              <FadeInView delay={0} className="w-full sm:w-[36%]">
-                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (30).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 34vw" />
+              <FadeInView delay={0} className="w-full sm:flex-1">
+                <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                  <Image src="/showroom/wmremove-transformed (30).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0.2} className="hidden sm:block sm:flex-1 self-end">

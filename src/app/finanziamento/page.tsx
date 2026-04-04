@@ -56,7 +56,7 @@ export default function Finanziamento() {
       />
       {/* ── Hero ── */}
       <CurtainHero>
-        <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-end bg-black-deep overflow-hidden">
+        <section className="relative min-h-[30vh] sm:min-h-[45vh] flex items-end bg-black-deep overflow-hidden">
           {/* Large decorative 0% */}
           <div
             className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] select-none pointer-events-none"
@@ -70,7 +70,7 @@ export default function Finanziamento() {
             </span>
           </div>
 
-          <div className="relative z-10 w-full pb-16 lg:pb-32 px-6 sm:px-10 lg:px-20">
+          <div className="relative z-10 w-full pb-10 lg:pb-14 px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <p className="text-label text-cream/80 mb-6">Finanziamento</p>
             </FadeInView>

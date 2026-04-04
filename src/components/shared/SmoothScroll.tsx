@@ -155,6 +155,16 @@ export function SmoothScroll() {
     }
     hookBotpress();
 
+    /* ---- ProductSheet open/close: pause Lenis ---- */
+    function onSheetOpen() {
+      lenis.stop();
+    }
+    function onSheetClose() {
+      lenis.start();
+    }
+    window.addEventListener("productsheet:open", onSheetOpen);
+    window.addEventListener("productsheet:close", onSheetClose);
+
     // Sync Lenis scroll with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -186,6 +196,8 @@ export function SmoothScroll() {
       document.removeEventListener("wheel", blockWheelOverBp, { capture: true });
       document.removeEventListener("touchstart", onTouchStart, { capture: true });
       document.removeEventListener("touchmove", blockTouchOverBp, { capture: true });
+      window.removeEventListener("productsheet:open", onSheetOpen);
+      window.removeEventListener("productsheet:close", onSheetClose);
       gsap.ticker.remove(lenis.raf);
       lenis.destroy();
     };

@@ -35,8 +35,8 @@ export function WhatsAppWidget() {
   }, []);
 
   const bottomStyle = bannerVisible
-    ? { bottom: "calc(12rem + env(safe-area-inset-bottom, 0px))" }
-    : { bottom: "calc(6rem + env(safe-area-inset-bottom, 0px))" };
+    ? { bottom: "calc(8rem + env(safe-area-inset-bottom, 0px))" }
+    : { bottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))" };
 
   return (
     <AnimatePresence>

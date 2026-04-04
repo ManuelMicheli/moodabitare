@@ -44,6 +44,27 @@ function SheetContent({
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  /* Lock page scroll & pause Lenis while sheet is open */
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    document.documentElement.style.setProperty("overflow", "hidden", "important");
+    document.body.style.setProperty("overflow", "hidden", "important");
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+    window.dispatchEvent(new CustomEvent("productsheet:open"));
+
+    return () => {
+      document.documentElement.style.removeProperty("overflow");
+      document.body.style.removeProperty("overflow");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollY);
+      window.dispatchEvent(new CustomEvent("productsheet:close"));
+    };
+  }, []);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -57,7 +78,7 @@ function SheetContent({
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[100]">
+    <div className="fixed inset-0 z-[100]" onWheel={(e) => e.stopPropagation()}>
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -95,6 +116,8 @@ function SheetContent({
 
           <div
             ref={scrollRef}
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
             style={{
               overflowY: "scroll",
               maxHeight: "calc(92svh - 72px)",
@@ -143,14 +166,14 @@ function SheetContent({
               <div className="mt-5 mb-5 h-px bg-black-deep/10" />
 
               {/* Specs */}
-              <p className="font-ui text-[0.65rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-3">
+              <p className="font-ui text-[0.7rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-3">
                 Specifiche tecniche
               </p>
               <div className="space-y-0">
                 {detail.specs.map((s, i) => (
                   <div key={s.label} className={`flex justify-between items-baseline py-2.5 ${i < detail.specs.length - 1 ? "border-b border-black-deep/8" : ""}`}>
-                    <span className="font-ui text-[0.75rem] uppercase tracking-[0.05em] text-black-deep">{s.label}</span>
-                    <span className="font-ui text-[0.8rem] text-black-deep font-semibold text-right ml-4">{s.value}</span>
+                    <span className="font-ui text-[0.8rem] uppercase tracking-[0.05em] text-black-deep">{s.label}</span>
+                    <span className="font-ui text-[0.85rem] text-black-deep font-semibold text-right ml-4 uppercase">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -159,18 +182,18 @@ function SheetContent({
               <div className="mt-5 mb-5 h-px bg-black-deep/10" />
 
               {/* Finiture */}
-              <p className="font-ui text-[0.65rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2">
+              <p className="font-ui text-[0.7rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2">
                 Finiture disponibili
               </p>
-              <p className="text-[0.85rem] font-body text-black-deep leading-relaxed">{detail.colors}</p>
+              <p className="text-[0.9rem] font-body text-black-deep leading-relaxed uppercase">{detail.colors}</p>
 
               {/* Caratteristiche */}
-              <p className="mt-4 font-ui text-[0.65rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2.5">
+              <p className="mt-4 font-ui text-[0.7rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2.5">
                 Caratteristiche
               </p>
               <div className="flex flex-wrap gap-2">
                 {detail.features.map((feat) => (
-                  <span key={feat} className="text-[0.75rem] font-ui text-black-deep border border-black-deep/15 px-3 py-1.5 rounded-full">
+                  <span key={feat} className="text-[0.8rem] font-ui text-black-deep uppercase border border-black-deep/15 px-3 py-1.5 rounded-full">
                     {feat}
                   </span>
                 ))}
@@ -245,11 +268,13 @@ function SheetContent({
 
             {/* ── Right: Content ── */}
             <div
+              data-lenis-prevent
               className="overflow-y-auto"
               style={{
                 maxHeight: "88vh",
                 overscrollBehavior: "contain",
               }}
+              onWheel={(e) => e.stopPropagation()}
             >
               <motion.div
                 variants={stagger}
@@ -286,7 +311,7 @@ function SheetContent({
                 {/* Description */}
                 <motion.p
                   variants={fadeUp}
-                  className="mt-4 text-[0.9rem] xl:text-[0.95rem] font-body text-black-deep leading-[1.75]"
+                  className="mt-4 text-[1.05rem] xl:text-[1.1rem] font-body text-black leading-[1.75]"
                 >
                   {detail.description}
                 </motion.p>
@@ -296,7 +321,7 @@ function SheetContent({
 
                 {/* Specs — clean table rows */}
                 <motion.div variants={fadeUp}>
-                  <p className="font-ui text-[0.65rem] uppercase tracking-[0.2em] text-black-deep mb-5">
+                  <p className="font-ui text-[0.8rem] uppercase tracking-[0.2em] text-black-deep mb-5">
                     Specifiche tecniche
                   </p>
                   <div className="space-y-0">
@@ -304,12 +329,12 @@ function SheetContent({
                       <motion.div
                         key={s.label}
                         variants={fadeUp}
-                        className={`grid grid-cols-[1fr_1.2fr] gap-6 py-3.5 ${i < detail.specs.length - 1 ? "border-b border-black-deep/5" : ""}`}
+                        className={`grid grid-cols-[1fr_1.2fr] gap-6 py-4 ${i < detail.specs.length - 1 ? "border-b border-black-deep/5" : ""}`}
                       >
-                        <span className="font-ui text-[0.8rem] text-black-deep uppercase tracking-[0.06em]">
+                        <span className="font-ui text-[1rem] xl:text-[1.05rem] text-black-deep uppercase tracking-[0.06em]">
                           {s.label}
                         </span>
-                        <span className="font-ui text-[0.85rem] text-black-deep font-medium text-right">
+                        <span className="font-ui text-[1rem] xl:text-[1.05rem] text-black-deep font-medium text-right uppercase">
                           {s.value}
                         </span>
                       </motion.div>
@@ -320,30 +345,40 @@ function SheetContent({
                 {/* Divider */}
                 <motion.div variants={fadeUp} className="mt-8 mb-8 h-px bg-black-deep/8" />
 
-                {/* Finishes + Features */}
-                <motion.div variants={fadeUp} className="grid grid-cols-2 gap-10">
-                  <div>
-                    <p className="font-ui text-[0.65rem] uppercase tracking-[0.2em] text-black-deep mb-3">
-                      Finiture
-                    </p>
-                    <p className="font-ui text-[0.85rem] text-black-deep leading-relaxed">
-                      {detail.colors}
-                    </p>
+                {/* Finiture */}
+                <motion.div variants={fadeUp}>
+                  <p className="font-ui text-[0.8rem] uppercase tracking-[0.2em] text-black-deep mb-5">
+                    Finiture
+                  </p>
+                  <div className="grid grid-cols-2 xl:grid-cols-3 gap-3">
+                    {detail.colors.split(",").map((c) => (
+                      <span
+                        key={c.trim()}
+                        className="font-ui text-[0.85rem] text-black-deep uppercase text-center border border-black-deep/10 bg-cream/40 px-4 py-3 rounded-lg"
+                      >
+                        {c.trim()}
+                      </span>
+                    ))}
                   </div>
-                  <div>
-                    <p className="font-ui text-[0.65rem] uppercase tracking-[0.2em] text-black-deep mb-3">
-                      Tipologie
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {detail.features.map((feat) => (
-                        <span
-                          key={feat}
-                          className="font-ui text-[0.75rem] text-black-deep border border-black-deep/10 px-3 py-1.5 rounded-full hover:border-black-deep/25 transition-colors"
-                        >
-                          {feat}
-                        </span>
-                      ))}
-                    </div>
+                </motion.div>
+
+                {/* Divider */}
+                <motion.div variants={fadeUp} className="mt-8 mb-8 h-px bg-black-deep/8" />
+
+                {/* Tipologie */}
+                <motion.div variants={fadeUp}>
+                  <p className="font-ui text-[0.8rem] uppercase tracking-[0.2em] text-black-deep mb-5">
+                    Tipologie
+                  </p>
+                  <div className="grid grid-cols-2 xl:grid-cols-3 gap-3">
+                    {detail.features.map((feat) => (
+                      <span
+                        key={feat}
+                        className="font-ui text-[0.85rem] text-black-deep uppercase text-center border border-black-deep/10 bg-cream/40 px-4 py-3 rounded-lg hover:border-black-deep/25 hover:bg-cream/70 transition-all duration-300"
+                      >
+                        {feat}
+                      </span>
+                    ))}
                   </div>
                 </motion.div>
 

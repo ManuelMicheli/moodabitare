@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_RISTRUTTURAZIONE, buildFaqJsonLd } from "@/lib/seo/faq-data";
-import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -151,18 +150,9 @@ export default function ServiziRistrutturazione() {
       />
       {/* Hero */}
       <CurtainHero>
-        <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
-          <Image
-            src="/images/ristrutturazione-hero.jpg"
-            alt="Ristrutturazione chiavi in mano"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-            quality={90}
-          />
+        <section className="relative min-h-[30vh] sm:min-h-[45vh] flex items-end bg-black-deep text-white overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/50 to-black-deep/20" />
-          <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
+          <div className="relative z-10 w-full pb-10 lg:pb-14 px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <p className="text-label text-white/80 mb-6">
                 Servizi di Ristrutturazione
@@ -184,14 +174,9 @@ export default function ServiziRistrutturazione() {
       </CurtainHero>
 
       {/* Process steps — horizontal timeline */}
-      <section className="py-16 lg:py-24 bg-cream">
+      <section className="pb-16 lg:pb-24 bg-cream">
         <div className="px-6 sm:px-10 lg:px-20">
-          <FadeInView>
-            <p className="text-label text-black-deep/60 mb-4 text-center">
-              Il nostro metodo
-            </p>
-          </FadeInView>
-          <StaggerContainer className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-px bg-black-deep/8">
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-black-deep/8">
             {steps.map((step) => (
               <StaggerItem key={step.number}>
                 <div className="bg-cream px-5 sm:px-6 py-8 lg:py-10 text-center">
