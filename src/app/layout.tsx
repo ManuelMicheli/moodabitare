@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { cormorantGaramond, outfit } from "@/fonts";
+import { cormorantGaramond, albertSans, outfit } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LazyOverlays } from "@/components/shared/LazyOverlays";
@@ -155,20 +155,14 @@ const jsonLdSchemas = [
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "14:30",
-        closes: "19:00",
+        opens: "14:00",
+        closes: "17:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Saturday",
         opens: "09:30",
         closes: "12:30",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "14:00",
-        closes: "17:00",
       },
     ],
     priceRange: "$$",
@@ -237,7 +231,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={`${cormorantGaramond.variable} ${outfit.variable}`}>
+    <html lang="it" className={`${cormorantGaramond.variable} ${albertSans.variable} ${outfit.variable}`}>
       <head>
         {/* Preload first hero video — responsive desktop/mobile.
             Starts download immediately on page load, before React hydrates. */}

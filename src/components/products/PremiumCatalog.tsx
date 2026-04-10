@@ -353,21 +353,28 @@ function PremiumCatalogInner({
         {/* Inline stats + CTA */}
         <DrawLine className="mt-10 sm:mt-12 !bg-black-deep/[0.06]" delay={0.5} />
         <FadeInView delay={0.6}>
-          <div className="mt-8 flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex items-baseline gap-2">
-                <AnimatedCounter
-                  target={stat.n}
-                  suffix={stat.suffix}
-                  className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-black-deep tracking-tight"
-                  duration={1.8}
-                />
-                <span className="font-ui text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.15em] text-black-deep/30 font-medium">
-                  {stat.label}
-                </span>
+          <div className="mt-8 space-y-6 lg:space-y-0">
+            <div className="flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
+              {stats.map((stat) => (
+                <div key={stat.label} className="flex items-baseline gap-2">
+                  <AnimatedCounter
+                    target={stat.n}
+                    suffix={stat.suffix}
+                    className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-black-deep tracking-tight"
+                    duration={1.8}
+                  />
+                  <span className="font-ui text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.15em] text-black-deep/30 font-medium">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+              <div className="hidden lg:block">
+                <RequestQuoteBanner productName={productName ?? title.toLowerCase()} />
               </div>
-            ))}
-            <RequestQuoteBanner productName={productName ?? title.toLowerCase()} />
+            </div>
+            <div className="lg:hidden">
+              <RequestQuoteBanner productName={productName ?? title.toLowerCase()} />
+            </div>
           </div>
         </FadeInView>
 

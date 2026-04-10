@@ -12,7 +12,7 @@ import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Contatti — Preventivo Gratuito Serramenti Varese",
   description:
-    "Contatta Mood Abitare per un preventivo gratuito. Showroom in Viale Europa 65, Gorla Maggiore (VA). Tel. 0331.1588159 — WhatsApp 351.7278053. Aperto lun-ven 9:30-19:00, sab 9:30-17:00.",
+    "Contatta Mood Abitare per un preventivo gratuito. Showroom in Viale Europa 65, Gorla Maggiore (VA). Tel. 0331.1588159 — WhatsApp 351.7278053. Aperto lun-ven 9:30-17:00, sab 9:30-12:30.",
   keywords: [
     "contatti Mood Abitare",
     "preventivo serramenti Varese",
@@ -124,7 +124,7 @@ export default function Contatti() {
                 <div className="pt-6 border-t border-black/5">
                   <p className="text-label text-black-deep/60 mb-2">Orari</p>
                   <p className="text-caption text-black-deep">{OPENING_HOURS.weekdays.label}: {OPENING_HOURS.weekdays.morning} / {OPENING_HOURS.weekdays.afternoon}</p>
-                  <p className="text-caption text-black-deep mt-1">{OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning} / {OPENING_HOURS.saturday.afternoon}</p>
+                  <p className="text-caption text-black-deep mt-1">{OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning}</p>
                 </div>
               </div>
             </FadeInView>

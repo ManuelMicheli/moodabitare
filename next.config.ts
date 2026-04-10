@@ -37,14 +37,20 @@ const nextConfig: NextConfig = {
   // SEO: remove trailing slashes for canonical URL consistency
   trailingSlash: false,
   images: {
+    dangerouslyAllowSVG: true, // TODO: remove when placeholder images are replaced
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    qualities: [75, 90],
     minimumCacheTTL: 31536000, // 1 year — images are static
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
       },
     ],
   },

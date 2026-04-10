@@ -50,7 +50,7 @@ export const FAQ_CONTATTI: FAQ[] = [
   {
     question: "Quali sono gli orari di apertura dello showroom Mood Abitare?",
     answer:
-      "Lo showroom è aperto dal lunedì al venerdì dalle 9:30 alle 12:30 e dalle 14:30 alle 19:00, il sabato dalle 9:30 alle 12:30 e dalle 14:00 alle 17:00.",
+      "Lo showroom è aperto dal lunedì al venerdì dalle 9:30 alle 12:30 e dalle 14:00 alle 17:00, il sabato dalle 9:30 alle 12:30.",
   },
   {
     question: "Dove si trova lo showroom Mood Abitare?",

@@ -101,7 +101,7 @@ export function Footer() {
                 {OPENING_HOURS.weekdays.label}: {OPENING_HOURS.weekdays.morning} / {OPENING_HOURS.weekdays.afternoon}
               </p>
               <p className="text-caption text-white/70 mt-1">
-                {OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning} / {OPENING_HOURS.saturday.afternoon}
+                {OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning}
               </p>
             </div>
           </div>

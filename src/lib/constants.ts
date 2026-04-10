@@ -34,12 +34,11 @@ export const OPENING_HOURS = {
   weekdays: {
     label: "Lunedì – Venerdì",
     morning: "9:30–12:30",
-    afternoon: "14:30–19:00",
+    afternoon: "14:00–17:00",
   },
   saturday: {
     label: "Sabato",
     morning: "9:30–12:30",
-    afternoon: "14:00–17:00",
   },
 };
 

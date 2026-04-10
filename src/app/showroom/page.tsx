@@ -76,8 +76,17 @@ export default function ShowroomPage() {
                   <Image src="/moodabitarereal/showroom-interno.webp" alt="Interno showroom Mood Abitare" fill className="object-cover" sizes="(max-width: 640px) 100vw, 31vw" />
                 </div>
               </FadeInView>
-              <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-start">
-                <div className="aspect-[2/3] rounded-sm bg-warm-gray" />
+              <FadeInView delay={0.3} className="w-full sm:w-[33%]">
+                <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
+                  <video
+                    src="/videos/showroom-card/showroom-card-720.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
               </FadeInView>
             </div>
 
@@ -199,8 +208,8 @@ export default function ShowroomPage() {
                   <AccentText>Orari di apertura</AccentText>
                 </h2>
                 <div className="space-y-2 font-display text-black-deep">
-                  <p>Lunedì — Venerdì: 8:30 – 12:30 / 14:30 – 19:00</p>
-                  <p>Sabato: 9:00 – 12:30</p>
+                  <p>Lunedì — Venerdì: 9:30 – 12:30 / 14:00 – 17:00</p>
+                  <p>Sabato: 9:30 – 12:30</p>
                   <p>Domenica: Chiuso</p>
                 </div>
               </FadeInView>

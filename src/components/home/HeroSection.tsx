@@ -13,6 +13,14 @@ interface Slide {
   ctaLink: string;
   image: string;
   video?: { desktop: string; mobile: string };
+  /** Triptych layout: 3 vertical cards — center is video (if present) or centerImage */
+  triptych?: {
+    leftImage: string;
+    leftVideo?: string;
+    centerImage?: string;
+    rightImage: string;
+    rightVideo?: string;
+  };
 }
 
 const slides: Slide[] = [
@@ -22,6 +30,11 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "",
+    video: { desktop: "/videos/hero-home/hero-home-1080.mp4", mobile: "/videos/hero-home/hero-home-720.mp4" },
+    triptych: {
+      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+    },
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
@@ -29,6 +42,11 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
+    video: { desktop: "/videos/hero-home-2/hero-home-2-1080.mp4", mobile: "/videos/hero-home-2/hero-home-2-720.mp4" },
+    triptych: {
+      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+    },
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
@@ -36,6 +54,11 @@ const slides: Slide[] = [
     ctaText: "Scopri le soluzioni",
     ctaLink: "/prodotti/porte-interne",
     image: "/images/WhatsApp Image 2026-03-20 at 17.09.11 (1).jpeg",
+    triptych: {
+      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      centerImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+    },
   },
   {
     headline: "Arredo, outdoor\ne spazi da vivere",
@@ -43,6 +66,11 @@ const slides: Slide[] = [
     ctaText: "Scopri l'arredo",
     ctaLink: "/prodotti/cucine-su-misura",
     image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg",
+    triptych: {
+      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      centerImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+    },
   },
   {
     headline: "Ristrutturazioni\ne energie rinnovabili",
@@ -50,6 +78,11 @@ const slides: Slide[] = [
     ctaText: "Richiedi preventivo",
     ctaLink: "/contatti",
     image: "/images/Hero3.jpg",
+    triptych: {
+      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      centerImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
+    },
   },
 ];
 
@@ -349,7 +382,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[calc(100svh-3rem)] sm:h-[80svh] flex items-end overflow-hidden bg-black-deep"
+      className="relative h-[calc(100svh-3rem)] sm:h-[75svh] flex items-end overflow-hidden bg-black-deep"
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
     >
@@ -363,7 +396,93 @@ export function HeroSection() {
           className="absolute inset-0"
           style={{ willChange: "clip-path, transform" }}
         >
-          {slide.video ? (
+          {slide.triptych ? (
+            /* ── Triptych: 3 vertical cards ──────────────────── */
+            <>
+              <div className="absolute inset-0 bg-black-deep" />
+
+              {/* Mobile: single media fullscreen */}
+              {isMobile && (
+                <div className="absolute inset-0">
+                  {slide.video ? (
+                    <video
+                      ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
+                      src={loadedVideos.has(i) ? slide.video.mobile : undefined}
+                      muted
+                      playsInline
+                      preload="auto"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={slide.triptych.centerImage || slide.image}
+                      alt={slide.headline.replace("\n", " ")}
+                      fill
+                      sizes="100vw"
+                      quality={90}
+                      className="object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black/40" />
+                </div>
+              )}
+
+              {/* Desktop: text card + wide video */}
+              {!isMobile && (
+                <div className="absolute inset-0 grid grid-cols-[1fr_2fr] pr-2 pt-2">
+                  {/* Left card — all text content (z-[4] to sit above gradients/grain) */}
+                  <div className="relative overflow-hidden rounded-tr-lg bg-cream mr-2 z-[4]">
+                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 lg:px-10 text-center">
+                      <Image
+                        src="/logo/logo-mood-abitare-transparent-opt.png"
+                        alt="Mood Abitare"
+                        width={200}
+                        height={50}
+                        className="w-auto h-10 lg:h-14 object-contain mb-4 lg:mb-6"
+                      />
+                      <h2 className="font-hero text-black-deep text-[clamp(1.2rem,2.5vw,2.5rem)] leading-[1.15]">
+                        {slide.headline.split("\n").map((line, li) => (
+                          <span key={`${i}-left-${li}`} className="block">{line}</span>
+                        ))}
+                      </h2>
+                      <p className="font-body text-black-soft text-[clamp(0.8rem,1vw,1.15rem)] leading-relaxed mt-4 lg:mt-6 max-w-xs">
+                        {slide.subheadline}
+                      </p>
+                      <Link
+                        href={slide.ctaLink}
+                        className="mt-5 lg:mt-8 text-button inline-block bg-bordeaux text-white px-6 py-3 lg:px-8 lg:py-4 hover:bg-bordeaux-dark transition-colors"
+                      >
+                        {slide.ctaText}
+                      </Link>
+                    </div>
+                  </div>
+                  {/* Right card — wide video or image */}
+                  <div className="relative overflow-hidden rounded-lg">
+                    {slide.video ? (
+                      <video
+                        ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
+                        src={loadedVideos.has(i) ? slide.video.desktop : undefined}
+                        muted
+                        playsInline
+                        preload="auto"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <Image
+                        src={slide.triptych.centerImage || slide.image}
+                        alt={slide.headline.replace("\n", " ")}
+                        fill
+                        sizes="66vw"
+                        quality={90}
+                        className="object-cover"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                </div>
+              )}
+            </>
+          ) : slide.video ? (
             <video
               ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
               src={isMobile !== null && loadedVideos.has(i) ? (isMobile ? slide.video.mobile : slide.video.desktop) : undefined}
@@ -386,11 +505,11 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-[#2b2b2b]" />
           )}
 
-          {/* Dark overlay for text contrast */}
-          <div className="absolute inset-0 bg-black/20" />
+          {/* Dark overlay for text contrast (non-triptych slides) */}
+          {!slide.triptych && <div className="absolute inset-0 bg-black/40" />}
 
-          {/* Logo + titolo in alto, sottotitolo + CTA in basso */}
-          <div className="absolute inset-0 flex flex-col justify-between px-5 sm:px-10 lg:px-16 pt-20 sm:pt-18 lg:pt-20 pb-8 sm:pb-6 lg:pb-8">
+          {/* Logo + titolo — on mobile always, on desktop only for non-triptych */}
+          <div className={`absolute inset-0 flex flex-col justify-between px-5 sm:px-10 lg:px-16 pt-20 sm:pt-18 lg:pt-20 pb-8 sm:pb-6 lg:pb-8 ${slide.triptych ? "sm:hidden" : ""}`}>
             <div className="flex flex-col items-center gap-2 sm:gap-4">
               <Image
                 src="/logo/logo-mood-abitare-transparent-opt.png"
@@ -399,14 +518,14 @@ export function HeroSection() {
                 height={50}
                 className="w-auto h-7 sm:h-12 lg:h-16 object-contain drop-shadow-lg brightness-0 invert"
               />
-              <h2 className="font-hero text-white text-center drop-shadow-lg text-[0.95rem] sm:text-[clamp(1.5rem,4vw,3rem)] leading-[1.15]">
+              <h2 className="font-hero text-white text-center drop-shadow-lg text-[1.2rem] sm:text-[clamp(1.5rem,3.5vw,3.25rem)] leading-[1.15]">
                 {slide.headline.split("\n").map((line, li) => (
                   <span key={`${i}-${li}`} className="block">{line}</span>
                 ))}
               </h2>
             </div>
             <div className="flex flex-col items-center gap-3 sm:gap-4">
-              <p className="font-body text-white text-center max-w-[280px] sm:max-w-2xl drop-shadow-md text-[0.8rem] sm:text-[clamp(0.9rem,1.2vw,1.4rem)] leading-relaxed">
+              <p className="font-body text-white text-center max-w-[280px] sm:max-w-2xl drop-shadow-md text-[0.9375rem] sm:text-[clamp(1rem,1.2vw,1.375rem)] leading-relaxed">
                 {slide.subheadline}
               </p>
               <Link

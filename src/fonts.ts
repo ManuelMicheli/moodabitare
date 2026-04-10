@@ -1,4 +1,4 @@
-import { Cormorant_Garamond } from "next/font/google";
+import { Cormorant_Garamond, Albert_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
 export const cormorantGaramond = Cormorant_Garamond({
@@ -7,6 +7,13 @@ export const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
+});
+
+export const albertSans = Albert_Sans({
+  subsets: ["latin"],
+  variable: "--font-albert",
+  display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 export const outfit = localFont({

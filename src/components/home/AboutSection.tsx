@@ -1,16 +1,14 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import Image from "next/image";
-
+import { useRef, useState, useCallback } from "react";
+import { motion, useScroll, useTransform, MotionValue, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { AccentText } from "@/components/ui/AccentText";
-import { LinkPreview } from "@/components/ui/LinkPreview";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 /* ── Types ────────────────────────────────────────────────────────── */
 
-type LinkData = { href: string; image: string; title: string };
+type LinkData = { href: string; label: string };
 type Part = string | { text: string; link: LinkData };
 
 /* ── Copy ─────────────────────────────────────────────────────────── */
@@ -21,68 +19,35 @@ const HEADLINE: Part[] = [
 
 const BODY_1: Part[] = [
   "Nel nostro ",
-  {
-    text: "showroom di 300 mq",
-    link: { href: "/contatti", image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg", title: "Showroom Mood Abitare" },
-  },
+  { text: "showroom di 300 mq", link: { href: "/showroom", label: "Showroom" } },
   " a Gorla Maggiore trovate tutto per la vostra casa: dai ",
-  {
-    text: "serramenti",
-    link: { href: "/prodotti/infissi-pvc", image: "/images/Prolux-4.jpg", title: "Infissi in PVC Oknoplast" },
-  },
+  { text: "serramenti", link: { href: "/prodotti/infissi-pvc", label: "Infissi in PVC" } },
   " in PVC, alluminio e legno alle ",
-  {
-    text: "porte interne",
-    link: { href: "/prodotti/porte-interne", image: "/images/Home-bertolotto-opt.jpg", title: "Porte Interne" },
-  },
+  { text: "porte interne", link: { href: "/prodotti/porte-interne", label: "Porte Interne" } },
   " e blindate, dalle ",
-  {
-    text: "cucine su misura",
-    link: { href: "/prodotti/cucine-su-misura", image: "/images/Cucina-con-finestra-Prolux-Swing-opt.jpg", title: "Cucine su Misura" },
-  },
+  { text: "cucine su misura", link: { href: "/prodotti/cucine-su-misura", label: "Cucine su Misura" } },
   " ai ",
-  {
-    text: "pavimenti",
-    link: { href: "/prodotti/parquet", image: "/images/Hero3.jpg", title: "Parquet" },
-  },
+  { text: "pavimenti", link: { href: "/prodotti/parquet", label: "Parquet" } },
   ", dall'",
-  {
-    text: "arredo bagno",
-    link: { href: "/prodotti/arredo-bagno", image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg", title: "Arredo Bagno" },
-  },
+  { text: "arredo bagno", link: { href: "/prodotti/arredo-bagno", label: "Arredo Bagno" } },
   " alle ",
-  {
-    text: "scale e ringhiere",
-    link: { href: "/prodotti/scale-ringhiere", image: "/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg", title: "Scale e Ringhiere" },
-  },
+  { text: "scale e ringhiere", link: { href: "/prodotti/scale-ringhiere", label: "Scale e Ringhiere" } },
   " — insieme a persiane, avvolgibili, zanzariere, grate di sicurezza, monoblocchi e VMC.",
 ];
 
 const BODY_2: Part[] = [
   "Selezioniamo con cura i nostri ",
-  {
-    text: "partner",
-    link: { href: "/premium-partner", image: "/images/Oknoplast-azienda-vista-aerea-opt.jpg", title: "I Nostri Brand Partner" },
-  },
+  { text: "partner", link: { href: "/premium-partner", label: "Premium Partner" } },
   ": solo 17 marchi in oltre trent'anni, scelti tra le aziende più innovative d'Italia e d'Europa. Ogni soluzione che vi proponiamo unisce funzionalità, design personalizzabile e la qualità di chi lavora con noi da anni.",
 ];
 
 const BODY_3: Part[] = [
   "Dalla ",
-  {
-    text: "progettazione su misura",
-    link: { href: "/progettazione-design", image: "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.jpg", title: "Progettazione e Design" },
-  },
+  { text: "progettazione su misura", link: { href: "/progettazione-design", label: "Progettazione e Design" } },
   " alla ",
-  {
-    text: "ristrutturazione",
-    link: { href: "/servizi-ristrutturazione", image: "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg", title: "Servizi di Ristrutturazione" },
-  },
+  { text: "ristrutturazione", link: { href: "/servizi-ristrutturazione", label: "Ristrutturazione" } },
   " chiavi in mano, vi accompagniamo in ogni fase. Render 3D, posatori con patentino certificato, soluzioni di ",
-  {
-    text: "finanziamento",
-    link: { href: "/finanziamento", image: "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg", title: "Opzioni di Finanziamento" },
-  },
+  { text: "finanziamento", link: { href: "/finanziamento", label: "Finanziamento" } },
   " e assistenza post-vendita — il nostro impegno non si ferma alla consegna.",
 ];
 
@@ -128,6 +93,62 @@ function AnimatedWord({
     >
       <AccentText>{children}</AccentText>
     </motion.span>
+  );
+}
+
+/* ── Hover link with tooltip ─────────────────────────────────────── */
+
+function HoverLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}) {
+  const [show, setShow] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const handleEnter = useCallback(() => {
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setShow(true), 150);
+  }, []);
+
+  const handleLeave = useCallback(() => {
+    clearTimeout(timeoutRef.current);
+    setShow(false);
+  }, []);
+
+  return (
+    <span className="relative inline">
+      <Link
+        href={href}
+        className="inline cursor-pointer"
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        {children}
+      </Link>
+      <AnimatePresence>
+        {show && (
+          <motion.span
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 pointer-events-none whitespace-nowrap"
+          >
+            <span className="flex items-center gap-1.5 bg-black-deep text-white font-ui text-[11px] tracking-wide px-3 py-1.5 rounded-full shadow-lg">
+              Vai a {label}
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </span>
   );
 }
 
@@ -181,14 +202,9 @@ function ScrollRichParagraph({
         ));
 
         return (
-          <LinkPreview
-            key={`l${pIdx}`}
-            href={part.link.href}
-            previewImage={part.link.image}
-            previewTitle={part.link.title}
-          >
+          <HoverLink key={`l${pIdx}`} href={part.link.href} label={part.link.label}>
             {rendered}
-          </LinkPreview>
+          </HoverLink>
         );
       })}
     </p>
@@ -221,16 +237,11 @@ function SimpleRichParagraph({
         typeof part === "string" ? (
           <AccentText key={idx}>{part}</AccentText>
         ) : (
-          <LinkPreview
-            key={idx}
-            href={part.link.href}
-            previewImage={part.link.image}
-            previewTitle={part.link.title}
-          >
+          <HoverLink key={idx} href={part.link.href} label={part.link.label}>
             <span className="text-bordeaux">
               <AccentText>{part.text}</AccentText>
             </span>
-          </LinkPreview>
+          </HoverLink>
         )
       )}
     </motion.p>
