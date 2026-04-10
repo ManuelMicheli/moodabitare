@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { CurtainHero } from "@/components/animations/CurtainHero";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, R2_CDN } from "@/lib/constants";
 
 
 export const metadata: Metadata = {
@@ -79,7 +79,7 @@ export default function ShowroomPage() {
               <FadeInView delay={0.3} className="w-full sm:w-[33%]">
                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
                   <video
-                    src="/videos/showroom-card/showroom-card-720.mp4"
+                    src={`${R2_CDN}/videos/showroom-card/showroom-card-720.mp4`}
                     autoPlay
                     muted
                     loop

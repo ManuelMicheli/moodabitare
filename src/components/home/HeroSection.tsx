@@ -30,7 +30,7 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "",
-    video: { desktop: "/videos/hero-home/hero-home-1080.mp4", mobile: "/videos/hero-home/hero-home-720.mp4" },
+    video: { desktop: `${R2_CDN}/videos/hero-home/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home/hero-home-720.mp4` },
     triptych: {
       leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
       rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
@@ -42,7 +42,7 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
-    video: { desktop: "/videos/hero-home-2/hero-home-2-1080.mp4", mobile: "/videos/hero-home-2/hero-home-2-720.mp4" },
+    video: { desktop: `${R2_CDN}/videos/hero-home-2/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2/hero-home-2-720.mp4` },
     triptych: {
       leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
       rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
@@ -429,9 +429,9 @@ export function HeroSection() {
 
               {/* Desktop: text card + wide video */}
               {!isMobile && (
-                <div className="absolute inset-0 grid grid-cols-[1fr_2fr] pr-2 pt-2">
+                <div className="absolute inset-0 grid grid-cols-[1fr_2fr]">
                   {/* Left card — all text content (z-[4] to sit above gradients/grain) */}
-                  <div className="relative overflow-hidden rounded-tr-lg bg-cream mr-2 z-[4]">
+                  <div className="relative overflow-hidden bg-cream z-[4]">
                     <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 lg:px-10 text-center">
                       <Image
                         src="/logo/logo-mood-abitare-transparent-opt.png"
@@ -457,7 +457,7 @@ export function HeroSection() {
                     </div>
                   </div>
                   {/* Right card — wide video or image */}
-                  <div className="relative overflow-hidden rounded-lg">
+                  <div className="relative overflow-hidden">
                     {slide.video ? (
                       <video
                         ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
@@ -539,13 +539,12 @@ export function HeroSection() {
         </div>
       ))}
 
-      {/* Top gradient for navbar readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black-deep/25 via-transparent to-transparent pointer-events-none z-[3]" />
-      {/* Bottom gradient for CTA readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black-deep/35 via-transparent to-transparent pointer-events-none z-[3]" />
+      {/* Gradients disabled for clean triptych look */}
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-black-deep/25 via-transparent to-transparent pointer-events-none z-[3]" /> */}
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black-deep/35 via-transparent to-transparent pointer-events-none z-[3]" /> */}
 
-      {/* Film grain texture overlay */}
-      <div className="hero-grain" />
+      {/* Film grain texture overlay — disabled for clean triptych look */}
+      {/* <div className="hero-grain" /> */}
 
       {/* Navigation arrows — hidden on small mobile, visible from sm up */}
       <button
