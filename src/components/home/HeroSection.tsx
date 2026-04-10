@@ -30,7 +30,7 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "",
-    video: { desktop: `${R2_CDN}/videos/hero-home/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home/hero-home-720.mp4` },
+    video: { desktop: `${R2_CDN}/videos/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-720.mp4` },
     triptych: {
       leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
       rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
@@ -42,7 +42,7 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "",
-    video: { desktop: `${R2_CDN}/videos/hero-home-2/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2/hero-home-2-720.mp4` },
+    video: { desktop: `${R2_CDN}/videos/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2-720.mp4` },
     triptych: {
       leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
       rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",

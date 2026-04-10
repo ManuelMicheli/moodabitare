@@ -79,7 +79,7 @@ export default function ShowroomPage() {
               <FadeInView delay={0.3} className="w-full sm:w-[33%]">
                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
                   <video
-                    src={`${R2_CDN}/videos/showroom-card/showroom-card-720.mp4`}
+                    src={`${R2_CDN}/videos/showroom-card-720.mp4`}
                     autoPlay
                     muted
                     loop
