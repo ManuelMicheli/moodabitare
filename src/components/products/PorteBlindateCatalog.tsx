@@ -233,7 +233,7 @@ function PorteBlindateCatalogInner({
         <div className="flex items-center gap-4 mb-6">
           <DrawLine className="!w-12 !bg-bordeaux/40" duration={0.6} />
           <FadeInView delay={0.2}>
-            <span className="font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] text-bordeaux/60 font-semibold">
+            <span className="font-ui text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.25em] text-bordeaux/70 font-semibold">
               Catalogo Alias &middot; Erreci
             </span>
           </FadeInView>
@@ -248,7 +248,7 @@ function PorteBlindateCatalogInner({
         </TextRevealByWord>
 
         <FadeInView delay={0.4}>
-          <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/55 max-w-2xl leading-relaxed">
+          <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/70 max-w-2xl leading-relaxed">
             Dalle tradizionali con cerniere a vista alle soluzioni filomuro e coplanari,
             dalle smart con LED e apertura biometrica fino alle tagliafuoco REI 90.
           </p>
@@ -287,7 +287,7 @@ function PorteBlindateCatalogInner({
           <motion.div key={activeCat.id} initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }} animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }} exit={{ clipPath: "inset(0% 0% 100% 0%)", opacity: 0 }} transition={{ duration: 0.4, ease: [0.77, 0, 0.175, 1] }} className="mt-6 sm:mt-8">
             <div className="flex items-start gap-3 sm:gap-4">
               <span className="flex-shrink-0 mt-0.5 text-black-deep/20">{categoryIcons[activeCat.id]}</span>
-              <p className="font-body text-sm sm:text-base text-black-deep/45 leading-relaxed max-w-xl italic">{activeCat.tagline}</p>
+              <p className="font-body text-base text-black-deep/60 leading-relaxed max-w-xl italic">{activeCat.tagline}</p>
             </div>
           </motion.div>
         </AnimatePresence>

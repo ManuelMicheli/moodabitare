@@ -325,7 +325,7 @@ function TapparelleCatalogInner({
         <div className="flex items-center gap-4 mb-6">
           <DrawLine className="!w-12 !bg-bordeaux/40" duration={0.6} />
           <FadeInView delay={0.2}>
-            <span className="font-ui text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] text-bordeaux/60 font-semibold">
+            <span className="font-ui text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.25em] text-bordeaux/70 font-semibold">
               Catalogo Pasini
             </span>
           </FadeInView>
@@ -340,7 +340,7 @@ function TapparelleCatalogInner({
         </TextRevealByWord>
 
         <FadeInView delay={0.4}>
-          <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/55 max-w-2xl leading-relaxed">
+          <p className="mt-5 sm:mt-6 font-body text-base sm:text-lg lg:text-xl text-black-deep/70 max-w-2xl leading-relaxed">
             Dall&apos;alluminio coibentato all&apos;acciaio blindato, dal PVC
             anti-deformazione agli screen tecnici. Avvolgibili Pasini per ogni
             esigenza di comfort, sicurezza e design.
@@ -404,7 +404,7 @@ function TapparelleCatalogInner({
               <span className="flex-shrink-0 mt-0.5 text-black-deep/20">
                 {categoryIcons[activeCat.id]}
               </span>
-              <p className="font-body text-sm sm:text-base text-black-deep/45 leading-relaxed max-w-xl italic">
+              <p className="font-body text-base text-black-deep/60 leading-relaxed max-w-xl italic">
                 {activeCat.tagline}
               </p>
             </div>

@@ -524,7 +524,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="mt-10 sm:mt-16 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-32">
             {/* Specs */}
             <FadeInView>
-              <p className="text-label text-black-deep/60 mb-10">
+              <p className="text-label text-black-deep/75 mb-10">
                 Specifiche tecniche
               </p>
               <div className="space-y-0">
@@ -546,7 +546,7 @@ export default async function ProductPage({ params }: Props) {
 
             {/* Benefits */}
             <FadeInView delay={0.1}>
-              <p className="text-label text-black-deep/60 mb-10">
+              <p className="text-label text-black-deep/75 mb-10">
                 I vantaggi per te
               </p>
               <ul className="space-y-5">

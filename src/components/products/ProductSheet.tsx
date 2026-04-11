@@ -145,7 +145,7 @@ function SheetContent({
 
             <div className="px-5 pb-5 pt-5">
               {/* Brand + Name */}
-              <span className="font-ui text-[0.65rem] uppercase tracking-[0.18em] text-black-deep font-semibold">
+              <span className="font-ui text-[0.75rem] uppercase tracking-[0.18em] text-black-deep font-semibold">
                 {detail.brand}
               </span>
               <h3 className="mt-1 font-display text-[1.4rem] sm:text-2xl font-bold tracking-tight text-black-deep leading-tight">
@@ -153,12 +153,12 @@ function SheetContent({
               </h3>
 
               {/* Highlight */}
-              <p className="mt-3 text-[0.85rem] font-ui font-medium text-bordeaux leading-snug">
+              <p className="mt-3 text-[0.95rem] font-ui font-semibold text-bordeaux leading-snug">
                 {detail.highlight}
               </p>
 
               {/* Description */}
-              <p className="mt-3 text-[0.9rem] font-body text-black-deep leading-relaxed">
+              <p className="mt-3 text-[1rem] font-body text-black-deep leading-relaxed uppercase">
                 {detail.description}
               </p>
 
@@ -166,14 +166,14 @@ function SheetContent({
               <div className="mt-5 mb-5 h-px bg-black-deep/10" />
 
               {/* Specs */}
-              <p className="font-ui text-[0.7rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-3">
+              <p className="font-ui text-[0.8rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-3">
                 Specifiche tecniche
               </p>
               <div className="space-y-0">
                 {detail.specs.map((s, i) => (
                   <div key={s.label} className={`flex justify-between items-baseline py-2.5 ${i < detail.specs.length - 1 ? "border-b border-black-deep/8" : ""}`}>
-                    <span className="font-ui text-[0.8rem] uppercase tracking-[0.05em] text-black-deep">{s.label}</span>
-                    <span className="font-ui text-[0.85rem] text-black-deep font-semibold text-right ml-4 uppercase">{s.value}</span>
+                    <span className="font-ui text-[0.85rem] uppercase tracking-[0.05em] text-black-deep">{s.label}</span>
+                    <span className="font-ui text-[0.9rem] text-black-deep font-semibold text-right ml-4 uppercase">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -182,18 +182,18 @@ function SheetContent({
               <div className="mt-5 mb-5 h-px bg-black-deep/10" />
 
               {/* Finiture */}
-              <p className="font-ui text-[0.7rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2">
+              <p className="font-ui text-[0.8rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2">
                 Finiture disponibili
               </p>
-              <p className="text-[0.9rem] font-body text-black-deep leading-relaxed uppercase">{detail.colors}</p>
+              <p className="text-[1rem] font-body text-black-deep leading-relaxed uppercase">{detail.colors}</p>
 
               {/* Caratteristiche */}
-              <p className="mt-4 font-ui text-[0.7rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2.5">
+              <p className="mt-4 font-ui text-[0.8rem] uppercase tracking-[0.18em] text-black-deep font-semibold mb-2.5">
                 Caratteristiche
               </p>
               <div className="flex flex-wrap gap-2">
                 {detail.features.map((feat) => (
-                  <span key={feat} className="text-[0.8rem] font-ui text-black-deep uppercase border border-black-deep/15 px-3 py-1.5 rounded-full">
+                  <span key={feat} className="text-[0.85rem] font-ui text-black-deep uppercase border border-black-deep/15 px-3 py-1.5 rounded-full">
                     {feat}
                   </span>
                 ))}
@@ -206,7 +206,7 @@ function SheetContent({
             className="border-t border-black-deep/10 px-5 py-3.5 bg-white flex gap-3"
             style={{ paddingBottom: "calc(0.875rem + env(safe-area-inset-bottom, 0px))" }}
           >
-            <a href="/contatti" className="flex-1 font-ui text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-center bg-black-deep text-white py-3.5 rounded-lg hover:bg-black-soft transition-colors">
+            <a href="/contatti" className="flex-1 font-ui text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-center bg-black-deep text-white py-3.5 rounded-lg hover:bg-black-soft transition-colors">
               Richiedi preventivo
             </a>
             <a
@@ -311,7 +311,7 @@ function SheetContent({
                 {/* Description */}
                 <motion.p
                   variants={fadeUp}
-                  className="mt-4 text-[1.05rem] xl:text-[1.1rem] font-body text-black leading-[1.75]"
+                  className="mt-4 text-[1.05rem] xl:text-[1.1rem] font-body text-black leading-[1.75] uppercase"
                 >
                   {detail.description}
                 </motion.p>
