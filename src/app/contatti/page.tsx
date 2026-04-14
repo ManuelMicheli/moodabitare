@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     "sopralluogo gratuito Varese",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/contatti",
+    canonical: "https://www.moodabitare.it/contatti",
   },
   openGraph: {
     title: "Contatti — Mood Abitare",
     description:
       "Richiedi un preventivo gratuito per serramenti e ristrutturazioni. Showroom a Gorla Maggiore (VA).",
-    url: "https://www.moschianosrl.it/contatti",
+    url: "https://www.moodabitare.it/contatti",
   },
 };
 
@@ -41,7 +41,7 @@ export default function Contatti() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Contatti", url: "https://www.moschianosrl.it/contatti" },
+              { name: "Contatti", url: "https://www.moodabitare.it/contatti" },
             ])
           ),
         }}

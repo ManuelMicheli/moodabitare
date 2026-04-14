@@ -7,7 +7,8 @@ export const SITE_CONFIG = {
   tagline: "Serramenti, Porte e Ristrutturazioni",
   description:
     "Da oltre 30 anni al vostro fianco per serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.",
-  url: "https://www.moschianosrl.it",
+  url: "https://www.moodabitare.it",
+  domain: "moodabitare.it",
 };
 
 export const CONTACT_INFO = {
@@ -21,8 +22,8 @@ export const CONTACT_INFO = {
   whatsapp: "351.7278053",
   whatsappHref: "https://wa.me/3517278053",
   email: "info@moodabitare.it",
-  emailCommerciale: "commerciale@moschianosrl.it",
-  emailAmministrazione: "amministrazione@moschianosrl.it",
+  emailCommerciale: "commerciale@moodabitare.it",
+  emailAmministrazione: "amministrazione@moodabitare.it",
   piva: "03940950128",
   sdi: "M5UXCR1",
   googleMapsUrl:

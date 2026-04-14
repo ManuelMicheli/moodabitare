@@ -25,6 +25,10 @@ import { securityDoorDetails, interiorDoorDetails } from "@/lib/product-details"
 import { PorteInterneCatalog } from "@/components/products/PorteInterneCatalog";
 import { porteInterneCategories } from "@/lib/porte-interne-categories";
 import { buildProductJsonLd } from "@/lib/seo/product-jsonld";
+import { buildFaqJsonLd } from "@/lib/seo/faq-data";
+import { PRODUCT_FAQS } from "@/lib/seo/product-faq-data";
+import { ProductFaq } from "@/components/products/ProductFaq";
+import { Breadcrumb } from "@/components/layout/Breadcrumb";
 
 
 /** Keyword mirate per ogni categoria prodotto — local SEO + prodotto + brand */
@@ -350,24 +354,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return {};
   const content = productContent[slug];
   const brandSuffix = product.brand ? ` ${product.brand}` : "";
-  const description = content?.tagline
-    ? `${product.name}${brandSuffix}: ${content.tagline}. Scopri la gamma da Mood Abitare, showroom a Gorla Maggiore — provincia di Varese.`
-    : `${product.name}${product.brand ? ` di ${product.brand}` : ""}. Scopri la gamma disponibile da Mood Abitare, il tuo punto di riferimento a Varese.`;
+  const tagline = content?.tagline ?? "Qualità premium e installazione certificata";
+  // Description ottimizzata 150-160 char: [prodotto+brand] + [benefit] + [showroom/location] + [CTA]
+  const description = `${product.name}${brandSuffix}: ${tagline}. Showroom a Gorla Maggiore (Varese). Preventivo gratuito e detrazioni fiscali incluse.`;
   return {
-    title: `${product.name}${brandSuffix} — Varese`,
+    title: `${product.name}${brandSuffix} — Varese e Provincia`,
     description,
     keywords: productKeywords[slug] || [
       `${product.name} Varese`,
-      ...(product.brand ? [`${product.brand} Gorla Maggiore`] : []),
+      `${product.name} Gorla Maggiore`,
+      `${product.name} provincia Varese`,
+      ...(product.brand ? [`${product.brand} Varese`, `${product.brand} Premium Partner`] : []),
       "Mood Abitare",
+      "showroom Varese",
+      "preventivo gratuito",
+      "detrazioni fiscali",
     ],
     alternates: {
-      canonical: `https://www.moschianosrl.it/prodotti/${slug}`,
+      canonical: `https://www.moodabitare.it/prodotti/${slug}`,
     },
     openGraph: {
       title: `${product.name}${product.brand ? ` — ${product.brand}` : ""} | Mood Abitare`,
       description,
-      url: `https://www.moschianosrl.it/prodotti/${slug}`,
+      url: `https://www.moodabitare.it/prodotti/${slug}`,
+      type: "website",
+      locale: "it_IT",
+      siteName: "Mood Abitare",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name}${brandSuffix} | Mood Abitare Varese`,
+      description,
+    },
+    other: {
+      "product:brand": product.brand ?? "Mood Abitare",
+      "product:condition": "new",
+      "product:availability": "in stock",
+      "product:locality": "Gorla Maggiore",
+      "product:region": "Varese",
     },
   };
 }
@@ -392,19 +416,19 @@ export default async function ProductPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.moschianosrl.it",
+        item: "https://www.moodabitare.it",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Prodotti",
-        item: "https://www.moschianosrl.it/prodotti",
+        item: "https://www.moodabitare.it/prodotti",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: product.name,
-        item: `https://www.moschianosrl.it/prodotti/${slug}`,
+        item: `https://www.moodabitare.it/prodotti/${slug}`,
       },
     ],
   };
@@ -423,10 +447,28 @@ export default async function ProductPage({ params }: Props) {
           __html: JSON.stringify(buildProductJsonLd(product, content, slug)),
         }}
       />
+      {PRODUCT_FAQS[slug] && (
+        <Script
+          id={`faq-${slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildFaqJsonLd(PRODUCT_FAQS[slug])),
+          }}
+        />
+      )}
       {/* SEO h1 (visually hidden — the catalog section below shows the visible title) */}
       <h1 className="sr-only">{product.name}{product.brand ? ` — ${product.brand}` : ""}</h1>
       {/* Spacer for fixed header nav */}
       <div className="pt-20 sm:pt-24 lg:pt-28" />
+      {/* Breadcrumb visibile per UX + rinforzo segnale SEO */}
+      <div className="px-6 sm:px-10 lg:px-20 py-4">
+        <Breadcrumb
+          items={[
+            { label: "Prodotti", href: "/prodotti" },
+            { label: product.name },
+          ]}
+        />
+      </div>
 
       {/* Oknoplast mini banner */}
       {slug === "infissi-pvc" && (
@@ -564,6 +606,9 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* FAQ specifiche per categoria — visibili + JSON-LD */}
+      {PRODUCT_FAQS[slug] && <ProductFaq faqs={PRODUCT_FAQS[slug]} />}
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (

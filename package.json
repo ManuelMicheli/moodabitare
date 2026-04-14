@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "prebuild": "node --experimental-strip-types scripts/generate-llms-full.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:llms": "node --experimental-strip-types scripts/generate-llms-full.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

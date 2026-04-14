@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_FINANZIAMENTO, buildFaqJsonLd } from "@/lib/seo/faq-data";
+import { buildServiceJsonLd } from "@/lib/seo/service-jsonld";
 import Link from "next/link";
 import { CONTACT_INFO } from "@/lib/constants";
 import { FadeInView } from "@/components/animations/FadeInView";
@@ -23,13 +24,13 @@ export const metadata: Metadata = {
     "serramenti tasso zero Agos Ducato",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/finanziamento",
+    canonical: "https://www.moodabitare.it/finanziamento",
   },
   openGraph: {
     title: "Finanziamento a Tasso Zero — Mood Abitare",
     description:
       "Serramenti e ristrutturazioni a tasso zero. Anticipo 50%, cumulabile con detrazioni fiscali 50%.",
-    url: "https://www.moschianosrl.it/finanziamento",
+    url: "https://www.moodabitare.it/finanziamento",
   },
 };
 
@@ -42,7 +43,7 @@ export default function Finanziamento() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Finanziamento", url: "https://www.moschianosrl.it/finanziamento" },
+              { name: "Finanziamento", url: "https://www.moodabitare.it/finanziamento" },
             ])
           ),
         }}
@@ -52,6 +53,29 @@ export default function Finanziamento() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildFaqJsonLd(FAQ_FINANZIAMENTO)),
+        }}
+      />
+      <Script
+        id="service-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildServiceJsonLd({
+              path: "/finanziamento",
+              name: "Finanziamento serramenti e ristrutturazioni a tasso zero",
+              serviceType: "FinancialService",
+              description:
+                "Finanziamento a TAN 0% e TAEG 0% per serramenti, porte e ristrutturazioni. Anticipo 50%, restante importo in rate senza interessi tramite Agos One. Cumulabile con detrazioni fiscali 50%. Pratica gestita interamente da Mood Abitare, approvazione rapida.",
+              audience: "Proprietari di casa in provincia di Varese",
+              offerings: [
+                { name: "Finanziamento serramenti TAN 0%" },
+                { name: "Finanziamento ristrutturazioni TAN 0%" },
+                { name: "Cumulo con ecobonus 50%" },
+                { name: "Gestione pratica fiscale inclusa" },
+              ],
+              priceRange: "Anticipo 50% + rate TAN 0% TAEG 0% — soggetto ad approvazione Agos Ducato",
+            })
+          ),
         }}
       />
       {/* ── Hero ── */}

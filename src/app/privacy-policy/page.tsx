@@ -4,12 +4,27 @@ import { FadeInView } from "@/components/animations/FadeInView";
 export const metadata: Metadata = {
   title: "Privacy e Cookie Policy",
   description:
-    "Informativa sulla privacy e cookie policy di Mood Abitare ai sensi del GDPR e della normativa italiana. Ultimo aggiornamento: marzo 2026.",
+    "Informativa sulla privacy e cookie policy di Mood Abitare ai sensi del GDPR (Reg. UE 2016/679) e del D.Lgs. 196/2003. Trattamento dati, cookie, diritti interessato.",
+  keywords: [
+    "privacy policy Mood Abitare",
+    "cookie policy",
+    "GDPR trattamento dati",
+    "informativa privacy",
+    "cookie tecnici analitici",
+  ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/privacy-policy",
+    canonical: "https://www.moodabitare.it/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy e Cookie Policy | Mood Abitare",
+    description: "Informativa sulla privacy e cookie policy ai sensi del GDPR.",
+    url: "https://www.moodabitare.it/privacy-policy",
+    type: "website",
+    locale: "it_IT",
+    siteName: "Mood Abitare",
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };
@@ -82,7 +97,7 @@ export default function PrivacyPolicy() {
                   La presente informativa descrive le modalità di trattamento
                   dei dati personali degli utenti che consultano il sito web{" "}
                   <strong className="text-black-deep">
-                    www.moschianosrl.it
+                    www.moodabitare.it
                   </strong>
                   , gestito da Mood Abitare, ai sensi del Regolamento UE
                   2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy) come

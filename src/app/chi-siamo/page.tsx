@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     "showroom porte e finestre",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/chi-siamo",
+    canonical: "https://www.moodabitare.it/chi-siamo",
   },
   openGraph: {
     title: "Chi Siamo — Mood Abitare",
     description:
       "Oltre 30 anni di esperienza. Showroom di 300mq a Gorla Maggiore, Varese. Premium Partner Oknoplast.",
-    url: "https://www.moschianosrl.it/chi-siamo",
+    url: "https://www.moodabitare.it/chi-siamo",
   },
 };
 
@@ -85,7 +85,7 @@ export default function ChiSiamo() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Chi Siamo", url: "https://www.moschianosrl.it/chi-siamo" },
+              { name: "Chi Siamo", url: "https://www.moodabitare.it/chi-siamo" },
             ])
           ),
         }}

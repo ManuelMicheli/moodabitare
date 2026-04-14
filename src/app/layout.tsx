@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.moschianosrl.it"),
+  metadataBase: new URL("https://www.moodabitare.it"),
   title: {
     default: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
     template: "%s | Mood Abitare",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "it_IT",
     siteName: "Mood Abitare",
-    url: "https://www.moschianosrl.it",
+    url: "https://www.moodabitare.it",
     title: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
     description:
       "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast a Gorla Maggiore, Varese.",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast.",
   },
   alternates: {
-    canonical: "https://www.moschianosrl.it",
+    canonical: "https://www.moodabitare.it",
   },
   robots: {
     index: true,
@@ -75,6 +75,13 @@ export const metadata: Metadata = {
     },
   },
   category: "Home Improvement",
+  // TODO: inserire codici reali di verifica quando disponibili in GSC e Bing Webmaster Tools
+  verification: {
+    google: "",
+    other: {
+      "msvalidate.01": "",
+    },
+  },
 };
 
 // Schema.org JSON-LD — multiple schemas for rich results
@@ -84,13 +91,13 @@ const jsonLdSchemas = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Mood Abitare",
-    url: "https://www.moschianosrl.it",
+    url: "https://www.moodabitare.it",
     description:
       "Mood Abitare: serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese.",
     publisher: {
       "@type": "Organization",
       name: "Mood Abitare",
-      url: "https://www.moschianosrl.it",
+      url: "https://www.moodabitare.it",
     },
     inLanguage: "it-IT",
   },
@@ -100,8 +107,8 @@ const jsonLdSchemas = [
     "@type": "Organization",
     name: "Mood Abitare",
     legalName: "Mood Abitare",
-    url: "https://www.moschianosrl.it",
-    logo: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
+    url: "https://www.moodabitare.it",
+    logo: "https://www.moodabitare.it/logo/logo-mood-abitare-transparent-opt.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+3903311588159",
@@ -122,15 +129,15 @@ const jsonLdSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
-    "@id": "https://www.moschianosrl.it/#business",
+    "@id": "https://www.moodabitare.it/#business",
     name: "Mood Abitare",
     description:
       "Oltre 30 anni di esperienza in serramenti, porte, ristrutturazioni e arredo casa nella provincia di Varese. Premium Partner Oknoplast.",
-    url: "https://www.moschianosrl.it",
+    url: "https://www.moodabitare.it",
     telephone: "+3903311588159",
     email: "info@moodabitare.it",
-    image: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
-    logo: "https://www.moschianosrl.it/logo/logo-mood-abitare-transparent-opt.png",
+    image: "https://www.moodabitare.it/logo/logo-mood-abitare-transparent-opt.png",
+    logo: "https://www.moodabitare.it/logo/logo-mood-abitare-transparent-opt.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Viale Europa, 65",

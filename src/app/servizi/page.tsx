@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     "consulenza serramenti",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/servizi",
+    canonical: "https://www.moodabitare.it/servizi",
   },
   openGraph: {
     title: "Servizi — Mood Abitare",
     description:
       "Consulenza progettuale, installazione certificata, detrazioni fiscali 50% e assistenza post-vendita a Gorla Maggiore (VA).",
-    url: "https://www.moschianosrl.it/servizi",
+    url: "https://www.moodabitare.it/servizi",
   },
 };
 
@@ -93,7 +93,7 @@ export default function Servizi() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Servizi", url: "https://www.moschianosrl.it/servizi" },
+              { name: "Servizi", url: "https://www.moodabitare.it/servizi" },
             ])
           ),
         }}

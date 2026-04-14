@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_PROGETTAZIONE, buildFaqJsonLd } from "@/lib/seo/faq-data";
+import { buildServiceJsonLd } from "@/lib/seo/service-jsonld";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
     "showroom arredamento Varese",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/progettazione-design",
+    canonical: "https://www.moodabitare.it/progettazione-design",
   },
   openGraph: {
     title: "Progettazione e Design — Mood Abitare",
     description:
       "Consulenza personalizzata per serramenti e interni. Showroom di 300mq a Gorla Maggiore (VA).",
-    url: "https://www.moschianosrl.it/progettazione-design",
+    url: "https://www.moodabitare.it/progettazione-design",
   },
 };
 
@@ -74,7 +75,7 @@ export default function ProgettazioneDesign() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Progettazione e Design", url: "https://www.moschianosrl.it/progettazione-design" },
+              { name: "Progettazione e Design", url: "https://www.moodabitare.it/progettazione-design" },
             ])
           ),
         }}
@@ -84,6 +85,30 @@ export default function ProgettazioneDesign() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildFaqJsonLd(FAQ_PROGETTAZIONE)),
+        }}
+      />
+      <Script
+        id="service-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildServiceJsonLd({
+              path: "/progettazione-design",
+              name: "Progettazione e design d'interni",
+              serviceType: "InteriorDesign",
+              description:
+                "Servizio di progettazione e design d'interni per abitazioni private nella provincia di Varese. Consulenza in showroom, moodboard estetico, render 3D fotorealistici, selezione materiali e arredi. Un team di designer qualificati accompagna il cliente dall'idea alla realizzazione — progettazione integrata con ristrutturazione e posa certificata.",
+              audience: "Committenti privati per abitazioni, ristrutturazioni e restyling",
+              offerings: [
+                { name: "Consulenza progettuale in showroom", description: "Prima consulenza gratuita." },
+                { name: "Moodboard e palette colori" },
+                { name: "Render 3D fotorealistici" },
+                { name: "Selezione materiali e finiture" },
+                { name: "Progetto esecutivo firmato da tecnico" },
+              ],
+              priceRange: "Prima consulenza gratuita — progettazione personalizzata a preventivo",
+            })
+          ),
         }}
       />
       {/* Hero */}

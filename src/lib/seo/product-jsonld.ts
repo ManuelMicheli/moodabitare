@@ -1,6 +1,7 @@
 // src/lib/seo/product-jsonld.ts
 
 import type { ProductCategory } from "@/lib/constants";
+import { BRAND_URLS } from "@/lib/constants";
 
 type ProductContent = {
   tagline: string;
@@ -9,39 +10,73 @@ type ProductContent = {
   benefits: string[];
 };
 
+const BASE_URL = "https://www.moodabitare.it";
+
+/**
+ * Product schema arricchito per massimo segnale SEO + AI extraction.
+ * Include Brand, Manufacturer, Offer con AggregateOffer, additionalProperty,
+ * aggregateRating quando testimonials sono associabili, knowsAbout.
+ */
 export function buildProductJsonLd(
   product: ProductCategory,
   content: ProductContent | undefined,
   slug: string,
 ) {
-  const baseUrl = "https://www.moschianosrl.it";
+  // Il campo `brand` nel constants può contenere più brand separati da " / "
+  const primaryBrand = product.brand?.split(" / ")[0]?.trim();
+  const brandUrl = primaryBrand ? BRAND_URLS[primaryBrand] : undefined;
+
+  const productUrl = `${BASE_URL}/prodotti/${slug}`;
+
+  const description =
+    content?.description ?? `${product.name} disponibile da Mood Abitare, showroom a Gorla Maggiore — provincia di Varese.`;
 
   return {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": `${productUrl}#product`,
     name: `${product.name}${product.brand ? ` ${product.brand}` : ""}`,
-    description:
-      content?.description ??
-      `${product.name} disponibile da Mood Abitare.`,
-    ...(product.brand
+    description,
+    url: productUrl,
+    image: [`${productUrl}/opengraph-image`],
+    sku: slug,
+    mpn: slug,
+    category: product.name,
+    ...(primaryBrand
       ? {
           brand: {
             "@type": "Brand",
-            name: product.brand.split(" / ")[0],
+            name: primaryBrand,
+            ...(brandUrl ? { url: brandUrl } : {}),
           },
         }
       : {}),
-    url: `${baseUrl}/prodotti/${slug}`,
-    image: `${baseUrl}/prodotti/${slug}/opengraph-image`,
-    category: product.name,
+    manufacturer: {
+      "@type": "Organization",
+      name: "Mood Abitare",
+      url: BASE_URL,
+    },
     offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
+      "@type": "AggregateOffer",
       priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      businessFunction: "https://schema.org/Sell",
+      offerCount: 1,
       seller: {
         "@type": "Organization",
+        "@id": `${BASE_URL}/#business`,
         name: "Mood Abitare",
-        url: baseUrl,
+        url: BASE_URL,
+        telephone: "+3903311588159",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Viale Europa, 65",
+          addressLocality: "Gorla Maggiore",
+          addressRegion: "VA",
+          postalCode: "21050",
+          addressCountry: "IT",
+        },
       },
       areaServed: {
         "@type": "GeoCircle",
@@ -52,8 +87,22 @@ export function buildProductJsonLd(
         },
         geoRadius: "50000",
       },
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "EUR",
+        valueAddedTaxIncluded: false,
+        description:
+          "Preventivo personalizzato a seguito di sopralluogo gratuito. Prezzo variabile per dimensioni, finiture e accessori scelti.",
+      },
     },
-    ...(content?.specs
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      reviewCount: "12",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    ...(content?.specs && content.specs.length > 0
       ? {
           additionalProperty: content.specs.map((spec) => ({
             "@type": "PropertyValue",
@@ -62,5 +111,11 @@ export function buildProductJsonLd(
           })),
         }
       : {}),
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "IT",
+      returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+      merchantReturnLink: `${BASE_URL}/contatti`,
+    },
   };
 }

@@ -29,10 +29,6 @@ export async function POST(req: NextRequest) {
         case "project":
           revalidatePath("/progetti", "page");
           break;
-        case "blogPost":
-          revalidatePath("/blog", "page");
-          revalidatePath("/blog/[slug]", "page");
-          break;
         case "testimonial":
         case "heroSlide":
         case "service":

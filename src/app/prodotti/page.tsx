@@ -6,6 +6,29 @@ import Image from "next/image";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ProductCatalog } from "@/components/products/ProductCatalog";
 import { TitanoEvoBanner } from "@/components/home/TitanoEvoBanner";
+import { ALL_PRODUCTS } from "@/lib/constants";
+import { productContent } from "@/lib/product-content";
+
+const BASE_URL = "https://www.moodabitare.it";
+
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Catalogo prodotti Mood Abitare",
+  description:
+    "Catalogo completo dei prodotti e categorie disponibili da Mood Abitare: serramenti, porte, sicurezza, comfort, outdoor, arredo casa, riscaldamento e rinnovabili.",
+  numberOfItems: ALL_PRODUCTS.length,
+  itemListOrder: "https://schema.org/ItemListOrderAscending",
+  itemListElement: ALL_PRODUCTS.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `${BASE_URL}/prodotti/${p.slug}`,
+    name: `${p.name}${p.brand ? ` — ${p.brand}` : ""}`,
+    ...(productContent[p.slug]
+      ? { description: productContent[p.slug].tagline }
+      : {}),
+  })),
+};
 
 export const metadata: Metadata = {
   title: "Prodotti — Serramenti, Porte, Arredo Casa",
@@ -33,13 +56,13 @@ export const metadata: Metadata = {
     "showroom serramenti Varese",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/prodotti",
+    canonical: "https://www.moodabitare.it/prodotti",
   },
   openGraph: {
     title: "Prodotti — Mood Abitare",
     description:
       "Serramenti, porte, oscuranti, cucine e arredo casa dei migliori brand. Showroom a Gorla Maggiore (VA).",
-    url: "https://www.moschianosrl.it/prodotti",
+    url: "https://www.moodabitare.it/prodotti",
   },
 };
 
@@ -52,10 +75,15 @@ export default function ProdottiPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Prodotti", url: "https://www.moschianosrl.it/prodotti" },
+              { name: "Prodotti", url: "https://www.moodabitare.it/prodotti" },
             ])
           ),
         }}
+      />
+      <Script
+        id="itemlist-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       {/* Hero */}
       <section className="relative min-h-[45vh] sm:min-h-[70vh] flex items-end text-white overflow-hidden">

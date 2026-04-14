@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   description:
     "Portfolio dei lavori realizzati da Mood Abitare: serramenti, ristrutturazioni e arredo casa nella provincia di Varese. Scopri i nostri progetti completati.",
   alternates: {
-    canonical: "https://www.moschianosrl.it/progetti",
+    canonical: "https://www.moodabitare.it/progetti",
   },
   openGraph: {
     title: "Progetti — Mood Abitare",
     description: "Portfolio lavori realizzati: serramenti, ristrutturazioni e arredo casa a Varese.",
-    url: "https://www.moschianosrl.it/progetti",
+    url: "https://www.moodabitare.it/progetti",
   },
   robots: {
     index: false,

@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "Oknoplast Italia rivenditore",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/premium-partner",
+    canonical: "https://www.moodabitare.it/premium-partner",
   },
   openGraph: {
     title: "Premium Partner Oknoplast — Mood Abitare",
     description:
       "Rivenditore autorizzato Oknoplast a Gorla Maggiore (VA). Qualità certificata, garanzia estesa e assistenza dedicata.",
-    url: "https://www.moschianosrl.it/premium-partner",
+    url: "https://www.moodabitare.it/premium-partner",
   },
 };
 
@@ -38,7 +38,7 @@ export default function PremiumPartner() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Premium Partner", url: "https://www.moschianosrl.it/premium-partner" },
+              { name: "Premium Partner", url: "https://www.moodabitare.it/premium-partner" },
             ])
           ),
         }}

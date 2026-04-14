@@ -1,4 +1,6 @@
-type FAQ = { question: string; answer: string };
+export type FaqItem = { question: string; answer: string };
+// Alias legacy per retrocompatibilità interna
+type FAQ = FaqItem;
 
 export const FAQ_FINANZIAMENTO: FAQ[] = [
   {

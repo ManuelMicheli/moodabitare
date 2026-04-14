@@ -76,7 +76,7 @@ export function LinkPreview({
                   {previewTitle}
                 </span>
                 <span className="block font-ui text-[10px] text-black-deep/35 mt-1">
-                  moschianosrl.it{href}
+                  moodabitare.it{href}
                 </span>
               </span>
             </span>

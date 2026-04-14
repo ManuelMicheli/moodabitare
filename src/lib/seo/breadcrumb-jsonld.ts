@@ -14,7 +14,7 @@ export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.moschianosrl.it",
+        item: "https://www.moodabitare.it",
       },
       ...items.map((item, i) => ({
         "@type": "ListItem",

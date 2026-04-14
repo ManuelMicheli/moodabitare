@@ -10,20 +10,20 @@ export const metadata: Metadata = {
   description:
     "Mood Abitare: showroom di 300mq a Gorla Maggiore (VA). Serramenti in PVC, alluminio e legno, porte interne e blindate, ristrutturazioni chiavi in mano, cucine, arredo bagno. Premium Partner Oknoplast. Oltre 30 anni di esperienza.",
   alternates: {
-    canonical: "https://www.moschianosrl.it",
+    canonical: "https://www.moodabitare.it",
   },
   openGraph: {
     title: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
     description:
       "Showroom di 300mq a Gorla Maggiore. Serramenti, porte, ristrutturazioni e arredo casa. Premium Partner Oknoplast.",
-    url: "https://www.moschianosrl.it",
+    url: "https://www.moodabitare.it",
   },
 };
 
 const reviewJsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": "https://www.moschianosrl.it/#business",
+  "@id": "https://www.moodabitare.it/#business",
   name: "Mood Abitare",
   aggregateRating: {
     "@type": "AggregateRating",

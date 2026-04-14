@@ -8,17 +8,37 @@ import { CONTACT_INFO, R2_CDN } from "@/lib/constants";
 
 
 export const metadata: Metadata = {
-  title: "Showroom — 300mq di Esposizione a Gorla Maggiore",
+  title: "Showroom — 300mq di Esposizione a Gorla Maggiore (Varese)",
   description:
-    "Visita lo showroom Mood Abitare: 300mq di esposizione a Gorla Maggiore (VA). Serramenti, porte, cucine, arredo bagno, outdoor e molto altro da toccare con mano.",
+    "Showroom Mood Abitare: 300mq di esposizione a Gorla Maggiore (VA). Serramenti Oknoplast, porte, cucine, arredo bagno e outdoor da toccare con mano. Ingresso libero.",
+  keywords: [
+    "showroom serramenti Varese",
+    "showroom Gorla Maggiore",
+    "esposizione finestre Oknoplast",
+    "showroom infissi provincia Varese",
+    "showroom arredo casa Varese",
+    "showroom cucine Gorla Maggiore",
+    "showroom porte blindate Varese",
+    "esposizione serramenti alto milanese",
+    "showroom 300mq Varese",
+    "Mood Abitare showroom",
+  ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/showroom",
+    canonical: "https://www.moodabitare.it/showroom",
   },
   openGraph: {
-    title: "Showroom — Mood Abitare",
+    title: "Showroom Mood Abitare — 300mq a Gorla Maggiore (Varese)",
     description:
-      "300mq di esposizione a Gorla Maggiore. Serramenti, porte, cucine e arredo da toccare con mano.",
-    url: "https://www.moschianosrl.it/showroom",
+      "Visita il nostro showroom di 300mq: serramenti Oknoplast, porte, cucine e arredo da toccare con mano. Ingresso libero, consulenti qualificati.",
+    url: "https://www.moodabitare.it/showroom",
+    type: "website",
+    locale: "it_IT",
+    siteName: "Mood Abitare",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Showroom Mood Abitare — 300mq a Gorla Maggiore",
+    description: "Serramenti Oknoplast, porte, cucine e arredo da toccare con mano.",
   },
 };
 

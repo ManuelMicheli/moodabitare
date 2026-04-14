@@ -58,8 +58,21 @@ const nextConfig: NextConfig = {
     // SEO: non-www → www redirect (primary canonical domain)
     {
       source: "/:path*",
+      has: [{ type: "host", value: "moodabitare.it" }],
+      destination: "https://www.moodabitare.it/:path*",
+      permanent: true,
+    },
+    // SEO: legacy domain moschianosrl.it → moodabitare.it (entrambe le varianti host)
+    {
+      source: "/:path*",
       has: [{ type: "host", value: "moschianosrl.it" }],
-      destination: "https://www.moschianosrl.it/:path*",
+      destination: "https://www.moodabitare.it/:path*",
+      permanent: true,
+    },
+    {
+      source: "/:path*",
+      has: [{ type: "host", value: "www.moschianosrl.it" }],
+      destination: "https://www.moodabitare.it/:path*",
       permanent: true,
     },
     // 301 redirects: old product slugs → new slugs

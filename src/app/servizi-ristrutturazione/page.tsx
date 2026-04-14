@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_RISTRUTTURAZIONE, buildFaqJsonLd } from "@/lib/seo/faq-data";
+import { buildServiceJsonLd } from "@/lib/seo/service-jsonld";
 import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { ClipReveal } from "@/components/animations/ClipReveal";
@@ -24,13 +25,13 @@ export const metadata: Metadata = {
     "ristrutturazione completa Varese",
   ],
   alternates: {
-    canonical: "https://www.moschianosrl.it/servizi-ristrutturazione",
+    canonical: "https://www.moodabitare.it/servizi-ristrutturazione",
   },
   openGraph: {
     title: "Servizi di Ristrutturazione — Mood Abitare",
     description:
       "Ristrutturazioni chiavi in mano nella provincia di Varese. Project manager dedicato, preventivi gratuiti.",
-    url: "https://www.moschianosrl.it/servizi-ristrutturazione",
+    url: "https://www.moodabitare.it/servizi-ristrutturazione",
   },
 };
 
@@ -136,7 +137,7 @@ export default function ServiziRistrutturazione() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildBreadcrumbJsonLd([
-              { name: "Servizi di Ristrutturazione", url: "https://www.moschianosrl.it/servizi-ristrutturazione" },
+              { name: "Servizi di Ristrutturazione", url: "https://www.moodabitare.it/servizi-ristrutturazione" },
             ])
           ),
         }}
@@ -146,6 +147,32 @@ export default function ServiziRistrutturazione() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildFaqJsonLd(FAQ_RISTRUTTURAZIONE)),
+        }}
+      />
+      <Script
+        id="service-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildServiceJsonLd({
+              path: "/servizi-ristrutturazione",
+              name: "Ristrutturazioni chiavi in mano",
+              serviceType: "HomeImprovement",
+              description:
+                "Ristrutturazioni complete chiavi in mano per appartamenti e ville nella provincia di Varese: un unico referente, project manager dedicato, squadra interna certificata, rispetto tempi e budget. Demolizioni, impianti elettrici e idraulici, serramenti, pavimenti, sanitari, cucine e finiture — tutto coordinato da Mood Abitare.",
+              audience: "Proprietari di casa in provincia di Varese e alto milanese",
+              offerings: [
+                { name: "Ristrutturazione completa appartamento", description: "Demolizioni, impianti, finiture, arredo." },
+                { name: "Rifacimento bagno", description: "Sanitari, rivestimenti, doccia, impianti." },
+                { name: "Rifacimento cucina", description: "Demolizioni, impianti, finiture, cucina su misura." },
+                { name: "Sostituzione serramenti", description: "Rimozione e posa certificata con pratica ecobonus." },
+                { name: "Rifacimento impianto elettrico", description: "Impianti a norma, con dichiarazione di conformità." },
+                { name: "Rifacimento impianto idraulico", description: "Tubazioni multistrato, collettori, sanitari." },
+                { name: "Riscaldamento e raffrescamento", description: "Pompe di calore, caldaie, climatizzatori." },
+              ],
+              priceRange: "Sopralluogo e preventivo gratuiti — bonus ristrutturazione 50%",
+            })
+          ),
         }}
       />
       {/* Hero */}
