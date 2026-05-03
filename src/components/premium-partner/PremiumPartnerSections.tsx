@@ -161,7 +161,7 @@ export function PremiumPartnerSections() {
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <Image
-            src="/images/Oknoplast-azienda-vista-aerea-opt.jpg"
+            src="/images/oknoplast-azienda-vista-aerea-opt.jpg"
             alt="Oknoplast azienda vista aerea"
             fill
             className="object-cover"
@@ -252,7 +252,7 @@ export function PremiumPartnerSections() {
           style={{ y: oknoplastY, scale: oknoplastScale }}
         >
           <Image
-            src="/images/oknoplast-headquarter_upscayl_4x_upscayl-standard-4x.png"
+            src="/images/oknoplast-headquarter.png"
             alt="Oknoplast headquarter"
             fill
             className="object-cover object-[center_25%]"

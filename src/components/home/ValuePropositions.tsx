@@ -14,10 +14,10 @@ import { VALUE_PROPOSITIONS } from "@/lib/constants";
 const marqueeImages = [
   { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
   { src: "/moodabitarereal/cucina-showroom.webp", alt: "Cucina moderna nello showroom Mood Abitare", w: 1536, h: 2730 },
-  { src: "/showroom/wmremove-transformed (35).png", alt: "Showroom Mood Abitare — dettaglio", w: 1536, h: 2730 },
-  { src: "/images/wmremove-transformed (24).webp", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
+  { src: "/showroom/wm-35.png", alt: "Showroom Mood Abitare — dettaglio", w: 1536, h: 2730 },
+  { src: "/images/wm-24.webp", alt: "Showroom Mood Abitare", w: 2728, h: 1536 },
   { src: "/moodabitarereal/dettaglio-cucina.webp", alt: "Dettaglio cucina con piano in marmo nero e accenti dorati", w: 1536, h: 2730 },
-  { src: "/showroom/wmremove-transformed (28).png", alt: "Showroom Mood Abitare — esposizione", w: 1536, h: 2730 },
+  { src: "/showroom/wm-28.png", alt: "Showroom Mood Abitare — esposizione", w: 1536, h: 2730 },
 ];
 
 export function ValuePropositions() {

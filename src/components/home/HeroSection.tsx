@@ -31,10 +31,7 @@ const slides: Slide[] = [
     ctaLink: "/showroom",
     image: "",
     video: { desktop: `${R2_CDN}/videos/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-720.mp4` },
-    triptych: {
-      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-    },
+    triptych: { leftImage: "", rightImage: "" },
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
@@ -43,22 +40,15 @@ const slides: Slide[] = [
     ctaLink: "/prodotti",
     image: "",
     video: { desktop: `${R2_CDN}/videos/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2-720.mp4` },
-    triptych: {
-      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-    },
+    triptych: { leftImage: "", rightImage: "" },
   },
   {
     headline: "Porte e sicurezza\nper proteggere chi ami",
     subheadline: "Porte interne, blindate e portoncini — grate, persiane blindate, allarmi e videosorveglianza",
     ctaText: "Scopri le soluzioni",
     ctaLink: "/prodotti/porte-interne",
-    image: "/images/WhatsApp Image 2026-03-20 at 17.09.11 (1).jpeg",
-    triptych: {
-      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      centerImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-    },
+    image: "/images/wa-1.jpeg",
+    triptych: { leftImage: "", centerImage: "", rightImage: "" },
   },
   {
     headline: "Arredo, outdoor\ne spazi da vivere",
@@ -66,23 +56,15 @@ const slides: Slide[] = [
     ctaText: "Scopri l'arredo",
     ctaLink: "/prodotti/cucine-su-misura",
     image: "/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg",
-    triptych: {
-      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      centerImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-    },
+    triptych: { leftImage: "", centerImage: "", rightImage: "" },
   },
   {
     headline: "Ristrutturazioni\ne energie rinnovabili",
     subheadline: "Dal sopralluogo alla consegna — climatizzazione, fotovoltaico e detrazioni fino al 50%",
     ctaText: "Richiedi preventivo",
     ctaLink: "/contatti",
-    image: "/images/Hero3.jpg",
-    triptych: {
-      leftImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      centerImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-      rightImage: "https://placehold.co/800x1200/2b2b2b/2b2b2b",
-    },
+    image: "/images/hero3.jpg",
+    triptych: { leftImage: "", centerImage: "", rightImage: "" },
   },
 ];
 

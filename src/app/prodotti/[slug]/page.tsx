@@ -335,7 +335,7 @@ const productKeywords: Record<string, string[]> = {
 };
 
 const sectionImages: Record<string, string> = {
-  "oscuranti-sicurezza": "/images/Gemini_Generated_Image_dy1qxpdy1qxpdy1q.jpg",
+  "oscuranti-sicurezza": "/images/gen-dy1qxpdy1qxpdy1q.jpg",
 };
 
 interface Props {

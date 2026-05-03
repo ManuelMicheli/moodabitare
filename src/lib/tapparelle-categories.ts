@@ -20,9 +20,9 @@ export const tapparelleCategories: TapparelleSubCategory[] = [
     label: "Alluminio",
     tagline: "11 modelli con coibentazione in poliuretano, protezione antigraffio e consegna ONEday",
     products: [
-      { src: "/prodotti/roll55_upscayl_4x_upscayl-standard-4x.png", name: "Pasini — Roll 55" },
-      { src: "/prodotti/roll55SE.png", name: "Pasini — Roll 55 Eco" },
-      { src: "/prodotti/IMG_roll50air.png", name: "Pasini — Roll 50 Air" },
+      { src: "/prodotti/roll55.png", name: "Pasini — Roll 55" },
+      { src: "/prodotti/roll55se.png", name: "Pasini — Roll 55 Eco" },
+      { src: "/prodotti/img-roll50air.png", name: "Pasini — Roll 50 Air" },
       { src: "/prodotti/roll45.png", name: "Pasini — Roll 45" },
       { src: "/prodotti/roll39.png", name: "Pasini — Roll 39" },
       { src: "/prodotti/maxiroll55.png", name: "Pasini — Maxi Roll 55" },
@@ -39,7 +39,7 @@ export const tapparelleCategories: TapparelleSubCategory[] = [
     tagline: "Massima resistenza antieffrazione con profili in acciaio zincato",
     products: [
       { src: "/tapparelle/download.png", name: "Pasini — Blind 55" },
-      { src: "/tapparelle/download (1).png", name: "Pasini — Blind 41" },
+      { src: "/tapparelle/download-1.png", name: "Pasini — Blind 41" },
     ],
   },
   {

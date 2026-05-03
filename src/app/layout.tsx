@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { cormorantGaramond, albertSans, outfit } from "@/fonts";
+import { cormorantGaramond, outfit, doublePorte } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LazyOverlays } from "@/components/shared/LazyOverlays";
@@ -238,7 +238,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={`${cormorantGaramond.variable} ${albertSans.variable} ${outfit.variable}`}>
+    <html lang="it" className={`${cormorantGaramond.variable} ${outfit.variable} ${doublePorte.variable}`}>
       <head>
         {/* Preload first hero video — responsive desktop/mobile.
             Starts download immediately on page load, before React hydrates. */}
@@ -246,25 +246,22 @@ export default function RootLayout({
           rel="preload"
           as="video"
           type="video/mp4"
-          href={`${R2_CDN}/videos/0320(3)-desktop.mp4`}
+          href={`${R2_CDN}/videos/hero-home-1080.mp4`}
           media="(min-width: 768px)"
+          fetchPriority="high"
         />
         <link
           rel="preload"
           as="video"
           type="video/mp4"
-          href={`${R2_CDN}/videos/0320(3)-mobile.mp4`}
+          href={`${R2_CDN}/videos/hero-home-720.mp4`}
           media="(max-width: 767px)"
+          fetchPriority="high"
         />
+        <link rel="preconnect" href={R2_CDN} crossOrigin="" />
+        <link rel="dns-prefetch" href={R2_CDN} />
       </head>
       <body className="antialiased">
-        {/* Inline preload: force-start video download on mobile browsers
-            that may ignore <link rel="preload" as="video"> */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(sessionStorage.getItem("moschiano-loaded"))return;var m=window.innerWidth<768;var u=m?"${R2_CDN}/videos/0320(3)-mobile.mp4":"${R2_CDN}/videos/0320(3)-desktop.mp4";fetch(u,{mode:"no-cors",priority:"high"}).catch(function(){})}catch(e){}})();`,
-          }}
-        />
         {/* Server-rendered backdrop — visible from first paint, before JS hydrates */}
         <div
           id="site-loader-backdrop"
@@ -279,7 +276,7 @@ export default function RootLayout({
         {/* Inline script: immediately hide backdrop if already loaded this session (hide, don't remove — removal would break hydration) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem("moschiano-loaded")){var b=document.getElementById("site-loader-backdrop");if(b)b.style.display="none"}}catch(e){}`,
+            __html: `try{if(sessionStorage.getItem("moodabitare-loaded")){var b=document.getElementById("site-loader-backdrop");if(b)b.style.display="none"}}catch(e){}`,
           }}
         />
         {jsonLdSchemas.map((schema, i) => (
@@ -296,12 +293,6 @@ export default function RootLayout({
         </div>
         <Footer />
         <LazyOverlays />
-        {/* Botpress Chatbot — temporaneamente disabilitato */}
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var d=document,s1=d.createElement("script");s1.src="https://cdn.botpress.cloud/webchat/v3.6/inject.js";s1.onload=function(){var s2=d.createElement("script");s2.src="https://files.bpcontent.cloud/2026/03/16/18/20260316183415-DXS3QZ46.js";d.body.appendChild(s2)};d.body.appendChild(s1)})();`,
-          }}
-        /> */}
       </body>
     </html>
   );

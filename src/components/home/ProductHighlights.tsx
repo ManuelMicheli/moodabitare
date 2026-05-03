@@ -7,10 +7,10 @@ import { AccentText } from "@/components/ui/AccentText";
 import { MACRO_CATEGORIES } from "@/lib/constants";
 
 const categoryImages: Record<string, string> = {
-  "serramenti": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
-  "porte-sicurezza": "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
-  "oscuranti-protezione": "/images/Gemini_Generated_Image_agqw18agqw18agqw-opt.jpg",
-  "interni-arredo": "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg",
+  "serramenti": "/images/gen-elyr5pelyr5pelyr-opt.jpg",
+  "porte-sicurezza": "/images/gen-elyr5pelyr5pelyr-opt.jpg",
+  "oscuranti-protezione": "/images/gen-agqw18agqw18agqw-opt.jpg",
+  "interni-arredo": "/images/gen-3jexw73jexw73jex.jpg",
 };
 
 export function ProductHighlights() {

@@ -99,7 +99,7 @@ export function TitanoEvoBanner() {
               >
                 <div className={`${isMobile ? "" : "animate-float"} relative w-full h-full`}>
                   <Image
-                    src="/images/titano-evo-oc-eletto-prodotto-2024_copia-removebg-preview.png"
+                    src="/images/titano-evo-oc-eletto-prodotto-2024-copia-removebg-preview.png"
                     alt="Titano EVO OC — Eletto Prodotto dell'Anno 2024"
                     fill
                     className="object-contain"

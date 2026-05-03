@@ -2,10 +2,10 @@
 
 // TODO: reintrodurre immagini laterali sincronizzate con hero
 // const slides = [
-//   { image: "/images/Oknoplast_2024_home.jpg" },
-//   { image: "/images/Home-bertolotto-opt.jpg" },
-//   { image: "/images/Gemini_Generated_Image_3jexw73jexw73jex.jpg" },
-//   { image: "/images/Zona-giorno-con-porta-balcone-Prolux-Evolution-copia-1536x768.jpg" },
+//   { image: "/images/oknoplast-2024-home.jpg" },
+//   { image: "/images/home-bertolotto-opt.jpg" },
+//   { image: "/images/gen-3jexw73jexw73jex.jpg" },
+//   { image: "/images/zona-giorno-con-porta-balcone-prolux-evolution-copia-1536x768.jpg" },
 // ];
 
 export function ScrambleBanner() {

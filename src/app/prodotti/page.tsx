@@ -88,7 +88,7 @@ export default function ProdottiPage() {
       {/* Hero */}
       <section className="relative min-h-[45vh] sm:min-h-[70vh] flex items-end text-white overflow-hidden">
         <Image
-          src="/images/Cucina-con-finestra-Prolux-Swing-opt.jpg"
+          src="/images/cucina-con-finestra-prolux-swing-opt.jpg"
           alt="Prodotti Mood Abitare"
           fill
           className="object-cover"

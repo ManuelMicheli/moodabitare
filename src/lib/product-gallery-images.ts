@@ -26,13 +26,13 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
   /* infissi-pvc ora usa InfissiPvcCatalog con categorie — vedi infissi-pvc-categories.ts */
   "infissi-pvc": [],
   "infissi-alluminio-legno": [
-    { src: "/prodotti/Korus-allumunio-legno2.jpg", name: "Skywood EVO Original Energy 1.0" },
-    { src: "/prodotti/Korus-allumunio-legno3.jpg", name: "Skywood EVO Original" },
-    { src: "/prodotti/Korus-allumunio-legno4.jpg", name: "Skywood EVO Linear Energy 1.0" },
-    { src: "/prodotti/Korus-allumunio-legno5.jpg", name: "Skywood EVO Linear" },
-    { src: "/prodotti/Korus-allumunio-legno6.jpg", name: "Skywood EVO Energy 1.0" },
-    { src: "/prodotti/Korus-allumunio-legno7.jpg", name: "Skywood EVO" },
-    { src: "/prodotti/Korus-alluminio-legno8.jpg", name: "Air SlideWood" },
+    { src: "/prodotti/korus-allumunio-legno2.jpg", name: "Skywood EVO Original Energy 1.0" },
+    { src: "/prodotti/korus-allumunio-legno3.jpg", name: "Skywood EVO Original" },
+    { src: "/prodotti/korus-allumunio-legno4.jpg", name: "Skywood EVO Linear Energy 1.0" },
+    { src: "/prodotti/korus-allumunio-legno5.jpg", name: "Skywood EVO Linear" },
+    { src: "/prodotti/korus-allumunio-legno6.jpg", name: "Skywood EVO Energy 1.0" },
+    { src: "/prodotti/korus-allumunio-legno7.jpg", name: "Skywood EVO" },
+    { src: "/prodotti/korus-alluminio-legno8.jpg", name: "Air SlideWood" },
   ],
   /* porte-interne ora usa PorteInterneCatalog con categorie — vedi porte-interne-categories.ts */
   "porte-interne": [],
@@ -73,7 +73,7 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
     { src: "/prodotti/korus-crono.jpg", name: "Korus — Crono" },
   ],
   "frangisole": [
-    { src: "/prodotti/wmremove-transformed (41).png", name: "Lupak — Lume Pro" },
+    { src: "/prodotti/wm-41.png", name: "Lupak — Lume Pro" },
     { src: "/prodotti/lupak-lume.jpg", name: "Lupak — Lume" },
     { src: "/prodotti/lupak-lume-esse.jpg", name: "Lupak — Lume Esse" },
     { src: "/prodotti/lupak-lume-light.jpg", name: "Lupak — Lume Light" },

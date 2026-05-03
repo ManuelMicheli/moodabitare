@@ -62,7 +62,7 @@ export function PromoPopup() {
         {/* Image */}
         <div className="overflow-hidden rounded-2xl shadow-2xl min-h-[200px] sm:min-h-0">
           <Image
-            src="/images/Offerta-anniversario-3-30.04-scaled.jpg"
+            src="/images/offerta-anniversario-3-30.04-scaled.jpg"
             alt="Offerta Anniversario — 20 anni di Oknoplast in Italia. Sconto del 40% sulle finestre Koncept Plus. Detrazioni fiscali fino al 50%. Entro il 30.04.26"
             width={2560}
             height={1280}

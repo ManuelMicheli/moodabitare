@@ -117,12 +117,12 @@ export default function ShowroomPage() {
               </FadeInView>
               <FadeInView delay={0.1} className="w-full sm:w-[33%]">
                 <div className="relative aspect-[1/1] rounded-sm overflow-hidden">
-                  <Image src="/images/wmremove-transformed (26).webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 31vw" />
+                  <Image src="/images/wm-26.webp" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 31vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0} className="w-full sm:w-[46%]">
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-                  <Image src="/images/wmremove-transformed (25).webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 640px) 100vw, 44vw" />
+                  <Image src="/images/wm-25.webp" alt="Showroom Mood Abitare — ambiente espositivo" fill className="object-cover" sizes="(max-width: 640px) 100vw, 44vw" />
                 </div>
               </FadeInView>
             </div>
@@ -131,12 +131,12 @@ export default function ShowroomPage() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-10 sm:items-end">
               <FadeInView delay={0} className="w-full sm:w-[37%]">
                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (29).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 35vw" />
+                  <Image src="/showroom/wm-29.png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 35vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0.2} className="w-full sm:w-[35%]">
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (32).png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+                  <Image src="/showroom/wm-32.png" alt="Showroom Mood Abitare — vista showroom" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0.35} className="hidden sm:block sm:flex-1 self-start">
@@ -157,12 +157,12 @@ export default function ShowroomPage() {
               </FadeInView>
               <FadeInView delay={0.1} className="w-full sm:w-[34%]">
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (34).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 32vw" />
+                  <Image src="/showroom/wm-34.png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 32vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0} className="w-full sm:w-[44%]">
                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (33).png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 640px) 100vw, 42vw" />
+                  <Image src="/showroom/wm-33.png" alt="Showroom Mood Abitare — spazio espositivo" fill className="object-cover" sizes="(max-width: 640px) 100vw, 42vw" />
                 </div>
               </FadeInView>
             </div>
@@ -171,12 +171,12 @@ export default function ShowroomPage() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 lg:gap-10 sm:items-end">
               <FadeInView delay={0} className="w-full sm:w-[45%]">
                 <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (35).png" alt="Showroom Mood Abitare — dettaglio" fill className="object-cover" sizes="(max-width: 640px) 100vw, 43vw" />
+                  <Image src="/showroom/wm-35.png" alt="Showroom Mood Abitare — dettaglio" fill className="object-cover" sizes="(max-width: 640px) 100vw, 43vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0.15} className="w-full sm:w-[32%]">
                 <div className="relative aspect-[1/1] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (28).png" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 30vw" />
+                  <Image src="/showroom/wm-28.png" alt="Showroom Mood Abitare — dettaglio esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 30vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0.3} className="hidden sm:block sm:flex-1 self-start">
@@ -191,7 +191,7 @@ export default function ShowroomPage() {
               </FadeInView>
               <FadeInView delay={0} className="w-full sm:flex-1">
                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
-                  <Image src="/showroom/wmremove-transformed (30).png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+                  <Image src="/showroom/wm-30.png" alt="Showroom Mood Abitare — esposizione" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
                 </div>
               </FadeInView>
               <FadeInView delay={0.2} className="hidden sm:block sm:flex-1 self-end">

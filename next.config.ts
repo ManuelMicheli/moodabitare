@@ -17,12 +17,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.botpress.cloud https://files.bpcontent.cloud",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com https://cdn.botpress.cloud https://files.bpcontent.cloud",
-      "font-src 'self' https://cdn.botpress.cloud",
-      "connect-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://*.sanity.io https://*.botpress.cloud https://*.bpcontent.cloud",
-      "frame-src https://cdn.botpress.cloud",
+      "img-src 'self' data: blob: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com",
+      "font-src 'self'",
+      "connect-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://*.sanity.io",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -37,20 +36,15 @@ const nextConfig: NextConfig = {
   // SEO: remove trailing slashes for canonical URL consistency
   trailingSlash: false,
   images: {
-    dangerouslyAllowSVG: true, // TODO: remove when placeholder images are replaced
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    qualities: [75, 90],
-    minimumCacheTTL: 31536000, // 1 year — images are static
+    qualities: [70, 75, 90],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
-      },
-      {
-        protocol: "https",
-        hostname: "placehold.co",
       },
     ],
   },
@@ -129,12 +123,8 @@ const nextConfig: NextConfig = {
         { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
       ],
     },
-    {
-      source: "/prodotti/:path*",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
-    },
+    // Note: HTML pages are served by Next.js with sensible defaults.
+    // Don't override /prodotti/* with immutable — pages must revalidate on deploy.
   ],
 };
 

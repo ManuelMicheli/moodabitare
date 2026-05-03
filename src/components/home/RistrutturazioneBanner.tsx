@@ -27,7 +27,7 @@ export function RistrutturazioneBanner() {
         style={{ y, scale: imgScale }}
       >
         <Image
-          src="/images/skywood_desk1_upscayl_4x_upscayl-standard-4x.webp"
+          src="/images/skywood-desk1.webp"
           alt="Ambiente ristrutturato con serramenti moderni"
           fill
           className="object-cover object-center"

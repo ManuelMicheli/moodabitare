@@ -72,9 +72,9 @@ export const portonciniCategories: PortonciniSubCategory[] = [
     label: "Kopen",
     tagline: "3 portoncini premium in alluminio KDS 100 Made in Italy, fino a RC4 e serratura biometrica",
     products: [
-      { src: "/prodotti/Gemini_Generated_Image_4q0l7f4q0l7f4q0l.png", name: "Kopen — Vitrum" },
-      { src: "/prodotti/Gemini_Generated_Image_mz0642mz0642mz06.png", name: "Kopen — Materika" },
-      { src: "/prodotti/Gemini_Generated_Image_sudnkrsudnkrsudn.png", name: "Kopen — Pure" },
+      { src: "/prodotti/gen-4q0l7f4q0l7f4q0l.png", name: "Kopen — Vitrum" },
+      { src: "/prodotti/gen-mz0642mz0642mz06.png", name: "Kopen — Materika" },
+      { src: "/prodotti/gen-sudnkrsudnkrsudn.png", name: "Kopen — Pure" },
     ],
   },
 ];

@@ -25,7 +25,7 @@ export function FinanziamentoBanner() {
         style={{ y, scale: imgScale }}
       >
         <Image
-          src="/images/Oknoplast_2024_home.jpg"
+          src="/images/oknoplast-2024-home.jpg"
           alt="Interni luminosi con serramenti Oknoplast"
           fill
           className="object-cover object-center"

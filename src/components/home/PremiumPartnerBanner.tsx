@@ -31,7 +31,7 @@ export function PremiumPartnerBanner() {
         transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <Image
-          src="/images/Oknoplast-azienda-vista-aerea-opt.jpg"
+          src="/images/oknoplast-azienda-vista-aerea-opt.jpg"
           alt="Oknoplast azienda vista aerea"
           fill
           className="object-cover"

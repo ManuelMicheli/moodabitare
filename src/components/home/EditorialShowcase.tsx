@@ -205,7 +205,7 @@ export function EditorialShowcase() {
       <div className="grid grid-cols-1 md:grid-cols-12">
         {/* R1 — Photo left — GSAP da sinistra */}
         <GsapSlideImage
-          src="/images/Bilico_antracite-eff-legno_FINAL.jpg"
+          src="/images/bilico-antracite-eff-legno-final.jpg"
           alt="Portoncino d'ingresso in alluminio effetto legno"
           className="md:col-span-4"
           fromX={-100}
@@ -231,7 +231,7 @@ export function EditorialShowcase() {
 
         {/* R1 — Photo right — GSAP da destra */}
         <GsapSlideImage
-          src="/images/Ekosol-frangisole_Grigio-scuro-soft_FINAL (1).jpg"
+          src="/images/ekosol-frangisole-grigio-scuro-soft-final-1.jpg"
           alt="Frangisole Ekosol grigio scuro"
           className="md:col-span-4"
           fromX={100}
@@ -261,7 +261,7 @@ export function EditorialShowcase() {
 
         {/* R2 — Wide photo center with parallax */}
         <ParallaxImage
-          src="/images/Gemini_Generated_Image_ykx5j2ykx5j2ykx5.jpg"
+          src="/images/gen-ykx5j2ykx5j2ykx5.jpg"
           alt="Ambiente moderno con serramenti Oknoplast"
           className="md:col-span-6"
           delay={0.25}

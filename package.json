@@ -8,7 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:llms": "node --experimental-strip-types scripts/generate-llms-full.mjs"
+    "generate:llms": "node --experimental-strip-types scripts/generate-llms-full.mjs",
+    "assets:optimize": "node scripts/optimize-images.mjs",
+    "assets:rename": "node scripts/rename-assets.mjs",
+    "assets:fonts": "node scripts/convert-fonts.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

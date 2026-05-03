@@ -19,7 +19,7 @@ export function SiteLoader() {
     hasRun.current = true;
 
     try {
-      if (sessionStorage.getItem("moschiano-loaded")) {
+      if (sessionStorage.getItem("moodabitare-loaded")) {
         hideBackdrop();
         setIsDone(true);
         return;
@@ -120,7 +120,7 @@ export function SiteLoader() {
         setIsDone(true);
         hideBackdrop();
         try {
-          sessionStorage.setItem("moschiano-loaded", "1");
+          sessionStorage.setItem("moodabitare-loaded", "1");
         } catch {
           // sessionStorage unavailable
         }

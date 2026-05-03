@@ -127,7 +127,7 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
         label: "Lume",
         tagline: "La serie Lume: lamelle ellittiche ad alta prestazione per facciate residenziali e commerciali, massima resa estetica.",
         products: [
-          { src: "/prodotti/wmremove-transformed (41).png", name: "Lupak \u2014 Lume Pro" },
+          { src: "/prodotti/wm-41.png", name: "Lupak \u2014 Lume Pro" },
           { src: "/prodotti/lupak-lume.jpg", name: "Lupak \u2014 Lume" },
           { src: "/prodotti/lupak-lume-esse.jpg", name: "Lupak \u2014 Lume Esse" },
           { src: "/prodotti/lupak-lume-light.jpg", name: "Lupak \u2014 Lume Light" },

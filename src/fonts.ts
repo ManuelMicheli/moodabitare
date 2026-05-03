@@ -1,23 +1,37 @@
-import { Cormorant_Garamond, Albert_Sans } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 
 export const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--ff-body",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
-});
-
-export const albertSans = Albert_Sans({
-  subsets: ["latin"],
-  variable: "--font-albert",
-  display: "swap",
-  weight: ["400", "500", "700"],
+  preload: true,
 });
 
 export const outfit = localFont({
-  src: "../public/fonts/outfit/OutfitVariableFont_wght1.ttf",
-  variable: "--font-ui",
+  src: [
+    {
+      path: "../public/fonts/outfit/outfit-variable.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--ff-ui",
   display: "swap",
+  preload: true,
+});
+
+export const doublePorte = localFont({
+  src: [
+    {
+      path: "../public/fonts/display/doubleporte3.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--ff-display",
+  display: "swap",
+  preload: true,
 });

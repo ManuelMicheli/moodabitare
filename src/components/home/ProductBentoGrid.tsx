@@ -19,7 +19,7 @@ const products = [
     brands: ["Oknoplast", "Korus", "Pail"],
     description:
       "Infissi in PVC, alluminio e legno. Portoncini, persiane, frangisole e tapparelle.",
-    image: "/images/wmremove-transformed (69).webp",
+    image: "/images/wm-69.webp",
     href: "/prodotti?categoria=serramenti-oscuranti-portoncini",
     products: 8,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
@@ -49,7 +49,7 @@ const products = [
     name: "Sistemi di Sicurezza",
     brands: ["Erreci", "Alias", "Ecomet", "Inim"],
     description: "Grate, persiane blindate, allarmi e videosorveglianza.",
-    image: "/images/Gemini_Generated_Image_elyr5pelyr5pelyr-opt.jpg",
+    image: "/images/gen-elyr5pelyr5pelyr-opt.jpg",
     href: "/prodotti?categoria=sistemi-sicurezza",
     products: 3,
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",

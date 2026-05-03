@@ -16,65 +16,17 @@ body {
   overflow: hidden;
 }
 
-/* Botpress must remain scrollable even when Lenis is stopped */
-.lenis-stopped #bp-web-widget-container,
-.lenis-stopped #webchat-root,
-.lenis-stopped #fab-root,
-.lenis-stopped #message-preview-root {
-  overflow: visible !important;
-}
-
 .lenis [data-lenis-prevent],
 .lenis [data-lenis-prevent-wheel],
 .lenis [data-lenis-prevent-touch] {
   overscroll-behavior: contain;
 }
 
-.lenis.lenis-smooth iframe:not(#bp-web-widget-container iframe):not(#webchat-root iframe):not(#fab-root iframe) {
+.lenis.lenis-smooth iframe {
   pointer-events: none;
 }
 
-/* Botpress chatbot — allow interaction and block scroll leaking to page */
-#bp-web-widget-container,
-#webchat-root,
-#fab-root,
-#message-preview-root {
-  pointer-events: auto !important;
-  overscroll-behavior: contain !important;
-  touch-action: auto !important;
-}
-
-#bp-web-widget-container *,
-#webchat-root *,
-#fab-root * {
-  pointer-events: auto !important;
-}
-
-#bp-web-widget-container iframe,
-#webchat-root iframe,
-#fab-root iframe {
-  overscroll-behavior: contain !important;
-}
-
-/* === Outfit — UI font (variable weight) === */
-@font-face {
-  font-family: "Outfit";
-  src: url("/fonts/outfit/OutfitVariableFont_wght1.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* === Double Porte 3 — Display title font === */
-@font-face {
-  font-family: "Double Porte 3";
-  src: url("/fonts/otf/Double-Porter-3.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* === Albert Sans — Display font fallback (loaded via next/font/google) === */
+/* Fonts loaded via next/font (see src/fonts.ts) — all WOFF2 + preload + display:swap */
 
 @theme inline {
   /* === Colors === */
@@ -86,10 +38,10 @@ body {
   --color-warm-gray: #e8e8e3;
   --color-mid-gray: #6b6b6b;
 
-  /* === Font families === */
-  --font-display: "Double Porte 3", var(--font-albert), sans-serif;
-  --font-body: "Cormorant Garamond", Georgia, serif;
-  --font-ui: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  /* === Font families (next/font sets --ff-*; map to Tailwind tokens) === */
+  --font-display: var(--ff-display), Georgia, serif;
+  --font-body: var(--ff-body), Georgia, serif;
+  --font-ui: var(--ff-ui), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
