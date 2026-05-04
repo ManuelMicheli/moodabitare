@@ -100,10 +100,12 @@ export default function ShowroomPage() {
                 <div className="relative aspect-[3/4] rounded-sm overflow-hidden">
                   <video
                     src={`${R2_CDN}/videos/showroom-card-720.mp4`}
+                    poster="/moodabitarereal/showroom-esterno-hq.jpg"
                     autoPlay
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>

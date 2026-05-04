@@ -29,7 +29,7 @@ const slides: Slide[] = [
     subheadline: "300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine e soluzioni per tutta la casa",
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
-    image: "",
+    image: "/moodabitarereal/showroom-esterno-hq.jpg",
     video: { desktop: `${R2_CDN}/videos/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-720.mp4` },
     triptych: { leftImage: "", rightImage: "" },
   },
@@ -38,7 +38,7 @@ const slides: Slide[] = [
     subheadline: "Serramenti in PVC, alluminio e legno — persiane, tapparelle, frangisole e zanzariere dei migliori brand",
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
-    image: "",
+    image: "/images/cucina-con-finestra-prolux-swing-opt.jpg",
     video: { desktop: `${R2_CDN}/videos/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2-720.mp4` },
     triptych: { leftImage: "", rightImage: "" },
   },
@@ -390,6 +390,7 @@ export function HeroSection() {
                     <video
                       ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
                       src={loadedVideos.has(i) ? slide.video.mobile : undefined}
+                      poster={slide.image || undefined}
                       muted
                       playsInline
                       preload="auto"
@@ -444,6 +445,7 @@ export function HeroSection() {
                       <video
                         ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
                         src={loadedVideos.has(i) ? slide.video.desktop : undefined}
+                        poster={slide.image || undefined}
                         muted
                         playsInline
                         preload="auto"
@@ -468,6 +470,7 @@ export function HeroSection() {
             <video
               ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
               src={isMobile !== null && loadedVideos.has(i) ? (isMobile ? slide.video.mobile : slide.video.desktop) : undefined}
+              poster={slide.image || undefined}
               muted
               playsInline
               preload="auto"
