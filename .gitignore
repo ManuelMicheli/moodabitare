@@ -58,6 +58,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Videos hosted on Cloudflare R2
-public/videos/
+# Videos hosted on Cloudflare R2 (except optimized mobile hero videos served from Vercel edge)
+public/videos/*
+!public/videos/hero-home-mobile.mp4
+!public/videos/hero-home-2-mobile.mp4
 .wrangler/

@@ -33,7 +33,7 @@ const slides: Slide[] = [
     ctaLink: "/showroom",
     image: "/moodabitarereal/showroom-esterno-hq.jpg",
     posterMobile: "/images/hero-home-poster.jpg",
-    video: { desktop: `${R2_CDN}/videos/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-720.mp4` },
+    video: { desktop: `${R2_CDN}/videos/hero-home-1080.mp4`, mobile: "/videos/hero-home-mobile.mp4" },
     triptych: { leftImage: "", rightImage: "" },
   },
   {
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     ctaLink: "/prodotti",
     image: "/images/cucina-con-finestra-prolux-swing-opt.jpg",
     posterMobile: "/images/hero-home-2-poster.jpg",
-    video: { desktop: `${R2_CDN}/videos/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2-720.mp4` },
+    video: { desktop: `${R2_CDN}/videos/hero-home-2-1080.mp4`, mobile: "/videos/hero-home-2-mobile.mp4" },
     triptych: { leftImage: "", rightImage: "" },
   },
   {
@@ -97,9 +97,11 @@ export function HeroSection() {
   const [revealingIndex, setRevealingIndex] = useState(0);
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [loadedVideos, setLoadedVideos] = useState<Set<number>>(() => {
-    // Preload both hero video slides immediately (they download during SiteLoader)
+    // Preload only the first video — second loads after first slide displays
+    // (avoids bandwidth competition on mobile)
     const initial = new Set<number>();
-    slides.forEach((s, i) => { if (s.video) initial.add(i); });
+    const firstVideoIdx = slides.findIndex((s) => s.video);
+    if (firstVideoIdx !== -1) initial.add(firstVideoIdx);
     return initial;
   });
   const containerRef = useRef<HTMLDivElement>(null);
