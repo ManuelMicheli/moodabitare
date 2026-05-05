@@ -535,6 +535,9 @@ export default async function ProductPage({ params }: Props) {
           "rivestimento-piscine",
           "arredo-giardino",
           "gazebi-strutture-legno",
+          "impianti-fotovoltaici",
+          "impianti-elettrici",
+          "impianti-idraulici",
         ];
         const useCover = coverSlugs.includes(slug);
         return (

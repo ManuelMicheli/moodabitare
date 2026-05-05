@@ -13,6 +13,7 @@ export function SiteLoader() {
   const logoRef = useRef<HTMLImageElement>(null);
   const ringRef = useRef<SVGCircleElement>(null);
   const hasRun = useRef(false);
+  const isMobileRef = useRef(false);
 
   useEffect(() => {
     if (hasRun.current) return;
@@ -45,12 +46,15 @@ export function SiteLoader() {
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
+    const isMobile = window.innerWidth < 768;
+    isMobileRef.current = isMobile;
+
     const img = logoRef.current;
     if (img && img.complete) {
-      runAnimation();
+      runAnimation(isMobile);
     } else if (img) {
-      img.onload = () => runAnimation();
-      img.onerror = () => runAnimation();
+      img.onload = () => runAnimation(isMobile);
+      img.onerror = () => runAnimation(isMobile);
     }
   }, []);
 
@@ -59,8 +63,8 @@ export function SiteLoader() {
     if (backdrop) backdrop.style.display = "none";
   }
 
-  function waitForVideoAndExit() {
-    if (!(window as any).__heroVideoExpected) {
+  function waitForVideoAndExit(skipWait: boolean) {
+    if (skipWait || !(window as any).__heroVideoExpected) {
       animateOut();
       return;
     }
@@ -81,16 +85,21 @@ export function SiteLoader() {
     setTimeout(exit, 4000);
   }
 
-  function runAnimation() {
+  function runAnimation(isMobile: boolean) {
+    // Mobile: compressed timeline + skip video buffer wait (poster covers the gap)
+    const logoDur = isMobile ? 0.3 : 0.5;
+    const ringDur = isMobile ? 0.4 : 0.7;
+    const holdDur = isMobile ? 0 : 0.15;
+
     const tl = gsap.timeline({
-      onComplete: () => waitForVideoAndExit(),
+      onComplete: () => waitForVideoAndExit(isMobile),
     });
 
     // Logo fades in
     tl.fromTo(
       logoRef.current,
       { opacity: 0, scale: 0.92 },
-      { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" },
+      { opacity: 1, scale: 1, duration: logoDur, ease: "power3.out" },
       0
     );
 
@@ -101,14 +110,13 @@ export function SiteLoader() {
       {
         strokeDashoffset: 0,
         opacity: 1,
-        duration: 0.7,
+        duration: ringDur,
         ease: "power2.inOut",
       },
-      0.1
+      isMobile ? 0 : 0.1
     );
 
-    // Brief hold
-    tl.to({}, { duration: 0.15 });
+    if (holdDur > 0) tl.to({}, { duration: holdDur });
   }
 
   function animateOut() {
@@ -127,11 +135,16 @@ export function SiteLoader() {
       },
     });
 
+    const mobile = isMobileRef.current;
+    const fadeDur = mobile ? 0.2 : 0.35;
+    const curtainDur = mobile ? 0.3 : 0.5;
+    const curtainStart = mobile ? 0.05 : 0.15;
+
     // Everything fades and scales up
     tl.to([logoRef.current, ringRef.current?.ownerSVGElement], {
       opacity: 0,
       scale: 1.05,
-      duration: 0.35,
+      duration: fadeDur,
       ease: "power2.in",
     });
 
@@ -140,10 +153,10 @@ export function SiteLoader() {
       overlayRef.current,
       {
         clipPath: "inset(0 0 100% 0)",
-        duration: 0.5,
+        duration: curtainDur,
         ease: "power4.inOut",
       },
-      0.15
+      curtainStart
     );
   }
 

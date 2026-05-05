@@ -12,6 +12,8 @@ interface Slide {
   ctaText: string;
   ctaLink: string;
   image: string;
+  /** Poster shown on mobile before video buffers — should be the video's first frame */
+  posterMobile?: string;
   video?: { desktop: string; mobile: string };
   /** Triptych layout: 3 vertical cards — center is video (if present) or centerImage */
   triptych?: {
@@ -30,6 +32,7 @@ const slides: Slide[] = [
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
     image: "/moodabitarereal/showroom-esterno-hq.jpg",
+    posterMobile: "/images/hero-home-poster.jpg",
     video: { desktop: `${R2_CDN}/videos/hero-home-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-720.mp4` },
     triptych: { leftImage: "", rightImage: "" },
   },
@@ -39,6 +42,7 @@ const slides: Slide[] = [
     ctaText: "Scopri i serramenti",
     ctaLink: "/prodotti",
     image: "/images/cucina-con-finestra-prolux-swing-opt.jpg",
+    posterMobile: "/images/hero-home-2-poster.jpg",
     video: { desktop: `${R2_CDN}/videos/hero-home-2-1080.mp4`, mobile: `${R2_CDN}/videos/hero-home-2-720.mp4` },
     triptych: { leftImage: "", rightImage: "" },
   },
@@ -390,7 +394,7 @@ export function HeroSection() {
                     <video
                       ref={(el) => { if (el) videoRefsMap.current.set(i, el); }}
                       src={loadedVideos.has(i) ? slide.video.mobile : undefined}
-                      poster={slide.image || undefined}
+                      poster={slide.posterMobile || slide.image || undefined}
                       muted
                       playsInline
                       preload="auto"
