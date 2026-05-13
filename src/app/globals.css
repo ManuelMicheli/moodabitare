@@ -418,6 +418,15 @@ body[style*="overflow: hidden"] #fab-root {
   75% { transform: translate(-2%, 5%); }
 }
 
+/* Content-visibility: skip paint/layout of off-screen sections.
+   Massive win for long pages — browser only paints visible sections,
+   making scroll smoother and reducing initial render cost.
+   contain-intrinsic-size: placeholder height before first paint to prevent CLS. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
 /* Disable continuous animations for reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   .pulse-glow,

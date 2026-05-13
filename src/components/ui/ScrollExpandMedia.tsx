@@ -130,7 +130,9 @@ function DesktopScrollExpandMedia({
     };
   }, []);
 
+  // eslint-disable-next-line react-hooks/refs -- intentional: refs drive layout via forceRender for wheel perf
   const scrollProgress = progressRef.current;
+  // eslint-disable-next-line react-hooks/refs -- intentional: refs drive layout via forceRender for wheel perf
   const showContent = contentRef.current;
   const mediaWidth = 300 + scrollProgress * 1250;
   const mediaHeight = 400 + scrollProgress * 400;

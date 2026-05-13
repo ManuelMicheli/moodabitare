@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_PROGETTAZIONE, buildFaqJsonLd } from "@/lib/seo/faq-data";
@@ -114,6 +115,16 @@ export default function ProgettazioneDesign() {
       {/* Hero */}
       <CurtainHero>
         <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1721244654392-9c912a6eb236?w=1920&q=85&auto=format&fit=crop"
+            alt="Progettazione e design Mood Abitare"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/55" />
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
           <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
             <FadeInView>

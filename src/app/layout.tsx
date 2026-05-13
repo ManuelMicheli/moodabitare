@@ -162,14 +162,20 @@ const jsonLdSchemas = [
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "14:00",
-        closes: "17:00",
+        opens: "14:30",
+        closes: "19:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Saturday",
         opens: "09:30",
         closes: "12:30",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "14:00",
+        closes: "17:00",
       },
     ],
     priceRange: "$$",

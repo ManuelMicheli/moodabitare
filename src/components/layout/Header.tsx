@@ -30,11 +30,18 @@ export function Header() {
       if (hero) threshold = hero.offsetHeight - 80;
     }
 
-    const handleScroll = () => {
+    let ticking = false;
+    const update = () => {
       setIsScrolled(isLightHero || window.scrollY > threshold);
+      ticking = false;
+    };
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    update();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isLightHero]);
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_CONTATTI, buildFaqJsonLd } from "@/lib/seo/faq-data";
@@ -56,6 +57,16 @@ export default function Contatti() {
       {/* Hero */}
       <CurtainHero>
         <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1598368195835-91e67f80c9d7?w=1920&q=85&auto=format&fit=crop"
+            alt="Consulenza Mood Abitare"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/55" />
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
           <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
             <FadeInView>
@@ -124,7 +135,7 @@ export default function Contatti() {
                 <div className="pt-6 border-t border-black/5">
                   <p className="text-label text-black-deep/60 mb-2">Orari</p>
                   <p className="text-caption text-black-deep">{OPENING_HOURS.weekdays.label}: {OPENING_HOURS.weekdays.morning} / {OPENING_HOURS.weekdays.afternoon}</p>
-                  <p className="text-caption text-black-deep mt-1">{OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning}</p>
+                  <p className="text-caption text-black-deep mt-1">{OPENING_HOURS.saturday.label}: {OPENING_HOURS.saturday.morning} / {OPENING_HOURS.saturday.afternoon}</p>
                 </div>
               </div>
             </FadeInView>

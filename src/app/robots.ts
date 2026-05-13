@@ -92,11 +92,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: commonDisallow,
       },
     ],
-    sitemap: [
-      "https://www.moodabitare.it/sitemap.xml",
-      "https://www.moodabitare.it/image-sitemap.xml",
-      "https://www.moodabitare.it/video-sitemap.xml",
-    ],
+    sitemap: "https://www.moodabitare.it/sitemap.xml",
     host: "https://www.moodabitare.it",
   };
 }

@@ -273,20 +273,8 @@ export function AboutSection() {
       ref={containerRef}
       className="pt-10 pb-20 lg:pt-16 lg:pb-56 px-6 sm:px-10 lg:px-20"
     >
-      <div className="max-w-6xl mx-auto lg:flex lg:gap-16 lg:items-stretch">
-        {/* Card verticali placeholder — solo desktop */}
-        <div className="hidden lg:flex flex-[2.33] gap-3 self-stretch" style={{ marginLeft: "calc(-50vw + 50%)" }}>
-          <div className="flex-1 h-full rounded-sm overflow-hidden flex flex-col gap-1">
-            <div className="flex-1 min-h-0 bg-warm-gray" />
-            <div className="flex-1 min-h-0 bg-warm-gray" />
-          </div>
-          <div className="flex-1 h-full rounded-sm overflow-hidden flex flex-col gap-1">
-            <div className="flex-1 min-h-0 bg-warm-gray" />
-            <div className="flex-1 min-h-0 bg-warm-gray" />
-          </div>
-        </div>
-
-        <div className="flex-1">
+      <div className="max-w-3xl mx-auto">
+        <div>
         {/* Label */}
         <p className="text-label text-black-deep/60 mb-10 lg:mb-14">
           Chi siamo
@@ -331,25 +319,7 @@ export function AboutSection() {
                 delay={0.1}
               />
 
-              {/* Mobile: two placeholder cards */}
-              <motion.div
-                className="my-10 flex gap-3 lg:hidden"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                <div className="flex-1 aspect-[3/4] rounded-sm overflow-hidden flex flex-col gap-1">
-                  <div className="flex-1 min-h-0 bg-warm-gray" />
-                  <div className="flex-1 min-h-0 bg-warm-gray" />
-                </div>
-                <div className="flex-1 aspect-[3/4] rounded-sm overflow-hidden flex flex-col gap-1">
-                  <div className="flex-1 min-h-0 bg-warm-gray" />
-                  <div className="flex-1 min-h-0 bg-warm-gray" />
-                </div>
-              </motion.div>
-
-              <div className="space-y-8">
+              <div className="mt-8 space-y-8">
                 <SimpleRichParagraph
                   parts={BODY_2}
                   className="font-display leading-[1.5] tracking-[-0.01em] text-black-deep"

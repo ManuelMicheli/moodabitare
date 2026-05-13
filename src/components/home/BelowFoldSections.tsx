@@ -1,56 +1,28 @@
-"use client";
+import { FinanziamentoBanner } from "@/components/home/FinanziamentoBanner";
+import { HomeServices } from "@/components/home/HomeServices";
+import { RistrutturazioneBanner } from "@/components/home/RistrutturazioneBanner";
+import { ValuePropositions } from "@/components/home/ValuePropositions";
+import { ProductBentoGrid } from "@/components/home/ProductBentoGrid";
+import { EditorialShowcase } from "@/components/home/EditorialShowcase";
+import { PortfolioGallery } from "@/components/home/PortfolioGallery";
+import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
+import { CTAFinale } from "@/components/home/CTAFinale";
 
-import dynamic from "next/dynamic";
-
-const FinanziamentoBanner = dynamic(
-  () => import("@/components/home/FinanziamentoBanner").then((m) => m.FinanziamentoBanner),
-  { ssr: false }
-);
-const HomeServices = dynamic(
-  () => import("@/components/home/HomeServices").then((m) => m.HomeServices),
-  { ssr: false }
-);
-const RistrutturazioneBanner = dynamic(
-  () => import("@/components/home/RistrutturazioneBanner").then((m) => m.RistrutturazioneBanner),
-  { ssr: false }
-);
-const ValuePropositions = dynamic(
-  () => import("@/components/home/ValuePropositions").then((m) => m.ValuePropositions),
-  { ssr: false }
-);
-const ProductBentoGrid = dynamic(
-  () => import("@/components/home/ProductBentoGrid").then((m) => m.ProductBentoGrid),
-  { ssr: false }
-);
-const EditorialShowcase = dynamic(
-  () => import("@/components/home/EditorialShowcase").then((m) => m.EditorialShowcase),
-  { ssr: false }
-);
-const PortfolioGallery = dynamic(
-  () => import("@/components/home/PortfolioGallery").then((m) => m.PortfolioGallery),
-  { ssr: false }
-);
-const TestimonialsCarousel = dynamic(
-  () => import("@/components/home/TestimonialsCarousel").then((m) => m.TestimonialsCarousel),
-  { ssr: false }
-);
-const CTAFinale = dynamic(
-  () => import("@/components/home/CTAFinale").then((m) => m.CTAFinale),
-  { ssr: false }
-);
-
+// Each section wrapped in `cv-auto` — uses content-visibility:auto so browser
+// skips paint/layout of off-screen sections until needed (LCP + scroll perf win).
+// Server-rendered HTML still shipped for SEO + zero CLS.
 export function BelowFoldSections() {
   return (
     <>
-      <ProductBentoGrid />
-      <FinanziamentoBanner />
-      <HomeServices />
-      <RistrutturazioneBanner />
-      <ValuePropositions />
-      <EditorialShowcase />
-      <PortfolioGallery />
-      <TestimonialsCarousel />
-      <CTAFinale />
+      <div className="cv-auto"><ProductBentoGrid /></div>
+      <div className="cv-auto"><FinanziamentoBanner /></div>
+      <div className="cv-auto"><HomeServices /></div>
+      <div className="cv-auto"><RistrutturazioneBanner /></div>
+      <div className="cv-auto"><ValuePropositions /></div>
+      <div className="cv-auto"><EditorialShowcase /></div>
+      <div className="cv-auto"><PortfolioGallery /></div>
+      <div className="cv-auto"><TestimonialsCarousel /></div>
+      <div className="cv-auto"><CTAFinale /></div>
     </>
   );
 }

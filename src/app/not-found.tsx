@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pagina Non Trovata",
@@ -23,12 +24,12 @@ export default function NotFound() {
           La pagina che stai cercando non esiste o è stata spostata.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-6">
-          <a href="/" className="text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors">
+          <Link href="/" className="text-button bg-black-deep text-white px-8 py-4 hover:bg-black-soft transition-colors">
             Torna alla home
-          </a>
-          <a href="/contatti" className="text-button text-black-deep border-b border-black-deep/20 pb-1 hover:border-black-deep transition-colors">
+          </Link>
+          <Link href="/contatti" className="text-button text-black-deep border-b border-black-deep/20 pb-1 hover:border-black-deep transition-colors">
             Contattaci
-          </a>
+          </Link>
         </div>
       </div>
     </main>

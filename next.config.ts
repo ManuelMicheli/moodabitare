@@ -19,7 +19,7 @@ const securityHeaders = [
       "default-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com",
+      "img-src 'self' data: blob: https://cdn.sanity.io https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
       "font-src 'self'",
       "connect-src 'self' https://pub-7ff329c7d3de4b8fa141f32872a7b34e.r2.dev https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://*.sanity.io",
       "object-src 'none'",
@@ -33,6 +33,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactCompiler: true,
   serverExternalPackages: ["sanity", "@sanity/client", "@sanity/image-url"],
+  experimental: {
+    turbopackUseSystemTlsCerts: true,
+  },
   // SEO: remove trailing slashes for canonical URL consistency
   trailingSlash: false,
   images: {
@@ -45,6 +48,14 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
       },
     ],
   },

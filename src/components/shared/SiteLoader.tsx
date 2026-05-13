@@ -3,6 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 
+declare global {
+  interface Window {
+    __heroVideoExpected?: boolean;
+    __heroVideoReady?: boolean;
+  }
+}
+
 /* Ring geometry — viewBox 200×200, circle at center */
 const RING_R = 95;
 const CIRCUMFERENCE = 2 * Math.PI * RING_R;
@@ -15,108 +22,9 @@ export function SiteLoader() {
   const hasRun = useRef(false);
   const isMobileRef = useRef(false);
 
-  useEffect(() => {
-    if (hasRun.current) return;
-    hasRun.current = true;
-
-    try {
-      if (sessionStorage.getItem("moodabitare-loaded")) {
-        hideBackdrop();
-        setIsDone(true);
-        return;
-      }
-    } catch {
-      // sessionStorage unavailable
-    }
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      if (logoRef.current) logoRef.current.style.opacity = "1";
-      if (ringRef.current) {
-        ringRef.current.style.strokeDashoffset = "0";
-        ringRef.current.style.opacity = "1";
-      }
-      setTimeout(() => animateOut(), 300);
-      return;
-    }
-
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-
-    const isMobile = window.innerWidth < 768;
-    isMobileRef.current = isMobile;
-
-    const img = logoRef.current;
-    if (img && img.complete) {
-      runAnimation(isMobile);
-    } else if (img) {
-      img.onload = () => runAnimation(isMobile);
-      img.onerror = () => runAnimation(isMobile);
-    }
-  }, []);
-
   function hideBackdrop() {
     const backdrop = document.getElementById("site-loader-backdrop");
     if (backdrop) backdrop.style.display = "none";
-  }
-
-  function waitForVideoAndExit(skipWait: boolean) {
-    if (skipWait || !(window as any).__heroVideoExpected) {
-      animateOut();
-      return;
-    }
-    if ((window as any).__heroVideoReady) {
-      animateOut();
-      return;
-    }
-
-    let exited = false;
-    const exit = () => {
-      if (exited) return;
-      exited = true;
-      window.removeEventListener("hero-video-ready", exit);
-      animateOut();
-    };
-
-    window.addEventListener("hero-video-ready", exit);
-    setTimeout(exit, 4000);
-  }
-
-  function runAnimation(isMobile: boolean) {
-    // Mobile: compressed timeline + skip video buffer wait (poster covers the gap)
-    const logoDur = isMobile ? 0.3 : 0.5;
-    const ringDur = isMobile ? 0.4 : 0.7;
-    const holdDur = isMobile ? 0 : 0.15;
-
-    const tl = gsap.timeline({
-      onComplete: () => waitForVideoAndExit(isMobile),
-    });
-
-    // Logo fades in
-    tl.fromTo(
-      logoRef.current,
-      { opacity: 0, scale: 0.92 },
-      { opacity: 1, scale: 1, duration: logoDur, ease: "power3.out" },
-      0
-    );
-
-    // Ring draws itself around the logo
-    tl.fromTo(
-      ringRef.current,
-      { strokeDashoffset: CIRCUMFERENCE, opacity: 0 },
-      {
-        strokeDashoffset: 0,
-        opacity: 1,
-        duration: ringDur,
-        ease: "power2.inOut",
-      },
-      isMobile ? 0 : 0.1
-    );
-
-    if (holdDur > 0) tl.to({}, { duration: holdDur });
   }
 
   function animateOut() {
@@ -159,6 +67,114 @@ export function SiteLoader() {
       curtainStart
     );
   }
+
+  function waitForVideoAndExit(skipWait: boolean) {
+    if (skipWait || !window.__heroVideoExpected) {
+      animateOut();
+      return;
+    }
+    if (window.__heroVideoReady) {
+      animateOut();
+      return;
+    }
+
+    // Mobile: don't block on video — poster image covers until video starts.
+    // Blocking on mobile extends perceived load when bandwidth is limited.
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      animateOut();
+      return;
+    }
+
+    let exited = false;
+    const exit = () => {
+      if (exited) return;
+      exited = true;
+      window.removeEventListener("hero-video-ready", exit);
+      animateOut();
+    };
+
+    window.addEventListener("hero-video-ready", exit);
+    setTimeout(exit, 1500);
+  }
+
+  function runAnimation(isMobile: boolean) {
+    // Mobile: compressed timeline + skip video buffer wait (poster covers the gap)
+    const logoDur = isMobile ? 0.3 : 0.5;
+    const ringDur = isMobile ? 0.4 : 0.7;
+    const holdDur = isMobile ? 0 : 0.15;
+
+    const tl = gsap.timeline({
+      onComplete: () => waitForVideoAndExit(isMobile),
+    });
+
+    // Logo fades in
+    tl.fromTo(
+      logoRef.current,
+      { opacity: 0, scale: 0.92 },
+      { opacity: 1, scale: 1, duration: logoDur, ease: "power3.out" },
+      0
+    );
+
+    // Ring draws itself around the logo
+    tl.fromTo(
+      ringRef.current,
+      { strokeDashoffset: CIRCUMFERENCE, opacity: 0 },
+      {
+        strokeDashoffset: 0,
+        opacity: 1,
+        duration: ringDur,
+        ease: "power2.inOut",
+      },
+      isMobile ? 0 : 0.1
+    );
+
+    if (holdDur > 0) tl.to({}, { duration: holdDur });
+  }
+
+  useEffect(() => {
+    if (hasRun.current) return;
+    hasRun.current = true;
+
+    try {
+      if (sessionStorage.getItem("moodabitare-loaded")) {
+        hideBackdrop();
+        setIsDone(true);
+        return;
+      }
+    } catch {
+      // sessionStorage unavailable
+    }
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      if (logoRef.current) logoRef.current.style.opacity = "1";
+      if (ringRef.current) {
+        ringRef.current.style.strokeDashoffset = "0";
+        ringRef.current.style.opacity = "1";
+      }
+      setTimeout(() => animateOut(), 300);
+      return;
+    }
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    const isMobile = window.innerWidth < 768;
+    isMobileRef.current = isMobile;
+
+    const img = logoRef.current;
+    if (img && img.complete) {
+      runAnimation(isMobile);
+    } else if (img) {
+      img.onload = () => runAnimation(isMobile);
+      img.onerror = () => runAnimation(isMobile);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount only, refs stable
+  }, []);
 
   if (isDone) return null;
 

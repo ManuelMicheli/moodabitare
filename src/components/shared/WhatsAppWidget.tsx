@@ -20,6 +20,7 @@ export function WhatsAppWidget() {
   useEffect(() => {
     // Check immediately
     const hasCookie = !!Cookies.get(CONSENT_COOKIE);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only cookie read after hydration
     setBannerVisible(!hasCookie);
 
     // Poll for cookie changes (banner sets cookie on dismiss)

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_RISTRUTTURAZIONE, buildFaqJsonLd } from "@/lib/seo/faq-data";
@@ -178,6 +179,16 @@ export default function ServiziRistrutturazione() {
       {/* Hero */}
       <CurtainHero>
         <section className="relative min-h-[30vh] sm:min-h-[45vh] flex items-end bg-black-deep text-white overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1656733911001-16912b79d2bf?w=1920&q=85&auto=format&fit=crop"
+            alt="Ristrutturazioni Mood Abitare"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/55" />
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/50 to-black-deep/20" />
           <div className="relative z-10 w-full pb-10 lg:pb-14 px-6 sm:px-10 lg:px-20">
             <FadeInView>

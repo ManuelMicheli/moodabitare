@@ -107,7 +107,7 @@ output += `- Mappa: ${CONTACT_INFO.googleMapsUrl}\n\n`;
 
 output += `## Orari di apertura\n\n`;
 output += `- ${OPENING_HOURS.weekdays.label}: ${OPENING_HOURS.weekdays.morning} e ${OPENING_HOURS.weekdays.afternoon}\n`;
-output += `- ${OPENING_HOURS.saturday.label}: ${OPENING_HOURS.saturday.morning}\n`;
+output += `- ${OPENING_HOURS.saturday.label}: ${OPENING_HOURS.saturday.morning} e ${OPENING_HOURS.saturday.afternoon}\n`;
 output += `- Domenica: chiuso\n\n`;
 
 output += `## Area servita\n\nProvincia di Varese, alto milanese, aree limitrofe lombarde. Raggio operativo di circa 50 km da Gorla Maggiore, inclusi i comuni di: Varese, Busto Arsizio, Gallarate, Saronno, Legnano, Castellanza, Tradate, Cassano Magnago, Fagnano Olona, Solbiate Olona, Olgiate Olona, Marnate, Gorla Minore, Gorla Maggiore, Samarate, Somma Lombardo, Arsago Seprio, Casorate Sempione, Vergiate, Sesto Calende e altri.\n\n`;

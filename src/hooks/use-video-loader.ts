@@ -26,7 +26,10 @@ export function useVideoLoader(
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isInView, setIsInView] = useState(!lazy);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
 
   const handlePlaying = useCallback(() => {
     setIsPlaying(true);
@@ -66,8 +69,6 @@ export function useVideoLoader(
   // Reduced motion
   useEffect(() => {
     const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mql.matches);
-
     const onChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
     };

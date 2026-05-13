@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
 import { FAQ_FINANZIAMENTO, buildFaqJsonLd } from "@/lib/seo/faq-data";
@@ -81,18 +82,16 @@ export default function Finanziamento() {
       {/* ── Hero ── */}
       <CurtainHero>
         <section className="relative min-h-[30vh] sm:min-h-[45vh] flex items-end bg-black-deep overflow-hidden">
-          {/* Large decorative 0% */}
-          <div
-            className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] select-none pointer-events-none"
-            aria-hidden="true"
-          >
-            <span
-              className="font-display font-bold text-white/[0.03] leading-none block"
-              style={{ fontSize: "clamp(12rem, 40vw, 55rem)" }}
-            >
-              0%
-            </span>
-          </div>
+          <Image
+            src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920&q=85&auto=format&fit=crop"
+            alt="Finanziamento tasso zero Mood Abitare"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/65" />
 
           <div className="relative z-10 w-full pb-10 lg:pb-14 px-6 sm:px-10 lg:px-20">
             <FadeInView>
