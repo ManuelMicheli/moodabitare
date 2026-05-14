@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { CurtainHero } from "@/components/animations/CurtainHero";
+import { LazyVideo } from "@/components/shared/LazyVideo";
 import { CONTACT_INFO, R2_CDN } from "@/lib/constants";
 
 
@@ -49,14 +50,9 @@ export default function ShowroomPage() {
       <CurtainHero>
         <section className="relative min-h-svh sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
           {/* Video background — desktop only; mobile uses poster image for performance */}
-          <video
+          <LazyVideo
             src={`${R2_CDN}/videos/hero-home-1080.mp4`}
             poster="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover hidden sm:block"
           />
           {/* Mobile fallback image — avoids heavy video on cellular */}
@@ -93,88 +89,93 @@ export default function ShowroomPage() {
       </CurtainHero>
 
 
-      {/* ─── Bento grid — full-bleed, light gaps, no captions ─────── */}
+      {/* ─── Masonry columns — aspect naturale, immagini intere ───── */}
       <section className="bg-cream pt-16 sm:pt-24 lg:pt-32 pb-14 sm:pb-20 lg:pb-28">
-        <div className="grid grid-cols-4 sm:grid-cols-12 grid-flow-dense auto-rows-[110px] sm:auto-rows-[150px] lg:auto-rows-[180px] gap-2 sm:gap-3 lg:gap-4">
+        <div className="px-2 sm:px-3 lg:px-4 columns-2 sm:columns-3 lg:columns-4 gap-2 sm:gap-3 lg:gap-4">
 
           {/* 1 — VIDEO 0320(4) */}
-          <div className="relative col-span-4 row-span-2 sm:col-span-8 sm:row-span-3 overflow-hidden bg-black-deep">
-            <video src={`${R2_CDN}/videos/0320(4).mp4`} poster="/moodabitarereal/showroom-ingresso.webp" autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid relative aspect-[9/16] overflow-hidden bg-black-deep">
+            <LazyVideo src={`${R2_CDN}/videos/0320(4).mp4`} poster="/moodabitarereal/showroom-ingresso.webp" className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
           {/* 2 — IMG cucina-showroom */}
-          <div className="relative col-span-2 row-span-2 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/moodabitarereal/cucina-showroom.webp" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/moodabitarereal/cucina-showroom.webp" alt="" width={1536} height={2730} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 3 — IMG wm-29 */}
-          <div className="relative col-span-2 row-span-2 sm:col-span-4 sm:row-span-1 overflow-hidden">
-            <Image src="/showroom/wm-29.png" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+          {/* 3 — IMG porte-showroom (landscape) */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/moodabitarereal/porte-showroom.jpeg" alt="" width={1600} height={1200} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 4 — IMG porte-showroom */}
-          <div className="relative col-span-4 row-span-1 sm:col-span-6 sm:row-span-2 overflow-hidden">
-            <Image src="/moodabitarereal/porte-showroom.jpeg" alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 50vw" />
+          {/* 4 — IMG wm-29 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-29.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 5 — VIDEO 0320(5) */}
-          <div className="relative col-span-4 row-span-2 sm:col-span-6 sm:row-span-3 overflow-hidden bg-black-deep">
-            <video src={`${R2_CDN}/videos/0320(5).mp4`} poster="/showroom/wm-32.png" autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" />
+          {/* 5 — IMG showroom-interno */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/moodabitarereal/showroom-interno.webp" alt="" width={1536} height={2730} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 6 — IMG dettaglio-cucina */}
-          <div className="relative col-span-2 row-span-1 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/moodabitarereal/dettaglio-cucina.webp" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+          {/* 6 — IMG wm-25 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/images/wm-25.webp" alt="" width={1536} height={2730} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 7 — IMG porte-filo-muro */}
-          <div className="relative col-span-2 row-span-1 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/moodabitarereal/porte-filo-muro.webp" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+          {/* 7 — IMG porta-scorrevole (square) */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/moodabitarereal/porta-scorrevole.webp" alt="" width={2048} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 8 — IMG porta-scorrevole */}
-          <div className="relative col-span-4 row-span-1 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/moodabitarereal/porta-scorrevole.webp" alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+          {/* 8 — VIDEO 0320(5) */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid relative aspect-[9/16] overflow-hidden bg-black-deep">
+            <LazyVideo src={`${R2_CDN}/videos/0320(5).mp4`} poster="/showroom/wm-32.png" className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
-          {/* 9 — VIDEO 0320(6) */}
-          <div className="relative col-span-4 row-span-2 sm:col-span-7 sm:row-span-3 overflow-hidden bg-black-deep">
-            <video src={`${R2_CDN}/videos/0320(6).mp4`} poster="/showroom/wm-33.png" autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" />
+          {/* 9 — IMG dettaglio-cucina */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/moodabitarereal/dettaglio-cucina.webp" alt="" width={1536} height={2730} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 10 — IMG wm-33 */}
-          <div className="relative col-span-2 row-span-1 sm:col-span-5 sm:row-span-2 overflow-hidden">
-            <Image src="/showroom/wm-33.png" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 42vw" />
+          {/* 10 — IMG wm-26 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/images/wm-26.webp" alt="" width={1536} height={2730} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 11 — IMG wm-30 */}
-          <div className="relative col-span-2 row-span-1 sm:col-span-5 sm:row-span-1 overflow-hidden">
-            <Image src="/showroom/wm-30.png" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 42vw" />
+          {/* 11 — IMG porte-filo-muro */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/moodabitarereal/porte-filo-muro.webp" alt="" width={3452} height={4320} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 12 — IMG showroom-interno */}
-          <div className="relative col-span-4 row-span-1 sm:col-span-6 sm:row-span-2 overflow-hidden">
-            <Image src="/moodabitarereal/showroom-interno.webp" alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 50vw" />
+          {/* 12 — IMG wm-32 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-32.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 13 — VIDEO showroom-card */}
-          <div className="relative col-span-4 row-span-2 sm:col-span-6 sm:row-span-2 overflow-hidden bg-black-deep">
-            <video src={`${R2_CDN}/videos/showroom-card-720.mp4`} poster="/moodabitarereal/showroom-esterno-hq.jpg" autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" />
+          {/* 13 — IMG wm-33 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-33.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
           {/* 14 — IMG wm-34 */}
-          <div className="relative col-span-2 row-span-1 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/showroom/wm-34.png" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-34.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
           {/* 15 — IMG wm-28 */}
-          <div className="relative col-span-2 row-span-1 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/showroom/wm-28.png" alt="" fill className="object-cover" sizes="(max-width: 640px) 50vw, 33vw" />
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-28.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 16 — IMG wm-32 */}
-          <div className="relative col-span-4 row-span-1 sm:col-span-4 sm:row-span-2 overflow-hidden">
-            <Image src="/showroom/wm-32.png" alt="" fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
+          {/* 16 — IMG wm-30 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-30.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
+          </div>
+
+          {/* 17 — IMG wm-35 */}
+          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
+            <Image src="/showroom/wm-35.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
         </div>

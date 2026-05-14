@@ -246,24 +246,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${cormorantGaramond.variable} ${outfit.variable} ${doublePorte.variable}`}>
       <head>
-        {/* Preload first hero video — responsive desktop/mobile.
-            Starts download immediately on page load, before React hydrates. */}
-        <link
-          rel="preload"
-          as="video"
-          type="video/mp4"
-          href={`${R2_CDN}/videos/hero-home-1080.mp4`}
-          media="(min-width: 768px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="video"
-          type="video/mp4"
-          href={`${R2_CDN}/videos/hero-home-720.mp4`}
-          media="(max-width: 767px)"
-          fetchPriority="high"
-        />
+        {/* R2 CDN preconnect — hero videos load on showroom page; other media on demand */}
         <link rel="preconnect" href={R2_CDN} crossOrigin="" />
         <link rel="dns-prefetch" href={R2_CDN} />
       </head>
