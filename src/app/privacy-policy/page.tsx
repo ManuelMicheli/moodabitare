@@ -77,7 +77,7 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
     <main>
-      <section className="relative min-h-[50vh] flex items-end bg-black-deep text-white">
+      <section className="relative min-h-[55vh] flex items-end bg-black-deep text-white">
         <div className="relative z-10 w-full pt-28 lg:pt-32 pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
           <FadeInView>
             <h1 className="font-section-title">Privacy e Cookie Policy</h1>

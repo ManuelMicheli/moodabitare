@@ -8,7 +8,7 @@ import { testimonials } from "@/lib/testimonials-data";
 export const metadata: Metadata = {
   title: "Mood Abitare — Serramenti, Porte e Ristrutturazioni a Varese",
   description:
-    "Mood Abitare: showroom di 300mq a Gorla Maggiore (VA). Serramenti in PVC, alluminio e legno, porte interne e blindate, ristrutturazioni chiavi in mano, cucine, arredo bagno. Premium Partner Oknoplast. Oltre 30 anni di esperienza.",
+    "Mood Abitare: showroom di 300mq a Gorla Maggiore (VA). Serramenti PVC/alluminio/legno, porte, ristrutturazioni chiavi in mano. Premium Partner Oknoplast.",
   alternates: {
     canonical: "https://www.moodabitare.it",
   },

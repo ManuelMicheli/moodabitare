@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
 import { warmShowroomVideo } from "@/lib/utils";
 
 interface Slide {
@@ -67,6 +66,9 @@ export function HeroSection() {
   const isFirstRender = useRef(true);
   const isAnimatingRef = useRef(false);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // GSAP deferred off the critical path — loaded async after hydration so it
+  // doesn't inflate initial main-thread bootup. Slide 0 paints via inline CSS.
+  const gsapRef = useRef<typeof import("gsap").default | null>(null);
 
   // Signal SiteLoader: no hero videos on this page, ready immediately
   useEffect(() => {
@@ -80,12 +82,14 @@ export function HeroSection() {
   const goToSlide = useCallback(
     (nextIndex: number) => {
       if (isAnimatingRef.current || nextIndex === current) return;
-      isAnimatingRef.current = true;
+      const gsap = gsapRef.current;
+      if (!gsap) return;
 
       const currentSlide = slidesRef.current[current];
       const nextSlide = slidesRef.current[nextIndex];
       if (!currentSlide || !nextSlide) return;
 
+      isAnimatingRef.current = true;
       setRevealingIndex(nextIndex);
       window.dispatchEvent(new CustomEvent("hero-slide-change", { detail: nextIndex }));
 
@@ -177,24 +181,25 @@ export function HeroSection() {
     return () => stopAutoplay();
   }, [startAutoplay, stopAutoplay]);
 
-  // Initial slide setup
+  // Load GSAP async, then run initial slide setup. Until it resolves, slide 0
+  // is already visible via inline CSS (correct first paint from SSR).
   useEffect(() => {
-    slidesRef.current.forEach((slide, i) => {
-      if (!slide) return;
-      if (i === 0) {
-        gsap.set(slide, {
-          clipPath: "inset(0 0%)",
-          opacity: 1,
-          zIndex: 1,
+    let mounted = true;
+    import("gsap").then((m) => {
+      if (!mounted) return;
+      gsapRef.current = m.default;
+      slidesRef.current.forEach((slide, i) => {
+        if (!slide) return;
+        m.default.set(slide, {
+          clipPath: i === 0 ? "inset(0 0%)" : "inset(0 50%)",
+          opacity: i === 0 ? 1 : 0,
+          zIndex: i === 0 ? 1 : 0,
         });
-      } else {
-        gsap.set(slide, {
-          clipPath: "inset(0 50%)",
-          opacity: 0,
-          zIndex: 0,
-        });
-      }
+      });
     });
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -215,14 +220,20 @@ export function HeroSection() {
             slidesRef.current[i] = el;
           }}
           className="absolute inset-0"
+          style={{
+            opacity: i === 0 ? 1 : 0,
+            clipPath: i === 0 ? "inset(0 0%)" : "inset(0 50%)",
+            zIndex: i === 0 ? 1 : 0,
+          }}
         >
           <Image
             src={slide.image}
             alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
             fill
             priority={i === 0}
+            loading={i === 0 ? undefined : "lazy"}
             sizes="100vw"
-            quality={90}
+            quality={75}
             className="object-cover"
           />
 

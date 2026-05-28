@@ -15,7 +15,7 @@ import { FormulaCard } from "@/components/finanziamento/FormulaCard";
 export const metadata: Metadata = {
   title: "Finanziamento a Tasso Zero — Serramenti e Ristrutturazioni",
   description:
-    "Finanziamento a tasso zero per serramenti e ristrutturazioni da Mood Abitare. Anticipo 50%, il resto a tasso 0 con Agos Ducato. Cumulabile con detrazioni fiscali fino al 50%. Gorla Maggiore (VA).",
+    "Finanziamento a tasso zero per serramenti e ristrutturazioni da Mood Abitare. Anticipo 50%, resto a tasso 0, cumulabile con detrazioni fiscali 50%.",
   keywords: [
     "finanziamento serramenti tasso zero",
     "finestre a rate Varese",
@@ -81,7 +81,7 @@ export default function Finanziamento() {
       />
       {/* ── Hero ── */}
       <CurtainHero>
-        <section className="relative min-h-[30vh] sm:min-h-[45vh] flex items-end bg-black-deep overflow-hidden">
+        <section className="relative min-h-[35vh] sm:min-h-[50vh] flex items-end bg-black-deep overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920&q=85&auto=format&fit=crop"
             alt="Finanziamento tasso zero Mood Abitare"

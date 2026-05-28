@@ -14,7 +14,7 @@ import { CurtainHero } from "@/components/animations/CurtainHero";
 export const metadata: Metadata = {
   title: "Servizi di Ristrutturazione — Chiavi in Mano a Varese",
   description:
-    "Ristrutturazioni chiavi in mano Mood Abitare: rifacimento bagni, impianti elettrici e idraulici, climatizzazione Haier, caldaie Hermann e pompe di calore Samsung. Project manager dedicato a Varese.",
+    "Ristrutturazioni chiavi in mano Mood Abitare a Varese: rifacimento bagni, impianti elettrici e idraulici, climatizzazione, caldaie e pompe di calore.",
   keywords: [
     "ristrutturazione casa Varese",
     "ristrutturazione chiavi in mano",
@@ -178,7 +178,7 @@ export default function ServiziRistrutturazione() {
       />
       {/* Hero */}
       <CurtainHero>
-        <section className="relative min-h-[30vh] sm:min-h-[45vh] flex items-end bg-black-deep text-white overflow-hidden">
+        <section className="relative min-h-[35vh] sm:min-h-[50vh] flex items-end bg-black-deep text-white overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1656733911001-16912b79d2bf?w=1920&q=85&auto=format&fit=crop"
             alt="Ristrutturazioni Mood Abitare"
@@ -217,7 +217,7 @@ export default function ServiziRistrutturazione() {
           <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-black-deep/8">
             {steps.map((step) => (
               <StaggerItem key={step.number}>
-                <div className="bg-cream px-5 sm:px-6 py-8 lg:py-10 text-center">
+                <div className="h-full bg-cream px-5 sm:px-6 py-8 lg:py-10 text-center">
                   <span className="font-display text-[2.5rem] lg:text-[3rem] font-bold text-bordeaux leading-none">
                     {step.number}
                   </span>

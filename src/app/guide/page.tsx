@@ -9,7 +9,7 @@ import { FadeInView } from "@/components/animations/FadeInView";
 export const metadata: Metadata = {
   title: "Guide — Serramenti, ristrutturazioni, sicurezza, energia",
   description:
-    "Guide Mood Abitare: come scegliere infissi, detrazioni fiscali serramenti 2026, ristrutturazione chiavi in mano, porte blindate, pompe di calore. Contenuti aggiornati.",
+    "Guide Mood Abitare: come scegliere gli infissi, detrazioni fiscali serramenti 2026, ristrutturazione chiavi in mano, porte blindate e pompe di calore.",
   keywords: [
     "guide serramenti",
     "guida ristrutturazione casa",

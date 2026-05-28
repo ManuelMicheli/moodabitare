@@ -86,7 +86,7 @@ export default function ProdottiPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       {/* Hero */}
-      <section className="relative min-h-[45vh] sm:min-h-[70vh] flex items-end text-white overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[75vh] flex items-end text-white overflow-hidden">
         <Image
           src="/images/cucina-con-finestra-prolux-swing-opt.jpg"
           alt="Prodotti Mood Abitare"

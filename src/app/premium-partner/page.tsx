@@ -6,7 +6,7 @@ import { PremiumPartnerSections } from "@/components/premium-partner/PremiumPart
 export const metadata: Metadata = {
   title: "Premium Partner Oknoplast — Rivenditore Autorizzato Varese",
   description:
-    "Mood Abitare è Premium Partner Oknoplast per la provincia di Varese. Qualità certificata, garanzia estesa, assistenza dedicata e design innovativo per finestre in PVC e alluminio.",
+    "Mood Abitare è Premium Partner Oknoplast per la provincia di Varese: qualità certificata, garanzia estesa e assistenza dedicata per finestre PVC e alluminio.",
   keywords: [
     "Premium Partner Oknoplast",
     "rivenditore Oknoplast Varese",

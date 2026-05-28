@@ -17,7 +17,7 @@ import { CONTACT_INFO } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Chi Siamo — La Nostra Storia",
   description:
-    "Mood Abitare: oltre 30 anni di esperienza in serramenti, porte e ristrutturazioni nella provincia di Varese. Showroom di 300mq a Gorla Maggiore. Premium Partner Oknoplast dal 2010.",
+    "Mood Abitare: oltre 30 anni in serramenti, porte e ristrutturazioni a Varese. Showroom di 300mq a Gorla Maggiore, Premium Partner Oknoplast dal 2010.",
   keywords: [
     "Mood Abitare chi siamo",
     "showroom serramenti Varese",

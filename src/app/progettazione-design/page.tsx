@@ -14,7 +14,7 @@ import { HoverFillSection } from "@/components/progettazione-design/HoverFillSec
 export const metadata: Metadata = {
   title: "Progettazione e Design — Consulenza Interni e Serramenti",
   description:
-    "Servizio di progettazione e design Mood Abitare: consulenza su misura per serramenti, cucine, arredo bagno e interni. Showroom di 300mq a Gorla Maggiore. Dalla visione alla realizzazione.",
+    "Progettazione e design Mood Abitare: consulenza su misura per serramenti, cucine, arredo bagno e interni. Showroom di 300mq a Gorla Maggiore (VA).",
   keywords: [
     "progettazione interni Varese",
     "consulenza arredo casa",
@@ -114,7 +114,7 @@ export default function ProgettazioneDesign() {
       />
       {/* Hero */}
       <CurtainHero>
-        <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+        <section className="relative min-h-[55vh] sm:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1721244654392-9c912a6eb236?w=1920&q=85&auto=format&fit=crop"
             alt="Progettazione e design Mood Abitare"

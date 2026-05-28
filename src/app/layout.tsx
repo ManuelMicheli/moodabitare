@@ -209,19 +209,19 @@ const jsonLdSchemas = [
           "@type": "OfferCatalog",
           name: "Serramenti",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi in PVC Oknoplast" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi in Alluminio Oknoplast" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi in Legno Pail" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Infissi Alluminio/Legno Korus" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Infissi in PVC Oknoplast" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Infissi in Alluminio Oknoplast" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Infissi in Legno Pail" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Infissi Alluminio/Legno Korus" } },
           ],
         },
         {
           "@type": "OfferCatalog",
           name: "Porte",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Porte Interne Pail" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Porte Blindate Alias" } },
-            { "@type": "Offer", itemOffered: { "@type": "Product", name: "Portoncini Oknoplast" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Porte Interne Pail" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Porte Blindate Alias" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Portoncini Oknoplast" } },
           ],
         },
         {

@@ -10,7 +10,7 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 export const metadata: Metadata = {
   title: "Servizi — Consulenza, Installazione e Assistenza",
   description:
-    "I servizi di Mood Abitare: consulenza progettuale gratuita, preventivi e sopralluoghi, installazione certificata con posatori formati, supporto detrazioni fiscali 50%, smaltimento e assistenza post-vendita.",
+    "Servizi Mood Abitare: consulenza gratuita, sopralluoghi, installazione certificata, supporto detrazioni fiscali 50% e assistenza post-vendita a Varese.",
   keywords: [
     "installazione serramenti Varese",
     "posa in opera certificata",

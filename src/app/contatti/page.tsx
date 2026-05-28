@@ -13,7 +13,7 @@ import { CONTACT_INFO, OPENING_HOURS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Contatti — Preventivo Gratuito Serramenti Varese",
   description:
-    "Contatta Mood Abitare per un preventivo gratuito. Showroom in Viale Europa 65, Gorla Maggiore (VA). Tel. 0331.1588159 — WhatsApp 351.7278053. Aperto lun-ven 9:30-17:00, sab 9:30-12:30.",
+    "Contatta Mood Abitare per un preventivo gratuito. Showroom in Viale Europa 65, Gorla Maggiore (VA). Tel. 0331.1588159, WhatsApp 351.7278053.",
   keywords: [
     "contatti Mood Abitare",
     "preventivo serramenti Varese",
@@ -56,7 +56,7 @@ export default function Contatti() {
       />
       {/* Hero */}
       <CurtainHero>
-        <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end bg-black-deep text-white overflow-hidden">
+        <section className="relative min-h-[55vh] sm:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1598368195835-91e67f80c9d7?w=1920&q=85&auto=format&fit=crop"
             alt="Consulenza Mood Abitare"
