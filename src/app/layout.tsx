@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { cormorantGaramond, outfit, doublePorte } from "@/fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -282,6 +283,7 @@ export default function RootLayout({
         </div>
         <Footer />
         <LazyOverlays />
+        <Analytics />
       </body>
     </html>
   );
