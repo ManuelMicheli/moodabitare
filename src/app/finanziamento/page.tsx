@@ -93,7 +93,7 @@ export default function Finanziamento() {
           />
           <div className="absolute inset-0 bg-black/65" />
 
-          <div className="relative z-10 w-full pb-10 lg:pb-14 px-6 sm:px-10 lg:px-20">
+          <div className="relative z-10 w-full pt-28 lg:pt-32 pb-10 lg:pb-14 px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <p className="text-label text-cream/80 mb-6">Finanziamento</p>
             </FadeInView>

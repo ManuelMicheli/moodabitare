@@ -68,7 +68,7 @@ export default function Contatti() {
           />
           <div className="absolute inset-0 bg-black/55" />
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep/90 via-transparent to-transparent" />
-          <div className="relative z-10 w-full pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
+          <div className="relative z-10 w-full pt-28 lg:pt-32 pb-14 lg:pb-28 px-6 sm:px-10 lg:px-20">
             <FadeInView>
               <p className="text-label text-white/80 mb-6">
                 Contattaci

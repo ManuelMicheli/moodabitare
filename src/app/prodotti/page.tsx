@@ -99,7 +99,7 @@ export default function ProdottiPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black-deep/50 via-black-deep/20 to-transparent pointer-events-none" />
         {/* Bottom gradient for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 via-black-deep/15 to-transparent" />
-        <div className="relative z-10 w-full pb-8 lg:pb-12 px-6 sm:px-10 lg:px-20 flex justify-center">
+        <div className="relative z-10 w-full pt-28 lg:pt-32 pb-8 lg:pb-12 px-6 sm:px-10 lg:px-20 flex justify-center">
           <FadeInView>
             <div className="text-center">
               <h1 className="font-page-title">
