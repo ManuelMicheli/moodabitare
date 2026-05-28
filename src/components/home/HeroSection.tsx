@@ -36,18 +36,18 @@ const slides: Slide[] = [
     image: "https://images.unsplash.com/photo-1576338147624-409eb257a72a?w=1920&q=85&auto=format&fit=crop",
   },
   {
-    headline: "Arredo, outdoor\ne spazi da vivere",
-    subheadline: "Cucine su misura, bagni, parquet e ceramiche — pergole, piscine e vetrate panoramiche",
-    ctaText: "Scopri l'arredo",
-    ctaLink: "/prodotti/cucine-su-misura",
+    headline: "Outdoor\ne spazi da vivere",
+    subheadline: "Pergole, tende da sole, vetrate panoramiche e piscine — vivi il giardino tutto l'anno",
+    ctaText: "Scopri l'outdoor",
+    ctaLink: "/prodotti?categoria=outdoor",
     image: "https://images.unsplash.com/photo-1757439402359-aed14d39fc1b?w=1920&q=85&auto=format&fit=crop",
   },
   {
-    headline: "Ristrutturazioni\ne energie rinnovabili",
-    subheadline: "Dal sopralluogo alla consegna — climatizzazione, fotovoltaico e detrazioni fino al 50%",
-    ctaText: "Richiedi preventivo",
-    ctaLink: "/contatti",
-    image: "https://images.unsplash.com/photo-1717167398817-121e3c283dbb?w=1920&q=85&auto=format&fit=crop",
+    headline: "Arredo su misura\nper ogni ambiente",
+    subheadline: "Cucine, arredo bagno, parquet e ceramiche — i migliori brand made in Italy per ogni stanza",
+    ctaText: "Scopri l'arredo",
+    ctaLink: "/prodotti/cucine-su-misura",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=85&auto=format&fit=crop",
   },
 ];
 
