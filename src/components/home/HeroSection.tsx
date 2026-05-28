@@ -61,6 +61,9 @@ const REVEAL_CONFIG = {
 export function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [, setRevealingIndex] = useState(0);
+  // Slide 0 is the LCP image. Defer slides 1-4 until after hydration so their
+  // (heavy) images don't download at page load and starve LCP of bandwidth.
+  const [hydrated, setHydrated] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const isFirstRender = useRef(true);
@@ -204,6 +207,7 @@ export function HeroSection() {
 
   useEffect(() => {
     isFirstRender.current = false;
+    setHydrated(true);
   }, []);
 
   return (
@@ -226,16 +230,18 @@ export function HeroSection() {
             zIndex: i === 0 ? 1 : 0,
           }}
         >
-          <Image
-            src={slide.image}
-            alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
-            fill
-            priority={i === 0}
-            loading={i === 0 ? undefined : "lazy"}
-            sizes="100vw"
-            quality={75}
-            className="object-cover"
-          />
+          {(i === 0 || hydrated) && (
+            <Image
+              src={slide.image}
+              alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
+              fill
+              priority={i === 0}
+              loading={i === 0 ? undefined : "lazy"}
+              sizes="100vw"
+              quality={75}
+              className="object-cover"
+            />
+          )}
 
           {/* Dark overlay for text contrast */}
           <div className="absolute inset-0 bg-black/40" />

@@ -35,6 +35,9 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["sanity", "@sanity/client", "@sanity/image-url"],
   experimental: {
     turbopackUseSystemTlsCerts: true,
+    // Inline CSS into <style> tags — removes the render-blocking stylesheet
+    // request (Lighthouse "render-blocking requests"). Small site, CSS fits.
+    inlineCss: true,
   },
   // SEO: remove trailing slashes for canonical URL consistency
   trailingSlash: false,
