@@ -163,13 +163,18 @@ function CategoryNav({
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
 
   useLayoutEffect(() => {
-    const btn = btnRefs.current.get(activeId);
-    const nav = navRef.current;
-    if (btn && nav) {
-      const navRect = nav.getBoundingClientRect();
-      const btnRect = btn.getBoundingClientRect();
-      setIndicator({ left: btnRect.left - navRect.left, width: btnRect.width });
-    }
+    const measure = () => {
+      const btn = btnRefs.current.get(activeId);
+      // offsetLeft/offsetWidth are relative to the positioned nav and immune to
+      // horizontal scroll; getBoundingClientRect drifts by scrollLeft once the
+      // tab strip overflows (many categories) — that was the misalignment bug.
+      if (btn) setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    const fonts = document.fonts;
+    if (fonts) fonts.ready.then(measure).catch(() => {});
+    return () => window.removeEventListener("resize", measure);
   }, [activeId]);
 
   return (
