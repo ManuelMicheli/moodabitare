@@ -88,24 +88,8 @@ export default function Contatti() {
         </section>
       </CurtainHero>
 
-      {/* Map */}
-      <ClipReveal direction="up" duration={1}>
-      <section className="h-[300px] sm:h-[400px] lg:h-[500px] bg-warm-gray/10">
-        <iframe
-          src="https://maps.google.com/maps?q=Viale+Europa+65,+21050+Gorla+Maggiore+VA,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Mood Abitare — Gorla Maggiore"
-        />
-      </section>
-      </ClipReveal>
-
       {/* Contact Info + Form */}
-      <section className="py-20 lg:py-44">
+      <section className="pt-12 pb-20 lg:pt-16 lg:pb-28">
         <div className="px-6 sm:px-10 lg:px-20">
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
             {/* Contact Info */}
@@ -121,16 +105,17 @@ export default function Contatti() {
                 </div>
                 <div>
                   <p className="text-label text-black-deep/60 mb-2">Telefono</p>
-                  <a href={CONTACT_INFO.phoneHref} className="inline-block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.phone}</a>
+                  <a href={CONTACT_INFO.phoneHref} className="link-draw py-2 text-caption text-black-deep transition-colors hover:text-bordeaux">{CONTACT_INFO.phone}</a>
                 </div>
                 <div>
                   <p className="text-label text-black-deep/60 mb-2">WhatsApp</p>
-                  <a href={CONTACT_INFO.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.whatsapp}</a>
+                  <a href={CONTACT_INFO.whatsappHref} target="_blank" rel="noopener noreferrer" className="link-draw py-2 text-caption text-black-deep transition-colors hover:text-bordeaux">{CONTACT_INFO.whatsapp}</a>
                 </div>
                 <div>
                   <p className="text-label text-black-deep/60 mb-2">Email</p>
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.email}</a>
-                  <a href={`mailto:${CONTACT_INFO.emailCommerciale}`} className="block py-2 text-caption text-black-deep hover:text-black-deep transition-colors">{CONTACT_INFO.emailCommerciale}</a>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="link-draw py-2 text-caption text-black-deep transition-colors hover:text-bordeaux">{CONTACT_INFO.email}</a>
+                  <br />
+                  <a href={`mailto:${CONTACT_INFO.emailCommerciale}`} className="link-draw mt-2 py-2 text-caption text-black-deep transition-colors hover:text-bordeaux">{CONTACT_INFO.emailCommerciale}</a>
                 </div>
                 <div className="pt-6 border-t border-black/5">
                   <p className="text-label text-black-deep/60 mb-2">Orari</p>
@@ -142,7 +127,7 @@ export default function Contatti() {
 
             {/* Form */}
             <FadeInView direction="right">
-              <p className="text-label text-black-deep/60 mb-10">
+              <p className="text-label text-black-deep mb-10">
                 Richiedi informazioni
               </p>
               <ContactForm />
@@ -150,6 +135,22 @@ export default function Contatti() {
           </div>
         </div>
       </section>
+
+      {/* Map */}
+      <ClipReveal direction="up" duration={1}>
+        <section className="h-[300px] sm:h-[400px] lg:h-[500px] bg-warm-gray/10">
+          <iframe
+            src="https://maps.google.com/maps?q=Viale+Europa+65,+21050+Gorla+Maggiore+VA,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mood Abitare — Gorla Maggiore"
+          />
+        </section>
+      </ClipReveal>
     </main>
   );
 }

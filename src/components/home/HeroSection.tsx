@@ -47,7 +47,7 @@ const slides: Slide[] = [
     subheadline: "Dal sopralluogo alla consegna — climatizzazione, fotovoltaico e detrazioni fino al 50%",
     ctaText: "Richiedi preventivo",
     ctaLink: "/contatti",
-    image: "https://images.unsplash.com/photo-1655300256335-beef51a914fe?w=1920&q=85&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1717167398817-121e3c283dbb?w=1920&q=85&auto=format&fit=crop",
   },
 ];
 
