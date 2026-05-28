@@ -95,11 +95,6 @@ export default function ShowroomPage() {
             <Image src="/moodabitarereal/cucina-showroom.webp" alt="" width={1536} height={2730} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
           </div>
 
-          {/* 3 — IMG porte-showroom (landscape) */}
-          <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
-            <Image src="/moodabitarereal/porte-showroom.jpeg" alt="" width={1600} height={1200} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
-          </div>
-
           {/* 4 — IMG wm-29 */}
           <div className="mb-2 sm:mb-3 lg:mb-4 break-inside-avoid">
             <Image src="/showroom/wm-29.png" alt="" width={1152} height={2048} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="w-full h-auto block" />
