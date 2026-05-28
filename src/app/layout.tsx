@@ -265,7 +265,7 @@ export default function RootLayout({
         {/* Inline script: immediately hide backdrop if already loaded this session (hide, don't remove — removal would break hydration) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem("moodabitare-loaded")){var b=document.getElementById("site-loader-backdrop");if(b)b.style.display="none"}}catch(e){}`,
+            __html: `try{var b=document.getElementById("site-loader-backdrop");if(b){var l=false;try{l=!!sessionStorage.getItem("moodabitare-loaded")}catch(e){}if(l||window.innerWidth<768)b.style.display="none"}}catch(e){}`,
           }}
         />
         {jsonLdSchemas.map((schema, i) => (

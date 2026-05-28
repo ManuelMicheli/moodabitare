@@ -146,6 +146,16 @@ export function SiteLoader() {
       // sessionStorage unavailable
     }
 
+    // Mobile: skip the blocking white loader entirely — content paints
+    // immediately (LCP + Speed Index win on weak CPU/network). Desktop keeps
+    // the branded intro. The inline script in layout already hides the SSR
+    // backdrop on mobile before first paint, so there's no white flash.
+    if (window.innerWidth < 768) {
+      hideBackdrop();
+      setIsDone(true);
+      return;
+    }
+
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
