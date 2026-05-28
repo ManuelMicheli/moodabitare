@@ -7,11 +7,14 @@ interface LazyVideoProps {
   poster: string;
   className?: string;
   ariaLabel?: string;
+  /* Above-the-fold hero: start buffering during HTML parse and autoplay without
+     waiting for hydration. Off-screen videos stay lazy (preload="none"). */
+  eager?: boolean;
 }
 
 /* Plays only when intersecting viewport. Pauses when scrolled out — saves
    GPU decode, battery, and prevents scroll jank from multiple decoders. */
-export function LazyVideo({ src, poster, className, ariaLabel }: LazyVideoProps) {
+export function LazyVideo({ src, poster, className, ariaLabel, eager = false }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -47,7 +50,8 @@ export function LazyVideo({ src, poster, className, ariaLabel }: LazyVideoProps)
       muted
       loop
       playsInline
-      preload="none"
+      autoPlay={eager}
+      preload={eager ? "auto" : "none"}
       aria-label={ariaLabel}
       className={className}
     />

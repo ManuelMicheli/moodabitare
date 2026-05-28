@@ -53,6 +53,7 @@ export default function ShowroomPage() {
           <LazyVideo
             src={`${R2_CDN}/videos/hero-home-1080.mp4`}
             poster="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
+            eager
             className="absolute inset-0 w-full h-full object-cover hidden sm:block"
           />
           {/* Mobile fallback image — avoids heavy video on cellular */}

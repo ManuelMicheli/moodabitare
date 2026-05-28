@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { warmShowroomVideo } from "@/lib/utils";
 
 interface Slide {
   headline: string;
@@ -250,6 +251,8 @@ export function HeroSection() {
               </p>
               <Link
                 href={slide.ctaLink}
+                onMouseEnter={slide.ctaLink === "/showroom" ? warmShowroomVideo : undefined}
+                onPointerDown={slide.ctaLink === "/showroom" ? warmShowroomVideo : undefined}
                 className="text-button inline-block bg-bordeaux text-white px-6 py-3.5 sm:px-8 sm:py-4 hover:bg-bordeaux-dark transition-colors"
               >
                 {slide.ctaText}

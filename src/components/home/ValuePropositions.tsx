@@ -10,6 +10,7 @@ import Link from "next/link";
 import { AboutSection } from "@/components/home/AboutSection";
 
 import { VALUE_PROPOSITIONS } from "@/lib/constants";
+import { warmShowroomVideo } from "@/lib/utils";
 
 const marqueeImages = [
   { src: "/moodabitarereal/profili-serramenti.jpeg", alt: "Campioni profili serramenti nello showroom", w: 2048, h: 2048 },
@@ -33,6 +34,8 @@ export function ValuePropositions() {
         <FadeInView delay={0.1}>
           <Link
             href="/showroom"
+            onMouseEnter={warmShowroomVideo}
+            onPointerDown={warmShowroomVideo}
             className="text-button inline-block border border-black-deep/15 text-black-deep px-6 py-3 sm:px-8 sm:py-3.5 btn-press hover:border-black-deep/40 transition-colors whitespace-nowrap text-center"
           >
             Visita lo showroom
