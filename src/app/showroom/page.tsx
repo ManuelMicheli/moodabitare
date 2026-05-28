@@ -49,22 +49,13 @@ export default function ShowroomPage() {
       {/* ─── Hero — video 75% + testo ─────────────────────────────── */}
       <CurtainHero>
         <section className="relative min-h-svh sm:min-h-[70vh] lg:min-h-[75vh] flex items-end bg-black-deep text-white overflow-hidden">
-          {/* Video background — desktop only; mobile uses poster image for performance */}
+          {/* Video background on all viewports — autoplays immediately (eager).
+              Poster shows only for the first frame while the video buffers. */}
           <LazyVideo
             src={`${R2_CDN}/videos/hero-home-1080.mp4`}
             poster="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
             eager
-            className="absolute inset-0 w-full h-full object-cover hidden sm:block"
-          />
-          {/* Mobile fallback image — avoids heavy video on cellular */}
-          <Image
-            src="/images/cf8f30fe-4d69-4594-aa12-0d7137fcfeae-opt.jpg"
-            alt="Showroom Mood Abitare"
-            fill
-            priority
-            sizes="100vw"
-            quality={85}
-            className="object-cover sm:hidden"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black-deep/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep/70 via-black-deep/20 to-transparent" />
