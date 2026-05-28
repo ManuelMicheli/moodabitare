@@ -51,7 +51,7 @@ export function LazyVideo({ src, poster, className, ariaLabel, eager = false }: 
       loop
       playsInline
       autoPlay={eager}
-      preload={eager ? "auto" : "none"}
+      preload={eager ? "metadata" : "none"}
       aria-label={ariaLabel}
       className={className}
     />
