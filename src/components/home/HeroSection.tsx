@@ -19,7 +19,7 @@ const slides: Slide[] = [
     subheadline: "300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine e soluzioni per tutta la casa",
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
-    image: "/moodabitarereal/showroom-esterno-hq.jpg",
+    image: "/moodabitarereal/hero-home-showroom.webp",
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
