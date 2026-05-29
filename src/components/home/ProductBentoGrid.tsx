@@ -135,7 +135,7 @@ export function ProductBentoGrid() {
       <div className="relative">
         {/* Section title */}
         <h2
-          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-black-deep whitespace-nowrap"
+          className="text-center px-4 sm:px-6 font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-black-deep whitespace-normal sm:whitespace-nowrap"
           style={{ fontSize: "clamp(1.15rem, 5.2vw, 9rem)" }}
         >
           <TextShimmer
@@ -163,15 +163,15 @@ export function ProductBentoGrid() {
             </span>
           </div>
           <FadeInView>
-            <p className="text-label text-black-deep/60 mb-8">
+            <p className="text-label text-black-deep/60 mb-8 text-center">
               I nostri prodotti
             </p>
             <p
-              className="font-body text-black-deep/80 leading-relaxed max-w-[16rem] sm:max-w-none mx-auto sm:mx-0"
+              className="font-body text-black-deep leading-relaxed max-w-[18rem] sm:max-w-none mx-auto text-center"
               style={{ fontSize: "clamp(1.25rem, 1rem + 1.5vw, 2rem)" }}
             >
               Selezioniamo solo i <em>migliori</em> brand italiani ed europei
-              — per offrire soluzioni che uniscono estetica, prestazioni
+              per offrire soluzioni che uniscono estetica, prestazioni
               e <em>durata</em> nel tempo.
             </p>
           </FadeInView>
