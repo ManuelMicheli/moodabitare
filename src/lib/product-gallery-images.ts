@@ -261,9 +261,9 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
     { src: "/prodotti/elettrico-wallbox.jpg", name: "Ricarica Auto Elettrica" },
   ],
   "impianti-idraulici": [
-    { src: "/prodotti/idraulico-completo.jpg", name: "Impianto Idraulico Completo" },
-    { src: "/prodotti/idraulico-radiante.jpg", name: "Riscaldamento a Pavimento" },
-    { src: "/prodotti/idraulico-tubazioni.jpg", name: "Sostituzione Tubazioni" },
-    { src: "/prodotti/idraulico-ricircolo.jpg", name: "Ricircolo Acqua Calda Sanitaria" },
+    { src: "/prodotti/idraulico-completo.webp", name: "Impianto Idraulico Completo" },
+    { src: "/prodotti/idraulico-radiante.webp", name: "Riscaldamento a Pavimento" },
+    { src: "/prodotti/idraulico-tubazioni.webp", name: "Sostituzione Tubazioni" },
+    { src: "/prodotti/idraulico-ricircolo.webp", name: "Ricircolo Acqua Calda Sanitaria" },
   ],
 };

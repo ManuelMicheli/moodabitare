@@ -777,7 +777,7 @@ export const productContent: Record<string, ProductContent> = {
   },
 
   "impianti-idraulici": {
-    tagline: "Acqua e comfort, progettati su misura",
+    tagline: "Impianti idraulici su misura per la tua casa",
     description:
       "Progettazione e realizzazione di impianti idraulici per bagno, cucina e riscaldamento. Dalla ristrutturazione completa dell'impianto alla sostituzione di singoli elementi, con materiali di qualità e tecniche di installazione a norma. Tubazioni multistrato, collettori di distribuzione e sistemi di ricircolo per acqua calda istantanea.",
     specs: [

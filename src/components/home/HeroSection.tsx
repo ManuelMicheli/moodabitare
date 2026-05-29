@@ -238,7 +238,7 @@ export function HeroSection() {
               priority={i === 0}
               loading={i === 0 ? undefined : "lazy"}
               sizes="100vw"
-              quality={i === 0 ? 90 : 75}
+              quality={i === 0 ? 100 : 75}
               className="object-cover"
             />
           )}

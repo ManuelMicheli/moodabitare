@@ -820,7 +820,7 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
 
   "impianti-idraulici": {
     brandLabel: "Soluzioni Mood Abitare",
-    title: "Acqua e comfort, progettati su misura",
+    title: "Impianti idraulici su misura per la tua casa",
     description:
       "Impianti idraulici completi con distribuzione a collettore, riscaldamento a pavimento radiante, sostituzione tubazioni datate e sistemi di ricircolo per acqua calda istantanea. Ogni impianto è collaudato a 10 bar e certificato con Dichiarazione di Conformità.",
     stats: [
