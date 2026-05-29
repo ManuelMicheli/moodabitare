@@ -78,14 +78,14 @@ export function ProductCatalog() {
               }}
             >
               <div className="p-3 sm:p-6 lg:p-8 flex-1">
+                <h3 className="font-card-title text-[0.875rem] sm:text-base text-black-deep group-hover:text-black-deep/60 transition-colors leading-tight">
+                  {product.name}
+                </h3>
                 {product.brand && (
-                  <span className="text-label text-[0.6rem] sm:text-[0.65rem] text-black-deep/30">
+                  <span className="mt-1 sm:mt-2 block text-label text-[0.6rem] sm:text-[0.65rem] text-black-deep/30">
                     {product.brand}
                   </span>
                 )}
-                <h3 className="mt-1 sm:mt-2 font-card-title text-[0.875rem] sm:text-base text-black-deep group-hover:text-black-deep/60 transition-colors leading-tight">
-                  {product.name}
-                </h3>
                 <span className="inline-block mt-2 sm:mt-4 text-caption text-[0.8rem] text-black-deep/60 group-hover:text-black-deep/60 transition-colors">
                   Scopri &rarr;
                 </span>

@@ -12,7 +12,7 @@ export function Footer() {
       {/* Marquee */}
       <div className="border-b border-white/5 py-8 lg:py-10 overflow-hidden">
         <div className="marquee-track will-change-transform"
-             style={{ animation: "marquee 40s linear infinite" }}>
+             style={{ animation: "marquee 40s linear infinite", gap: 0 }}>
           {Array.from({ length: 4 }).map((_, i) => (
             <span
               key={i}
