@@ -62,6 +62,17 @@ export function Footer() {
                       </li>,
                     ]
               )}
+              {/* SEO: link interni a pagine altrimenti orfane (solo in sitemap) */}
+              <li>
+                <Link href="/servizi" className="block py-2 text-caption text-white/80 hover:text-white transition-colors duration-300">
+                  Servizi
+                </Link>
+              </li>
+              <li>
+                <Link href="/guide" className="block py-2 text-caption text-white/80 hover:text-white transition-colors duration-300">
+                  Guide
+                </Link>
+              </li>
             </ul>
           </div>
 
