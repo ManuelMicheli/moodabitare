@@ -468,22 +468,45 @@ export const premiumCatalogData: Record<string, PremiumCatalogConfig> = {
    * ═══════════════════════════════════════════════════════════════ */
 
   "cucine-su-misura": {
-    brandLabel: "Catalogo Arrex",
-    title: "Cucine Arrex su misura per il cuore della casa",
+    brandLabel: "Catalogo Atra Cucine \u00B7 Essebi Cucine",
+    title: "Cucine su misura per il cuore della casa",
     description:
-      "Cucine made in Italy progettate su misura: dall\u2019isola centrale alla composizione lineare, ogni cucina Arrex combina funzionalit\u00E0, materiali di qualit\u00E0 e design contemporaneo per uno spazio che rispecchia il tuo stile.",
+      "Cucine made in Italy progettate su misura: dall\u2019isola centrale alla composizione lineare, le collezioni Atra ed Essebi combinano funzionalit\u00E0, materiali di qualit\u00E0 e design contemporaneo o classico per uno spazio che rispecchia il tuo stile.",
     stats: [
-      { n: 6, label: "Collezioni" },
+      { n: 18, label: "Collezioni" },
+      { n: 2, label: "Brand" },
     ],
     categories: [
       {
-        id: "moderna",
-        label: "Moderna",
-        tagline: "Cucine Arrex dalla linea contemporanea: superfici laccate, Fenix, gres e moduli XXL per il massimo della funzionalit\u00E0.",
+        id: "atra",
+        label: "Atra Cucine",
+        tagline: "Atra Cucine, dal 1987 a Cordignano (TV): superfici effetto vetro GLAKS\u00AE, PET, Fenix e HPL per cucine moderne, e linee classiche dal fascino senza tempo.",
         products: [
-          { src: "/prodotti/arrex-gea.jpg", name: "Arrex \u2014 Gea (EcoPet)" },
-          { src: "/prodotti/arrex-loft.jpg", name: "Arrex \u2014 Loft 2.2" },
-          { src: "/prodotti/arrex-gea-2.jpg", name: "Arrex \u2014 Gea (Zenitale)" },
+          { src: "/prodotti/atra-system22.jpg", name: "Atra \u2014 System22" },
+          { src: "/prodotti/atra-shine.jpg", name: "Atra \u2014 Shine" },
+          { src: "/prodotti/atra-lab.jpg", name: "Atra \u2014 Lab" },
+          { src: "/prodotti/atra-avantgarde.jpg", name: "Atra \u2014 Avantgarde" },
+          { src: "/prodotti/atra-essenza.jpg", name: "Atra \u2014 Essenza" },
+          { src: "/prodotti/atra-intesa.jpg", name: "Atra \u2014 Intesa" },
+          { src: "/prodotti/atra-maya.jpg", name: "Atra \u2014 Maya" },
+        ],
+      },
+      {
+        id: "essebi",
+        label: "Essebi Cucine",
+        tagline: "Essebi Cucine: frontali da 22 mm in PET riciclabile, laccati RAL, nobilitati materici e frassino, progettati anche fuori misura al giusto valore.",
+        products: [
+          { src: "/prodotti/essebi-materia.jpg", name: "Essebi \u2014 Materia" },
+          { src: "/prodotti/essebi-gloss.jpg", name: "Essebi \u2014 Gloss" },
+          { src: "/prodotti/essebi-seta.jpg", name: "Essebi \u2014 Seta" },
+          { src: "/prodotti/essebi-astro.jpg", name: "Essebi \u2014 Astro" },
+          { src: "/prodotti/essebi-jazz.jpg", name: "Essebi \u2014 Jazz" },
+          { src: "/prodotti/essebi-just24.jpg", name: "Essebi \u2014 Just24" },
+          { src: "/prodotti/essebi-nadir.jpg", name: "Essebi \u2014 Nadir" },
+          { src: "/prodotti/essebi-azimut.jpg", name: "Essebi \u2014 Azimut" },
+          { src: "/prodotti/essebi-york.jpg", name: "Essebi \u2014 York e J-York" },
+          { src: "/prodotti/essebi-stella.jpg", name: "Essebi \u2014 Stella" },
+          { src: "/prodotti/essebi-alba.jpg", name: "Essebi \u2014 Alba" },
         ],
       },
     ],

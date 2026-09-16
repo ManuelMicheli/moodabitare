@@ -557,14 +557,14 @@ export const PRODUCT_FAQS: Record<string, FaqItem[]> = {
 
   "cucine-su-misura": [
     {
-      question: "Quanto costa una cucina su misura Arrex?",
+      question: "Quanto costa una cucina su misura Atra o Essebi?",
       answer:
-        "Il prezzo di una cucina su misura Arrex varia molto con le scelte progettuali. Come riferimento: cucina lineare 3 metri con elettrodomestici base 5.000-8.000 €; cucina ad angolo 4+2 metri finitura media 9.000-15.000 €; cucina con isola e finiture premium 18.000-35.000 € e oltre. Durante la progettazione 3D forniamo un preventivo dettagliato con tutte le alternative.",
+        "Il prezzo di una cucina su misura Atra o Essebi varia molto con le scelte progettuali. Come riferimento: cucina lineare 3 metri con elettrodomestici base 5.000-8.000 €; cucina ad angolo 4+2 metri finitura media 9.000-15.000 €; cucina con isola e finiture premium 18.000-35.000 € e oltre. Durante la progettazione 3D forniamo un preventivo dettagliato con tutte le alternative.",
     },
     {
       question: "Quanto dura la progettazione e realizzazione di una cucina?",
       answer:
-        "Dalla prima consulenza alla posa: 2-3 settimane di progettazione (moodboard, render 3D, revisioni), 4-6 settimane di produzione in fabbrica Arrex, 2-4 giorni di installazione in casa. In totale 7-10 settimane. Nei casi di cucine con elementi particolarmente complessi (isole con finiture speciali) i tempi possono allungarsi.",
+        "Dalla prima consulenza alla posa: 2-3 settimane di progettazione (moodboard, render 3D, revisioni), 4-6 settimane di produzione in fabbrica, 2-4 giorni di installazione in casa. In totale 7-10 settimane. Nei casi di cucine con elementi particolarmente complessi (isole con finiture speciali) i tempi possono allungarsi.",
     },
     {
       question: "Si può sostituire solo ante e top senza rifare tutta la cucina?",

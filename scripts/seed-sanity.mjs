@@ -105,7 +105,8 @@ const brandPartners = [
   { name: "Sinfonia", category: "Scale e ringhiere" },
   { name: "Tendarredo", category: "Pergole, Tende da sole" },
   { name: "Mc Slide", category: "Vetrate panoramiche" },
-  { name: "Arrex Cucine", category: "Cucine su misura" },
+  { name: "Atra Cucine", category: "Cucine su misura" },
+  { name: "Essebi Cucine", category: "Cucine su misura" },
   { name: "Merati", category: "Arredo bagno" },
   { name: "Sani e Co", category: "Sanitari" },
   { name: "Fiore", category: "Rubinetteria" },
@@ -208,7 +209,7 @@ const macroCategories = [
   {
     id: "casa-arredo",
     products: [
-      { slug: "cucine-su-misura", name: "Cucine su Misura", brand: "Arrex Cucine" },
+      { slug: "cucine-su-misura", name: "Cucine su Misura", brand: "Atra Cucine / Essebi Cucine" },
       { slug: "arredo-bagno", name: "Arredo Bagno", brand: "Merati" },
       { slug: "sanitari", name: "Sanitari", brand: "Sani e Co" },
       { slug: "rubinetteria", name: "Rubinetteria", brand: "Fiore" },

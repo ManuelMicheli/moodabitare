@@ -1,6 +1,6 @@
 # Mood Abitare — Dossier completo
 
-> Showroom premium di 300 m² a Gorla Maggiore (Varese) specializzato in serramenti, porte, ristrutturazioni chiavi in mano e arredo casa. Premium Partner Oknoplast dal 2010. Oltre 30 anni di esperienza. 29 brand partner europei.
+> Showroom premium di 300 m² a Gorla Maggiore (Varese) specializzato in serramenti, porte, ristrutturazioni chiavi in mano e arredo casa. Premium Partner Oknoplast dal 2010. Oltre 30 anni di esperienza. 30 brand partner europei.
 
 ## Identità azienda
 
@@ -40,7 +40,7 @@ Provincia di Varese, alto milanese, aree limitrofe lombarde. Raggio operativo di
 - 29: Brand Partner
 - 1: Premium Partner Oknoplast
 
-## Brand partner (29)
+## Brand partner (30)
 
 - Oknoplast: Infissi PVC e Alluminio, Portoncini
 - Korus: Infissi Alluminio / Legno, Persiane
@@ -61,7 +61,8 @@ Provincia di Varese, alto milanese, aree limitrofe lombarde. Raggio operativo di
 - Sinfonia: Scale e ringhiere
 - Tendarredo: Pergole, Tende da sole
 - Mc Slide: Vetrate panoramiche
-- Arrex Cucine: Cucine su misura
+- Atra Cucine: Cucine su misura
+- Essebi Cucine: Cucine su misura
 - Merati: Arredo bagno
 - Sani e Co: Sanitari
 - Fiore: Rubinetteria
@@ -1104,14 +1105,14 @@ Dipende dal regolamento condominiale. Generalmente i barbecue a gas sono accetta
 
 ## Casa & Arredo
 
-### Cucine su Misura — Arrex Cucine
+### Cucine su Misura — Atra Cucine / Essebi Cucine
 
 URL: https://www.moodabitare.it/prodotti/cucine-su-misura  
 Categoria: Casa & Arredo
 
 *La tua cucina, progettata intorno alla tua vita*
 
-Le cucine Arrex Cucine sono progettate su misura e realizzate in Italia con materiali di prima scelta. Dal layout funzionale alle finiture, ogni dettaglio nasce dalla tua quotidianità: come cucini, come vivi, quanto spazio hai. Il nostro architetto ti segue dalla progettazione con render 3D alla realizzazione finale, per una cucina che è davvero tua.
+Le cucine Atra Cucine ed Essebi Cucine sono progettate su misura e realizzate in Italia con materiali di prima scelta: dalle superfici effetto vetro GLAKS® e PET riciclabile ai laccati, ai nobilitati materici e al frassino delle linee classiche. Dal layout funzionale alle finiture, ogni dettaglio nasce dalla tua quotidianità: come cucini, come vivi, quanto spazio hai. Il nostro architetto ti segue dalla progettazione con render 3D alla realizzazione finale, per una cucina che è davvero tua.
 
 **Specifiche tecniche:**
 
@@ -1134,11 +1135,11 @@ Le cucine Arrex Cucine sono progettate su misura e realizzate in Italia con mate
 
 **Domande frequenti:**
 
-*Quanto costa una cucina su misura Arrex?*  
-Il prezzo di una cucina su misura Arrex varia molto con le scelte progettuali. Come riferimento: cucina lineare 3 metri con elettrodomestici base 5.000-8.000 €; cucina ad angolo 4+2 metri finitura media 9.000-15.000 €; cucina con isola e finiture premium 18.000-35.000 € e oltre. Durante la progettazione 3D forniamo un preventivo dettagliato con tutte le alternative.
+*Quanto costa una cucina su misura Atra o Essebi?*  
+Il prezzo di una cucina su misura Atra o Essebi varia molto con le scelte progettuali. Come riferimento: cucina lineare 3 metri con elettrodomestici base 5.000-8.000 €; cucina ad angolo 4+2 metri finitura media 9.000-15.000 €; cucina con isola e finiture premium 18.000-35.000 € e oltre. Durante la progettazione 3D forniamo un preventivo dettagliato con tutte le alternative.
 
 *Quanto dura la progettazione e realizzazione di una cucina?*  
-Dalla prima consulenza alla posa: 2-3 settimane di progettazione (moodboard, render 3D, revisioni), 4-6 settimane di produzione in fabbrica Arrex, 2-4 giorni di installazione in casa. In totale 7-10 settimane. Nei casi di cucine con elementi particolarmente complessi (isole con finiture speciali) i tempi possono allungarsi.
+Dalla prima consulenza alla posa: 2-3 settimane di progettazione (moodboard, render 3D, revisioni), 4-6 settimane di produzione in fabbrica, 2-4 giorni di installazione in casa. In totale 7-10 settimane. Nei casi di cucine con elementi particolarmente complessi (isole con finiture speciali) i tempi possono allungarsi.
 
 *Si può sostituire solo ante e top senza rifare tutta la cucina?*  
 Sì, è un servizio richiesto soprattutto per cucine ben strutturate ma esteticamente datate. Si mantengono basi, colonne e cassetti; si sostituiscono ante (anche su misura), maniglie, top (laminato, quarzo, dekton, laminam) e lavello. Risparmio tipico 40-60% rispetto a cucina nuova. La fattibilità dipende dallo stato delle strutture esistenti.
@@ -1584,7 +1585,7 @@ Sì, è sempre più richiesto. In fase di ristrutturazione predisponiamo una lin
 URL: https://www.moodabitare.it/prodotti/impianti-idraulici  
 Categoria: Riscaldamento / Energie Rinnovabili
 
-*Acqua e comfort, progettati su misura*
+*Impianti idraulici su misura per la tua casa*
 
 Progettazione e realizzazione di impianti idraulici per bagno, cucina e riscaldamento. Dalla ristrutturazione completa dell'impianto alla sostituzione di singoli elementi, con materiali di qualità e tecniche di installazione a norma. Tubazioni multistrato, collettori di distribuzione e sistemi di ricircolo per acqua calda istantanea.
 
@@ -1704,4 +1705,4 @@ Puoi contattarci telefonicamente al 0331.1588159, via WhatsApp al 351.7278053, o
 ---
 
 Questo dossier è generato automaticamente dai file sorgente del sito.
-Ultimo aggiornamento: 2026-05-28.
+Ultimo aggiornamento: 2026-09-16.

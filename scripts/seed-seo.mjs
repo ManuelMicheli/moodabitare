@@ -115,8 +115,8 @@ const seoData = {
     seoDescription: "Arredo giardino a Gorla Maggiore: tavoli, sedie, divani e complementi outdoor. Materiali resistenti e design italiano. Showroom e preventivo gratuito.",
   },
   "cucine-su-misura": {
-    seoTitle: "Cucine su Misura Arrex — Cucine Varese | Mood Abitare",
-    seoDescription: "Cucine su misura Arrex a Varese: moderne, classiche e in muratura. Progettazione 3D, elettrodomestici integrati. Showroom 300mq. Preventivo gratuito.",
+    seoTitle: "Cucine su Misura Atra ed Essebi — Varese | Mood Abitare",
+    seoDescription: "Cucine su misura Atra ed Essebi a Varese: moderne, classiche e in muratura. Progettazione 3D, elettrodomestici integrati. Showroom 300mq. Preventivo gratuito.",
   },
   "arredo-bagno": {
     seoTitle: "Arredo Bagno Merati — Mobili Bagno Varese | Mood Abitare",

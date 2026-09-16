@@ -535,7 +535,7 @@ export const productContent: Record<string, ProductContent> = {
   "cucine-su-misura": {
     tagline: "La tua cucina, progettata intorno alla tua vita",
     description:
-      "Le cucine Arrex Cucine sono progettate su misura e realizzate in Italia con materiali di prima scelta. Dal layout funzionale alle finiture, ogni dettaglio nasce dalla tua quotidianità: come cucini, come vivi, quanto spazio hai. Il nostro architetto ti segue dalla progettazione con render 3D alla realizzazione finale, per una cucina che è davvero tua.",
+      "Le cucine Atra Cucine ed Essebi Cucine sono progettate su misura e realizzate in Italia con materiali di prima scelta: dalle superfici effetto vetro GLAKS® e PET riciclabile ai laccati, ai nobilitati materici e al frassino delle linee classiche. Dal layout funzionale alle finiture, ogni dettaglio nasce dalla tua quotidianità: come cucini, come vivi, quanto spazio hai. Il nostro architetto ti segue dalla progettazione con render 3D alla realizzazione finale, per una cucina che è davvero tua.",
     specs: [
       { label: "Produzione", value: "100% italiana" },
       { label: "Materiali top", value: "Quarzo, Dekton, laminato HPL, legno massello" },

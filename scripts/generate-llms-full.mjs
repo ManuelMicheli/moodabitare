@@ -84,7 +84,7 @@ const renderProduct = (category, product) => {
 let output = "";
 
 output += `# Mood Abitare — Dossier completo\n\n`;
-output += `> Showroom premium di 300 m² a Gorla Maggiore (Varese) specializzato in serramenti, porte, ristrutturazioni chiavi in mano e arredo casa. Premium Partner Oknoplast dal 2010. Oltre 30 anni di esperienza. 29 brand partner europei.\n\n`;
+output += `> Showroom premium di 300 m² a Gorla Maggiore (Varese) specializzato in serramenti, porte, ristrutturazioni chiavi in mano e arredo casa. Premium Partner Oknoplast dal 2010. Oltre 30 anni di esperienza. 30 brand partner europei.\n\n`;
 
 output += `## Identità azienda\n\n`;
 output += `- Nome commerciale: ${SITE_CONFIG.name}\n`;

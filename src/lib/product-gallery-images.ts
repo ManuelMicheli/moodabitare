@@ -165,9 +165,24 @@ export const productGalleryImages: Record<string, GalleryImage[]> = {
 
   /* ── Casa & Arredo (placeholder) ────────── */
   "cucine-su-misura": [
-    { src: "/prodotti/placeholder.svg", name: "Arrex — Gea (EcoPet)" },
-    { src: "/prodotti/placeholder.svg", name: "Arrex — Loft 2.2" },
-    { src: "/prodotti/placeholder.svg", name: "Arrex — Gea (Zenitale)" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — System22" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — Shine" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — Lab" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — Avantgarde" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — Essenza" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — Intesa" },
+    { src: "/prodotti/placeholder.svg", name: "Atra — Maya" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Materia" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Gloss" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Seta" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Astro" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Jazz" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Just24" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Nadir" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Azimut" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — York e J-York" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Stella" },
+    { src: "/prodotti/placeholder.svg", name: "Essebi — Alba" },
   ],
   "arredo-bagno": [
     { src: "/prodotti/placeholder.svg", name: "Merati — Torana 3.0" },

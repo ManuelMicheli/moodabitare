@@ -232,13 +232,15 @@ const productKeywords: Record<string, string[]> = {
   ],
   "cucine-su-misura": [
     "cucine su misura Varese",
-    "cucine Arrex",
+    "cucine Atra",
+    "cucine Essebi",
     "cucine moderne design",
     "cucine con isola",
     "cucine made in Italy",
     "arredamento cucina Varese",
     "cucine su misura Busto Arsizio",
-    "cucine Arrex Gallarate",
+    "cucine Atra Gallarate",
+    "cucine Essebi Varese",
   ],
   "arredo-bagno": [
     "arredo bagno Varese",

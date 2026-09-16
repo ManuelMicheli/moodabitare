@@ -33,7 +33,7 @@ const itemListJsonLd = {
 export const metadata: Metadata = {
   title: "Prodotti — Serramenti, Porte, Arredo Casa",
   description:
-    "Catalogo completo Mood Abitare: infissi PVC e alluminio Oknoplast, porte interne, porte blindate, cucine Arrex, arredo bagno, outdoor, riscaldamento e oltre 35 prodotti per la tua casa.",
+    "Catalogo completo Mood Abitare: infissi PVC e alluminio Oknoplast, porte interne, porte blindate, cucine Atra ed Essebi, arredo bagno, outdoor, riscaldamento e oltre 35 prodotti per la tua casa.",
   keywords: [
     "serramenti Varese",
     "infissi PVC Oknoplast",
