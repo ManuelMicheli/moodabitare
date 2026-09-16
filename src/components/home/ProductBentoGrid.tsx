@@ -69,7 +69,7 @@ const products = [
     name: "Outdoor",
     brands: ["Tendarredo", "Mc Slide", "Persit"],
     description: "Pergole, tende da sole, vetrate panoramiche e piscine.",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=85&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=3200&q=90&auto=format&fit=crop",
     href: "/prodotti?categoria=outdoor",
     products: 7,
     className: "lg:col-start-1 lg:col-end-3 lg:row-start-3 lg:row-end-4",
@@ -261,7 +261,8 @@ export function ProductBentoGrid() {
                         alt={product.name}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 1024px) 50vw, 33vw"
+                        sizes={product.name === "Outdoor" ? "(max-width: 1024px) 50vw, 67vw" : "(max-width: 1024px) 50vw, 33vw"}
+                        quality={product.name === "Outdoor" ? 90 : undefined}
                       />
                     ) : null}
                     <div className="absolute inset-0 bg-black/20" />
