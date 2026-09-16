@@ -3,7 +3,7 @@ import { preload } from "react-dom";
 // Pre-generated variants in /public/moodabitarereal/hero (AVIF + WebP).
 // Served as static files instead of through the Next image optimizer so the
 // LCP image never waits on a cold on-the-fly AVIF encode after a deploy.
-const BASE = "/moodabitarereal/hero/facciata";
+const BASE = "/moodabitarereal/hero/facciata-v2";
 const WIDTHS = [640, 960, 1280, 1920, 2560, 3840];
 
 const srcSet = (ext: "avif" | "webp") =>
