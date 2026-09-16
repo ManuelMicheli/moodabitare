@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/breadcrumb-jsonld";
-import Image from "next/image";
 import Link from "next/link";
+import { ShowroomHeroPicture } from "@/components/shared/ShowroomHeroPicture";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { AccentText } from "@/components/ui/AccentText";
 import { IntroEmozionale } from "@/components/chi-siamo/IntroEmozionale";
@@ -94,15 +94,7 @@ export default function ChiSiamo() {
       {/* Mobile: immagine + titolo sotto su sfondo crema */}
       <div className="sm:hidden">
         <div className="relative w-full max-h-[80vh] overflow-hidden">
-          <Image
-            src="/moodabitarereal/showroom-esterno-hq.jpg"
-            alt="Showroom Mood Abitare"
-            width={1920}
-            height={1080}
-            className="w-full h-auto"
-            priority
-            sizes="100vw"
-          />
+          <ShowroomHeroPicture alt="Showroom Mood Abitare" className="w-full h-auto" />
         </div>
         <div className="bg-cream px-6 py-8 text-center">
           <FadeInView delay={0.3}>
@@ -116,14 +108,7 @@ export default function ChiSiamo() {
       {/* Desktop: hero classico con titolo sovrapposto */}
       <section className="hidden sm:block relative bg-black-deep text-white overflow-hidden">
         <div className="relative w-full h-[80vh]">
-          <Image
-            src="/moodabitarereal/showroom-esterno-hq.jpg"
-            alt="Showroom Mood Abitare"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
+          <ShowroomHeroPicture alt="Showroom Mood Abitare" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-black-deep/5" />
           <div className="absolute inset-0 bg-gradient-to-t from-black-deep/20 via-transparent to-transparent" />
 

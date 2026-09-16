@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { warmShowroomVideo } from "@/lib/utils";
+import { ShowroomHeroPicture } from "@/components/shared/ShowroomHeroPicture";
 
 interface Slide {
   headline: string;
@@ -19,7 +20,7 @@ const slides: Slide[] = [
     subheadline: "300 mq di esposizione a Gorla Maggiore — serramenti, porte, cucine e soluzioni per tutta la casa",
     ctaText: "Scopri lo showroom",
     ctaLink: "/showroom",
-    image: "/moodabitarereal/hero-home-showroom-hd.jpg",
+    image: "/moodabitarereal/hero/showroom-1920.jpg",
   },
   {
     headline: "Luce, comfort\ne isolamento perfetto",
@@ -230,15 +231,19 @@ export function HeroSection() {
             zIndex: i === 0 ? 1 : 0,
           }}
         >
-          {(i === 0 || hydrated) && (
+          {i === 0 ? (
+            <ShowroomHeroPicture
+              alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : hydrated && (
             <Image
               src={slide.image}
               alt={`Mood Abitare — ${slide.headline.replace("\n", " ")}`}
               fill
-              priority={i === 0}
-              loading={i === 0 ? undefined : "lazy"}
+              loading="lazy"
               sizes="100vw"
-              quality={i === 0 ? 90 : 75}
+              quality={75}
               className="object-cover"
             />
           )}
